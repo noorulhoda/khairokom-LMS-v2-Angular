@@ -1,0 +1,5 @@
+import {baseUrl} from'../config';
+
+export const usersController ={
+    GetAllUsers:baseUrl+'/users'
+}

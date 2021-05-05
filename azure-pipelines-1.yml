@@ -15,11 +15,14 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 - task: ArchiveFiles@2
-  displayName: 'Archive'
-- task: PublishPipelineArtifact@1
-  displayName: 'Publish Pipeline Artifact'
+  displayName: 'Archive files'
   inputs:
-    artifact: drop 
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    includeRootFolder: false
+    archiveType: zip
+    archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+    replaceExistingArchive: true
+ 
 
 
 - script: |

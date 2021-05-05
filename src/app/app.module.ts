@@ -26,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GetAllComponent,
     ProfileComponent,
     EditComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    UpdateCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +64,7 @@ import { GetAllComponent } from './users/get-all/get-all.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { EditComponent } from './users/edit/edit.component';
 import { AddCategoryComponent } from './Category/add-category/add-category.component';
+import { UpdateCategoryComponent } from './Category/update-category/update-category.component';
 
 
 @NgModule({

@@ -21,7 +21,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ChildRoot2Component,
     RegisterComponent,
     ReactiveregisterComponent,
-    NotesComponent
+    NotesComponent,
+    LoginComponent,
+    GetAllComponent,
+    ProfileComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,10 @@ import { ChildRoot2Component } from './child-root2/child-root2.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveregisterComponent } from './reactiveregister/reactiveregister.component';
 import { NotesComponent } from './notes/notes.component';
+import { LoginComponent } from './users/login/login.component';
+import { GetAllComponent } from './users/get-all/get-all.component';
+import { ProfileComponent } from './users/profile/profile.component';
+import { EditComponent } from './users/edit/edit.component';
 
 
 @NgModule({

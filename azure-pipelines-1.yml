@@ -14,7 +14,12 @@ steps:
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
-- task: PublishBuildArtifacts@1  
+- task: ArchiveFiles@2
+  displayName: 'Archive'
+- task: PublishPipelineArtifact@1
+  displayName: 'Publish Pipeline Artifact'
+  inputs:
+    artifact: drop 
 
 
 - script: |

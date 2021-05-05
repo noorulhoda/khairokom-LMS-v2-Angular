@@ -1,1 +1,3 @@
-export const baseUrl='https://jsonplaceholder.typicode.com';
+export const baseUrl='localhost:8080';
+//in production
+//https://khairokom1.azurewebsites.net/

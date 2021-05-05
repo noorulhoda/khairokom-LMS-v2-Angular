@@ -10,7 +10,6 @@ import{postsController} from'../APIs/postsController';
 export class postsService {
 url=postsController.GetAllPosts;
   constructor(private http:HttpClient) { 
-  
   }
   GetAllposts():Observable<Ipost[]>
   {

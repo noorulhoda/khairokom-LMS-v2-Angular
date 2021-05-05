@@ -1,6 +1,6 @@
 export interface ICourse {
-	name:string
-    details:string
+	tittle:string
+    description:string
     image:string
-    categoryId:number
+    categoryID:number
 }

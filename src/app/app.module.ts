@@ -27,7 +27,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProfileComponent,
     EditComponent,
     AddCategoryComponent,
-    UpdateCategoryComponent
+    UpdateCategoryComponent,
+    AddCourseComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +67,8 @@ import { ProfileComponent } from './users/profile/profile.component';
 import { EditComponent } from './users/edit/edit.component';
 import { AddCategoryComponent } from './Category/add-category/add-category.component';
 import { UpdateCategoryComponent } from './Category/update-category/update-category.component';
+import { AddCourseComponent } from './Course/add-course/add-course.component';
+import { AddComponent } from './Course/add/add.component';
 
 
 @NgModule({

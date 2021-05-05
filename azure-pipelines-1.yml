@@ -9,19 +9,34 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-- task: PublishBuildArtifacts@1  
-- upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-    artifact: drop
 
-- script: |
+
+jobs:
+- job: Build
+  displayName: Build
+  pool:
+    vmImage: $(vmImageName)
+
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+
+  - script: |
     npm install -g @angular/cli
     npm install
     ng build --prod
   displayName: 'npm install and build'
-  
 
+  - task: ArchiveFiles@2
+    displayName: 'Archive files'
+    inputs:
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+      includeRootFolder: false
+      archiveType: zip
+      archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+      replaceExistingArchive: true
+
+  - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+    artifact: drop

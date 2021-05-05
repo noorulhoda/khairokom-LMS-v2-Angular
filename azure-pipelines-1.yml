@@ -14,13 +14,6 @@ steps:
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
-
-- script: |
-    npm install -g @angular/cli
-    npm install
-    ng build --prod
-  displayName: 'npm install and build'
-  
 - task: ArchiveFiles@2
     displayName: 'Archive files'
     inputs:
@@ -30,5 +23,13 @@ steps:
       archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       replaceExistingArchive: true
 
-  - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-    artifact: drop
+- upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+    artifact: drop  
+
+- script: |
+    npm install -g @angular/cli
+    npm install
+    ng build --prod
+  displayName: 'npm install and build'
+  
+

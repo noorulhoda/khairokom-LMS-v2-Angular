@@ -30,18 +30,17 @@ stages:
     pool:
       vmImage: $(vmImageName)
 
-    steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '10.x'
-      displayName: 'Install Node.js'
+   steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
 
-    - script: |
-        npm install
-        npm run build --if-present
-        npm install -g @angular/cli
-        ng build --prod
-      displayName: 'npm install, build and test'
+- script: |
+    npm install -g @angular/cli
+    npm install
+    ng build --prod
+  displayName: 'npm install and build'
 
     - task: ArchiveFiles@2
       displayName: 'Archive files'

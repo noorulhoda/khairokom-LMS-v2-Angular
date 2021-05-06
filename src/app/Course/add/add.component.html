@@ -1,46 +1,37 @@
 
 <div class="container">
     <h2>ADD Course </h2>
-    <form [formGroup]="registerForm">
-        {{registerForm.value |json}}
+    <form  [formGroup]="addForm" enctype="multipart/form-data" >
+        {{addForm.value |json}}
         <div class="form-group">
-            <label>User Name</label>
-            <input formControlName="userName" [class.is-invalid]="userName.invalid && userName.touched" type="text"
+            <label>Title</label>
+            <input formControlName="tittle" [class.is-invalid]="tittle.invalid && tittle.touched" type="text"
                 class="form-control" />
-            <div *ngIf=" userName.errors && (userName.invalid && userName.touched)">
-                <small class="text-danger" *ngIf="userName.errors?.required">
-                    User name is required
-                </small>
-                <small class="text-danger" *ngIf="userName.errors.minlength">
-                    Min length is 5
-                </small>
-                <small *ngIf="userName.errors?.forbiddenName">
-                    {{userName.errors?.forbiddenName.value}} is not allowed
+            <div *ngIf=" tittle.errors && (tittle.invalid && tittle.touched)">
+                <small class="text-danger" *ngIf="tittle.errors?.required">
+                   is required
                 </small>
             </div>
 
         </div>
         <div class="form-group">
-            <label>Password</label>
-            <input formControlName="password" type="password" class="form-control" />
+            <label>image</label>
+            <input formControlName="image" type="text" class="form-control" />
         </div>
-        <div class="form-group">
-            <label>Confirm Passsword</label>
-            <input [class.is-invalid]="registerForm.errors?.misMatch" formControlName="confirmPassword" type="password"
-                class="form-control" />
-            <small *ngIf="registerForm.errors?.misMatch" class="text-danger">
-                Passwords does not match
-            </small>
-        </div>
+       
         <div class="form-group">
-         <label>Email</label>
-         <input pattern='^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' type="text" [class.is-invalid]="email.invalid && email.touched" formControlName="email" class="form-control">
-            <small class="text-danger" [class.d-none]="email.valid || email.untouched">
-                Email is not valid
+         <label>description</label>
+         <input  type="text" [class.is-invalid]="description.invalid && description.touched" formControlName="description" class="form-control">
+            <small class="text-danger" [class.d-none]="description.valid || description.untouched">
+                description is not valid
             </small>
         </div>
 
-        <button type="submit" class="btn btn-success">Register</button>
+        <div class="form-group">
+            <label>category id</label>
+            <input formControlName="categoryID" type="number" class="form-control" />
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Save" (click)="submit()">
     </form>
-    <!-- <button type="button" class="btn btn-dark float-right" (click)="loadApiData()">Load API Data</button> -->
 </div>

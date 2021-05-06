@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -14,7 +13,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductsComponent,
     DicountpercentPipe,
     PostsComponent,
-    usersComponent,
     NotFoundComponent,
     HomeComponent,
     ChildRootComponent,
@@ -28,7 +26,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EditComponent,
     AddCategoryComponent,
     UpdateCategoryComponent,
-    AddCourseComponent,
     AddComponent
   ],
   imports: [
@@ -53,7 +50,6 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductsComponent } from './products/products.component';
 import { DicountpercentPipe } from './pipes/dicountpercent.pipe';
 import { PostsComponent } from './posts/posts.component';
-import { usersComponent} from './users/users.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { ChildRootComponent } from './child-root/child-root.component';
@@ -67,7 +63,6 @@ import { ProfileComponent } from './users/profile/profile.component';
 import { EditComponent } from './users/edit/edit.component';
 import { AddCategoryComponent } from './Category/add-category/add-category.component';
 import { UpdateCategoryComponent } from './Category/update-category/update-category.component';
-import { AddCourseComponent } from './Course/add-course/add-course.component';
 import { AddComponent } from './Course/add/add.component';
 
 

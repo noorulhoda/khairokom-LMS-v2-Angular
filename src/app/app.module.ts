@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -64,7 +64,7 @@ import { EditComponent } from './users/edit/edit.component';
 import { AddCategoryComponent } from './Category/add-category/add-category.component';
 import { UpdateCategoryComponent } from './Category/update-category/update-category.component';
 import { AddComponent } from './Course/add/add.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -72,6 +72,9 @@ import { AddComponent } from './Course/add/add.component';
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
 
   ],
   // ...

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ConfirmPassword } from '../../misMatch.validator';
-import { ForbiddenNameValidator } from '../../username.validatior';
 import { courseService } from '../../services/course.service';
 import { Icourse } from 'src/app/Shared Classes and types/Icourse';
 import { Router } from '@angular/router';

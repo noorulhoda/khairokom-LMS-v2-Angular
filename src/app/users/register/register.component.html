@@ -1,5 +1,3 @@
-<!-- <p>add works!</p>
-
 <div class="container">
     <h2>Register Form</h2>
     <form [formGroup]="registerForm">
@@ -22,8 +20,42 @@
 
         </div>
         <div class="form-group">
+            <label>First Name</label>
+            <input formControlName="firstName" [class.is-invalid]="firstName.invalid && firstName.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" firstName.errors && (firstName.invalid && firstName.touched)">
+                <small class="text-danger" *ngIf="firstName.errors?.required">
+                    first name is required
+                </small>
+                <small class="text-danger" *ngIf="firstName.errors.minlength">
+                    Min length is 5
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input formControlName="lastName" [class.is-invalid]="lastName.invalid && lastName.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" lastName.errors && (lastName.invalid && lastName.touched)">
+                <small class="text-danger" *ngIf="lastName.errors?.required">
+                    last name is required
+                </small>
+                <small class="text-danger" *ngIf="lastName.errors.minlength">
+                    Min length is 5
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
             <label>Password</label>
             <input formControlName="password" type="password" class="form-control" />
+            <div *ngIf=" password.errors && (password.invalid && password.touched)">
+                <small class="text-danger" *ngIf="password.errors?.required">
+                    password is required
+                </small>
+                <small class="text-danger" *ngIf="password.errors.minlength">
+                    Min length is 8
+                </small>
+            </div>
         </div>
         <div class="form-group">
             <label>Confirm Passsword</label>
@@ -40,7 +72,28 @@
                 Email is not valid
             </small>
         </div>
+        <div class="form-group">
+            <label>Age</label>
+            <input formControlName="age" type="number" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Register as :</label>
+          <select  formControlName="registerAs" class="form-control" >
+              <option value="Teacher">Teacher</option>
+              <option value="Student">Student</option>
+          </select>
+           </div>
+
+           <div class="form-group">
+            <label>Gender :</label>
+          <select  formControlName="gender" class="form-control" >
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+          </select>
+           </div>
+
+
 
         <button type="submit" class="btn btn-success">Register</button>
     </form>
--->
+</div>

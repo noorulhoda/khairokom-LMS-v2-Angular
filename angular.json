@@ -68,6 +68,7 @@
           "port": 8080,
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "disableHostCheck": true,
             "browserTarget": "answer:build",
               "host": "0.0.0.0",
               "port": 8080
@@ -122,6 +123,7 @@
             "devServerTarget": "answer:serve"
           },
           "configurations": {
+        
             "production": {
               "devServerTarget": "answer:serve:production"
             }

@@ -21,13 +21,13 @@ import {HttpClientModule} from '@angular/common/http';
     GetAllComponent,
     ProfileComponent,
     EditComponent,
-    AddCategoryComponent,
+    AddCateogryComponent,
     UpdateCategoryComponent,
     AddComponent,
     DeleteCategoryComponent,
     GetCateogryByIDComponent,
     GetAllCateogriesComponent,
-    AddClasssComponent,
+    AddClassComponent,
     DeleteClassComponent,
     UpdateClassComponent,
     GetAllClassesComponent,
@@ -64,7 +64,6 @@ import { LoginComponent } from './users/login/login.component';
 import { GetAllComponent } from './users/get-all/get-all.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { EditComponent } from './users/edit/edit.component';
-import { AddCategoryComponent } from './Category/add-category/add-category.component';
 import { UpdateCategoryComponent } from './Category/update-category/update-category.component';
 import { AddComponent } from './Course/add/add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -72,7 +71,6 @@ import { RegisterComponent } from './users/register/register.component';
 import { DeleteCategoryComponent } from './Category/delete-category/delete-category.component';
 import { GetCateogryByIDComponent } from './Category/get-cateogry-by-id/get-cateogry-by-id.component';
 import { GetAllCateogriesComponent } from './Category/get-all-cateogries/get-all-cateogries.component';
-import { AddClasssComponent } from './Class/add-classs/add-classs.component';
 import { DeleteClassComponent } from './Class/delete-class/delete-class.component';
 import { UpdateClassComponent } from './Class/update-class/update-class.component';
 import { GetAllClassesComponent } from './Class/get-all-classes/get-all-classes.component';

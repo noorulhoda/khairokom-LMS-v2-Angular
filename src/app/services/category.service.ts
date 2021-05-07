@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { Icourse } from '../Shared Classes and types/Icourse';
+import { Icategory } from '../Shared Classes and types/Icategory';
 import { catchError } from 'rxjs/operators'
 import { categoryController } from '../APIs/categoryController';
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
@@ -9,7 +9,7 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
     providedIn: 'root'
 })
 
-export class courseService {
+export class categoryService {
     getAllUrl = categoryController.getAllCategories;
     postUrl = categoryController.addCategory;
     putUrl = categoryController.putCategory;
@@ -20,14 +20,26 @@ export class courseService {
     constructor(private http: HttpClient) {
     }
 
-    GetAllCategories(): Observable<Icourse[]> {
-        return this.http.get<Icourse[]>(this.getAllUrl).pipe(catchError(err => {
+    GetAllCategories(): Observable<Icategory[]> {
+        return this.http.get<Icategory[]>(this.getAllUrl).pipe(catchError(err => {
             return throwError(err.message || "Internal Server error contact site adminstarator")
         }));
     }
 
-    AddCategoory(course: Icourse): Observable<any> {
-        return this.http.post(this.postUrl,course,httpOptions).pipe(catchError(err => {
+    AddCategory(category: Icategory): Observable<any> {
+        return this.http.post(this.postUrl,category,httpOptions).pipe(catchError(err => {
+            return throwError(err.message || "Internal Server error contact site adminstarator")
+        }));
+    }
+
+    UpdateCategory(category: Icategory): Observable<any> {
+        return this.http.put(this.putUrl,category,httpOptions).pipe(catchError(err => {
+            return throwError(err.message || "Internal Server error contact site adminstarator")
+        }));
+    }
+    
+    DeleteCategory(category: Icategory): Observable<any> {
+        return this.http.delete(this.deleteUrl,category,httpOptions).pipe(catchError(err => {
             return throwError(err.message || "Internal Server error contact site adminstarator")
         }));
     }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { Icourse } from '../Shared Classes and types/Icourse';
+import { Iclass } from '../Shared Classes and types/Iclass';
 import { catchError } from 'rxjs/operators'
 import { classController } from '../APIs/classController';
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
@@ -9,7 +9,7 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
     providedIn: 'root'
 })
 
-export class courseService {
+export class classService {
     getAllUrl = classController.getAllClasses;
     postUrl = classController.addClass;
     putUrl = classController.putClass;
@@ -20,14 +20,26 @@ export class courseService {
     constructor(private http: HttpClient) {
     }
 
-    GetAllClasses(): Observable<Icourse[]> {
-        return this.http.get<Icourse[]>(this.getAllUrl).pipe(catchError(err => {
+    GetAllClasses(): Observable<Iclass[]> {
+        return this.http.get<Iclass[]>(this.getAllUrl).pipe(catchError(err => {
             return throwError(err.message || "Internal Server error contact site adminstarator")
         }));
     }
 
-    AddClass(course: Icourse): Observable<any> {
-        return this.http.post(this.postUrl,course,httpOptions).pipe(catchError(err => {
+    AddClass(classs: Iclass): Observable<any> {
+        return this.http.post(this.postUrl,class,httpOptions).pipe(catchError(err => {
+            return throwError(err.message || "Internal Server error contact site adminstarator")
+        }));
+    }
+
+    UpdateClass(classs: Iclass): Observable<any> {
+        return this.http.put(this.putUrl,classs,httpOptions).pipe(catchError(err => {
+            return throwError(err.message || "Internal Server error contact site adminstarator")
+        }));
+    }
+    
+    DeleteClass(classs: Iclass): Observable<any> {
+        return this.http.delete(this.deleteUrl,classs,httpOptions).pipe(catchError(err => {
             return throwError(err.message || "Internal Server error contact site adminstarator")
         }));
     }

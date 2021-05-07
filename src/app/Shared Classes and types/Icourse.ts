@@ -1,5 +1,3 @@
-
-
 export interface Icourse{
     tittle:string
     description:string

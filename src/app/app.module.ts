@@ -26,7 +26,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EditComponent,
     AddCategoryComponent,
     UpdateCategoryComponent,
-    AddComponent
+    AddComponent,
+    DeleteCategoryComponent,
+    GetCateogryByIDComponent,
+    GetAllCateogriesComponent,
+    AddClasssComponent,
+    DeleteClassComponent,
+    UpdateClassComponent,
+    GetAllClassesComponent,
+    AddClassComponent,
+    GetClassByIDComponent,
+    AddCateogryComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +74,16 @@ import { EditComponent } from './users/edit/edit.component';
 import { AddCategoryComponent } from './Category/add-category/add-category.component';
 import { UpdateCategoryComponent } from './Category/update-category/update-category.component';
 import { AddComponent } from './Course/add/add.component';
+import { DeleteCategoryComponent } from './Category/delete-category/delete-category.component';
+import { GetCateogryByIDComponent } from './Category/get-cateogry-by-id/get-cateogry-by-id.component';
+import { GetAllCateogriesComponent } from './Category/get-all-cateogries/get-all-cateogries.component';
+import { AddClasssComponent } from './Class/add-classs/add-classs.component';
+import { DeleteClassComponent } from './Class/delete-class/delete-class.component';
+import { UpdateClassComponent } from './Class/update-class/update-class.component';
+import { GetAllClassesComponent } from './Class/get-all-classes/get-all-classes.component';
+import { AddClassComponent } from './Class/add-class/add-class.component';
+import { GetClassByIDComponent } from './Class/get-class-by-id/get-class-by-id.component';
+import { AddCateogryComponent } from './Category/add-cateogry/add-cateogry.component';
 
 
 @NgModule({

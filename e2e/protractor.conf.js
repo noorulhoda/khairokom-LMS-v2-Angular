@@ -1,4 +1,4 @@
-// @ts-check
+// @ts-nocheck
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
@@ -25,7 +25,7 @@ exports.config = {
     print: function() {}
   },
   onPrepare() {
-    require('ts-node').register({
+     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.json')
     });
     jasmine.getEnv().addReporter(new SpecReporter({

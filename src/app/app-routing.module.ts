@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import{ProductsComponent} from './products/products.component';
-import{PostsComponent} from './posts/posts.component';
 import{NotFoundComponent} from './not-found/not-found.component';
 import{HomeComponent} from './home/home.component';
 import { ChildRootComponent } from './child-root/child-root.component';
 import { ChildRoot2Component } from './child-root2/child-root2.component';
 import { RegisterComponent } from './users/register/register.component';
-import { ReactiveregisterComponent } from './reactiveregister/reactiveregister.component';
-import { NotesComponent } from './notes/notes.component';
 import { AddComponent } from './Course/add/add.component';
 import { LoginComponent } from './users/login/login.component';
 
@@ -16,8 +13,6 @@ const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
-  {path:'notes',component:NotesComponent},
-  //{path:'reactiveregister',component:ReactiveregisterComponent},
   {path:'home',component:HomeComponent},  
   {path:'addCourse',component:AddComponent},
   {path:'products',component:ProductsComponent,
@@ -26,7 +21,6 @@ const routes: Routes = [
     {path:'child2',component:ChildRoot2Component }
   ]
 },
-  {path:'posts',component:PostsComponent},
    {path:'**',component:NotFoundComponent}
 ];
 

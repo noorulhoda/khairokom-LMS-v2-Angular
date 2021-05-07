@@ -12,15 +12,12 @@ import {HttpClientModule} from '@angular/common/http';
     FooterComponent,
     ProductsComponent,
     DicountpercentPipe,
-    PostsComponent,
     NotFoundComponent,
     HomeComponent,
     ChildRootComponent,
     ChildRoot2Component,
-    RegisterComponent,
-    ReactiveregisterComponent,
-    NotesComponent,
     LoginComponent,
+    RegisterComponent,
     GetAllComponent,
     ProfileComponent,
     EditComponent,
@@ -49,14 +46,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsComponent } from './products/products.component';
 import { DicountpercentPipe } from './pipes/dicountpercent.pipe';
-import { PostsComponent } from './posts/posts.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { ChildRootComponent } from './child-root/child-root.component';
 import { ChildRoot2Component } from './child-root2/child-root2.component';
-import { RegisterComponent } from './register/register.component';
-import { ReactiveregisterComponent } from './reactiveregister/reactiveregister.component';
-import { NotesComponent } from './notes/notes.component';
 import { LoginComponent } from './users/login/login.component';
 import { GetAllComponent } from './users/get-all/get-all.component';
 import { ProfileComponent } from './users/profile/profile.component';
@@ -65,6 +58,7 @@ import { AddCategoryComponent } from './Category/add-category/add-category.compo
 import { UpdateCategoryComponent } from './Category/update-category/update-category.component';
 import { AddComponent } from './Course/add/add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './users/register/register.component';
 
 @NgModule({
   imports: [
@@ -72,10 +66,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule
-
   ],
   // ...
 })

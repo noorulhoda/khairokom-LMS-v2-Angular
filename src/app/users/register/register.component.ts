@@ -1,13 +1,7 @@
-
-import { ConfirmPassword } from '../../misMatch.validator';
-import { ForbiddenNameValidator } from '../../username.validatior';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-imports: [
-  FormsModule,
-  ReactiveFormsModule
-]
+import { ConfirmPassword } from '../../misMatch.validator';
+import { ForbiddenNameValidator } from '../../username.validatior';
 
 @Component({
   selector: 'app-register',

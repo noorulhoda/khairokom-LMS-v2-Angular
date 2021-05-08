@@ -1,4 +1,5 @@
 export interface Iclass{
+    id:string,
     number:string,
     studentMinAge:Number,
     studentMaxAge:Number,

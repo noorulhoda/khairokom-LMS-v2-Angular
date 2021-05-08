@@ -1,6 +1,8 @@
 export interface Iuser{
-    id:number;
-    name:string;
-    username:string;
+    id:string;
+    firstName:string;
+    lastName:string;
+    userName:string;
     email:string;
+    img:string;
 }

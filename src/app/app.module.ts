@@ -10,7 +10,6 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ProductsComponent,
     DicountpercentPipe,
     NotFoundComponent,
     HomeComponent,
@@ -54,7 +53,6 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { ProductsComponent } from './products/products.component';
 import { DicountpercentPipe } from './pipes/dicountpercent.pipe';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';

@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { ProductsComponent } from './products/products.component';
 import {Iproduct} from './Shared Classes and types/Iproduct';
 @Component({
   selector: 'app-root',
@@ -7,7 +6,7 @@ import {Iproduct} from './Shared Classes and types/Iproduct';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild(ProductsComponent) prComp:ProductsComponent;
+
   title = 'answer';
 
 
@@ -16,6 +15,6 @@ export class AppComponent {
   isNeededProductShwn=false;
 
   callRenderValue(){
-     this.prComp.renderValue();
+ 
   }
 }

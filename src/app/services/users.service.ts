@@ -31,8 +31,8 @@ url=usersController.GetAllUsers;//api/user
     }));
   }
 
-  updateUser(id:number, product:Iuser): Observable<any>{
-    return this.http.put(this.url+"/"+id, product, httpOptions).pipe(catchError((err)=>
+  updateUser(id:number, user:Iuser): Observable<any>{
+    return this.http.put(this.url+"/"+id, user, httpOptions).pipe(catchError((err)=>
     {
       return throwError(err.message ||"Internal Server error contact site adminstarator");
     }));

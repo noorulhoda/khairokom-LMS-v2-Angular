@@ -1,17 +1,24 @@
 <!------------------------------------------------------------------------------->
 <b style="margin: 50%;">USERS</b>
 <div class="container py-5">
-    <div class="row text-center text-white mb-5">
-        <div class="col-lg-7 mx-auto">
-            <h1 class="display-4">Product List</h1>
-        </div>
-    </div>
+    
+  <div class="row" style="margin:auto">
+     <div class="col-lg-16 mx-auto">
+       <b>select a role to show users with this role : </b>
+   <select [(ngModel)]="neededRole">
+     <option selected value="Admin">Admin</option>
+     <option value="Teacher">Teacher</option>
+     <option value="Student">Student</option>
+   </select>
+   <br>
+   </div>
+   </div>
     <div class="row">
         <div class="col-lg-8 mx-auto">
             <!-- List group-->
             <ul class="list-group shadow" *ngFor = "let p of  userList">
                 <!-- list group item-->
-                <li class="list-group-item">
+                <li class="list-group-item" *ngIf='p.role==neededRole'>
                     <!-- Custom content-->
                     <div class="media align-items-lg-center flex-column flex-lg-row p-3">
                         <div class="media-body order-2 order-lg-1">

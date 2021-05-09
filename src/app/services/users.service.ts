@@ -23,9 +23,11 @@ url=usersController.GetAllUsers;//api/user
     }));
   }
 
+
+///errror heere
   getUserById(id:string):Observable<Iuser>
   {
-    return this.http.get<Iuser>(this.url+"/"+id, httpOptions).pipe(catchError((err)=>
+    return this.http.get<Iuser>(this.url+"/"+id).pipe(catchError((err)=>
     {
       return throwError(err.message ||"Internal Server error contact site adminstarator");
     }));
@@ -37,7 +39,6 @@ url=usersController.GetAllUsers;//api/user
       return throwError(err.message ||"Internal Server error contact site adminstarator");
     }));
   }
-  
   deleteUser(id:number): Observable<any>{
     return this.http.delete(this.url+"/"+id, httpOptions).pipe(catchError((err)=>
     {

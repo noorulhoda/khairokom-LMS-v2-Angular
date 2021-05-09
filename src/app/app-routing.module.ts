@@ -5,14 +5,18 @@ import{HomeComponent} from './home/home.component';
 import { RegisterComponent } from './users/register/register.component';
 import { AddComponent } from './Course/add/add.component';
 import { LoginComponent } from './users/login/login.component';
-
+import{GetAllComponent} from './users/get-all/get-all.component';
+import{ProfileComponent} from './users/profile/profile.component'
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
   {path:'home',component:HomeComponent},  
   {path:'addCourse',component:AddComponent},
-   {path:'**',component:NotFoundComponent}
+  {path:'users',component:GetAllComponent},
+  {path:'users/getuser/:id',component:ProfileComponent},
+   {path:'**',component:NotFoundComponent},
+   
 ];
 
 @NgModule({

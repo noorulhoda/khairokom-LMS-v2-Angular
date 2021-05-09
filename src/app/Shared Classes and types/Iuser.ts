@@ -5,4 +5,6 @@ export interface Iuser{
     userName:string;
     email:string;
     img:string;
+    gender:string;
+    age:number;
 }

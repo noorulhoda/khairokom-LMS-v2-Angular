@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
     password:['',[Validators.required,Validators.minLength(8)]],
     confirmPassword:[''],
     email:[''],
-    registerAs:[''],
+    role:[''],
     gender:[''],
     age:[''],
     img:[''],
@@ -55,25 +55,14 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('gender');
   }
 
-  get registerAs()
+  get role()
   {
-    return this.registerForm.get('password');
+    return this.registerForm.get('role');
   }
 
 
 
 
-  loadApiData()
-  {
-    this.registerForm.patchValue({
-      firstName:'n',
-      lastName:'k',
-      userName:'ITI',
-      password:'123',
-      confirmPassword:'123',
-      email:'iti@gmail.com'
-    })
-  }
 
 }
 

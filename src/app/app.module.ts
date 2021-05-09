@@ -19,7 +19,6 @@ import {HttpClientModule} from '@angular/common/http';
     RegisterComponent,
     GetAllComponent,
     ProfileComponent,
-    EditComponent,
     AddCateogryComponent,
     UpdateCategoryComponent,
     AddComponent,
@@ -61,7 +60,6 @@ import { ChildRoot2Component } from './child-root2/child-root2.component';
 import { LoginComponent } from './users/login/login.component';
 import { GetAllComponent } from './users/get-all/get-all.component';
 import { ProfileComponent } from './users/profile/profile.component';
-import { EditComponent } from './users/edit/edit.component';
 import { UpdateCategoryComponent } from './Category/update-category/update-category.component';
 import { AddComponent } from './Course/add/add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -75,7 +73,6 @@ import { GetAllClassesComponent } from './Class/get-all-classes/get-all-classes.
 import { AddClassComponent } from './Class/add-class/add-class.component';
 import { GetClassByIDComponent } from './Class/get-class-by-id/get-class-by-id.component';
 import { AddCateogryComponent } from './Category/add-cateogry/add-cateogry.component';
-
 
 @NgModule({
   imports: [

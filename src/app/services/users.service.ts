@@ -24,7 +24,7 @@ url=usersController.GetAllUsers;//api/user
   }
 
 
-///errror heere
+
   getUserById(id:string):Observable<Iuser>
   {
     return this.http.get<Iuser>(this.url+"/"+id).pipe(catchError((err)=>

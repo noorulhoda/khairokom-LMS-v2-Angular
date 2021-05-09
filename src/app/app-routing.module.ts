@@ -14,8 +14,8 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},  
   {path:'addCourse',component:AddComponent},
   {path:'users',component:GetAllComponent},
-  {path:'users/getuser/:id',component:ProfileComponent},
-   {path:'**',component:NotFoundComponent},
+  {path:'profile/:id',component:ProfileComponent},
+  {path:'**',component:NotFoundComponent},
    
 ];
 

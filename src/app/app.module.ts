@@ -31,7 +31,8 @@ import {HttpClientModule} from '@angular/common/http';
     GetAllClassesComponent,
     AddClassComponent,
     GetClassByIDComponent,
-    AddCateogryComponent
+    AddCateogryComponent,
+    EdituserComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +74,7 @@ import { GetAllClassesComponent } from './Class/get-all-classes/get-all-classes.
 import { AddClassComponent } from './Class/add-class/add-class.component';
 import { GetClassByIDComponent } from './Class/get-class-by-id/get-class-by-id.component';
 import { AddCateogryComponent } from './Category/add-cateogry/add-cateogry.component';
+import { EdituserComponent } from './users/edituser/edituser.component';
 
 @NgModule({
   imports: [

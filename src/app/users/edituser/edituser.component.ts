@@ -1,32 +1,33 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../../services/users.service';
 import{Iuser} from '../../Shared Classes and types/Iuser'
-
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss']
+  selector: 'app-edituser',
+  templateUrl: './edituser.component.html',
+  styleUrls: ['./edituser.component.scss']
 })
-export class EditComponent implements OnInit {
+export class EdituserComponent implements OnInit {
   user:Iuser;
   id:string;
   errMsg='';
+
    constructor(private fb:FormBuilder,private userservice:UsersService,private route:ActivatedRoute,private router:Router) {
-  ngOnInit(): void {}
-  registerForm=this.fb.group({
-    firstName:['',[Validators.required,Validators.minLength(5)]],
-    lastName:['',[Validators.required,Validators.minLength(5)]],
-    userName:['',[Validators.required,Validators.minLength(5),ForbiddenNameValidator(/admin/)]],
-    password:['',[Validators.required,Validators.minLength(8)]],
-    confirmPassword:[''],
-    email:[''],
-    gender:[''],
-    age:[''],
-    img:[''],
-  },{validators:[ConfirmPassword]});
-
-
+   }
+    ngOnInit(): void {}
+    registerForm=this.fb.group({
+      firstName:['',[Validators.required,Validators.minLength(5)]],
+      lastName:['',[Validators.required,Validators.minLength(5)]],
+      userName:['',[Validators.required,Validators.minLength(5)]],
+      password:['',[Validators.required,Validators.minLength(8)]],
+      email:[''],
+      role:[''],
+      gender:[''],
+      age:[''],
+      img:[''],
+    });
+  
   get firstName()
   {
     return this.registerForm.get('firstName');
@@ -57,7 +58,6 @@ export class EditComponent implements OnInit {
   }
 
 
-   
   loadApiData()
   {
     this.registerForm.patchValue({
@@ -69,5 +69,7 @@ export class EditComponent implements OnInit {
       email:'iti@gmail.com'
     })
   }
-
 }
+
+
+

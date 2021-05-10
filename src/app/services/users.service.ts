@@ -4,6 +4,7 @@ import {Observable, throwError} from 'rxjs';
 import{Iuser} from '../Shared Classes and types/Iuser';
 import{catchError} from 'rxjs/operators'
 import{usersController} from'../APIs/usersController';
+import { baseUrl } from '../config';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -14,17 +15,28 @@ const httpOptions = {
 export class UsersService {
 url=usersController.GetAllUsers;//api/user
   constructor(private http:HttpClient) { 
-  
   }
+
+Register( user:Iuser): Observable<any>{
+  return this.http.post(baseUrl+"/api/signup", user, httpOptions).pipe(catchError((err)=>
+  {
+    return throwError(err.message ||"Internal Server error contact site adminstarator");
+  }));
+}
+
+Login(user:Iuser): Observable<any>{
+  return this.http.post(baseUrl+"/api/signin", user, httpOptions).pipe(catchError((err)=>
+  {
+    return throwError(err.message ||"Internal Server error contact site adminstarator");
+  }));
+}
+
   GetAllusers():Observable<Iuser[]>
   {
     return this.http.get<Iuser[]>(this.url).pipe(catchError(err=>{
       return throwError(err.message||"customError happened")
     }));
   }
-
-
-
   getUserById(id:string):Observable<Iuser>
   {
     return this.http.get<Iuser>(this.url+"/"+id).pipe(catchError((err)=>

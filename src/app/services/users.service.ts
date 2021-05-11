@@ -24,8 +24,8 @@ Register( user:Iuser): Observable<any>{
   }));
 }
 
-Login(user:Iuser): Observable<any>{
-  return this.http.post(baseUrl+"/api/signin", user, httpOptions).pipe(catchError((err)=>
+Login(user:any): Observable<any>{
+  return this.http.post(baseUrl+"/api/signin", user,httpOptions).pipe(catchError((err)=>
   {
     return throwError(err.message ||"Internal Server error contact site adminstarator");
   }));
@@ -45,13 +45,18 @@ Login(user:Iuser): Observable<any>{
     }));
   }
 
-  updateUser(id:number, user:Iuser): Observable<any>{
+  /*updateUser(id:string, user:Iuser): Observable<any>{
     return this.http.put(this.url+"/"+id, user, httpOptions).pipe(catchError((err)=>
     {
       return throwError(err.message ||"Internal Server error contact site adminstarator");
     }));
   }
-  deleteUser(id:number): Observable<any>{
+*/
+  updateUser(id, user): Observable<any> {
+    return this.http.put(`${this.url}/${id}`, user,httpOptions);
+  }
+
+  deleteUser(id:string): Observable<any>{
     return this.http.delete(this.url+"/"+id, httpOptions).pipe(catchError((err)=>
     {
       return throwError(err.message ||"Internal Server error contact site adminstarator");

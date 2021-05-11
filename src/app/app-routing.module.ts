@@ -7,6 +7,7 @@ import { AddComponent } from './Course/add/add.component';
 import { LoginComponent } from './users/login/login.component';
 import{GetAllComponent} from './users/get-all/get-all.component';
 import{ProfileComponent} from './users/profile/profile.component'
+import { EdituserComponent } from './users/edituser/edituser.component';
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'register',component:RegisterComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'addCourse',component:AddComponent},
   {path:'users',component:GetAllComponent},
   {path:'profile/:id',component:ProfileComponent},
+  {path:'profile/edit/:id',component:EdituserComponent},
   {path:'**',component:NotFoundComponent},
    
 ];

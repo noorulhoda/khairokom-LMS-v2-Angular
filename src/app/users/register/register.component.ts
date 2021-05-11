@@ -66,11 +66,11 @@ export class RegisterComponent implements OnInit {
   {
     return this.registerForm.get('img');
   }
-
+token='';
 
 submit()
 {  
-  var user: Iuser = {
+    var user: Iuser = {
     userName: this.userName?.value,
     firstName:this.firstName?.value,
     lastName:this.lastName?.value,
@@ -84,6 +84,9 @@ submit()
   console.log(user)
   this.userService.Register(user).subscribe(
     data => {
+      this.token=data['token'];
+      console.log(this.token);
+      localStorage.setItem('token',this.token)
       this.router.navigateByUrl("/home")
     },
     error => {

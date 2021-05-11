@@ -28,7 +28,16 @@ export class ProfileComponent implements OnInit {
      console.log(this.user)
    }
 
-   
+   delete(){
+    this.userservice.deleteUser(this.id)
+    .subscribe(
+      data => {
+        this.router.navigateByUrl("/home")
+      },
+      error => {
+        console.log("errooorrrrr-_-"+ error)
+      }
+    );  }
  
 }
 

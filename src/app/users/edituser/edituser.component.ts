@@ -127,7 +127,7 @@ update()
   this.userservice.updateUser(this.id,newuser)
   .subscribe(
     data => {
-      console.log("DATA : "+data);
+      console.log("Data: "+data);
       this.router.navigateByUrl("/home")
     },
     error => {

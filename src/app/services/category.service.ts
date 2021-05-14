@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class categoryService {
-url=categoryController.GetAllCategories;//api/user
+   url = categoryController.GetAllCategories;  
   constructor(private http:HttpClient) { 
   
   }
@@ -30,7 +30,11 @@ url=categoryController.GetAllCategories;//api/user
       return throwError(err.message ||"Internal Server error contact site adminstarator");
     }));
   }
-
+  AddCategory(category: Icategory): Observable<any> {
+    return this.http.post(this.url,category,httpOptions).pipe(catchError(err => {
+        return throwError(err.message || "Internal Server error contact site adminstarator")
+    }));
+}
   updateCategory(id:number, category:Icategory): Observable<any>{
     return this.http.put(this.url+"/"+id, category, httpOptions).pipe(catchError((err)=>
     {

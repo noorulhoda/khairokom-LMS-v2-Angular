@@ -1,1 +1,18 @@
-<p>get-all-cateogries works!</p>
+<br/>
+<div class="row">
+    <div class="col-sm-6" *ngFor="let category of categoryList">
+      <div> 
+        <div  class="card" style="width: 400px; height: 200px;">
+          <div class="card-body">
+              <h5 class="card-title">{{category.Title}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{category.Description}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">{{category.Image}}</h6>
+              <button class="btn btn-primary"  (click)="showDetails()">Show Details</button>
+          </div> 
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+
+  {{errorMsg}}

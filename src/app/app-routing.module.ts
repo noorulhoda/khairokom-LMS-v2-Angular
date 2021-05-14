@@ -4,7 +4,10 @@ import{NotFoundComponent} from './not-found/not-found.component';
 import{HomeComponent} from './home/home.component';
 import { RegisterComponent } from './users/register/register.component';
 import { AddComponent } from './Course/add/add.component';
+import {AddCateogryComponent} from './Category/add-cateogry/add-cateogry.component';
+import { GetAllCateogriesComponent } from './Category/get-all-cateogries/get-all-cateogries.component';
 import { LoginComponent } from './users/login/login.component';
+
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -12,7 +15,9 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'home',component:HomeComponent},  
   {path:'addCourse',component:AddComponent},
-   {path:'**',component:NotFoundComponent}
+  {path:'AddCategory',component:AddCateogryComponent},
+  {path:'GetAllCateogries',component:GetAllCateogriesComponent},
+  {path:'**',component:NotFoundComponent}
 ];
 
 @NgModule({

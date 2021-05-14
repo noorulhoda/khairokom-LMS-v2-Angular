@@ -1,1 +1,32 @@
-<p>add-cateogry works!</p>
+
+<div class="container">
+    <h2>ADD Category</h2>
+    <form  [formGroup]="addForm" enctype="multipart/form-data" >
+        {{addForm.value |json}}
+        <div class="form-group">
+            <label>Title</label>
+            <input formControlName="Title" [class.is-invalid]="Title.invalid && Title.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" Title.errors && (Title.invalid && Title.touched)">
+                <small class="text-danger" *ngIf="Title.errors?.required">
+                   is required
+                </small>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label>Image</label>
+            <input formControlName="Image" type="text" class="form-control" />
+        </div>
+       
+        <div class="form-group">
+         <label>Description</label>
+         <input  type="text" [class.is-invalid]="Description.invalid && Description.touched" formControlName="Description" class="form-control">
+            <small class="text-danger" [class.d-none]="Description.valid || Description.untouched">
+                Description is not valid
+            </small>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Save" (click)="submit()">
+    </form>
+</div>

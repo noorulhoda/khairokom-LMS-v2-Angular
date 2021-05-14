@@ -33,12 +33,13 @@ export class GetCateogryByIDComponent implements OnInit {
     this.categoryService.deleteCategory(this.id)
     .subscribe(
       data => {
-        this.router.navigateByUrl("/home")
+        this.router.navigateByUrl("GetAllCateogries")
       },
       error => {
         console.log("errooorrrrr-_-"+ error)
       }
-    );  }
+    );  
+  }
    
 
 }

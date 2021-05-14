@@ -30,4 +30,5 @@ export class GetAllCateogriesComponent implements OnInit {
     );
   }
 
+
 }

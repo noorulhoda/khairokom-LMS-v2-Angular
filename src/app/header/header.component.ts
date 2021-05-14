@@ -13,5 +13,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  logout(){
+    //console.log(localStorage.getItem('token'))
+    localStorage.setItem('token','');
+    console.log('logouted')
+  //console.log(localStorage.getItem('token'))
+  }
 
 }

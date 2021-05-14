@@ -12,7 +12,7 @@ export class GetAllComponent implements OnInit {
   constructor(private userservice:UsersService) {
      
   }
-
+neededRole:string;
   ngOnInit(): void {
   this.userservice.GetAllusers().subscribe(
       data => this.userList= data,

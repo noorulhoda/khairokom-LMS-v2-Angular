@@ -12,7 +12,7 @@ export class GetCateogryByIDComponent implements OnInit {
 
   constructor( ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
    
 
 }

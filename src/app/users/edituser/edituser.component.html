@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Register Form</h2>
+    <h2>Edit profile</h2>
     <form [formGroup]="registerForm">
         <div class="form-group">
             <label>User Name</label>
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+       <!--  <div class="form-group">
             <label>Password</label>
             <input formControlName="password" type="password" class="form-control" />
             <div *ngIf=" password.errors && (password.invalid && password.touched)">
@@ -66,7 +66,7 @@
             <small *ngIf="registerForm.errors?.misMatch" class="text-danger">
                 Passwords does not match
             </small>
-        </div>
+        </div> -->
 
         <div class="form-group">
             <label>Email</label>
@@ -82,13 +82,7 @@
             <input formControlName="age" type="number" class="form-control" />
         </div>
 
-        <div class="form-group">
-            <label>Register as :</label>
-            <select  formControlName="role"  class="form-control">
-                <option value="Teacher">Teacher</option>
-                <option value="Student">Student</option>
-            </select>
-        </div>
+        
 
         <div class="form-group">
             <label>Gender :</label>
@@ -97,13 +91,10 @@
                 <option value="Female">Female</option>
             </select>
         </div>
-        <div class="form-group">
-            <label>img :</label>
-            <input formControlName="img" type="text" class="form-control" />
-        </div>
 
-     
-
-        <button type="submit" class="btn btn-success" (click)="submit()">Register</button>
+        <button type="submit" class="btn btn-success" (click)="update()">Update</button>
+        
     </form>
+    <br>
+   
 </div>

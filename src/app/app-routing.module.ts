@@ -7,7 +7,9 @@ import { AddComponent } from './Course/add/add.component';
 import {AddCateogryComponent} from './Category/add-cateogry/add-cateogry.component';
 import { GetAllCateogriesComponent } from './Category/get-all-cateogries/get-all-cateogries.component';
 import { LoginComponent } from './users/login/login.component';
-
+import{GetAllComponent} from './users/get-all/get-all.component';
+import{ProfileComponent} from './users/profile/profile.component'
+import { EdituserComponent } from './users/edituser/edituser.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -18,6 +20,7 @@ const routes: Routes = [
   {path:'AddCategory',component:AddCateogryComponent},
   {path:'GetAllCateogries',component:GetAllCateogriesComponent},
   {path:'**',component:NotFoundComponent}
+   
 ];
 
 @NgModule({

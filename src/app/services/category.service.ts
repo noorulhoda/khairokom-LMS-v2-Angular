@@ -39,7 +39,7 @@ updateCategory(id, category): Observable<any> {
   return this.http.put(`${this.url}/${id}`, category,httpOptions);
 }
   
-  deleteCategory(id:number): Observable<any>{
+  deleteCategory(id:string): Observable<any>{
     return this.http.delete(this.url+"/"+id, httpOptions).pipe(catchError((err)=>
     {
       return throwError(err.message ||"Internal Server error contact site adminstarator");

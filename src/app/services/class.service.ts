@@ -16,6 +16,7 @@ url=classController.GetAllClasses;//api/user
   constructor(private http:HttpClient) { 
   
   }
+
   GetAllclass():Observable<Iclass[]>
   {
     return this.http.get<Iclass[]>(this.url).pipe(catchError(err=>{
@@ -25,12 +26,17 @@ url=classController.GetAllClasses;//api/user
 
   getClassById(id:string):Observable<Iclass>
   {
-    return this.http.get<Iclass>(this.url+"/"+id, httpOptions).pipe(catchError((err)=>
+    return this.http.get<Iclass>(this.url+"/"+id).pipe(catchError((err)=>
     {
       return throwError(err.message ||"Internal Server error contact site adminstarator");
     }));
   }
 
+  AddClass(clas: Iclass): Observable<any> {
+    return this.http.post(this.url,clas,httpOptions).pipe(catchError(err => {
+        return throwError(err.message || "Internal Server error contact site adminstarator")
+    }));
+}
   updateClass(id:number, classs:Iclass): Observable<any>{
     return this.http.put(this.url+"/"+id, classs, httpOptions).pipe(catchError((err)=>
     {

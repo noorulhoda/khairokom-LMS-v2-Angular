@@ -25,7 +25,7 @@ export class categoryService {
 
   getCategoryById(id:string):Observable<Icategory>
   {
-    return this.http.get<Icategory>(this.url+"/"+id, httpOptions).pipe(catchError((err)=>
+    return this.http.get<Icategory>(this.url+"/"+id).pipe(catchError((err)=>
     {
       return throwError(err.message ||"Internal Server error contact site adminstarator");
     }));
@@ -35,12 +35,9 @@ export class categoryService {
         return throwError(err.message || "Internal Server error contact site adminstarator")
     }));
 }
-  updateCategory(id:number, category:Icategory): Observable<any>{
-    return this.http.put(this.url+"/"+id, category, httpOptions).pipe(catchError((err)=>
-    {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
-    }));
-  }
+updateCategory(id, category): Observable<any> {
+  return this.http.put(`${this.url}/${id}`, category,httpOptions);
+}
   
   deleteCategory(id:number): Observable<any>{
     return this.http.delete(this.url+"/"+id, httpOptions).pipe(catchError((err)=>

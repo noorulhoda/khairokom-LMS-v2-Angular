@@ -29,14 +29,5 @@ export class GetAllCateogriesComponent implements OnInit {
     this.selectedID=params.get('id')
     );
   }
-  showDetails()
-  {
-    
-     this.router.navigate(['/GetAllCateogries',this.selectedID]);
-  }
-  isSelected()
-  {
-   return this.selectedID
-  }
 
 }

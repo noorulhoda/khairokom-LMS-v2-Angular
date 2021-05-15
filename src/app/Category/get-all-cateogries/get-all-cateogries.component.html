@@ -1,17 +1,12 @@
 <br/>
-<div class="row">
-    <div class="col-sm-6" *ngFor="let category of categoryList">
-      <div> 
-        <div  class="card" style="width: 400px; height: 200px;">
-          <div class="card-body">
-              <h5 class="card-title">{{category.Title}}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{{category.Description}}</h6>
-              <h6 class="card-subtitle mb-2 text-muted">{{category.Image}}</h6>
-              <div class="col-md-2">
-                <a class="btn btn-warning" href="" style="cursor: pointer;" >Show Details</a> 
-              </div>
-          </div> 
-        </div>
+<div class="row" >
+    <div  *ngFor="let category of categoryList">
+      <div class="card" style="float:right;margin-left: 40px;">
+        <img src="../../assets/images/download (2).jpg" alt="Denim Jeans" style="width:100%">
+        <h1>{{category.Title}}</h1>
+        <p>{{category.Description}}</p>
+        <br>
+        <a class="btn btn-primary"  routerLink="/GetCateogryByID/{{category._id}}">Show Details</a>                      
       </div>
       <br>
     </div>

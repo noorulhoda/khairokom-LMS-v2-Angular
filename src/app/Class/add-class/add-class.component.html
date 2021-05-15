@@ -2,7 +2,6 @@
 <div class="container">
     <h2>ADD Class</h2>
     <form  [formGroup]="addForm" enctype="multipart/form-data" >
-        {{addForm.value |json}}
         <div class="form-group">
             <label>Number</label>
             <input formControlName="Number" [class.is-invalid]="Number.invalid && Number.touched" type="text"

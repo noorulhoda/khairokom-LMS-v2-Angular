@@ -16,8 +16,8 @@ export class AddCateogryComponent implements OnInit {
   }
   addForm=this.fb.group(
     {
-    Title:[''],
-    Description:[''],
+    Title:['',[Validators.required,Validators.minLength(5)]],
+    Description:['',[Validators.required,Validators.minLength(5)]],
     Image:[''],
    });
 

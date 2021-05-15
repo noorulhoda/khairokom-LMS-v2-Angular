@@ -25,7 +25,6 @@ import {HttpClientModule} from '@angular/common/http';
     GetCateogryByIDComponent,
     GetAllCateogriesComponent,
     AddClassComponent,
-    DeleteClassComponent,
     UpdateClassComponent,
     GetAllClassesComponent,
     AddClassComponent,
@@ -69,7 +68,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './users/register/register.component';
 import { GetCateogryByIDComponent } from './Category/get-cateogry-by-id/get-cateogry-by-id.component';
 import { GetAllCateogriesComponent } from './Category/get-all-cateogries/get-all-cateogries.component';
-import { DeleteClassComponent } from './Class/delete-class/delete-class.component';
 import { UpdateClassComponent } from './Class/update-class/update-class.component';
 import { GetAllClassesComponent } from './Class/get-all-classes/get-all-classes.component';
 import { AddClassComponent } from './Class/add-class/add-class.component';

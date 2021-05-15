@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Courses</h2>
+
+    <table class="table table-light">
+        
+        <thead class="thead-light">
+            <tr>
+                <th>ID</th>
+
+                <th>Title</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>CategoryID</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let course of courses;let i= index">
+                <td>{{course._id}}</td>
+                <td>{{course.tittle}}</td>
+                <td>{{course.description}}</td>
+                <td><img src="{course.image}" width="200px" height="auto"/></td>
+                <td>{{course.categoryID}}</td>
+                <td>
+                    <a class="btn btn-dark"  routerLink="/EditCourse/{{course._id}}">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-dark"  routerLink="/CourseDetails/{{course._id}}">Details</a>   
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

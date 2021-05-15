@@ -1,1 +1,120 @@
-<p>update-class works!</p>
+<div class="container">
+    <h2>Edit Category</h2>
+    <form [formGroup]="updateForm">
+        <div class="form-group">
+            <label>Number</label>
+            <input formControlName="Number" [class.is-invalid]="Number.invalid && Number.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" Number.errors && (Number.invalid && Number.touched)">
+                <small class="text-danger" *ngIf="Number.errors?.required">
+                    Number is required
+                </small>
+                <small class="text-danger" *ngIf="Number.errors.minlength">
+                    Min length is 5
+                </small>
+                <small *ngIf="Number.errors?.forbiddenName">
+                    {{Number.errors?.forbiddenName.value}} is not allowed
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>StudentsMinAge</label>
+            <input formControlName="StudentsMinAge" [class.is-invalid]="StudentsMinAge.invalid && StudentsMinAge.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" StudentsMinAge.errors && (StudentsMinAge.invalid && StudentsMinAge.touched)">
+                <small class="text-danger" *ngIf="StudentsMinAge.errors?.required">
+                    StudentsMinAge is required
+                </small>
+                <small class="text-danger" *ngIf="StudentsMinAge.errors.minlength">
+                    Min length is 5
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>StudentsMaxAge</label>
+            <input formControlName="StudentsMaxAge" [class.is-invalid]="StudentsMaxAge.invalid && StudentsMaxAge.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" StudentsMaxAge.errors && (StudentsMaxAge.invalid && StudentsMaxAge.touched)">
+                <small class="text-danger" *ngIf="StudentsMaxAge.errors?.required">
+                    StudentsMaxAge is required
+                </small>
+                <small class="text-danger" *ngIf="StudentsMaxAge.errors.minlength">
+                    Min length is 5
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>StudentGender</label>
+            <input formControlName="StudentGender" [class.is-invalid]="StudentGender.invalid && StudentGender.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" StudentGender.errors && (StudentGender.invalid && StudentGender.touched)">
+                <small class="text-danger" *ngIf="StudentGender.errors?.required">
+                    StudentGender is required
+                </small>
+                <small class="text-danger" *ngIf="StudentGender.errors.minlength">
+                    Min length is 5
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>ClassLink</label>
+            <input formControlName="ClassLink" [class.is-invalid]="ClassLink.invalid && ClassLink.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" ClassLink.errors && (ClassLink.invalid && ClassLink.touched)">
+                <small class="text-danger" *ngIf="ClassLink.errors?.required">
+                    ClassLink is required
+                </small>
+                <small class="text-danger" *ngIf="ClassLink.errors.minlength">
+                    Min length is 5
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>ClassLinkPassword</label>
+            <input formControlName="ClassLinkPassword" [class.is-invalid]="ClassLinkPassword.invalid && ClassLinkPassword.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" ClassLinkPassword.errors && (ClassLinkPassword.invalid && ClassLinkPassword.touched)">
+                <small class="text-danger" *ngIf="ClassLinkPassword.errors?.required">
+                    ClassLinkPassword is required
+                </small>
+                <small class="text-danger" *ngIf="ClassLinkPassword.errors.minlength">
+                    Min length is 5
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>StartTime</label>
+            <input formControlName="StartTime" [class.is-invalid]="StartTime.invalid && StartTime.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" StartTime.errors && (StartTime.invalid && StartTime.touched)">
+                <small class="text-danger" *ngIf="StartTime.errors?.required">
+                    StartTime is required
+                </small>
+                <small class="text-danger" *ngIf="StartTime.errors.minlength">
+                    Min length is 5
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>EndTime</label>
+            <input formControlName="EndTime" [class.is-invalid]="EndTime.invalid && EndTime.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" EndTime.errors && (EndTime.invalid && EndTime.touched)">
+                <small class="text-danger" *ngIf="EndTime.errors?.required">
+                    EndTime is required
+                </small>
+                <small class="text-danger" *ngIf="EndTime.errors.minlength">
+                    Min length is 5
+                </small>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success" (click)="update()">Update</button>
+        
+    </form>
+    <br>
+   
+</div>

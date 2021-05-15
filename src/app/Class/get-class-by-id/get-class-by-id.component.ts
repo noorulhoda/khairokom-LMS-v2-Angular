@@ -33,7 +33,7 @@ export class GetClassByIDComponent implements OnInit {
     this.cs.deleteCLass(this.id)
     .subscribe(
       data => {
-        this.router.navigateByUrl("GetAllClass")
+        this.router.navigateByUrl("/home")
       },
       error => {
         console.log("errooorrrrr-_-"+ error)

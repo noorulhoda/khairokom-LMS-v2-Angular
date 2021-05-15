@@ -48,12 +48,22 @@
                                                 <p>{{course.categoryID}}</p>
                                             </div>
                                         </div>
-                                      
-                                      <a class="btn btn-primary " (click)="delete()" routerLink="/home" >Remove Course</a>
-                           
+                                      <a class="btn btn-primary " (click)="delete()" routerLink="/home" >Remove Course</a>       
                             </div>
                         </div>
                     </div>
-                
-            </form>           
+            </form>       
+            
+            <br><br><br>
+            <h2>Leave a comment</h2>
+            <form  [formGroup]="addCommentForm" enctype="multipart/form-data" >
+                <div class="form-group">
+                    <label>Content</label>
+                    <input formControlName="content" type="text"
+                        class="form-control" />
+                </div>
+        
+                <input type="submit" class="btn btn-primary" value="Add Comment" (click)="AddComment()">
+            </form>
+        
         </div>

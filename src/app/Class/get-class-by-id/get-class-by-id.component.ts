@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { categoryService } from 'src/app/services/class.service';
+import { Iclass } from 'src/app/Shared Classes and types/Iclass';
 
 @Component({
   selector: 'app-get-class-by-id',
@@ -7,9 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetClassByIDComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private cs:categoryService,private route:ActivatedRoute,private router:Router) { }
+  clas:Iclass;
+  id:string='defaultID';
+  errMsg='errroor';
   ngOnInit(): void {
+    this.route.queryParamMap.subscribe((params: any) => this.id=params.params.id);   
+    this.route.params.subscribe(params => {
+     console.log(params) //log the entire params object
+     this.id=params['id'] //log the value of id
+     console.log('id : '+(this.id));
+    });
+ 
+    this.cs.getClassById(this.id).subscribe(
+     
+        data => {this.clas= data[0]; console.log(this.id);console.log(this.clas);},
+        er =>this.errMsg=er ,
+      );
+      console.log(this.clas)
   }
+  delete(){
+    this.cs.deleteCLass(this.id)
+    .subscribe(
+      data => {
+        this.router.navigateByUrl("GetAllClass")
+      },
+      error => {
+        console.log("errooorrrrr-_-"+ error)
+      }
+    );  
+  }
+   
 
 }

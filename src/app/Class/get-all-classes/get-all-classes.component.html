@@ -1,1 +1,25 @@
-<p>get-all-classes works!</p>
+<br/>
+<div class="row">
+    <div class="col-sm-6" *ngFor="let class of classList">
+      <div> 
+        <div  class="card" style="width: 400px; height: 200px;">
+          <div class="card-body">
+              <h5 class="card-title">{{class.Number}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{class.StudentsMinAge}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">{{class.StudentsMaxAge}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">{{class.StudentGender}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">{{class.ClassLink}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">{{class.ClassLinkPassword}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">{{class.StartTime}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">{{class.EndTime}}</h6>
+              <div class="col-md-2">
+                <a class="btn btn-warning" href="" style="cursor: pointer;" >Show Details</a> 
+              </div>
+          </div> 
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+
+  {{errorMsg}}

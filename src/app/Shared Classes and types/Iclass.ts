@@ -1,7 +1,7 @@
 export interface Iclass{
     Number:string,
-    StudentMinAge:Number,
-    StudentMaxAge:Number,
+    StudentsMinAge:Number,
+    StudentsMaxAge:Number,
     StudentGender:string,
     ClassLink:string,
     ClassLinkPassword:string,

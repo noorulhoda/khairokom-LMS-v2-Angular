@@ -1,1 +1,88 @@
-<p>add-class works!</p>
+
+<div class="container">
+    <h2>ADD Class</h2>
+    <form  [formGroup]="addForm" enctype="multipart/form-data" >
+        {{addForm.value |json}}
+        <div class="form-group">
+            <label>Number</label>
+            <input formControlName="Number" [class.is-invalid]="Number.invalid && Number.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" Number.errors && (Number.invalid && Number.touched)">
+                <small class="text-danger" *ngIf="Number.errors?.required">
+                   is required
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>StudentsMinAge</label>
+            <input formControlName="StudentsMinAge" [class.is-invalid]="StudentsMinAge.invalid && StudentsMinAge.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" StudentsMinAge.errors && (StudentsMinAge.invalid && StudentsMinAge.touched)">
+                <small class="text-danger" *ngIf="StudentsMinAge.errors?.required">
+                   is required
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>StudentsMaxAge</label>
+            <input formControlName="StudentsMaxAge" [class.is-invalid]="StudentsMaxAge.invalid && StudentsMaxAge.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" StudentsMaxAge.errors && (StudentsMaxAge.invalid && StudentsMaxAge.touched)">
+                <small class="text-danger" *ngIf="StudentsMaxAge.errors?.required">
+                   is required
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>StudentGender</label>
+            <input formControlName="StudentGender" [class.is-invalid]="StudentGender.invalid && StudentGender.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" StudentGender.errors && (StudentGender.invalid && StudentGender.touched)">
+                <small class="text-danger" *ngIf="StudentGender.errors?.required">
+                   is required
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>ClassLink</label>
+            <input formControlName="ClassLink" [class.is-invalid]="ClassLink.invalid && ClassLink.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" ClassLink.errors && (ClassLink.invalid && ClassLink.touched)">
+                <small class="text-danger" *ngIf="ClassLink.errors?.required">
+                   is required
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>ClassLinkPassword</label>
+            <input formControlName="ClassLinkPassword" [class.is-invalid]="ClassLinkPassword.invalid && ClassLinkPassword.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" ClassLinkPassword.errors && (ClassLinkPassword.invalid && ClassLinkPassword.touched)">
+                <small class="text-danger" *ngIf="ClassLinkPassword.errors?.required">
+                   is required
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>StartTime</label>
+            <input formControlName="StartTime" [class.is-invalid]="StartTime.invalid && StartTime.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" StartTime.errors && (StartTime.invalid && StartTime.touched)">
+                <small class="text-danger" *ngIf="StartTime.errors?.required">
+                   is required
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>EndTime</label>
+            <input formControlName="EndTime" [class.is-invalid]="EndTime.invalid && EndTime.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" EndTime.errors && (EndTime.invalid && EndTime.touched)">
+                <small class="text-danger" *ngIf="EndTime.errors?.required">
+                   is required
+                </small>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Save" (click)="submit()">
+    </form>
+</div>

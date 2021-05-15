@@ -16,9 +16,9 @@ export class GetAllCateogriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryServices.GetAllcateories().subscribe(
-      employeeData=>
+      Data=>
       {
-        this.categoryList=employeeData;
+        this.categoryList=Data;
       },
       errorResponse=>
       {

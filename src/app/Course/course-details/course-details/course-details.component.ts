@@ -38,5 +38,15 @@ export class CourseDetailsComponent implements OnInit {
     image:'',
     categoryID:'',
   }
-
+  delete(){
+    this.cs.DeleteCourse(this.id)
+    .subscribe(
+      data => {
+        this.router.navigateByUrl("course")
+      },
+      error => {
+        console.log("errooorrrrr-_-"+ error)
+      }
+    );  
+  }
 }

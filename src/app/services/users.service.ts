@@ -44,14 +44,6 @@ Login(user:any): Observable<any>{
       return throwError(err.message ||"Internal Server error contact site adminstarator");
     }));
   }
-
-  /*updateUser(id:string, user:Iuser): Observable<any>{
-    return this.http.put(this.url+"/"+id, user, httpOptions).pipe(catchError((err)=>
-    {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
-    }));
-  }
-*/
   updateUser(id, user): Observable<any> {
     return this.http.put(`${this.url}/${id}`, user,httpOptions);
   }
@@ -63,6 +55,12 @@ Login(user:any): Observable<any>{
     }));
   }
 
+  uploadImage(formData:FormData): Observable<any>{
+    return this.http.post(this.url+"/uploadImage", formData).pipe(catchError((err)=>
+    {
+      return throwError(err.message ||"Internal Server error contact site adminstarator");
+    }));
+  }
 
 }
 /*

@@ -22,7 +22,6 @@ import {HttpClientModule} from '@angular/common/http';
     AddCateogryComponent,
     UpdateCategoryComponent,
     AddComponent,
-    DeleteCategoryComponent,
     GetCateogryByIDComponent,
     GetAllCateogriesComponent,
     AddClassComponent,
@@ -65,7 +64,6 @@ import { UpdateCategoryComponent } from './Category/update-category/update-categ
 import { AddComponent } from './Course/add/add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './users/register/register.component';
-import { DeleteCategoryComponent } from './Category/delete-category/delete-category.component';
 import { GetCateogryByIDComponent } from './Category/get-cateogry-by-id/get-cateogry-by-id.component';
 import { GetAllCateogriesComponent } from './Category/get-all-cateogries/get-all-cateogries.component';
 import { DeleteClassComponent } from './Class/delete-class/delete-class.component';

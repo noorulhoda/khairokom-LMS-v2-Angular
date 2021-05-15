@@ -1,1 +1,45 @@
-<p>update-category works!</p>
+<div class="container">
+    <h2>Edit Category</h2>
+    <form [formGroup]="updateForm">
+        <div class="form-group">
+            <label>Title</label>
+            <input formControlName="Title" [class.is-invalid]="Title.invalid && Title.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" Title.errors && (Title.invalid && Title.touched)">
+                <small class="text-danger" *ngIf="Title.errors?.required">
+                    Title is required
+                </small>
+                <small class="text-danger" *ngIf="Title.errors.minlength">
+                    Min length is 5
+                </small>
+                <small *ngIf="Title.errors?.forbiddenName">
+                    {{Title.errors?.forbiddenName.value}} is not allowed
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <input formControlName="Description" [class.is-invalid]="Description.invalid && Description.touched" type="text"
+                class="form-control" />
+            <div *ngIf=" Description.errors && (Description.invalid && Description.touched)">
+                <small class="text-danger" *ngIf="Description.errors?.required">
+                    Description is required
+                </small>
+                <small class="text-danger" *ngIf="Description.errors.minlength">
+                    Min length is 5
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Image:</label>
+            <input formControlName="Image" type="text" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-success" (click)="update()">Update</button>
+        
+    </form>
+    <br>
+   
+</div>

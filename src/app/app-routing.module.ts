@@ -7,6 +7,7 @@ import { AddComponent } from './Course/add/add.component';
 import {AddCateogryComponent} from './Category/add-cateogry/add-cateogry.component';
 import { GetAllCateogriesComponent } from './Category/get-all-cateogries/get-all-cateogries.component';
 import { GetCateogryByIDComponent } from './Category/get-cateogry-by-id/get-cateogry-by-id.component';
+import{UpdateCategoryComponent}from './Category/update-category/update-category.component'
 import { LoginComponent } from './users/login/login.component';
 import{GetAllComponent} from './users/get-all/get-all.component';
 import{ProfileComponent} from './users/profile/profile.component'
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:'AddCategory',component:AddCateogryComponent},
   {path:'GetAllCateogries',component:GetAllCateogriesComponent},
   {path:'GetCateogryByIDComponent/:id',component:GetCateogryByIDComponent},
+  {path:'UpdateCategoryComponent/:id',component:UpdateCategoryComponent},
   {path:'**',component:NotFoundComponent}
    
 ];

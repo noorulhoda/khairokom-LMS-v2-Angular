@@ -10,11 +10,8 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    DicountpercentPipe,
     NotFoundComponent,
     HomeComponent,
-    ChildRootComponent,
-    ChildRoot2Component,
     LoginComponent,
     RegisterComponent,
     GetAllComponent,
@@ -54,11 +51,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { DicountpercentPipe } from './pipes/dicountpercent.pipe';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
-import { ChildRootComponent } from './child-root/child-root.component';
-import { ChildRoot2Component } from './child-root2/child-root2.component';
 import { LoginComponent } from './users/login/login.component';
 import { GetAllComponent } from './users/get-all/get-all.component';
 import { ProfileComponent } from './users/profile/profile.component';

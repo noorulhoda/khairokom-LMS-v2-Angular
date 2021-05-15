@@ -25,12 +25,12 @@ export class EditCourseComponent implements OnInit {
         console.log( data);
         console.log(this.course);
         //console.log('course '+this.course.tittle);
-        this.assignFormControlsToCourseData();
+        this.LoadCourseData();
       },
       error => console.log(error)
     );
   }
-  assignFormControlsToCourseData() {
+  LoadCourseData() {
     this.editForm.get("tittle")?.setValue(this.course.tittle);
     this.editForm.get("description")?.setValue(this.course.description);
     this.editForm.get("image")?.setValue(this.course.image);

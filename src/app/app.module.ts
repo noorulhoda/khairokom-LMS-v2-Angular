@@ -32,7 +32,9 @@ import {HttpClientModule} from '@angular/common/http';
     GetClassByIDComponent,
     AddCateogryComponent,
     EdituserComponent,
-    GetAllCoursesComponent
+    GetAllCoursesComponent,
+    CourseDetailsComponent,
+    EditCourseComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +77,8 @@ import { GetClassByIDComponent } from './Class/get-class-by-id/get-class-by-id.c
 import { AddCateogryComponent } from './Category/add-cateogry/add-cateogry.component';
 import { EdituserComponent } from './users/edituser/edituser.component';
 import { GetAllCoursesComponent } from './Course/get-all-courses/get-all-courses/get-all-courses.component';
+import { CourseDetailsComponent } from './Course/course-details/course-details/course-details.component';
+import { EditCourseComponent } from './Course/edit-course/edit-course/edit-course.component';
 
 @NgModule({
   imports: [

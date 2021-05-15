@@ -1,0 +1,59 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div class="container emp-profile">
+            <form method="post">
+              
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                    
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                
+                                </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Tittle</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                {{course.tittle}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Image</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="{{course.tittle}}" >
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Description</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{course.description}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>categoryID</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{course.categoryID}}</p>
+                                            </div>
+                                        </div>
+                                      
+                                       <!--  <a class="btn btn-primary " (click)="delete()" >Remove Account</a>-->
+                           
+                            </div>
+                        </div>
+                    </div>
+                
+            </form>           
+        </div>

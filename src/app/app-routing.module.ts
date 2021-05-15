@@ -12,6 +12,9 @@ import { LoginComponent } from './users/login/login.component';
 import{GetAllComponent} from './users/get-all/get-all.component';
 import{ProfileComponent} from './users/profile/profile.component'
 import { EdituserComponent } from './users/edituser/edituser.component';
+import { EditCourseComponent } from './Course/edit-course/edit-course/edit-course.component';
+import { GetAllCoursesComponent } from './Course/get-all-courses/get-all-courses/get-all-courses.component';
+import { CourseDetailsComponent } from './Course/course-details/course-details/course-details.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -23,6 +26,10 @@ const routes: Routes = [
   {path:'GetAllCateogries',component:GetAllCateogriesComponent},
   {path:'GetCateogryByIDComponent/:id',component:GetCateogryByIDComponent},
   {path:'UpdateCategoryComponent/:id',component:UpdateCategoryComponent},
+  {path:'EditCourse/:id',component:EditCourseComponent},
+  {path:'profile/:id',component:ProfileComponent},
+  {path:'course',component:GetAllCoursesComponent},
+  {path:'CourseDetails/:id',component:CourseDetailsComponent},
   {path:'**',component:NotFoundComponent}
    
 ];

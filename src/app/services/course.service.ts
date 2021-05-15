@@ -10,26 +10,49 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
 })
 
 export class courseService {
-    getAllUrl = courseController.GetAllCourses;
-    postUrl = courseController.AddCourse;
-    putUrl = courseController.putCourse;
-    deleteUrl = courseController.delete;
-
+    Url = courseController.Url;
+    
 
     
     constructor(private http: HttpClient) {
     }
 
     GetAllCourses(): Observable<Icourse[]> {
-        return this.http.get<Icourse[]>(this.getAllUrl).pipe(catchError(err => {
+        return this.http.get<Icourse[]>(this.Url).pipe(catchError(err => {
             return throwError(err.message || "Internal Server error contact site adminstarator")
         }));
     }
+    /*GetCourseById(id:String): Observable<Icourse>{
+     return this.http.get<Icourse>(Url+"/"+id, httpOptions).pipe(catchError((err)=>
+      {
+        return throwError(err.message ||"Internal Server error contact site adminstarator");
+      }));
+    }*/
 
     AddCourse(course: Icourse): Observable<any> {
-        return this.http.post(this.postUrl,course,httpOptions).pipe(catchError(err => {
+        return this.http.post(this.Url,course,httpOptions).pipe(catchError(err => {
             return throwError(err.message || "Internal Server error contact site adminstarator")
         }));
     }
-}
+    UpdateCourse(id:String, course:Icourse): Observable<any>{
+
+        return this.http.put(this.Url+"/"+id, course, httpOptions).pipe(catchError((err)=>
+        {
+          return throwError(err.message ||"Internal Server error contact site adminstarator");
+        }));
+      }
+    
+      DeleteCourse(id:String): Observable<any>{
+        return this.http.delete(this.Url+"/"+id, httpOptions).pipe(catchError((err)=>
+        {
+          return throwError(err.message ||"Internal Server error contact site adminstarator");
+        }));
+      }
+      getCourseById(id:String): Observable<Icourse>{
+        return this.http.get<Icourse>(this.Url+"/"+id, httpOptions).pipe(catchError((err)=>
+        {
+          return throwError(err.message ||"Internal Server error contact site adminstarator");
+        }));
+      }
+    }
  

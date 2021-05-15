@@ -3,6 +3,8 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { courseService } from 'src/app/services/course.service';
 import { Icourse } from 'src/app/Shared Classes and types/Icourse';
+import { Icategory } from 'src/app/Shared Classes and types/Icategory';
+import { categoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-edit-course',
@@ -11,7 +13,7 @@ import { Icourse } from 'src/app/Shared Classes and types/Icourse';
 })
 export class EditCourseComponent implements OnInit {
 
-  constructor(private cs:courseService,private fb:FormBuilder,private route:ActivatedRoute,private router:Router) 
+  constructor(private cs:courseService,private fb:FormBuilder,private route:ActivatedRoute,private router:Router,private categoryService: categoryService) 
   {
     this.route.params.subscribe(params => {
       console.log(params) 
@@ -29,6 +31,16 @@ export class EditCourseComponent implements OnInit {
       },
       error => console.log(error)
     );
+    
+    this.categoryService.GetAllcateories().subscribe(
+      data => {
+        this.categories = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
   }
   LoadCourseData() {
     this.editForm.get("tittle")?.setValue(this.course.tittle);
@@ -53,7 +65,9 @@ export class EditCourseComponent implements OnInit {
     image:[''],
     categoryID:[''],
    });
+
   id:String;
+  categories: Icategory[] = [];
 
    get tittle()
    {

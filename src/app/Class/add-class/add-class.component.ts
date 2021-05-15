@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { categoryService } from 'src/app/services/class.service';
 import { Router } from '@angular/router';
 import { Iclass } from 'src/app/Shared Classes and types/Iclass';
@@ -17,14 +17,14 @@ export class AddClassComponent implements OnInit {
   }
   addForm=this.fb.group(
     {
-    Number:[''],
-    StudentsMinAge:[''],
-    StudentsMaxAge:[''],
-    StudentGender:[''],
-    ClassLink:[''],
-    ClassLinkPassword:[''],
-    StartTime:[''],
-    EndTime:['']
+    Number:['',[Validators.required]],
+    StudentsMinAge:['',[Validators.required]],
+    StudentsMaxAge:['',[Validators.required]],
+    StudentGender:['',[Validators.required]],
+    ClassLink:['',[Validators.required]],
+    ClassLinkPassword:['',[Validators.required]],
+    StartTime:['',[Validators.required]],
+    EndTime:['',[Validators.required]]
    });
 
    get Number()

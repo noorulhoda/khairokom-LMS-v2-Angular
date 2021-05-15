@@ -30,7 +30,9 @@ import {HttpClientModule} from '@angular/common/http';
     EdituserComponent,
     GetAllCoursesComponent,
     CourseDetailsComponent,
-    EditCourseComponent
+    EditCourseComponent,
+    IndexCourseComponent,
+    IndexCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +73,8 @@ import { EdituserComponent } from './users/edituser/edituser.component';
 import { GetAllCoursesComponent } from './Course/get-all-courses/get-all-courses/get-all-courses.component';
 import { CourseDetailsComponent } from './Course/course-details/course-details/course-details.component';
 import { EditCourseComponent } from './Course/edit-course/edit-course/edit-course.component';
+import { IndexCourseComponent } from './index-course/index-course.component';
+import { IndexCategoryComponent } from './index-category/index-category.component';
 
 @NgModule({
   imports: [

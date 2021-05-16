@@ -18,6 +18,7 @@ export class AddComponent implements OnInit {
     this.categoryService.GetAllcateories().subscribe(
       data => {
         this.categories = data;
+        console.log(data);
       },
       error => {
         console.log(error);

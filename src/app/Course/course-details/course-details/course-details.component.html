@@ -42,10 +42,10 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>categoryID</label>
+                                                <label>category</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>{{course.categoryID}}</p>
+                                                <p>{{courseCategoryTitle}}</p>
                                             </div>
                                         </div>
                                       <a class="btn btn-primary " (click)="delete()" routerLink="/home" >Remove Course</a>       
@@ -54,8 +54,25 @@
                     </div>
             </form>       
             
-            <br><br><br>
-            <h2>Leave a comment</h2>
+            <h3>Comments</h3>
+
+            <div class="form-group">
+                    <span *ngFor="let comment of comments">
+                        <div *ngIf="comment.courseID===id"  class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">user#</h5>
+                              <p class="card-text">{{comment.content}}</p>
+                            <!--   <a href="#" class="card-link">Card link</a>
+                              <a href="#" class="card-link">Another link</a> -->
+                            </div>
+                          </div>
+                    </span>
+            </div>
+
+            
+
+            <br><br><br><br><br>
+            <h3>Leave a comment</h3>
             <form  [formGroup]="addCommentForm" enctype="multipart/form-data" >
                 <div class="form-group">
                     <label>Content</label>

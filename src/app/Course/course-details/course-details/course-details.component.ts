@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { courseService } from 'src/app/services/course.service';
 import { commentService } from 'src/app/services/comment.service';
+import { categoryService } from 'src/app/services/category.service';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Icourse } from 'src/app/Shared Classes and types/Icourse';
 import { Icomment } from 'src/app/Shared Classes and types/Icomment';
@@ -16,23 +17,30 @@ export class CourseDetailsComponent implements OnInit {
   constructor(private cs:courseService,
     private route:ActivatedRoute,
     private router:Router,private fb:FormBuilder,
-    private commentService:commentService) 
+    private commentService:commentService,
+    private categoryService: categoryService) 
   { 
     this.route.params.subscribe(params => {
       console.log(params) 
       this.id=params['id'] 
       console.log('id : '+(this.id));
      });
-
+     
      this.cs.getCourseById(this.id).subscribe(
       data => {
         this.course = data[0];
-        console.log( data);
-        console.log(this.course);
+        this.categoryService.getCategoryById(data[0].categoryID).subscribe(
+          data2 => {
+            this.courseCategoryTitle = data2[0].Title;});
       },
       error => console.log(error)
     );
+
+   this.GetCourseComments();
+  
   }
+
+  comments:Icomment[]=[];
 
   ngOnInit(): void {}
   addCommentForm=this.fb.group(
@@ -42,6 +50,7 @@ export class CourseDetailsComponent implements OnInit {
     userID:[''],
    });  
   id:String;
+  courseCategoryTitle:String;
   course:Icourse={
     tittle:'',
     description:'',
@@ -67,7 +76,7 @@ export class CourseDetailsComponent implements OnInit {
   AddComment(){
     var comment:Icomment={ 
       content:this.content?.value,
-      userID:'11',
+      userID:'user#',
       courseID:this.id,
     }
    this.commentService.AddComment(comment).subscribe(
@@ -79,4 +88,20 @@ export class CourseDetailsComponent implements OnInit {
      }
    );
   }
+
+  GetCourseComments(){
+    this.commentService.GetAllComments().subscribe( 
+    data => {
+     this.comments=data;
+     console.log(data);
+    },
+   error => {
+    console.log(error)
+     }
+   );
+   console.log(this.comments);
+  }
+fun(c:Icomment){
+  return c.courseID==this.id;
+}
 }

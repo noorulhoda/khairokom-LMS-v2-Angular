@@ -16,8 +16,8 @@
                     <!-- </form><span class="navbar-text"> <a class="login" routerLink="reactiveregister">ReactiveRegister</a></span><a class="btn btn-light action-button" role="button" routerLink="register">Signup</a> -->
                 </form><span class="navbar-text">
                      <a class="login" routerLink="register">Register</a></span>
-                     <a class="btn btn-light action-button" role="button" routerLink="login">login</a>
-                     <a class="btn btn-light action-button" role="button"(click)="logout()" >logout</a>
+                     <a  class="btn btn-light action-button" role="button" routerLink="login">login</a>
+                     <a *ngIf='currentUserName!= "guest" 'class="btn btn-light action-button" role="button"(click)="logout()">logout</a>
                
                 </div>
             </div>

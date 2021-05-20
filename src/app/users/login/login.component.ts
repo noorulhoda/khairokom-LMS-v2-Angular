@@ -12,7 +12,6 @@ import { ForbiddenNameValidator } from '../../username.validatior';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
   constructor(private fb:FormBuilder,private userService:UsersService,private router: Router) { }
   ngOnInit(): void {}
   loginForm=this.fb.group({
@@ -46,6 +45,7 @@ submit()
       this.token=data['token'];
       console.log(this.token);
       localStorage.setItem('token',this.token)
+      localStorage.setItem('currentUser',this.userName?.value)
       this.router.navigateByUrl("/home")
     },
     error => {
@@ -53,8 +53,5 @@ submit()
     }
   );
 
-}
-
-
-  
+}  
 }

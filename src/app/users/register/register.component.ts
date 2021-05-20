@@ -87,6 +87,7 @@ submit()
       this.token=data['token'];
       console.log(this.token);
       localStorage.setItem('token',this.token)
+      localStorage.setItem('currentUser',this.userName?.value)
       this.router.navigateByUrl("/home")
     },
     error => {

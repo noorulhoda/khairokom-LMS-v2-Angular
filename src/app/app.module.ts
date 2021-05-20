@@ -10,11 +10,8 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    DicountpercentPipe,
     NotFoundComponent,
     HomeComponent,
-    ChildRootComponent,
-    ChildRoot2Component,
     LoginComponent,
     RegisterComponent,
     GetAllComponent,
@@ -22,17 +19,20 @@ import {HttpClientModule} from '@angular/common/http';
     AddCateogryComponent,
     UpdateCategoryComponent,
     AddComponent,
-    DeleteCategoryComponent,
     GetCateogryByIDComponent,
     GetAllCateogriesComponent,
     AddClassComponent,
-    DeleteClassComponent,
     UpdateClassComponent,
     GetAllClassesComponent,
     AddClassComponent,
     GetClassByIDComponent,
     AddCateogryComponent,
-    EdituserComponent
+    EdituserComponent,
+    GetAllCoursesComponent,
+    CourseDetailsComponent,
+    EditCourseComponent,
+    IndexCourseComponent,
+    IndexCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -53,11 +53,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { DicountpercentPipe } from './pipes/dicountpercent.pipe';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
-import { ChildRootComponent } from './child-root/child-root.component';
-import { ChildRoot2Component } from './child-root2/child-root2.component';
 import { LoginComponent } from './users/login/login.component';
 import { GetAllComponent } from './users/get-all/get-all.component';
 import { ProfileComponent } from './users/profile/profile.component';
@@ -65,16 +62,19 @@ import { UpdateCategoryComponent } from './Category/update-category/update-categ
 import { AddComponent } from './Course/add/add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './users/register/register.component';
-import { DeleteCategoryComponent } from './Category/delete-category/delete-category.component';
 import { GetCateogryByIDComponent } from './Category/get-cateogry-by-id/get-cateogry-by-id.component';
 import { GetAllCateogriesComponent } from './Category/get-all-cateogries/get-all-cateogries.component';
-import { DeleteClassComponent } from './Class/delete-class/delete-class.component';
 import { UpdateClassComponent } from './Class/update-class/update-class.component';
 import { GetAllClassesComponent } from './Class/get-all-classes/get-all-classes.component';
 import { AddClassComponent } from './Class/add-class/add-class.component';
 import { GetClassByIDComponent } from './Class/get-class-by-id/get-class-by-id.component';
 import { AddCateogryComponent } from './Category/add-cateogry/add-cateogry.component';
 import { EdituserComponent } from './users/edituser/edituser.component';
+import { GetAllCoursesComponent } from './Course/get-all-courses/get-all-courses/get-all-courses.component';
+import { CourseDetailsComponent } from './Course/course-details/course-details/course-details.component';
+import { EditCourseComponent } from './Course/edit-course/edit-course/edit-course.component';
+import { IndexCourseComponent } from './index-course/index-course.component';
+import { IndexCategoryComponent } from './index-category/index-category.component';
 
 @NgModule({
   imports: [

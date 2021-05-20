@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class categoryService {
-url=categoryController.GetAllCategories;//api/user
+   url = categoryController.GetAllCategories;  
   constructor(private http:HttpClient) { 
   
   }
@@ -25,20 +25,21 @@ url=categoryController.GetAllCategories;//api/user
 
   getCategoryById(id:string):Observable<Icategory>
   {
-    return this.http.get<Icategory>(this.url+"/"+id, httpOptions).pipe(catchError((err)=>
+    return this.http.get<Icategory>(this.url+"/"+id).pipe(catchError((err)=>
     {
       return throwError(err.message ||"Internal Server error contact site adminstarator");
     }));
   }
-
-  updateCategory(id:number, category:Icategory): Observable<any>{
-    return this.http.put(this.url+"/"+id, category, httpOptions).pipe(catchError((err)=>
-    {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
+  AddCategory(category: Icategory): Observable<any> {
+    return this.http.post(this.url,category,httpOptions).pipe(catchError(err => {
+        return throwError(err.message || "Internal Server error contact site adminstarator")
     }));
-  }
+}
+updateCategory(id, category): Observable<any> {
+  return this.http.put(`${this.url}/${id}`, category,httpOptions);
+}
   
-  deleteCategory(id:number): Observable<any>{
+  deleteCategory(id:string): Observable<any>{
     return this.http.delete(this.url+"/"+id, httpOptions).pipe(catchError((err)=>
     {
       return throwError(err.message ||"Internal Server error contact site adminstarator");

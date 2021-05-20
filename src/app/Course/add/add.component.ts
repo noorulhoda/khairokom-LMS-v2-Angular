@@ -3,6 +3,8 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { courseService } from '../../services/course.service';
 import { Icourse } from 'src/app/Shared Classes and types/Icourse';
 import { Router } from '@angular/router';
+import { Icategory } from 'src/app/Shared Classes and types/Icategory';
+import { categoryService } from 'src/app/services/category.service';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -11,7 +13,18 @@ import { Router } from '@angular/router';
 
 export class AddComponent implements OnInit {
 
-  constructor(private cs:courseService,private fb:FormBuilder,private router:Router) { }
+  constructor(private cs:courseService,private fb:FormBuilder,private router:Router,private categoryService: categoryService) 
+  {
+    this.categoryService.GetAllcateories().subscribe(
+      data => {
+        this.categories = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
   ngOnInit(): void {}
   
   addForm=this.fb.group(
@@ -21,6 +34,8 @@ export class AddComponent implements OnInit {
     image:[''],
     categoryID:[''],
    });
+
+   categories: Icategory[] = [];
 
    get tittle()
    {

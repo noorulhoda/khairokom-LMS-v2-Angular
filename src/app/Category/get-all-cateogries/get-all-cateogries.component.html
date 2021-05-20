@@ -1,1 +1,15 @@
-<p>get-all-cateogries works!</p>
+<br/>
+<div class="row" >
+    <div  *ngFor="let category of categoryList">
+      <div class="card" style="float:right;margin-left: 40px;">
+        <img src="../../assets/images/download (2).jpg" alt="Denim Jeans" style="width:100%">
+        <h1>{{category.Title}}</h1>
+        <p>{{category.Description}}</p>
+        <br>
+        <a class="btn btn-primary"  routerLink="/GetCateogryByID/{{category._id}}">Show Details</a>                      
+      </div>
+      <br>
+    </div>
+  </div>
+
+  {{errorMsg}}

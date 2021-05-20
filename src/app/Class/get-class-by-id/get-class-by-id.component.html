@@ -1,1 +1,91 @@
-<p>get-class-by-id works!</p>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div class="container emp-profile">
+            <form method="post">
+              
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                    
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                      
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Number</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{clas.Number}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>StudentsMinAge</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{clas.StudentsMinAge}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>StudentsMaxAge</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{clas.StudentsMaxAge}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>StudentGender</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{clas.StudentGender}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>ClassLink</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{clas.ClassLink}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>ClassLinkPassword</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{clas.ClassLinkPassword}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>StartTime</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{clas.StartTime}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>EndTime</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{clas.EndTime}}</p>
+                                            </div>
+                                        </div>
+    
+                                        <div style="float: left;margin-left: 10px;"><a class="btn btn-secondary " (click)="delete()" >Remove</a></div>
+                                        <!-- <div style="float: left;margin-left: 10px;"><a class="btn btn-warning"  routerLink="/UpdateCategory/{{category._id}}">Update</a></div> -->
+                                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>

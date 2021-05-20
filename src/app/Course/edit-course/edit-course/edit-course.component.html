@@ -1,0 +1,43 @@
+<div class="container" style="padding: 20px;">
+    <form [formGroup]="editForm" enctype="multipart/form-data">
+        
+        <div class="form-group">
+            <label>tittle: </label>
+            <input type="text" [class.is-invalid]="tittle?.invalid && tittle?.touched " formControlName="tittle" class="form-control">
+            <div *ngIf="tittle?.errors && tittle?.touched ">
+                <small class="text-danger" *ngIf="tittle?.errors?.required">tittle is required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>description: </label>
+            <textarea [class.is-invalid]="description?.invalid && description?.touched " formControlName="description" class="form-control"></textarea>
+            <div *ngIf="description?.errors && description?.touched ">
+                <small class="text-danger" *ngIf="description?.errors?.required">description is required</small>
+            </div>
+        </div>
+
+ 
+
+        <div class="form-group">
+            <label>Image: </label><br>
+            <input type="text" formControlName="image">
+        </div>
+
+       <!--  <div class="form-group">
+            <label>categoryID: </label><br>
+            <input type="text" formControlName="categoryID">
+        </div>
+        -->
+        <div class="form-group">
+            <label>Category: </label>
+            <select class="custom-select"  formControlName="categoryID">
+                <option *ngFor="let category of categories" value="{{category._id}}">{{category.Title}}
+                </option>
+            </select>
+           
+        </div>
+        
+        <input type="submit" class="btn btn-primary" value="Save" (click)="submit()">
+    </form>
+</div>

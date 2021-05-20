@@ -1,6 +1,5 @@
 export interface Icategory{
-   id:string,
-   title:string,
-   description:string,
-   image:string
+   Title:string,
+   Description:string,
+   Image:string
 }

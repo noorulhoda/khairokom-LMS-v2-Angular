@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
-import { Iuser } from '../Shared Classes and types/Iuser';
+import { Irole } from '../shared/Irole';
+import { Iuser } from '../shared/Iuser';
 
 @Component({
   selector: 'app-header',
@@ -26,11 +27,11 @@ export class HeaderComponent implements OnInit {
   }
   currentUserName:string;
   currentUser:Iuser;
-  currentUserRole:string;
+  currentUserRole:Irole[];
   findCurrentUser(){
     this.currentUserName=localStorage.getItem('currentUser');
     this.userService.findByUserName(this.currentUserName).subscribe(
-      data => {this.currentUser= data;this.currentUserRole=this.currentUser.role},
+      data => {this.currentUser= data;this.currentUserRole=this.currentUser.roles},
       er => console.log('error happened in determine user') ,
     )
   }

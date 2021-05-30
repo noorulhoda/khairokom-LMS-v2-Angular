@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import{HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import{Iuser} from '../Shared Classes and types/Iuser';
+import{Iuser} from '../shared/Iuser';
 import{catchError} from 'rxjs/operators'
 import{usersController} from'../APIs/usersController';
 import { baseUrl } from '../config';

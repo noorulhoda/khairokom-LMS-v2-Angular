@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
-import { Iuser } from 'src/app/Shared Classes and types/Iuser';
+import { Iuser } from 'src/app/shared/Iuser';
 import { ConfirmPassword } from '../../misMatch.validator';
 import { ForbiddenNameValidator } from '../../username.validatior';
 
@@ -22,10 +22,12 @@ export class RegisterComponent implements OnInit {
     password:['',[Validators.required,Validators.minLength(8)]],
     confirmPassword:[''],
     email:[''],
-    role:[''],
+    roles:[[]],
     gender:[''],
     age:[''],
     img:[''],
+    // joinedClasses:[''],
+    // teachedCourses:['']
   },{validators:[ConfirmPassword]});
 
 
@@ -58,7 +60,7 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('gender');
   }
 
-  get role()
+  get roles()
   {
     return this.registerForm.get('role');
   }
@@ -76,10 +78,12 @@ submit()
     lastName:this.lastName?.value,
     password:this.password?.value,
     email:this.email?.value,
-    role:this.role?.value,
+    roles:this.roles?.value,
     gender:this.gender?.value,
     age:this.age?.value,
-    img:this.img?.value
+    img:this.img?.value,
+    // joinedClasses:this.joinedClasses?.value,
+    // teachedCourses:this.teachedCourses?.value
   }
   console.log(user)
   this.userService.Register(user).subscribe(

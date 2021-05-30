@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import{HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import{Icategory} from '../Shared Classes and types/Icategory';
+import{Icategory} from '../shared/Icategory';
 import{catchError} from 'rxjs/operators'
 import{categoryController} from'../APIs/categoryController';
 const httpOptions = {

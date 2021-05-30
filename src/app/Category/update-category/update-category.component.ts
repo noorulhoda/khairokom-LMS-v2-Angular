@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { categoryService } from 'src/app/services/category.service';
-import { Icategory } from 'src/app/Shared Classes and types/Icategory';
+import { Icategory } from 'src/app/shared/Icategory';
 
 @Component({
   selector: 'app-update-category',

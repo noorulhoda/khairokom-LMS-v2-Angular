@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
-import{Iuser} from '../../Shared Classes and types/Iuser'
+import{Iuser} from '../../shared/Iuser'
 @Component({
   selector: 'app-get-all',
   templateUrl: './get-all.component.html',

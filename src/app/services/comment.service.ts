@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { Icomment } from '../Shared Classes and types/Icomment';
+import { Icomment } from '../shared/Icomment';
 import { catchError } from 'rxjs/operators'
 import { commentController } from '../APIs/commentController';
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};

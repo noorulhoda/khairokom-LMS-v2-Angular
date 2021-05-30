@@ -1,3 +1,4 @@
+import { Iuser } from 'src/app/shared/Iuser';
 export interface Iclass{
     Number:string,
     StudentsMinAge:Number,
@@ -5,8 +6,9 @@ export interface Iclass{
     StudentGender:string,
     ClassLink:string,
     ClassLinkPassword:string,
-    StartTime:Date,
-    EndTime:Date
-
-
+    StartDate:Date,
+    EndDate:Date,
+    CourseId:string,
+    TeacherId:string,
+    Students:Iuser[]
      }

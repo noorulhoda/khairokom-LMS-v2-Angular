@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { categoryService } from 'src/app/services/category.service';
-import { Icategory } from 'src/app/Shared Classes and types/Icategory';
+import { Icategory } from 'src/app/shared/Icategory';
 
 @Component({
   selector: 'app-get-all-cateogries',

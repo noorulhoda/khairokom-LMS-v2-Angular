@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { categoryService } from '../../services/category.service';
-import { Icategory } from 'src/app/Shared Classes and types/Icategory';
+import { Icategory } from 'src/app/shared/Icategory';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-cateogry',

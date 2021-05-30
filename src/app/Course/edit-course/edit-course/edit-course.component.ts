@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { courseService } from 'src/app/services/course.service';
-import { Icourse } from 'src/app/Shared Classes and types/Icourse';
-import { Icategory } from 'src/app/Shared Classes and types/Icategory';
+import { Icourse } from 'src/app/shared/Icourse';
+import { Icategory } from 'src/app/shared/Icategory';
 import { categoryService } from 'src/app/services/category.service';
 
 @Component({
@@ -47,15 +47,17 @@ export class EditCourseComponent implements OnInit {
     this.editForm.get("description")?.setValue(this.course.description);
     this.editForm.get("image")?.setValue(this.course.image);
     this.editForm.get("categoryID")?.setValue(this.course.categoryID);
+    this.editForm.get("taechers")?.setValue(this.course.teachers);
   }
 
   ngOnInit(): void {
   }
-  course:Icourse={
+    course:Icourse={
     tittle:'',
     description:'',
     image:'',
     categoryID:'',
+    teachers:[]
   }
 
   editForm=this.fb.group(
@@ -64,6 +66,7 @@ export class EditCourseComponent implements OnInit {
     description:[''],
     image:[''],
     categoryID:[''],
+    teachers:[]
    });
 
   id:String;
@@ -86,6 +89,10 @@ export class EditCourseComponent implements OnInit {
    {
      return this.editForm.get('categoryID');
    }
+   get teachers()
+   {
+     return this.editForm.get('teachers');
+   }
   
   
   submit() 
@@ -94,7 +101,8 @@ export class EditCourseComponent implements OnInit {
        tittle:this.tittle?.value,
        description:this.description?.value,
        image:this.image?.value,
-       categoryID:this.categoryID?.value
+       categoryID:this.categoryID?.value,
+       teachers:this.teachers?.value,
     }
     this.cs.UpdateCourse(this.id,course).subscribe(
       data => {

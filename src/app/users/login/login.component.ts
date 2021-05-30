@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
-import { Iuser } from 'src/app/Shared Classes and types/Iuser';
+import { Iuser } from 'src/app/shared/Iuser';
 import { ConfirmPassword } from '../../misMatch.validator';
 import { ForbiddenNameValidator } from '../../username.validatior';
 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { courseService } from '../../services/course.service';
-import { Icourse } from 'src/app/Shared Classes and types/Icourse';
+import { Icourse } from 'src/app/shared/Icourse';
 import { Router } from '@angular/router';
-import { Icategory } from 'src/app/Shared Classes and types/Icategory';
+import { Icategory } from 'src/app/shared/Icategory';
 import { categoryService } from 'src/app/services/category.service';
 @Component({
   selector: 'app-add',
@@ -33,6 +33,7 @@ export class AddComponent implements OnInit {
     description:[''],
     image:[''],
     categoryID:[''],
+    teachers:[]
    });
 
    categories: Icategory[] = [];
@@ -54,13 +55,18 @@ export class AddComponent implements OnInit {
    {
      return this.addForm.get('categoryID');
    }
+   get teachers()
+   {
+     return this.addForm.get('teachers');
+   }
   submit() 
   {
     var course:Icourse={ 
        tittle:this.tittle?.value,
        description:this.description?.value,
        image:this.image?.value,
-       categoryID:this.categoryID?.value
+       categoryID:this.categoryID?.value,
+       teachers:this.teachers?.value
     }
     this.cs.AddCourse(course).subscribe(
       data => {

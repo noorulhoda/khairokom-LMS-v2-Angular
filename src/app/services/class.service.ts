@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import{HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import{Iclass} from '../Shared Classes and types/Iclass';
+import{Iclass} from '../shared/Iclass';
 import{catchError} from 'rxjs/operators'
 import{classController} from'../APIs/classController';
 const httpOptions = {

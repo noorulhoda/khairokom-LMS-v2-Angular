@@ -2,8 +2,8 @@ import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { courseService } from 'src/app/services/course.service';
-import { Icourse } from 'src/app/Shared Classes and types/Icourse';
-import { Icategory } from 'src/app/Shared Classes and types/Icategory';
+import { Icourse } from 'src/app/shared/Icourse';
+import { Icategory } from 'src/app/shared/Icategory';
 import { categoryService } from 'src/app/services/category.service';
 
 @Component({

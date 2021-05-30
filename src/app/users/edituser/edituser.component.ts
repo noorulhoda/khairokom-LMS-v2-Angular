@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../../services/users.service';
-import{Iuser} from '../../Shared Classes and types/Iuser'
+import{Iuser} from '../../shared/Iuser'
 @Component({
   selector: 'app-edituser',
   templateUrl: './edituser.component.html',
@@ -25,6 +25,8 @@ export class EdituserComponent implements OnInit {
       gender:[''],
       age:[''],
       img:[''],
+      joinedClasses:[''],
+      teachedCourses:['']
     });
   
   get firstName()
@@ -42,6 +44,14 @@ export class EdituserComponent implements OnInit {
   get email()
   {
     return this.registerForm.get('email');
+  }
+  get joinedClasses()
+  {
+    return this.registerForm.get('joinedClasses');
+  }
+  get teachedCourses()
+  {
+    return this.registerForm.get('teachedCourses');
   }
  /*  get password()
   {
@@ -86,7 +96,9 @@ export class EdituserComponent implements OnInit {
       email:this.user.email,
       gender:this.user.gender,
       img:this.user.img,
-      age:this.user.age
+      age:this.user.age,
+      joinedClasses:this.user.joinedClasses,
+      teachedCourses:this.user.teachedCourses
     })
   }
 
@@ -117,10 +129,13 @@ update()
     lastName:this.lastName?.value,
     password:this.user.password,
     email:this.email?.value,
-    role:this.user.role,
+    roles:this.user.roles,
     gender:this.gender?.value,
     age:this.age?.value,
-    img:this.img?.value
+    img:this.img?.value,
+    joinedClasses:this.joinedClasses?.value,
+    teachedCourses:this.teachedCourses?.value
+
   }
   console.log(newuser)
   

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { categoryService } from 'src/app/services/class.service';
 import { Router } from '@angular/router';
-import { Iclass } from 'src/app/Shared Classes and types/Iclass';
+import { Iclass } from 'src/app/shared/Iclass';
 
 @Component({
   selector: 'app-add-class',
@@ -23,8 +23,11 @@ export class AddClassComponent implements OnInit {
     StudentGender:['',[Validators.required]],
     ClassLink:['',[Validators.required]],
     ClassLinkPassword:['',[Validators.required]],
-    StartTime:['',[Validators.required]],
-    EndTime:['',[Validators.required]]
+    StartDate:['',[Validators.required]],
+    EndDate:['',[Validators.required]],
+    CourseId:['',[Validators.required]],
+    TeacherId:['',[Validators.required]],
+    Students:['',[Validators.required]]
    });
 
    get Number()
@@ -52,13 +55,25 @@ export class AddClassComponent implements OnInit {
    {
      return this.addForm.get('ClassLinkPassword');
    }
-   get StartTime()
+   get StartDate()
    {
-     return this.addForm.get('StartTime');
+     return this.addForm.get('StartDate');
    }
-   get EndTime()
+   get EndDate()
    {
-     return this.addForm.get('EndTime');
+     return this.addForm.get('EndDate');
+   }
+   get CourseId()
+   {
+     return this.addForm.get('CourseId');
+   }
+   get TeacherId()
+   {
+     return this.addForm.get('TeacherId');
+   }
+   get Students()
+   {
+     return this.addForm.get('Students');
    }
   submit() 
   {
@@ -69,8 +84,11 @@ export class AddClassComponent implements OnInit {
        StudentGender:this.StudentGender?.value,
        ClassLink:this.ClassLink?.value,
        ClassLinkPassword:this.ClassLinkPassword?.value,
-       StartTime:this.StartTime?.value,
-       EndTime:this.EndTime?.value
+       StartDate:this.StartDate?.value,
+       EndDate:this.EndDate?.value,
+       CourseId:this.CourseId?.value,
+       TeacherId:this.TeacherId?.value,
+       Students:this.Students?.value
       
     }
     this.cs.AddClass(clas).subscribe(

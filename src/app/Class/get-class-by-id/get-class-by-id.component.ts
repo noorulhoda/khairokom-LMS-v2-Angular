@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { categoryService } from 'src/app/services/class.service';
-import { Iclass } from 'src/app/Shared Classes and types/Iclass';
+import { Iclass } from 'src/app/shared/Iclass';
 
 @Component({
   selector: 'app-get-class-by-id',

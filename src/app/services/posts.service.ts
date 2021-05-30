@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import{HttpClient} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import{Ipost} from '../Shared Classes and types/Ipost';
+import{Ipost} from '../shared/Ipost';
 import{catchError} from 'rxjs/operators'
 import{postsController} from'../APIs/postsController';
 @Injectable({

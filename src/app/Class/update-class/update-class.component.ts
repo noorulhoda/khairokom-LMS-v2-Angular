@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { categoryService } from 'src/app/services/class.service';
-import { Iclass } from 'src/app/Shared Classes and types/Iclass';
+import { Iclass } from 'src/app/shared/Iclass';
 
 @Component({
   selector: 'app-update-class',
@@ -19,8 +19,11 @@ export class UpdateClassComponent implements OnInit {
     StudentGender:['',[Validators.required,Validators.minLength(5)]],
     ClassLink:['',[Validators.required,Validators.minLength(5)]],
     ClassLinkPassword:['',[Validators.required,Validators.minLength(5)]],
-    StartTime:[''],
-    EndTime:['']
+    StartDate:[''],
+    EndDate:[''],
+    CourseId:[''],
+    TeacherId:[''],
+    Students:['']
   });
   get Number()
    {
@@ -47,14 +50,27 @@ export class UpdateClassComponent implements OnInit {
    {
      return this.updateForm.get('ClassLinkPassword');
    }
-   get StartTime()
+   get StartDate()
    {
-     return this.updateForm.get('StartTime');
+     return this.updateForm.get('StartDate');
    }
-   get EndTime()
+   get EndDate()
    {
-     return this.updateForm.get('EndTime');
+     return this.updateForm.get('EndDate');
    }
+   get CourseId()
+   {
+     return this.updateForm.get('CourseId');
+   }
+   get TeacherId()
+   {
+     return this.updateForm.get('TeacherId');
+   }
+   get Students()
+   {
+     return this.updateForm.get('Students');
+   }
+
    clas:Iclass;
    id:string='defaultID';
    errMsg='errroor';
@@ -70,8 +86,11 @@ export class UpdateClassComponent implements OnInit {
        StudentGender:this.clas.StudentGender,
        ClassLink:this.clas.ClassLink,
        ClassLinkPassword:this.clas.ClassLinkPassword,
-       StartTime:this.clas.StartTime,
-       EndTime:this.clas.EndTime
+       StartDate:this.clas.StartDate,
+       EndDate:this.clas.EndDate,
+       CourseId:this.CourseId?.value,
+       TeacherId:this.TeacherId?.value,
+       Students:this.Students?.value
      })
    }
    
@@ -103,8 +122,11 @@ export class UpdateClassComponent implements OnInit {
       StudentGender:this.StudentGender?.value,
       ClassLink:this.ClassLink?.value,
       ClassLinkPassword:this.ClassLinkPassword?.value,
-      StartTime:this.StartTime?.value,
-      EndTime:this.EndTime?.value
+      StartDate:this.StartDate?.value,
+      EndDate:this.EndDate?.value,
+      CourseId:this.CourseId?.value,
+      TeacherId:this.TeacherId?.value,
+      Students:this.Students?.value
      
    }
    console.log(newclass)

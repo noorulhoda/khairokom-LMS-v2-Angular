@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { Icourse } from '../Shared Classes and types/Icourse';
+import { Icourse } from '../shared/Icourse';
 import { catchError } from 'rxjs/operators'
 import { courseController } from '../APIs/courseController';
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};

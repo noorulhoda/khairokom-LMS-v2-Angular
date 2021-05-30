@@ -4,8 +4,8 @@ import { courseService } from 'src/app/services/course.service';
 import { commentService } from 'src/app/services/comment.service';
 import { categoryService } from 'src/app/services/category.service';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Icourse } from 'src/app/Shared Classes and types/Icourse';
-import { Icomment } from 'src/app/Shared Classes and types/Icomment';
+import { Icourse } from 'src/app/shared/Icourse';
+import { Icomment } from 'src/app/shared/Icomment';
 
 @Component({
   selector: 'app-course-details',
@@ -51,11 +51,12 @@ export class CourseDetailsComponent implements OnInit {
    });  
   id:String;
   courseCategoryTitle:String;
-  course:Icourse={
+    course:Icourse={
     tittle:'',
     description:'',
     image:'',
     categoryID:'',
+    teachers:[]
   }
   
   delete(){

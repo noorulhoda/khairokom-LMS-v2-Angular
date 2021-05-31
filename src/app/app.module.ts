@@ -32,7 +32,11 @@ import {HttpClientModule} from '@angular/common/http';
     CourseDetailsComponent,
     EditCourseComponent,
     IndexCourseComponent,
-    IndexCategoryComponent
+    IndexCategoryComponent,
+    AddSessionComponent,
+    GetAllSessionsComponent,
+    GetSessionByIdComponent,
+    UpdateSessionComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +79,10 @@ import { CourseDetailsComponent } from './Course/course-details/course-details/c
 import { EditCourseComponent } from './Course/edit-course/edit-course/edit-course.component';
 import { IndexCourseComponent } from './index-course/index-course.component';
 import { IndexCategoryComponent } from './index-category/index-category.component';
+import { AddSessionComponent } from './Session/add-session/add-session.component';
+import { GetAllSessionsComponent } from './Session/get-all-sessions/get-all-sessions.component';
+import { GetSessionByIdComponent } from './Session/get-session-by-id/get-session-by-id.component';
+import { UpdateSessionComponent } from './Session/update-session/update-session.component';
 
 @NgModule({
   imports: [

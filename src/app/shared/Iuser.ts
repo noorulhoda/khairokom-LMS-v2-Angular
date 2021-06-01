@@ -9,7 +9,9 @@ export interface Iuser{
     email:string;
     img:string;
     gender:string;
-    age:number;
+    birthDate:Date;
+    country:string;
+    phone:string;
     roles:Irole[];
     joinedClasses?:Iclass[],
     teachedCourses?:Icourse[]

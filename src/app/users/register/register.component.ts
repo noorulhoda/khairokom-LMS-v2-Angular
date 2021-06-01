@@ -51,9 +51,9 @@ export class RegisterComponent implements OnInit {
   {
     return this.registerForm.get('password');
   }
-  get age()
+  get birthDate()
   {
-    return this.registerForm.get('age');
+    return this.registerForm.get('birthDate');
   }
   get gender()
   {
@@ -68,6 +68,15 @@ export class RegisterComponent implements OnInit {
   {
     return this.registerForm.get('img');
   }
+
+  get phone()
+  {
+    return this.registerForm.get('phone');
+  }
+  get country()
+  {
+    return this.registerForm.get('country');
+  }
 token='';
 
 submit()
@@ -80,8 +89,10 @@ submit()
     email:this.email?.value,
     roles:this.roles?.value,
     gender:this.gender?.value,
-    age:this.age?.value,
+    birthDate:this.birthDate?.value,
     img:this.img?.value,
+    phone:this.phone?.value,
+    country:this.country?.value
     // joinedClasses:this.joinedClasses?.value,
     // teachedCourses:this.teachedCourses?.value
   }

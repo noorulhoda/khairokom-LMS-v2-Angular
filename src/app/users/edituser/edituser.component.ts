@@ -65,9 +65,9 @@ export class EdituserComponent implements OnInit {
   {
     return this.registerForm.get('role');
   } */
-  get age()
+  get birthDate()
   {
-    return this.registerForm.get('age');
+    return this.registerForm.get('birthDate');
   }
   get gender()
   {
@@ -77,6 +77,14 @@ export class EdituserComponent implements OnInit {
   get img()
   {
     return this.registerForm.get('img');
+  }
+  get phone()
+  {
+    return this.registerForm.get('phone');
+  }
+  get country()
+  {
+    return this.registerForm.get('country');
   }
 
 
@@ -96,9 +104,11 @@ export class EdituserComponent implements OnInit {
       email:this.user.email,
       gender:this.user.gender,
       img:this.user.img,
-      age:this.user.age,
+      birthdate:this.user.birthDate,
       joinedClasses:this.user.joinedClasses,
-      teachedCourses:this.user.teachedCourses
+      teachedCourses:this.user.teachedCourses,
+      phone:this.user.phone,
+      country:this.user.country
     })
   }
 
@@ -131,11 +141,12 @@ update()
     email:this.email?.value,
     roles:this.user.roles,
     gender:this.gender?.value,
-    age:this.age?.value,
+    birthDate:this.birthDate?.value,
     img:this.img?.value,
     joinedClasses:this.joinedClasses?.value,
-    teachedCourses:this.teachedCourses?.value
-
+    teachedCourses:this.teachedCourses?.value,
+    phone:this.phone?.value,
+    country:this.country?.value
   }
   console.log(newuser)
   

@@ -77,9 +77,15 @@
             </small>
         </div>
 
+        <div class="form-group">
+            <label>Phone</label>
+            <input  type="text"  formControlName="phone"  class="form-control">
+        </div>
+
+
         <div class="form-group">
-            <label>Age</label>
-            <input formControlName="age" type="number" class="form-control" />
+            <label>BirthDate</label>
+            <input formControlName="birthDate" type="date" class="form-control" />
         </div>
 
         
@@ -89,6 +95,15 @@
             <select  formControlName="gender"  class="form-control">
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Country :</label>
+            <select  formControlName="country"  class="form-control">
+                <option value="Egypt">Egypt</option>
+                <option value="Palastine">Palastine</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
             </select>
         </div>
 

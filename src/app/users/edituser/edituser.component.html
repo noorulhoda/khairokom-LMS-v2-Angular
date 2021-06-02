@@ -82,10 +82,11 @@
             <input  type="text"  formControlName="phone"  class="form-control">
         </div>
 
-
+        {{user.birthDate|date:"yyyy-MM-dd"}}
         <div class="form-group">
             <label>BirthDate</label>
-            <input formControlName="birthDate" type="date" class="form-control" />
+            <input formControlName="birthDate" type="date" class="form-control"
+            [(ngModel)]="user.birthDate"  value="2013-01-08"/>
         </div>
 
         

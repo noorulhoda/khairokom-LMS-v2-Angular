@@ -5,10 +5,8 @@
   <div class="row" style="margin:auto">
      <div class="col-lg-16 mx-auto">
        <b>select a role to show users with this role : </b>
-   <select [(ngModel)]="neededRole">
-     <option selected value="Admin">Admin</option>
-     <option value="Teacher">Teacher</option>
-     <option value="Student">Student</option>
+   <select [(ngModel)]="neededRole" >
+     <option  *ngFor = "let r of rolesList" value="{{r._id}}">{{r.type}}</option>
    </select>
    <br>
    </div>
@@ -18,7 +16,7 @@
             <!-- List group-->
             <ul class="list-group shadow" *ngFor = "let p of  userList">
                 <!-- list group item-->
-                <li class="list-group-item" *ngIf='p.role==neededRole'>
+                <li class="list-group-item" *ngIf='p.roles.includes(neededRole)'>
                     <!-- Custom content-->
                     <div class="media align-items-lg-center flex-column flex-lg-row p-3">
                         <div class="media-body order-2 order-lg-1">
@@ -26,6 +24,7 @@
                             <p class="font-italic text-muted mb-0 small">{{p.email}}</p>
                             <div class="d-flex align-items-center justify-content-between mt-1">
                                 <h6 class="font-weight-bold my-2"> usererID : {{p.userId}} </h6>
+                                <a routerLink="/profile/{{p._id}}">go to profile </a>
                             </div>
                         </div><img src={{p.img}} alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
                     </div> <!-- End -->

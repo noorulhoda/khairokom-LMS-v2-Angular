@@ -3,7 +3,11 @@
 //     font-family: Almarai;
 //     src: url(../Fonts/Almarai-Regular.ttf);
 //   }
-@import "~bootstrap/dist/css/bootstrap.css";
+// @import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap/dist/css/bootstrap-grid.css";
+@import "~bootstrap/dist/css/bootstrap-reboot.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
 *{margin: 0; padding: 0; box-sizing: border-box;}
 body{background-image: linear-gradient(rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.86))
     , url('assets/images/body-image.jpg');}

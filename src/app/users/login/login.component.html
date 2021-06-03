@@ -1,31 +1,48 @@
-
-<div class="container">
-    <h2>Login Form</h2>
-    <form [formGroup]="loginForm">
-        {{loginForm.value |json}}
-        <div class="form-group">
-            <label>User Name</label>
-            <input formControlName="userName" [class.is-invalid]="userName.invalid && userName.touched" type="text"
-                class="form-control" />
-            <div *ngIf=" userName.errors && (userName.invalid && userName.touched)">
-                <small class="text-danger" *ngIf="userName.errors?.required">
-                    User name is required
-                </small>
-                <small class="text-danger" *ngIf="userName.errors.minlength">
-                    Min length is 5
-                </small>
-                <small *ngIf="userName.errors?.forbiddenName">
-                    {{userName.errors?.forbiddenName.value}} is not allowed
-                </small>
+<div class="login">
+  <div class="container">
+    <div class="row">
+      <div class="form col-sm-5">
+        <h2>استمارة الدخول</h2>
+        <form [formGroup]="loginForm">
+          <!-- {{ loginForm.value | json }} -->
+          <div class="form-group">
+            <!-- <label></label> -->
+            <input
+              formControlName="userName"
+              [class.is-invalid]="userName.invalid && userName.touched"
+              type="text"
+              class="form-control mt-5"
+              placeholder="اسمك"
+            />
+            <div
+              *ngIf="userName.errors && userName.invalid && userName.touched"
+            >
+              <small class="text-danger" *ngIf="userName.errors?.required">
+                User name is required
+              </small>
+              <small class="text-danger" *ngIf="userName.errors.minlength">
+                Min length is 5
+              </small>
+              <small *ngIf="userName.errors?.forbiddenName">
+                {{ userName.errors?.forbiddenName.value }} is not allowed
+              </small>
             </div>
-
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input formControlName="password" type="password" class="form-control" />
-        </div>
-       
-        <button type="submit" class="btn btn-success" (click)="submit()">Login
-
-        </button>
-    </form>
+          </div>
+          <div class="form-group">
+            <!-- <label>Password</label> -->
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control mt-4"
+              placeholder="رقمك السري"
+            />
+          </div>
+          
+          <button type="submit" class="btn btn-success mt-4" (click)="submit()">
+            الدخول
+          </button>
+        </form>
+      </div>     
+    </div>
+  </div>
+</div>

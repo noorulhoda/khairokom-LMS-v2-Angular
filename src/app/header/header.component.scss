@@ -1,5 +1,22 @@
-.icons {direction: rtl;}
-.auth-items {display: flex; justify-content: space-between;}
+.navbar {    
+    z-index: 10;
+    text-align: right;
+    // background-color: #04AA6D;
+    // box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    color: #fff;    
+    direction: rtl;   
+}
+.navbar .logo {color: #04AA6D;}
+
+.navbar a {
+    color: #fff; 
+    font-size: 18px;
+}
+.navbar a:hover {color: #04AA6D;}
+.navbar .collapse .navbar-nav {margin-left: 330px;}
+
+// .icons {direction: rtl;}
+// .auth-items {display: flex; justify-content: space-between;}
 // .header-blue {
 //     background: linear-gradient(135deg, #fe2929, #ffb3c5);
 //     background-color: #184e8e;

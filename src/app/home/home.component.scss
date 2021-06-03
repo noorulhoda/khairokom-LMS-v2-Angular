@@ -1,212 +1,141 @@
-.navbar {    
-    z-index: 10;
-    overflow-x: hidden;
+.slideshow{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+    margin-top: -110px;
+}
+
+.slideshow .slideshow-item{
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    opacity: 0;
+    animation: cycleImages 31s infinite;
+}
+.slideshow .slideshow-item:nth-child(1), .slideshow .slideshow-item:nth-child(1) img
+{
+    animation-delay: 0s;
+}
+.slideshow .slideshow-item:nth-child(2), .slideshow .slideshow-item:nth-child(2) img
+{
+    animation-delay: 10s;
+}
+.slideshow .slideshow-item:nth-child(3), .slideshow .slideshow-item:nth-child(3) img
+{
+    animation-delay: 20s;
+}
+
+.slideshow .slideshow-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoom 31s infinite;
+}
+
+// .slideshow .slideshow-item .slideshow-item-text{}
+
+.slideshow .slideshow-item .center-text{
+    max-width: 65%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);        
+    padding: 3% 3%;
+    border-radius: 8px;
+    // border: 2px solid #000;
+
+}
+
+.slideshow .slideshow-item .right-text .inside{margin-top: 70px;}
+
+.slideshow .slideshow-item .right-text{
+    max-width: 25%;
+    height: 100vh;
     text-align: right;
-    background-color: rgba(255, 255, 255, 0);
-    color: #fff;    
-    direction: rtl;   
-    padding-top: 10px; 
-}
-.navbar a {color: #fff;}
-.navbar .collapse .navbar-nav  {position: absolute; right: 100px;}
-.navbar .collapse .form-inline {position: absolute; left: 0px;}
-
-.pic-wrapper {
-//   position: absolute;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  margin-top: -60px;
+    position: absolute;
+    top: 0%;
+    right: 0%;    
+    background-color:rgba(0, 0, 0, 0.8);   
+    color: #fff; 
+    padding: 60px;    
 }
 
-figure {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  opacity: 0;
-  /*animation*/
-
-  animation: slideShow 24s linear infinite 0s;
-  -o-animation: slideShow 24s linear infinite 0s;
-  -moz-animation: slideShow 24s linear infinite 0s;
-  -webkit-animation: slideShow 24s linear infinite 0s;
-}
-
-figurecaption {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  color: #fff;
-}
-
-.pic-1 {
-  opacity: 1;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2)), 
-  url(https://t3.ftcdn.net/jpg/04/06/03/74/360_F_406037462_LRNAGDjiklY3d6qHaptjJntoAG6GuxM6.jpg)
-    no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.pic-1 .hadeth .first {
+.slideshow .slideshow-item .slideshow-item-text .first {
     font-size: 30px; 
     color: #04AA6D;
 }
-.pic-1 .hadeth .second{
+.slideshow .slideshow-item .slideshow-item-text .second {
     font-size: 60px;
     color: #fff;
 }
-.pic-1 .hadeth .third{
+
+.slideshow .slideshow-item .slideshow-item-text .third, .slideshow .slideshow-item .right-text p{
     font-size: 20px;
     color: #88897D;
 }
 
-.pic-2 {
-  animation-delay: 6s;
-  -o-animation-delay: 6s;
-  -moz--animation-delay: 6s;
-  -webkit-animation-delay: 6s;
-  background: url(https://cdn.funeralwise.com/wp-content/uploads/2007/05/Islam_Customs-475460738.jpg)
-    no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  text-align: right;
-  direction: rtl;
-}
-.pic-2 .study-ways, .pic-3 .registration{
-    background: rgba(0, 0, 0, 0.5);    
-    color: #fff;
-    font-size: 18px;
-    line-height: 30px;    
-    height: 100vh;
-    padding: 80px;    
+@keyframes cycleImages {
+    25%{
+        opacity: 1;
+    }
+    40%{
+        opacity: 0;
+    }
 }
 
-.pic-3 {
-  animation-delay: 12s;
-  -o-animation-delay: 12s;
-  -moz--animation-delay: 12s;
-  -webkit-animation-delay: 12s;
-  background: url(https://img.freepik.com/free-photo/muslim-boy-having-worship-praying-fasting-eid-islamic-culture-mosque_73899-1334.jpg?size=626&ext=jpg)
-    no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  text-align: right;
-  direction: rtl;
+@keyframes zoom{
+    100%{
+        transform: scale(1.5);
+    }
 }
 
-.pic-4 {
-  animation-delay: 18s;
-  -o-animation-delay: 18s;
-  -moz--animation-delay: 18s;
-  -webkit-animation-delay: 18s;
-  background: url(https://pw-prod.s3.amazonaws.com/userfiles/23875/upload/b7e801da-05bb-4bc3-a26c-790be8849dd1.jpg)
-    no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+@media screen and (max-width: 1000px){
+    .slideshow .slideshow-item .right-text{
+        max-width: 30%;                
+    }
 }
-/* keyframes*/
 
-@keyframes slideShow {
-  0% {
-    opacity: 0;
-    transform: scale(1);
-    -ms-transform: scale(1);
-  }
-  5% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 1;
-  }
-  30% {
-    opacity: 0;
-    transform: scale(1.1);
-    -ms-transform: scale(1.1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-    -ms-transformm: scale(1);
-  }
+@media screen and (max-width: 800px){
+    .slideshow .slideshow-item .right-text{
+        max-width: 40%;        
+    }
 }
-@-o-keyframes slideShow {
-  0% {
-    opacity: 0;
-    -o-transform: scale(1);
-  }
-  5% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 1;
-  }
-  30% {
-    opacity: 0;
-    -o-transform: scale(1.1);
-  }
-  100% {
-    opacity: 0;
-    -o-transformm: scale(1);
-  }
+@media screen and (max-width: 600px){
+    .slideshow .slideshow-item .right-text{
+        max-width: 50%; 
+        padding: 20px;       
+    }
 }
-@-moz-keyframes slideShow {
-  0% {
-    opacity: 0;
-    -moz-transform: scale(1);
-  }
-  5% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 1;
-  }
-  30% {
-    opacity: 0;
-    -moz-transform: scale(1.1);
-  }
-  100% {
-    opacity: 0;
-    -moz-transformm: scale(1);
-  }
+
+
+.categoryOnline {
+    margin-top: 10%; 
+    background-color: rgba(255, 255, 255, 0.7); 
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); 
+    padding: 50px;
 }
-@-webkit-keyframes slideShow {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(1);
-  }
-  5% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 1;
-  }
-  30% {
-    opacity: 0;
-    -webkit-transform: scale(1.1);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transformm: scale(1);
-  }
+.categoryOnline .button, .contact-us .form button{
+    background-color: rgba(4, 170, 109, 0.5);  
+    color: #fff;    
 }
-.categoryOnline {margin-top: 7%; background-color: #fff; padding: 30px;}
-.categoryOnline .button, .courseOnline .button{background-color: #04AA6D; color: #fff;}
-.courseOnline {margin-top: 7%; background-color: #fff; padding: 30px;}
+.categoryOnline .button:hover, .contact-us .form button:hover {
+    background-color: #04AA6D; 
+}
+.courseOnline {
+    margin-top: 10%; 
+    background-color: rgba(4, 170, 109, 0.5); 
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); 
+    padding: 50px;
+}
+
+.contact-us {margin-top: 10%; text-align: right; direction: rtl; background-color: #fff; padding: 50px; color: #333;}
+.contact-us .form h2 {border-bottom: 2px solid #04AA6D; display: inline-block; padding-bottom: 8px;}
+.contact-us .form p {line-height: 30px;}
+.contact-us .form input, .contact-us .form textarea {border: none; background-color: rgba(4, 170, 109, 0.1);}
+.contact-us .form input:hover, .contact-us .form textarea:hover {box-shadow: 0px 0px 8px rgba(4, 170, 109, 0.3);}
+.contact-us .info {padding-right: 50px;}
+.contact-us .info span{font-size: 20px; font-weight: bold; color: #88897D;}
+.contact-us .form button {padding: 10px 30px; border-radius: 8px;}

@@ -1,0 +1,13 @@
+.login { 
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.5)), url('https://rassd.com/wp-content/uploads/quran-scaled-1.jpeg') center center no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    direction: rtl;
+    text-align: right;
+}
+.login .form {    
+    // padding: 7%;
+    margin-top: 15%;
+    color: #fff;
+}

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { RolesService } from 'src/app/services/roles.service';
 import { UsersService } from 'src/app/services/users.service';
 import { Iuser } from 'src/app/shared/Iuser';
 import { ConfirmPassword } from '../../misMatch.validator';
@@ -13,8 +15,11 @@ import { ForbiddenNameValidator } from '../../username.validatior';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private fb:FormBuilder,private userService:UsersService,private router: Router) { }
-  ngOnInit(): void {}
+  constructor(private fb:FormBuilder,private userService:UsersService,private roleService:RolesService,private router: Router) { }
+  ngOnInit(): void {
+ 
+  }
+
   registerForm=this.fb.group({
     firstName:['',[Validators.required,Validators.minLength(5)]],
     lastName:['',[Validators.required,Validators.minLength(5)]],
@@ -24,10 +29,12 @@ export class RegisterComponent implements OnInit {
     email:[''],
     roles:[[]],
     gender:[''],
-    age:[''],
+    birthDate:[],
+    phone:[''],
+    country:[''],
     img:[''],
-    // joinedClasses:[''],
-    // teachedCourses:['']
+    joinedClasses:[[]],
+    teachedCourses:[[]]
   },{validators:[ConfirmPassword]});
 
 
@@ -79,22 +86,42 @@ export class RegisterComponent implements OnInit {
   }
 token='';
 
+
+
+
+
+
+
+
+
+chosenRoleId='';
+rolesList=[];
+
 submit()
 {  
+  this.roleService.findByRoleType("Teacher").subscribe(
+    data=>
+    {
+    this.chosenRoleId=data[0]._id
+    //console.log(data)
+      }
+    );
+  this.rolesList=[this.chosenRoleId];
+
     var user: Iuser = {
     userName: this.userName?.value,
     firstName:this.firstName?.value,
     lastName:this.lastName?.value,
     password:this.password?.value,
     email:this.email?.value,
-    roles:this.roles?.value,
+    roles:this.rolesList,
     gender:this.gender?.value,
     birthDate:this.birthDate?.value,
     img:this.img?.value,
     phone:this.phone?.value,
     country:this.country?.value
-    // joinedClasses:this.joinedClasses?.value,
-    // teachedCourses:this.teachedCourses?.value
+    //joinedClasses:this.joinedClasses?.value,
+    //teachedCourses:this.teachedCourses?.value
   }
   console.log(user)
   this.userService.Register(user).subscribe(
@@ -112,11 +139,29 @@ submit()
    
 }
 
+  d= new Date(1999,2,11);
+  loadApiData()
+  {
+   
+  
+      this.registerForm.patchValue({
+      firstName:"ahmad",
+      lastName:"aliiiiii",
+      userName:"AhmadAli",
+      password:"123456789",
+      confirmPassword:"123456789",
+      email:"n@n.com",
+      gender:"Male",
+      img:"image",
+      roles:"Student",
+      birthdate:this.d,
+      //joinedClasses:this.user.joinedClasses,
+      //teachedCourses:this.user.teachedCourses,
+      phone:"1223456789",
+      country:"Egypt"
+    })
+  }
 
 
 
 }
-
-
-  
-  

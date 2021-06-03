@@ -12,7 +12,7 @@ export interface Iuser{
     birthDate:Date;
     country:string;
     phone:string;
-    roles:Irole[];
+    roles:string[];
     joinedClasses?:Iclass[],
     teachedCourses?:Icourse[]
 }

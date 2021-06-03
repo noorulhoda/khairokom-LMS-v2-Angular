@@ -83,6 +83,7 @@ import { AddSessionComponent } from './Session/add-session/add-session.component
 import { GetAllSessionsComponent } from './Session/get-all-sessions/get-all-sessions.component';
 import { GetSessionByIdComponent } from './Session/get-session-by-id/get-session-by-id.component';
 import { UpdateSessionComponent } from './Session/update-session/update-session.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   imports: [
@@ -90,6 +91,7 @@ import { UpdateSessionComponent } from './Session/update-session/update-session.
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
+    MDBBootstrapModule.forRoot()
   ],
   // ...
 })

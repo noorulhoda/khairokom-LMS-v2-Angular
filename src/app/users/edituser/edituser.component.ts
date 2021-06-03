@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as moment from 'moment';
 import { UsersService } from '../../services/users.service';
 import{Iuser} from '../../shared/Iuser'
 @Component({
@@ -23,7 +24,9 @@ export class EdituserComponent implements OnInit {
       email:[''],
       role:[''],
       gender:[''],
-      age:[''],
+      birthDate:[''],
+      phone:[''],
+      country:[''],
       img:[''],
       joinedClasses:[''],
       teachedCourses:['']
@@ -104,7 +107,8 @@ export class EdituserComponent implements OnInit {
       email:this.user.email,
       gender:this.user.gender,
       img:this.user.img,
-      birthdate:this.user.birthDate,
+      //how??
+      birthDate:moment(this.user.birthDate,"MM/dd/YYYY"),
       joinedClasses:this.user.joinedClasses,
       teachedCourses:this.user.teachedCourses,
       phone:this.user.phone,

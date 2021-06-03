@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit {
   pannerSrc="https://i.imgur.com/bkCeTu7.png";
 
   ngOnInit(): void {
-    localStorage.setItem('currentUser','guest')
     this.findCurrentUser();
   }
   logout(){
@@ -27,7 +26,7 @@ export class HeaderComponent implements OnInit {
   }
   currentUserName:string;
   currentUser:Iuser;
-  currentUserRole:Irole[];
+  currentUserRole:string[];
   findCurrentUser(){
     this.currentUserName=localStorage.getItem('currentUser');
     this.userService.findByUserName(this.currentUserName).subscribe(

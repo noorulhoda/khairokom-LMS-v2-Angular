@@ -18,8 +18,9 @@ export class ProfileComponent implements OnInit {
     console.log(params) //log the entire params object
     this.id=params['id'] //log the value of id
     console.log('id : '+(this.id));
+    this.sureDelete=false;
    });
-
+   
    this.userservice.getUserById(this.id).subscribe(
     
        data => {this.user= data[0]; console.log(this.id);console.log(this.user);},
@@ -27,9 +28,14 @@ export class ProfileComponent implements OnInit {
      );
      console.log(this.user)
    }
-
+   sureDelete;
    delete(){
-    this.userservice.deleteUser(this.id)
+     if(!this.sureDelete){
+     alert(" سوف تقوم بحذف حسابك إذا كنت متأكدا أغلق هذه النافذة واضغط مرة أخرى  على زر الحذف ")
+     this.sureDelete=true; 
+    }
+     else{
+     this.userservice.deleteUser(this.id)
     .subscribe(
       data => {
         this.router.navigateByUrl("/home")
@@ -37,7 +43,7 @@ export class ProfileComponent implements OnInit {
       error => {
         console.log("errooorrrrr-_-"+ error)
       }
-    );  }
+    ); } }
  
 }
 

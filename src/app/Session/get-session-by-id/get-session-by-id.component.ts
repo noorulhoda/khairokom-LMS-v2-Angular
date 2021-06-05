@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { classService } from 'src/app/services/class.service';
 import { SessionService } from 'src/app/services/session.service';
 import { Isession } from 'src/app/shared/Isession';
 
@@ -10,7 +11,7 @@ import { Isession } from 'src/app/shared/Isession';
 })
 export class GetSessionByIdComponent implements OnInit {
 
-  constructor( private sessionService:SessionService,private route:ActivatedRoute,
+  constructor(private classService:classService, private sessionService:SessionService,private route:ActivatedRoute,
     private router:Router) { }
 
   session:Isession;

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { categoryService } from 'src/app/services/class.service';
+import { classService } from 'src/app/services/class.service';
 import { Router } from '@angular/router';
 import { Iclass } from 'src/app/shared/Iclass';
+import { courseService } from 'src/app/services/course.service';
+import { UsersService } from 'src/app/services/users.service';
+import { RolesService } from 'src/app/services/roles.service';
 
 @Component({
   selector: 'app-add-class',
@@ -10,10 +13,32 @@ import { Iclass } from 'src/app/shared/Iclass';
   styleUrls: ['./add-class.component.scss']
 })
 export class AddClassComponent implements OnInit {
-
-  constructor(private cs:categoryService,private fb:FormBuilder,private router:Router) { }
-
+  courses;usersList;teachersList=[];teacherRole="60b79235865a7e0ac79fdb85";
+  constructor(private roleService:RolesService,private userService:UsersService,private classservice:classService,private courseService:courseService,private fb:FormBuilder,private router:Router)
+  {
+    courseService.GetAllCourses().subscribe(
+      data => {
+        this.courses = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+     userService.GetAllusers().subscribe(
+       data=>{
+          this.usersList=data
+          
+          this.usersList.forEach(user => {
+            if(user.roles.includes(this.teacherRole))
+               this.teachersList.push(user);
+          });
+       }
+     )
+  
+    } 
   ngOnInit(): void {
+   
   }
   addForm=this.fb.group(
     {
@@ -26,8 +51,8 @@ export class AddClassComponent implements OnInit {
     StartDate:['',[Validators.required]],
     EndDate:['',[Validators.required]],
     CourseId:['',[Validators.required]],
-    TeacherId:['',[Validators.required]],
-    Students:['',[Validators.required]]
+    TeacherId:[''],
+    Students:[[],[Validators.required]]
    });
 
    get Number()
@@ -91,7 +116,9 @@ export class AddClassComponent implements OnInit {
        Students:this.Students?.value
       
     }
-    this.cs.AddClass(clas).subscribe(
+    console.log(clas)
+    console.log(this.teachersList);
+    this.classservice.AddClass(clas).subscribe(
       data => {
         this.router.navigateByUrl("/home")
       },

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { categoryService } from 'src/app/services/class.service';
+import { classService } from 'src/app/services/class.service';
 import { Iclass } from 'src/app/shared/Iclass';
 
 @Component({
@@ -10,7 +10,7 @@ import { Iclass } from 'src/app/shared/Iclass';
 })
 export class GetClassByIDComponent implements OnInit {
 
-  constructor(private cs:categoryService,private route:ActivatedRoute,private router:Router) { }
+  constructor(private cs:classService,private route:ActivatedRoute,private router:Router) { }
   clas:Iclass;
   id:string='defaultID';
   errMsg='errroor';

@@ -1,5 +1,6 @@
 <br/>
  <div class="row" >
+   <button class="btn btn-success"routerLink="/addClass"> add class</button>
     <div  *ngFor="let class of classList">
       <div class="card" style="float:right;margin-left: 40px; width: 250px; height: 280px;">
         <h5 class="card-title">Number : {{class.Number}}</h5>
@@ -12,7 +13,7 @@
         <h6 class="card-subtitle mb-2 text-muted">EndDate:{{class.EndDate}}</h6>
       <br>
         <br>
-        <a class="btn btn-primary"  routerLink="/GetClassByID/{{class._id}}">Show Details</a>                      
+        <a class="btn btn-primary"  routerLink="/getClassById/{{class._id}}">Show Details</a>                      
       </div>
       <br>
     </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { categoryService } from 'src/app/services/class.service';
+import { classService } from 'src/app/services/class.service';
 import { Iclass } from 'src/app/shared/Iclass';
 
 @Component({
@@ -12,7 +12,7 @@ export class GetAllClassesComponent implements OnInit {
   classList:Iclass[]=[];
   errorMsg:any;
   selectedID:any;
-  constructor(private cs:categoryService,private router:Router,private activeRouter:ActivatedRoute) { }
+  constructor(private cs:classService,private router:Router,private activeRouter:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.cs.GetAllclass().subscribe(

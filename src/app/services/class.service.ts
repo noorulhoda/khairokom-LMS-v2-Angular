@@ -11,7 +11,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class categoryService {
+export class classService {
 url=classController.GetAllClasses;//api/user
   constructor(private http:HttpClient) { 
   
@@ -34,7 +34,7 @@ url=classController.GetAllClasses;//api/user
 
   AddClass(clas: Iclass): Observable<any> {
     return this.http.post(this.url,clas,httpOptions).pipe(catchError(err => {
-        return throwError(err.message || "Internal Server error contact site adminstarator")
+        return throwError(err.message )
     }));
 }
 updateClass(id, clas): Observable<any> {

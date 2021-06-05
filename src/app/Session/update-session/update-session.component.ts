@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { classService } from 'src/app/services/class.service';
 import { SessionService } from 'src/app/services/session.service';
 import { Isession } from 'src/app/shared/Isession';
 
@@ -10,13 +11,25 @@ import { Isession } from 'src/app/shared/Isession';
   styleUrls: ['./update-session.component.scss']
 })
 export class UpdateSessionComponent implements OnInit {
-
+classes;
   constructor(private fb:FormBuilder,private sessionService:SessionService,
-    private route:ActivatedRoute,private router:Router) { }
+    private classService:classService,private route:ActivatedRoute,private router:Router) 
+    {
+      classService.GetAllclass().subscribe(
+        data => {
+          this.classes = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+      
+      } 
 
     updateForm=this.fb.group({  
       sessionNumber:['',[Validators.required,Validators.minLength(5)]],
-      classID:[''],
+      classId:[''],
       startTime:[''],
       endTime:[''],
     });
@@ -25,9 +38,9 @@ export class UpdateSessionComponent implements OnInit {
     {
       return this.updateForm.get('sessionNumber');
     }
-    get classID()
+    get classId()
     {
-      return this.updateForm.get('classID');
+      return this.updateForm.get('classId');
     }
  
     get startTime()
@@ -46,9 +59,8 @@ export class UpdateSessionComponent implements OnInit {
     loadApiData()
     {
         this.updateForm.patchValue({
-     
         sessionNumber:this.session.sessionNumber,
-        classID:this.session.classID,
+        classId:this.session.classId,
         startTime:this.session.startTime,
         endTime:this.session.endTime,        
       })
@@ -76,7 +88,7 @@ export class UpdateSessionComponent implements OnInit {
    {  
      var newSession: Isession = {
       sessionNumber:this.sessionNumber?.value,
-      classID:this.classID?.value,
+      classId:this.classId?.value,
       startTime:this.startTime?.value,
       endTime:this.endTime?.value,         
    }

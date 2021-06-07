@@ -7,12 +7,8 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flower_July_2011-2_1_cropped.jpg/1200px-Flower_July_2011-2_1_cropped.jpg" alt=""/>
+                            <img src="https://khairokomuploadfiles.azurewebsites.net/files/{{user.img}}" alt=""/>
                             <!-- <img src="{{user.img}}" alt=""/> -->
-                            <div  class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -29,9 +25,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                      <a class="btn btn-warning" routerLink="/editUser/{{id}}" style="cursor: pointer;" >  Edit Profile  </a> 
-                    </div>
+                   
                 </div>
                 <div class="row">
                     <div class="col-md-4">
@@ -90,6 +84,8 @@
                                                 <p>{{user.roles}}</p>
                                             </div>
                                         </div>
+                                        <a class="btn btn-warning" routerLink="/updateUser/{{id}}" >  Edit Profile  </a> 
+                    
                                         <a class="btn btn-primary " (click)="delete()" >Remove Account</a>
                            
                               

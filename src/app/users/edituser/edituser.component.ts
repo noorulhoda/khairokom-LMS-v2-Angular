@@ -1,7 +1,10 @@
+import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
+import { Observable } from 'rxjs';
+import { UploadService } from 'src/app/services/upload.service';
 import { UsersService } from '../../services/users.service';
 import{Iuser} from '../../shared/Iuser'
 @Component({
@@ -10,9 +13,14 @@ import{Iuser} from '../../shared/Iuser'
   styleUrls: ['./edituser.component.scss']
 })
 export class EdituserComponent implements OnInit {
- 
+  chosenFiles: FileList;
+  existingFile: File;
+  progress = 0;
+  msg = '';
+  FileDetail: Observable<any>;
+  fileName:string;
 
-   constructor(private fb:FormBuilder,private userservice:UsersService,private route:ActivatedRoute,private router:Router) {
+   constructor(private uploadService: UploadService,private fb:FormBuilder,private userservice:UsersService,private route:ActivatedRoute,private router:Router) {
    }
     
     registerForm=this.fb.group({
@@ -77,10 +85,6 @@ export class EdituserComponent implements OnInit {
     return this.registerForm.get('gender');
   }
 
-  get img()
-  {
-    return this.registerForm.get('img');
-  }
   get phone()
   {
     return this.registerForm.get('phone');
@@ -107,17 +111,22 @@ export class EdituserComponent implements OnInit {
       email:this.user.email,
       gender:this.user.gender,
       img:this.user.img,
-      //how??
-      birthDate:moment(this.user.birthDate,"MM/dd/YYYY"),
+      //how to show on date input??
+      birthDate:this.user.birthDate,
       joinedClasses:this.user.joinedClasses,
       teachedCourses:this.user.teachedCourses,
       phone:this.user.phone,
       country:this.user.country
     })
+    this.fileName=this.user.img;
+
+
   }
 
   ngOnInit(): void 
   {
+    this.FileDetail = this.uploadService.getFiles();
+  
       this.route.queryParamMap.subscribe((params: any) => this.id=params.params.id);   
       this.route.params.subscribe(params => {
       console.log(params) //log the entire params object
@@ -146,7 +155,7 @@ update()
     roles:this.user.roles,
     gender:this.gender?.value,
     birthDate:this.birthDate?.value,
-    img:this.img?.value,
+    img:this.fileName,
     joinedClasses:this.joinedClasses?.value,
     teachedCourses:this.teachedCourses?.value,
     phone:this.phone?.value,
@@ -165,6 +174,45 @@ update()
     }
   );  
 }
+
+
+
+
+
+
+
+
+
+
+chooseFile(event): void {
+  this.chosenFiles = event.target.files;
+}
+
+upload(): void {
+  this.progress = 0;
+
+  this.existingFile = this.chosenFiles.item(0);
+
+  this.uploadService.uploadFile(this.existingFile).subscribe( (event) => {
+      if (event.type === HttpEventType.UploadProgress) {
+        this.progress = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        this.msg = event.body.message;
+        this.FileDetail = this.uploadService.getFiles();
+        this.fileName=this.existingFile.name;
+      }
+    }, (error) => {
+      this.progress = 0;
+      this.msg = 'Error occured while uploading file';
+      this.existingFile = undefined;
+    });
+
+  this.chosenFiles = undefined;
+}  
+
+
+
+
 
 
 }

@@ -23,6 +23,7 @@ import { GetSessionByIdComponent } from './Session/get-session-by-id/get-session
 import { GetAllSessionsComponent } from './Session/get-all-sessions/get-all-sessions.component';
 import { AddSessionComponent } from './Session/add-session/add-session.component';
 import { UpdateSessionComponent } from './Session/update-session/update-session.component';
+import { UploadComponent } from './upload/upload.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -34,7 +35,7 @@ const routes: Routes = [
   {path:'addCourse',component:AddComponent},
   {path:'addCategory',component:AddCateogryComponent},
   {path:'getAllCategories',component:GetAllCateogriesComponent},
-  {path:'getCateogryByID/:id',component:GetCateogryByIDComponent},
+  {path:'getCateogryById/:id',component:GetCateogryByIDComponent},
   {path:'updateCategory/:id',component:UpdateCategoryComponent},
   {path:'AddClass',component:AddClassComponent},
   {path:'getAllClasses',component:GetAllClassesComponent},
@@ -48,8 +49,9 @@ const routes: Routes = [
   {path:'getSessionById/:id',component:GetSessionByIdComponent},
   {path:'getAllSessions',component:GetAllSessionsComponent},
   {path:'addSession',component:AddSessionComponent},
+  {path:'upload',component:UploadComponent},
   {path:'**',component:NotFoundComponent}
-   
+  
 ];
 
 @NgModule({

@@ -71,10 +71,6 @@ export class RegisterComponent implements OnInit {
   {
     return this.registerForm.get('role');
   }
-  get img()
-  {
-    return this.registerForm.get('img');
-  }
 
   get phone()
   {
@@ -117,7 +113,7 @@ submit()
     roles:this.rolesList,
     gender:this.gender?.value,
     birthDate:this.birthDate?.value,
-    img:this.img?.value,
+    img:"newUser.jpg",
     phone:this.phone?.value,
     country:this.country?.value
     //joinedClasses:this.joinedClasses?.value,

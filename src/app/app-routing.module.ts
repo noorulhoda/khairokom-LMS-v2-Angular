@@ -19,29 +19,39 @@ import { EdituserComponent } from './users/edituser/edituser.component';
 import { EditCourseComponent } from './Course/edit-course/edit-course/edit-course.component';
 import { GetAllCoursesComponent } from './Course/get-all-courses/get-all-courses/get-all-courses.component';
 import { CourseDetailsComponent } from './Course/course-details/course-details/course-details.component';
+import { GetSessionByIdComponent } from './Session/get-session-by-id/get-session-by-id.component';
+import { GetAllSessionsComponent } from './Session/get-all-sessions/get-all-sessions.component';
+import { AddSessionComponent } from './Session/add-session/add-session.component';
+import { UpdateSessionComponent } from './Session/update-session/update-session.component';
+import { UploadComponent } from './upload/upload.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
-  {path:'editUser/:id',component:EdituserComponent},
-  {path:'allUsers',component:GetAllComponent},
+  {path:'updateUser/:id',component:EdituserComponent},
+  {path:'getAllUsers',component:GetAllComponent},
   {path:'home',component:HomeComponent},  
   {path:'addCourse',component:AddComponent},
   {path:'addCategory',component:AddCateogryComponent},
-  {path:'GetAllCateogries',component:GetAllCateogriesComponent},
-  {path:'GetCateogryByID/:id',component:GetCateogryByIDComponent},
-  {path:'UpdateCategory/:id',component:UpdateCategoryComponent},
+  {path:'getAllCategories',component:GetAllCateogriesComponent},
+  {path:'getCateogryById/:id',component:GetCateogryByIDComponent},
+  {path:'updateCategory/:id',component:UpdateCategoryComponent},
   {path:'AddClass',component:AddClassComponent},
-  {path:'GetAllClasses',component:GetAllClassesComponent},
-  {path:'GetClassByID/:id',component:GetClassByIDComponent},
-  {path:'UpdateClass/:id',component:UpdateClassComponent},
-  {path:'EditCourse/:id',component:EditCourseComponent},
+  {path:'getAllClasses',component:GetAllClassesComponent},
+  {path:'getClassById/:id',component:GetClassByIDComponent},
+  {path:'updateClass/:id',component:UpdateClassComponent},
+  {path:'updateCourse/:id',component:EditCourseComponent},
+  {path:'updateSession/:id',component:UpdateSessionComponent},
   {path:'profile/:id',component:ProfileComponent},
-  {path:'course',component:GetAllCoursesComponent},
-  {path:'CourseDetails/:id',component:CourseDetailsComponent},
+  {path:'getAllCourses',component:GetAllCoursesComponent},
+  {path:'getCourseById/:id',component:CourseDetailsComponent},
+  {path:'getSessionById/:id',component:GetSessionByIdComponent},
+  {path:'getAllSessions',component:GetAllSessionsComponent},
+  {path:'addSession',component:AddSessionComponent},
+  {path:'upload',component:UploadComponent},
   {path:'**',component:NotFoundComponent}
-   
+  
 ];
 
 @NgModule({

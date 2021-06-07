@@ -36,7 +36,8 @@ import {HttpClientModule} from '@angular/common/http';
     AddSessionComponent,
     GetAllSessionsComponent,
     GetSessionByIdComponent,
-    UpdateSessionComponent
+    UpdateSessionComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +84,7 @@ import { AddSessionComponent } from './Session/add-session/add-session.component
 import { GetAllSessionsComponent } from './Session/get-all-sessions/get-all-sessions.component';
 import { GetSessionByIdComponent } from './Session/get-session-by-id/get-session-by-id.component';
 import { UpdateSessionComponent } from './Session/update-session/update-session.component';
-
+import {UploadComponent} from './upload/upload.component';
 @NgModule({
   imports: [
     BrowserModule,

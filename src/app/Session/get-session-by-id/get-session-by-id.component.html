@@ -1,1 +1,66 @@
-<p>get-session-by-id works!</p>
+
+
+
+<div class="container emp-profile">
+    <form method="post">
+      
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+            
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                              
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>SessionNumber</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{session.sessionNumber}}</p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>From:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{session.startTime}}</p>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>To:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{session.endTime}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Class:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{session.classId}}</p>
+                                    </div>
+                                </div>
+
+
+                                         
+                                <div style="float: left;margin-left: 10px;"><a class="btn btn-secondary " (click)="delete()" >Remove</a></div>
+                                <div style="float: left;margin-left: 10px;"><a class="btn btn-warning"  routerLink="/updateSession/{{id}}">Update</a></div>
+                                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>           
+</div>

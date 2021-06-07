@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { categoryService } from 'src/app/services/class.service';
+import { classService } from 'src/app/services/class.service';
+import { courseService } from 'src/app/services/course.service';
 import { Iclass } from 'src/app/shared/Iclass';
 
 @Component({
@@ -10,8 +11,21 @@ import { Iclass } from 'src/app/shared/Iclass';
   styleUrls: ['./update-class.component.scss']
 })
 export class UpdateClassComponent implements OnInit {
-
-  constructor(private fb:FormBuilder,private cs:categoryService,private route:ActivatedRoute,private router:Router) { }
+courses;
+  constructor(private fb:FormBuilder,private cs:classService,courseService:courseService,private route:ActivatedRoute,private router:Router) 
+  {
+  courseService.GetAllCourses().subscribe(
+    data => {
+      this.courses = data;
+      console.log(data);
+    },
+    error => {
+      console.log(error);
+    }
+  );
+  
+  }  
+  
   updateForm=this.fb.group({  
     Number:['',[Validators.required,Validators.minLength(5)]],
     StudentsMinAge:['',[Validators.required,Validators.minLength(5)]],
@@ -23,8 +37,9 @@ export class UpdateClassComponent implements OnInit {
     EndDate:[''],
     CourseId:[''],
     TeacherId:[''],
-    Students:['']
+    Students:[[]]
   });
+ 
   get Number()
    {
      return this.updateForm.get('Number');

@@ -14,11 +14,7 @@
             </div>
 
         </div>
-        <div class="form-group">
-            <label>image</label>
-            <input formControlName="image" type="text" class="form-control" />
-        </div>
-       
+   
         <div class="form-group">
          <label>description</label>
          <input  type="text" [class.is-invalid]="description.invalid && description.touched" formControlName="description" class="form-control">
@@ -27,11 +23,7 @@
             </small>
         </div>
 
-       <!--  <div class="form-group">
-            <label>category id</label>
-            <input formControlName="categoryID" type="text" class="form-control" />
-        </div>
-    -->
+   
     <div class="form-group">
         <label>Category: </label>
         <select class="custom-select"  formControlName="categoryID">
@@ -39,6 +31,32 @@
             </option>
         </select>
        
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="progress" *ngIf="existingFile">
+            <div
+              class="progress-bar progress-bar-striped bg-danger"
+              attr.aria-valuenow="{{ progress }}"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              [ngStyle]="{ width: progress + '%' }"
+            >
+              {{ progress }}%
+            </div>
+          </div>
+          
+          <label class="btn btn-default">
+            <input type="file" (change)="chooseFile($event)" />
+          </label>
+          <img src="https://khairokomuploadfiles.azurewebsites.net/files/{{fileName}}" height="200px" width="200px">
+          <button class="btn btn-primary" [disabled]="!chosenFiles" (click)="upload()">
+            Upload
+          </button>
+          
+          <div class="alert alert-light">{{ msg }}</div>
     </div>
 
         <input type="submit" class="btn btn-primary" value="Save" (click)="submit()">

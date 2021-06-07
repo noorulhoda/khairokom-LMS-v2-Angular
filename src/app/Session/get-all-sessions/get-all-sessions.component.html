@@ -1,1 +1,18 @@
 <p>get-all-sessions works!</p>
+
+<br/>
+<a class="btn btn-success"routerLink="/addSession">add session</a>
+<div class="row" >
+    <div  *ngFor="let session of sessionList">
+      <div class="card" style="float:right;margin-left: 40px;">
+        <img src="../../assets/images/download (2).jpg" alt="Denim Jeans" style="width:100%">
+        <h1>{{session.sessionNumber}}</h1>
+       
+        <br>
+        <a class="btn btn-primary"  routerLink="/getSessionById/{{session._id}}">Show Details</a>                      
+      </div>
+      <br>
+    </div>
+  </div>
+
+  {{errorMsg}}

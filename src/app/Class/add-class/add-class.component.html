@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label>StudentsMinAge</label>
-            <input formControlName="StudentsMinAge" [class.is-invalid]="StudentsMinAge.invalid && StudentsMinAge.touched" type="text"
+            <input type="number" formControlName="StudentsMinAge" [class.is-invalid]="StudentsMinAge.invalid && StudentsMinAge.touched"
                 class="form-control" />
             <div *ngIf=" StudentsMinAge.errors && (StudentsMinAge.invalid && StudentsMinAge.touched)">
                 <small class="text-danger" *ngIf="StudentsMinAge.errors?.required">
@@ -24,7 +24,7 @@
         </div>
         <div class="form-group">
             <label>StudentsMaxAge</label>
-            <input formControlName="StudentsMaxAge" [class.is-invalid]="StudentsMaxAge.invalid && StudentsMaxAge.touched" type="text"
+            <input type="number" formControlName="StudentsMaxAge" [class.is-invalid]="StudentsMaxAge.invalid && StudentsMaxAge.touched" 
                 class="form-control" />
             <div *ngIf=" StudentsMaxAge.errors && (StudentsMaxAge.invalid && StudentsMaxAge.touched)">
                 <small class="text-danger" *ngIf="StudentsMaxAge.errors?.required">
@@ -34,8 +34,11 @@
         </div>
         <div class="form-group">
             <label>StudentGender</label>
-            <input formControlName="StudentGender" [class.is-invalid]="StudentGender.invalid && StudentGender.touched" type="text"
-                class="form-control" />
+            <select formControlName="StudentGender" [class.is-invalid]="StudentGender.invalid && StudentGender.touched" type="text"
+                class="form-control" >
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            </select>
             <div *ngIf=" StudentGender.errors && (StudentGender.invalid && StudentGender.touched)">
                 <small class="text-danger" *ngIf="StudentGender.errors?.required">
                    is required
@@ -64,7 +67,7 @@
         </div>
         <div class="form-group">
             <label>StartDate</label>
-            <input formControlName="StartDate" [class.is-invalid]="StartDate.invalid && StartDate.touched" type="text"
+            <input type="date"   formControlName="StartDate" [class.is-invalid]="StartDate.invalid && StartDate.touched"
                 class="form-control" />
             <div *ngIf=" StartDate.errors && (StartDate.invalid && StartDate.touched)">
                 <small class="text-danger" *ngIf="StartDate.errors?.required">
@@ -74,7 +77,7 @@
         </div>
         <div class="form-group">
             <label>EndDate</label>
-            <input formControlName="EndDate" [class.is-invalid]="EndDate.invalid && EndDate.touched" type="text"
+            <input  type="date"  formControlName="EndDate" [class.is-invalid]="EndDate.invalid && EndDate.touched"
                 class="form-control" />
             <div *ngIf=" EndDate.errors && (EndDate.invalid && EndDate.touched)">
                 <small class="text-danger" *ngIf="EndDate.errors?.required">
@@ -82,6 +85,24 @@
                 </small>
             </div>
         </div>
+        <div class="form-group">
+            <label>Course: </label>
+            <select class="custom-select"  formControlName="CourseId">
+                <option *ngFor="let course of courses" value="{{course._id}}">{{course.tittle}}
+                </option>
+            </select>
+           
+        </div>
+         
+        <div class="form-group">
+            <label>Teacher: </label>
+            <select class="custom-select"  formControlName="TeacherId" >
+                <option *ngFor="let teacher of teachersList"  value="{{teacher._id}}">{{teacher.userName}}
+                </option>
+            </select>
+           
+        </div>
+
         <input type="submit" class="btn btn-primary" value="Save" (click)="submit()">
     </form>
 </div>

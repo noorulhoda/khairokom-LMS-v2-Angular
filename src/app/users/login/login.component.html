@@ -1,8 +1,8 @@
 <div class="login">
   <div class="container">
-    <div class="row">
-      <div class="form col-sm-5">
-        <h2>استمارة الدخول</h2>
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="form">
+        <h2>تسجيل الدخول</h2>
         <form [formGroup]="loginForm">
           <!-- {{ loginForm.value | json }} -->
           <div class="form-group">
@@ -12,7 +12,7 @@
               [class.is-invalid]="userName.invalid && userName.touched"
               type="text"
               class="form-control mt-5"
-              placeholder="اسمك"
+              placeholder="الاسم"
             />
             <div
               *ngIf="userName.errors && userName.invalid && userName.touched"
@@ -34,12 +34,12 @@
               formControlName="password"
               type="password"
               class="form-control mt-4"
-              placeholder="رقمك السري"
+              placeholder="كلمة السر"
             />
           </div>
           
           <button type="submit" class="btn btn-success mt-4" (click)="submit()">
-            الدخول
+            دخول
           </button>
         </form>
       </div>     

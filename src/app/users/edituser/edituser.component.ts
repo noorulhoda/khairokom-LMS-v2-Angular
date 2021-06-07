@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as moment from 'moment';
+// import * as moment from 'moment';
 import { UsersService } from '../../services/users.service';
 import{Iuser} from '../../shared/Iuser'
 @Component({
@@ -108,7 +108,7 @@ export class EdituserComponent implements OnInit {
       gender:this.user.gender,
       img:this.user.img,
       //how??
-      birthDate:moment(this.user.birthDate,"MM/dd/YYYY"),
+      // birthDate:this.user.moment(this.user.birthDate,"MM/dd/YYYY"),
       joinedClasses:this.user.joinedClasses,
       teachedCourses:this.user.teachedCourses,
       phone:this.user.phone,

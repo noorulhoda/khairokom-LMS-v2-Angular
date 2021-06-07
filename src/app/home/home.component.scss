@@ -4,9 +4,12 @@
     position: relative;
     overflow: hidden;
     background-color: black;
-    margin-top: -110px;
+    // margin-top: -110px;
+    // height: 700px;
 }
-
+@media screen and (max-width: 990px){
+    .slideshow {margin-top: 0px; height: 100vh;}
+}
 .slideshow .slideshow-item{
     width: inherit;
     height: inherit;
@@ -65,7 +68,7 @@
 
 .slideshow .slideshow-item .slideshow-item-text .first {
     font-size: 30px; 
-    color: #04AA6D;
+    color: #FFAD05;
 }
 .slideshow .slideshow-item .slideshow-item-text .second {
     font-size: 60px;
@@ -110,32 +113,111 @@
     }
 }
 
-
-.categoryOnline {
-    margin-top: 10%; 
-    background-color: rgba(255, 255, 255, 0.7); 
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); 
-    padding: 50px;
+.about-us .text .welcome{
+    font-size: 20px;
+    color: #FFAD05;
 }
-.categoryOnline .button, .contact-us .form button{
-    background-color: rgba(4, 170, 109, 0.5);  
+.about-us .text .title {
+    font-size: 40px;
+}
+.about-us .text .start {
+    font-size: 18px;
+    font-weight: bold;
+}
+.about-us .text .text-body{
+    color: #88897D;
+}
+.about-us .text .more {
+    position: relative;
+    background-color: #FFAD05;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 40px;
+    transition: all 1s ease;    
+}
+.about-us .text .more::before{
+    background-color: #333;
+    content: "";
+    width: 0%;
+    height: 100%;
+    border: 1px solid #333;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    transform: translate(0%, 0%);
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+.about-us .text .more:hover:before{
+    width: 100%;
+    color: #fff;
+    z-index: 2;
+}
+
+.categoryOnline .button, .courseOnline .button, .contact-us .form button{
+    background-color: rgba(255,173,5,0.8);  
     color: #fff;    
 }
-.categoryOnline .button:hover, .contact-us .form button:hover {
-    background-color: #04AA6D; 
-}
-.courseOnline {
-    margin-top: 10%; 
-    background-color: rgba(4, 170, 109, 0.5); 
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); 
-    padding: 50px;
+.categoryOnline .button:hover, .courseOnline .button:hover,  .contact-us .form button:hover {
+    background-color: #FFAD05; 
 }
 
-.contact-us {margin-top: 10%; text-align: right; direction: rtl; background-color: #fff; padding: 50px; color: #333;}
-.contact-us .form h2 {border-bottom: 2px solid #04AA6D; display: inline-block; padding-bottom: 8px;}
-.contact-us .form p {line-height: 30px;}
-.contact-us .form input, .contact-us .form textarea {border: none; background-color: rgba(4, 170, 109, 0.1);}
-.contact-us .form input:hover, .contact-us .form textarea:hover {box-shadow: 0px 0px 8px rgba(4, 170, 109, 0.3);}
-.contact-us .info {padding-right: 50px;}
-.contact-us .info span{font-size: 20px; font-weight: bold; color: #88897D;}
-.contact-us .form button {padding: 10px 30px; border-radius: 8px;}
+.pillars {
+    background-color: #FFAD05;  
+    margin-top: 10%;  
+}
+
+.pillars h2{
+    color: #fff;        
+}
+
+.pillars .content .title h3 {
+    font-weight: normal;
+    color: #fff;
+}
+.courseOnline {
+    margin-top: 10%;           
+    // padding: 50px;
+}
+
+i {font-size: 25px;}
+.contact-us {
+    margin-top: 10%; 
+    text-align: right; 
+    direction: rtl; 
+    background-color: #fff; 
+    padding: 50px; 
+}
+.contact-us .form h2 {
+    border-bottom: 2px solid #FFAD05; 
+    display: inline-block; 
+    padding-bottom: 8px;
+}
+.contact-us .form p {
+    line-height: 30px;
+}
+.contact-us .form input, .contact-us .form textarea {
+    border: none; 
+    background-color: rgba(255,173,5,0.5);
+}
+::placeholder{
+    color: #333;
+}
+.contact-us .form input:hover, .contact-us .form textarea:hover {
+    box-shadow: 0px 0px 8px rgba(255,173,5,0.3);
+}
+.contact-us .info {
+    padding-right: 50px;
+    background-color: #FFAD05;    
+    color: #fff;
+}
+.contact-us .info span{
+    font-size: 20px; 
+    font-weight: bold; 
+    color: #88897D;
+}
+.contact-us .form button {
+    padding: 10px 30px; 
+    border-radius: 8px;
+    width: 50%;
+}

@@ -27,8 +27,8 @@
                 </li>
             </ul>
         </nav>
-        <div id="layoutSidenav" >
-            <div id="layoutSidenav_nav" >
+        <div id="layoutSidenav" style="direction: rtl;">
+            <div id="layoutSidenav_nav" style="direction: rtl;">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
@@ -40,7 +40,7 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="">إضافة قسم</a>
+                                    <a class="nav-link" href="/AddCategoryAdmin">إضافة قسم</a>
                                     <a class="nav-link" href="">إضافة دورة تدربية</a>
                                     <a class="nav-link" href="">إضافة مستخدمين</a>
                                     <a class="nav-link" href="">إضافة حلقات</a>
@@ -61,49 +61,33 @@
                     <br>
                     <br>
                     <div class="container">
-                        <br>
-                        <form  [formGroup]="addForm" enctype="multipart/form-data" >
-                            <div class="form-group">
-                                <label>اســم القســم</label>
-                                <input formControlName="Title" [class.is-invalid]="Title.invalid && Title.touched" type="text"
-                                    class="form-control" />
-                                <div *ngIf=" Title.errors && (Title.invalid && Title.touched)">
-                                    <small class="text-danger" *ngIf="Title.errors?.required">
-                                       اسم القسم مطلوب
-                                    </small>
-                                    <small class="text-danger" *ngIf="Title.errors.minlength">
-                                       اقل عدد احرف مسموح بها 5 احروف
-                                    </small>
-                                    <small *ngIf="Title.errors?.forbiddenName">
-                                        {{Title.errors?.forbiddenName.value}} غير مسموح بيه
-                                    </small>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>الصـــورة</label>
-                                <input formControlName="Image" type="text" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>الوصـــف</label>
-                                <input formControlName="Description" [class.is-invalid]="Description.invalid && Description.touched" type="text"
-                                    class="form-control" />
-                                <div *ngIf=" Description.errors && (Description.invalid && Description.touched)">
-                                    <small class="text-danger" *ngIf="Description.errors?.required">
-                                       الوصـــف مطلوب
-                                    </small>
-                                    <small class="text-danger" *ngIf="Description.errors.minlength">
-                                        اقل عدد احرف مسموح بها 5 احروف
-                                    </small>
-                                    <small *ngIf="Description.errors?.forbiddenName">
-                                        {{Description.errors?.forbiddenName.value}} غير مسموح بيه
-                                    </small>
-                                </div>
-                            </div>
-                    
-                            <input type="submit" class="btn btn-primary" value="إضافة" (click)="submit()">
-                        </form>
+                        <h2 style="direction: rtl;">الاقســـــــام</h2>
+                        <table class="table table-light" style="direction: rtl;">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>رقــم التسلسل</th>
+                                    <th>اســم القســـم</th>
+                                    <th>الصورة</th>
+                                    <th>الوصـــف</th>
+                                    <th>العمليــات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let category of categories;let i= index">
+                                    <td>{{category._id}}</td>
+                                    <td>{{category.Title}}</td>
+                                    <td><img src="{category.Image}" width="200px" height="auto" alt="تحميل الصورة"/></td>
+                                    <td>{{category.Description}}</td>
+                                    <td>
+                                        <a class="btn btn-secondary " (click)="delete(category._id)" >الحـــذف</a>
+                                        <a class="btn btn-success"   routerLink="/UpdateCategoryAdmin" >التعـــديل</a> 
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </main>                
+                    
+                </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
@@ -129,3 +113,5 @@
         <script src="../../Admin_Dashboard/Assets/demo/datatables-demo.js"></script>
     </body>
 </html>
+
+

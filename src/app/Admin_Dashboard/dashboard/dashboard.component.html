@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -57,53 +58,58 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="container">
-                        <br>
-                        <form  [formGroup]="addForm" enctype="multipart/form-data" >
-                            <div class="form-group">
-                                <label>اســم القســم</label>
-                                <input formControlName="Title" [class.is-invalid]="Title.invalid && Title.touched" type="text"
-                                    class="form-control" />
-                                <div *ngIf=" Title.errors && (Title.invalid && Title.touched)">
-                                    <small class="text-danger" *ngIf="Title.errors?.required">
-                                       اسم القسم مطلوب
-                                    </small>
-                                    <small class="text-danger" *ngIf="Title.errors.minlength">
-                                       اقل عدد احرف مسموح بها 5 احروف
-                                    </small>
-                                    <small *ngIf="Title.errors?.forbiddenName">
-                                        {{Title.errors?.forbiddenName.value}} غير مسموح بيه
-                                    </small>
+                  <div class="container-fluid" style="direction: rtl;">  
+                        <h1 class="mt-4">لوحـــة التحكم</h1>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">الاقســـــــام</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="/GetAllCategriesAdmin">عرض التفاصيل</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>الصـــورة</label>
-                                <input formControlName="Image" type="text" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>الوصـــف</label>
-                                <input formControlName="Description" [class.is-invalid]="Description.invalid && Description.touched" type="text"
-                                    class="form-control" />
-                                <div *ngIf=" Description.errors && (Description.invalid && Description.touched)">
-                                    <small class="text-danger" *ngIf="Description.errors?.required">
-                                       الوصـــف مطلوب
-                                    </small>
-                                    <small class="text-danger" *ngIf="Description.errors.minlength">
-                                        اقل عدد احرف مسموح بها 5 احروف
-                                    </small>
-                                    <small *ngIf="Description.errors?.forbiddenName">
-                                        {{Description.errors?.forbiddenName.value}} غير مسموح بيه
-                                    </small>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">الدورات التدربية</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">عرضض التفاصيل</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
                                 </div>
                             </div>
-                    
-                            <input type="submit" class="btn btn-primary" value="إضافة" (click)="submit()">
-                        </form>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body">المستخدمين</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">عرض التفاضيل</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">الحلقات</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">عرض التفاصيل</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-dark text-white mb-4">
+                                    <div class="card-body">الجلسات</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">عرض التفاصيل</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     
                     </div>
-                </main>                
+                </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">

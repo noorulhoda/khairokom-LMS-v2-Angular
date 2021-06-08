@@ -8,6 +8,7 @@ import {AddCateogryComponent} from './Category/add-cateogry/add-cateogry.compone
 import { GetAllCateogriesComponent } from './Category/get-all-cateogries/get-all-cateogries.component';
 import { GetCateogryByIDComponent } from './Category/get-cateogry-by-id/get-cateogry-by-id.component';
 import{UpdateCategoryComponent}from './Category/update-category/update-category.component';
+import {GetAllCategoriesAdminComponent} from './Category/get-all-categories-admin/get-all-categories-admin.component'
 import {AddClassComponent} from './Class/add-class/add-class.component';
 import { GetAllClassesComponent } from './Class/get-all-classes/get-all-classes.component';
 import { GetClassByIDComponent } from './Class/get-class-by-id/get-class-by-id.component';
@@ -24,6 +25,7 @@ import { GetAllSessionsComponent } from './Session/get-all-sessions/get-all-sess
 import { AddSessionComponent } from './Session/add-session/add-session.component';
 import { UpdateSessionComponent } from './Session/update-session/update-session.component';
 import { UploadComponent } from './upload/upload.component';
+import {DashboardComponent} from './Admin_Dashboard/dashboard/dashboard.component'
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -37,6 +39,7 @@ const routes: Routes = [
   {path:'getAllCategories',component:GetAllCateogriesComponent},
   {path:'getCateogryById/:id',component:GetCateogryByIDComponent},
   {path:'updateCategory/:id',component:UpdateCategoryComponent},
+  {path:'getAllCategoriesAdmin',component:GetAllCategoriesAdminComponent},
   {path:'AddClass',component:AddClassComponent},
   {path:'getAllClasses',component:GetAllClassesComponent},
   {path:'getClassById/:id',component:GetClassByIDComponent},
@@ -50,6 +53,7 @@ const routes: Routes = [
   {path:'getAllSessions',component:GetAllSessionsComponent},
   {path:'addSession',component:AddSessionComponent},
   {path:'upload',component:UploadComponent},
+  {path:'Admin',component:DashboardComponent},
   {path:'**',component:NotFoundComponent}
   
 ];

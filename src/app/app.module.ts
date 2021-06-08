@@ -42,6 +42,10 @@ import {HttpClientModule} from '@angular/common/http';
     GetAllCategoriesAdminComponent,
     GetAllClassesAdminComponent,
     GetAllCoursesAdminComponent,
+    AddRoleComponent,
+    UpdateRoleComponent,
+    GetAllRolesComponent,
+    GetRoleByIDComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,6 +97,10 @@ import { DashboardComponent } from './Admin_Dashboard/dashboard/dashboard.compon
 import { GetAllCategoriesAdminComponent } from './Category/get-all-categories-admin/get-all-categories-admin.component';
 import { GetAllClassesAdminComponent } from './Class/get-all-classes-admin/get-all-classes-admin.component';
 import { GetAllCoursesAdminComponent } from './Course/get-all-courses-admin/get-all-courses-admin.component';
+import { AddRoleComponent } from './Role/add-role/add-role.component';
+import { UpdateRoleComponent } from './Role/update-role/update-role.component';
+import { GetAllRolesComponent } from './Role/get-all-roles/get-all-roles.component';
+import { GetRoleByIDComponent } from './Role/get-role-by-id/get-role-by-id.component';
 @NgModule({
   imports: [
     BrowserModule,

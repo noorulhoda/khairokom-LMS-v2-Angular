@@ -41,6 +41,7 @@ import {HttpClientModule} from '@angular/common/http';
     DashboardComponent,
     GetAllCategoriesAdminComponent,
     GetAllClassesAdminComponent,
+    GetAllCoursesAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,6 +92,7 @@ import {UploadComponent} from './upload/upload.component';
 import { DashboardComponent } from './Admin_Dashboard/dashboard/dashboard.component';
 import { GetAllCategoriesAdminComponent } from './Category/get-all-categories-admin/get-all-categories-admin.component';
 import { GetAllClassesAdminComponent } from './Class/get-all-classes-admin/get-all-classes-admin.component';
+import { GetAllCoursesAdminComponent } from './Course/get-all-courses-admin/get-all-courses-admin.component';
 @NgModule({
   imports: [
     BrowserModule,

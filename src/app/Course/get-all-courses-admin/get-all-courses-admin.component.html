@@ -69,60 +69,33 @@
                 <br>
                 <br>
                 <div class="container">
-                    <form  [formGroup]="addForm" enctype="multipart/form-data" >
-                        <div class="form-group">
-                            <label>اســـم الدورة التدربية</label>
-                            <input formControlName="tittle" [class.is-invalid]="tittle.invalid && tittle.touched" type="text"
-                                class="form-control" />
-                            <div *ngIf=" tittle.errors && (tittle.invalid && tittle.touched)">
-                                <small class="text-danger" *ngIf="tittle.errors?.required">
-                                    اســـم الدورة التدربية مطلوب
-                                </small>
-                            </div>
-                
-                        </div>
-                   
-                        <div class="form-group">
-                         <label>وصــــف الدورة التدربية</label>
-                         <input  type="text" [class.is-invalid]="description.invalid && description.touched" formControlName="description" class="form-control">
-                            <small class="text-danger" [class.d-none]="description.valid || description.untouched">
-                               وصــــف الدورة التدربية غير صحيحة
-                            </small>
-                        </div>
-                    <div class="form-group">
-                        <label>القســـــــم </label>
-                        <select class="custom-select"  formControlName="categoryID">
-                            <option *ngFor="let category of categories" value="{{category._id}}">{{category.Title}}
-                            </option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <div class="progress" *ngIf="existingFile">
-                            <div
-                              class="progress-bar progress-bar-striped bg-danger"
-                              attr.aria-valuenow="{{ progress }}"
-                              aria-valuemin="0"
-                              aria-valuemax="100"
-                              [ngStyle]="{ width: progress + '%' }"
-                            >
-                              {{ progress }}%
-                            </div>
-                          </div>
-                          
-                          <label class="btn btn-default">
-                            <input type="file" (change)="chooseFile($event)" />
-                          </label>
-                          <img src="https://khairokomuploadfiles.azurewebsites.net/files/{{fileName}}" height="200px" width="200px">
-                          <button class="btn btn-primary" [disabled]="!chosenFiles" (click)="upload()">
-                           رفع الصـــورة
-                          </button>
-                          
-                          <div class="alert alert-light">{{ msg }}</div>
-                    </div>
-                
-                        <input type="submit" class="btn btn-primary" value="إضافة" (click)="submit()">
-                    </form>
+                    <table class="table table-light">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>رقم التسلسل</th>
+                                <th>اسم الدورة التدربية</th>
+                                <th>الوصـــف</th>
+                                <th>الصـــورة</th>
+                                <th>القســـم</th>
+                                <th>العمليــات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let course of courses;let i= index">
+                                <td>{{course._id}}</td>
+                                <td>{{course.tittle}}</td>
+                                <td>{{course.description}}</td>
+                                <td><img src="{course.image}" width="200px" height="auto"/></td>
+                                <td>{{course.categoryID}}</td>
+                                <td>
+                                    <a class="btn btn-secondary " (click)="delete(course._id)" >الحـــذف</a>
+                                    <a class="btn btn-dark"  routerLink="/updateCourse/{{course._id}}">التعديــــل</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+                
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">

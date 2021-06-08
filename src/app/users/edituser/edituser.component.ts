@@ -2,7 +2,7 @@ import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as moment from 'moment';
+// import * as moment from 'moment';
 import { Observable } from 'rxjs';
 import { UploadService } from 'src/app/services/upload.service';
 import { UsersService } from '../../services/users.service';

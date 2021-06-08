@@ -61,26 +61,42 @@
                     <br>
                     <br>
                     <div class="container">
-                        <h2 style="direction: rtl;">الاقســـــــام</h2>
+                        <h2 style="direction: rtl;">المجموعـــــــــات</h2>
                         <table class="table table-light" style="direction: rtl;">
                             <thead class="thead-light">
                                 <tr>
                                     <th>رقــم التسلسل</th>
-                                    <th>اســم القســـم</th>
-                                    <th>الصورة</th>
-                                    <th>الوصـــف</th>
+                                    <th>رقـــم المجموعة</th>
+                                    <th>اقل سن مسموح بيه للطلاب</th>
+                                    <th>اكبر سن مسموح بيه للطلاب</th>
+                                    <th>الجنــــس</th>
+                                    <th>رابط المجموعة</th>
+                                    <th>كلمة سر لرابط المجموعة</th>
+                                    <th>تاريخ  البداية</th>
+                                    <th>تاريخ النهاية</th>
+                                    <th>اسم الدورة التدربية</th>
+                                    <th>اسم المعلم / المعلمة</th>
+                                    <th>الطلبة / الطالبات</th>
                                     <th>العمليــات</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let category of categories;let i= index">
-                                    <td>{{category._id}}</td>
-                                    <td>{{category.Title}}</td>
-                                    <td><img src="{category.Image}" width="200px" height="auto" alt="تحميل الصورة"/></td>
-                                    <td>{{category.Description}}</td>
+                                <tr *ngFor="let clas of classes;let i= index">
+                                    <td>{{clas._id}}</td>
+                                    <td>{{clas.Number}}</td>
+                                    <td>{{clas.StudentsMinAge}}</td>
+                                    <td>{{clas.StudentsMaxAge}}</td>
+                                    <td>{{clas.StudentGender}}</td>
+                                    <td>{{clas.ClassLink}}</td>
+                                    <td>{{clas.ClassLinkPassword}}</td>
+                                    <td>{{clas.StartDate}}</td>
+                                    <td>{{clas.EndDate}}</td>
+                                    <td>{{clas.CourseId}}</td>
+                                    <td>{{clas.TeacherId}}</td>
+                                    <td>الطلاب</td>
                                     <td>
-                                        <a class="btn btn-secondary " (click)="delete(category._id)" >الحـــذف</a>
-                                        <a class="btn btn-success"   routerLink="/updateCategory" >التعـــديل</a> 
+                                        <a class="btn btn-secondary " (click)="delete(clas._id)" >الحـــذف</a>
+                                        <a class="btn btn-success"   routerLink="/updateClass" >التعـــديل</a> 
                                     </td>
                                 </tr>
                             </tbody>

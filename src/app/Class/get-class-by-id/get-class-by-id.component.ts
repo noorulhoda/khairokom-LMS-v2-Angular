@@ -17,8 +17,8 @@ export class GetClassByIDComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params: any) => this.id=params.params.id);   
     this.route.params.subscribe(params => {
-     console.log(params) //log the entire params object
-     this.id=params['id'] //log the value of id
+     console.log(params) 
+     this.id=params['id'] 
      console.log('id : '+(this.id));
     });
  
@@ -29,17 +29,17 @@ export class GetClassByIDComponent implements OnInit {
       );
       console.log(this.clas)
   }
-  delete(){
-    this.cs.deleteCLass(this.id)
-    .subscribe(
-      data => {
-        this.router.navigateByUrl("/home")
-      },
-      error => {
-        console.log("errooorrrrr-_-"+ error)
-      }
-    );  
-  }
+  // delete(){
+  //   this.cs.deleteCLass(this.id)
+  //   .subscribe(
+  //     data => {
+  //       this.router.navigateByUrl("/home")
+  //     },
+  //     error => {
+  //       console.log("errooorrrrr-_-"+ error)
+  //     }
+  //   );  
+  // }
    
 
 }

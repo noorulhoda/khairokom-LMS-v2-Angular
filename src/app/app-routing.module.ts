@@ -13,6 +13,7 @@ import {AddClassComponent} from './Class/add-class/add-class.component';
 import { GetAllClassesComponent } from './Class/get-all-classes/get-all-classes.component';
 import { GetClassByIDComponent } from './Class/get-class-by-id/get-class-by-id.component';
 import{UpdateClassComponent}from './Class/update-class/update-class.component'
+import{GetAllClassesAdminComponent}from './Class/get-all-classes-admin/get-all-classes-admin.component'
 import { LoginComponent } from './users/login/login.component';
 import{GetAllComponent} from './users/get-all/get-all.component';
 import{ProfileComponent} from './users/profile/profile.component'
@@ -40,10 +41,11 @@ const routes: Routes = [
   {path:'getCateogryById/:id',component:GetCateogryByIDComponent},
   {path:'updateCategory/:id',component:UpdateCategoryComponent},
   {path:'getAllCategoriesAdmin',component:GetAllCategoriesAdminComponent},
-  {path:'AddClass',component:AddClassComponent},
+  {path:'addClass',component:AddClassComponent},
   {path:'getAllClasses',component:GetAllClassesComponent},
   {path:'getClassById/:id',component:GetClassByIDComponent},
   {path:'updateClass/:id',component:UpdateClassComponent},
+  {path:'GetAllClassesAdmin',component:GetAllClassesAdminComponent},
   {path:'updateCourse/:id',component:EditCourseComponent},
   {path:'updateSession/:id',component:UpdateSessionComponent},
   {path:'profile/:id',component:ProfileComponent},

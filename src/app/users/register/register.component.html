@@ -79,10 +79,10 @@
 
 
 
-       <div class="form-group">
-            <label>Phone</label>
-            <input  type="text"  formControlName="phone"  class="form-control">
-        </div>
+      
+
+
+        
 
 
         <div class="form-group">
@@ -90,14 +90,14 @@
             <input formControlName="birthDate" type="date" class="form-control" />
         </div>
 
-        
+  <!--       
         <div class="form-group">
             <label>Register as :</label>
             <select  formControlName="roles"  class="form-control">
                 <option value="Teacher">Teacher</option>
                 <option value="Student">Student</option>
             </select>
-        </div>
+        </div> -->
 
         <div class="form-group">
             <label>Gender :</label>
@@ -107,13 +107,37 @@
             </select>
         </div>
     
-        <div class="form-group">
+     <!--    <div class="form-group">
             <label>Country :</label>
             <select  formControlName="country"  class="form-control">
                 <option value="Egypt">Egypt</option>
                 <option value="Palastine">Palastine</option>
                 <option value="Saudi Arabia">Saudi Arabia</option>
             </select>
+        </div>
+        
+ -->
+
+            
+        <div class="form-group">
+            <label>Country :</label>
+            <select class="form-control" >
+                <option  *ngFor = "let c of countries|async" value="{{c._id}}">{{c.name}}</option>
+              </select>
+        </div>
+        
+      
+        <div class="form-group">
+            <label>Phone</label>
+            <input  type="tel"  formControlName="phone"  class="form-control">
+            <div *ngIf=" phone.errors && (phone.invalid && phone.touched)">
+                <small class="text-danger" *ngIf="phone.errors?.required">
+                    phone is required
+                </small>
+                <small class="text-danger" *ngIf="phone.errors.minlength||phone.errors.maxlength">
+                    length is 10
+                </small>
+            </div>
         </div>
 
         <button class="btn btn-warning" (click)="loadApiData()">load default</button>

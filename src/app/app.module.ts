@@ -37,7 +37,15 @@ import {HttpClientModule} from '@angular/common/http';
     GetAllSessionsComponent,
     GetSessionByIdComponent,
     UpdateSessionComponent,
-    UploadComponent
+    UploadComponent,
+    DashboardComponent,
+    GetAllCategoriesAdminComponent,
+    GetAllClassesAdminComponent,
+    GetAllCoursesAdminComponent,
+    AddRoleComponent,
+    UpdateRoleComponent,
+    GetAllRolesComponent,
+    GetRoleByIDComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +93,14 @@ import { GetAllSessionsComponent } from './Session/get-all-sessions/get-all-sess
 import { GetSessionByIdComponent } from './Session/get-session-by-id/get-session-by-id.component';
 import { UpdateSessionComponent } from './Session/update-session/update-session.component';
 import {UploadComponent} from './upload/upload.component';
+import { DashboardComponent } from './Admin_Dashboard/dashboard/dashboard.component';
+import { GetAllCategoriesAdminComponent } from './Category/get-all-categories-admin/get-all-categories-admin.component';
+import { GetAllClassesAdminComponent } from './Class/get-all-classes-admin/get-all-classes-admin.component';
+import { GetAllCoursesAdminComponent } from './Course/get-all-courses-admin/get-all-courses-admin.component';
+import { AddRoleComponent } from './Role/add-role/add-role.component';
+import { UpdateRoleComponent } from './Role/update-role/update-role.component';
+import { GetAllRolesComponent } from './Role/get-all-roles/get-all-roles.component';
+import { GetRoleByIDComponent } from './Role/get-role-by-id/get-role-by-id.component';
 @NgModule({
   imports: [
     BrowserModule,

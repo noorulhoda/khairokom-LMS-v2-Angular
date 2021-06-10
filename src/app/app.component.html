@@ -1,22 +1,6 @@
  <!-- header -->
-<app-header></app-header>
+ <app-header></app-header> 
 <!-- Products -->
 <router-outlet></router-outlet>
 <!-- Footer -->
-<app-footer></app-footer>
-
-<!--parent(app) child(product) relationship--
-<app-products (isNeededProductShownChanged)='isNeededProductShwn=$event'
-(neededProductChanged)='neededProduct=$event'
-[neededProductId]='neededProductId'></app-products>
-
-<b>"show specific Product"</b><br>
-<input [(ngModel)]='neededProductId'><br>
-<button (click)='callRenderValue()'>show</button><br>
-<div *ngIf='isNeededProductShwn'>
-  ID:{{neededProduct.ID}}
-  Name:{{neededProduct.Name}}
-  Quantity:{{neededProduct.Quantity}}
-  Price:{{neededProduct.Price}}
-</div> 
--->
+<app-footer></app-footer> 

@@ -1,10 +1,8 @@
-
 <br/>
-<a class="btn btn-success"routerLink="/addCategory">add category</a>
 <div class="row" >
     <div  *ngFor="let category of categoryList">
       <div class="card" style="float:right;margin-left: 40px;">
-        <img src="https://khairokomuploadfiles.azurewebsites.net/files/{{category.Image}}" alt="Denim Jeans" style="width:100%">
+        <img src="{{category.Image}}" alt=" تحميل الصـــورة" style="width:100%">
         <h1>{{category.Title}}</h1>
         <p>{{category.Description}}</p>
         <br>

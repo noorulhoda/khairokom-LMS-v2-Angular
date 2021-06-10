@@ -1,18 +1,13 @@
 <div class="container">
-    <h2>Courses</h2>
-    <a class="btn btn-success" routerLink="/addCourse">add course</a>
     <table class="table table-light">
-        
         <thead class="thead-light">
             <tr>
-                <th>ID</th>
-
-                <th>Title</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>CategoryID</th>
-                <th>Edit</th>
-                <th>Details</th>
+                <th>رقم التسلسل</th>
+                <th>اسم الدورة التدربية</th>
+                <th>الوصـــف</th>
+                <th>الصـــورة</th>
+                <th>القســـم</th>
+                <th>العمليــات</th>
             </tr>
         </thead>
         <tbody>
@@ -23,10 +18,8 @@
                 <td><img src="{course.image}" width="200px" height="auto"/></td>
                 <td>{{course.categoryID}}</td>
                 <td>
-                    <a class="btn btn-dark"  routerLink="/EditCourse/{{course._id}}">Edit</a>
-                </td>
-                <td>
-                    <a class="btn btn-dark"  routerLink="/CourseDetails/{{course._id}}">Details</a>   
+                    <a class="btn btn-secondary " (click)="delete(course._id)" >الحـــذف</a>
+                    <a class="btn btn-dark"  routerLink="/EditCourse/{{course._id}}">التعديــــل</a>
                 </td>
             </tr>
         </tbody>

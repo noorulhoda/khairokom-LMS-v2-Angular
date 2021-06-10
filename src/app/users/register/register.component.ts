@@ -25,16 +25,16 @@ export class RegisterComponent implements OnInit {
     lastName:['',[Validators.required,Validators.minLength(5)]],
     userName:['',[Validators.required,Validators.minLength(5)]],
     password:['',[Validators.required,Validators.minLength(8)]],
-    confirmPassword:[''],
-    email:[''],
-    roles:[[]],
-    gender:[''],
-    birthDate:[],
-    phone:[''],
-    country:[''],
-    img:[''],
-    joinedClasses:[[]],
-    teachedCourses:[[]]
+    confirmPassword:['',[Validators.required]],
+    email:['',[Validators.required]],
+    roles:[[],[Validators.required]],
+    gender:['',[Validators.required]],
+    birthDate:[,[Validators.required]],
+    phone:['',[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10), Validators.maxLength(10)]],
+    country:['',[Validators.required]],
+    img:['',[Validators.required]],
+    joinedClasses:[[],[Validators.required]],
+    teachedCourses:[[],[Validators.required]]
   },{validators:[ConfirmPassword]});
 
 

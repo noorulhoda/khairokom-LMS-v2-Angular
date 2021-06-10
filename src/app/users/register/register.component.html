@@ -81,8 +81,19 @@
 
        <div class="form-group">
             <label>Phone</label>
-            <input  type="text"  formControlName="phone"  class="form-control">
+            <input  type="tel"  formControlName="phone"  class="form-control">
+            <div *ngIf=" phone.errors && (phone.invalid && phone.touched)">
+                <small class="text-danger" *ngIf="phone.errors?.required">
+                    phone is required
+                </small>
+                <small class="text-danger" *ngIf="phone.errors.minlength||phone.errors.maxlength">
+                    length is 10
+                </small>
+            </div>
         </div>
+
+
+        
 
 
         <div class="form-group">

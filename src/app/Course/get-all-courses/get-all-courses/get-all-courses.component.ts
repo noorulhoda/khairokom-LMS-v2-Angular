@@ -16,10 +16,9 @@ export class GetAllCoursesComponent implements OnInit {
   courses: Icourse[] = [];
   tempCategory:Icategory;
   categories: string[] = [];
-  constructor(private cs:courseService,private route:ActivatedRoute,private router:Router,private categoryService: categoryService) 
+  constructor(private courseService:courseService,private route:ActivatedRoute,private router:Router,private categoryService: categoryService) 
   { 
   this.getCourses();
- // this.getCourseCategory();
   }
 
   ngOnInit(): void {
@@ -27,12 +26,23 @@ export class GetAllCoursesComponent implements OnInit {
   
 getCourses() 
 {
-  this.cs.GetAllCourses().subscribe(
+  this.courseService.GetAllCourses().subscribe(
     data => {
       this.courses = data
     
       }
 );}
+delete(id) {
+  this.courseService.DeleteCourse(id)
+    .subscribe(
+      data => {
+        this.router.navigateByUrl("")
+      },
+      error => {
+        console.log("Error-_-" + error)
+      }
+    );
+}
 /*for(let i=0;i<data.length;i++){
         console.log(i);
         this.categoryService.getCategoryById(data[i].categoryID).subscribe(

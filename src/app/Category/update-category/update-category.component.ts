@@ -107,11 +107,6 @@ this.categoryservice.updateCategory(this.id,newcategory)
 );  
 }
 
-
-
-
-
-
 chooseFile(event): void {
   this.chosenFiles = event.target.files;
 }

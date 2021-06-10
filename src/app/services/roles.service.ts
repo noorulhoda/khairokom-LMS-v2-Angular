@@ -37,6 +37,9 @@ Login(role:any): Observable<any>{
       return throwError(err.message||"customError happened")
     }));
   }
+
+
+
   getRoleById(id:string):Observable<Irole>
   {
     return this.http.get<Irole>(this.url+"/"+id).pipe(catchError((err)=>
@@ -54,6 +57,11 @@ Login(role:any): Observable<any>{
       return throwError(err.message ||"Internal Server error contact site adminstarator");
     }));
   }
+  AddRole(role: Irole): Observable<any> {
+    return this.http.post(this.url,role,httpOptions).pipe(catchError(err => {
+        return throwError(err.message || "Internal Server error contact site adminstarator")
+    }));
+}
   findByRoleType(roleType:string): Observable<Irole>{
     return this.http.get<Irole>(this.url+"/withType/"+roleType).pipe(catchError((err)=>
     {

@@ -22,6 +22,7 @@ export class PermissionManagementComponent implements OnInit {
     this.getRoles();
   }
   ngOnInit(): void {
+  
   }
   getUsers() {
     this.userServices.GetAllusers().subscribe(
@@ -41,9 +42,25 @@ export class PermissionManagementComponent implements OnInit {
 
   onChange(roleType,userId,roleId,isChecked)
   {
+    this.roleService.getRoleById(roleId).subscribe(
+        data1 => {
+        this.role= data1[0]; 
+        //console.log(data1);
+      },
+        er =>this.errMsg=er ,
+      );
+
+      this.userServices.getUserById(userId).subscribe(
+        data => {
+        this.user= data[0]; 
+        console.log(data);
+      },
+        er =>this.errMsg=er ,
+      );
+
     if(isChecked==true)
     {
-      console.log("Tmam");
+      this.user.roles.push(roleId);  
     }
     else
     {

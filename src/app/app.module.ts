@@ -109,6 +109,7 @@ import { PermissionManagementComponent } from './Admin_Dashboard/permission-mana
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
+    
   ],
   // ...
 })

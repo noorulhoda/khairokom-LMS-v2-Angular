@@ -1,5 +1,7 @@
 <div class="container">
+   
     <h2>Register Form</h2>
+    {{registerError}}
     <form [formGroup]="registerForm">
         <div class="form-group">
             <label>User Name</label>
@@ -83,13 +85,14 @@
 
 
         
-
-
+           
+        {{d|date :'short'}}
         <div class="form-group">
             <label>BirthDate</label>
-            <input formControlName="birthDate" type="date" class="form-control" />
+            <input #bDate type="date" formControlName="birthDate" placeholder="12-2-2011"  class="form-control" />
         </div>
-
+     
+      
   <!--       
         <div class="form-group">
             <label>Register as :</label>
@@ -121,8 +124,8 @@
             
         <div class="form-group">
             <label>Country :</label>
-            <select class="form-control" >
-                <option  *ngFor = "let c of countries|async" value="{{c._id}}">{{c.name}}</option>
+            <select class="form-control" formControlName="country"   >
+                <option *ngFor = "let c of countries"  value="{{c._id}}">{{c.name}}</option>
               </select>
         </div>
         

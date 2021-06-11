@@ -53,9 +53,8 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  text-align: left;
-  background-color: #fff;
+  color: #212529; 
+  background-color: #fff;  
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -10035,8 +10034,7 @@ body {
   min-width: 0;
   flex-grow: 1;
   min-height: calc(100vh - 56px);
-  margin-left: -225px;
-  direction: rtl;
+  margin-right: 225px;
 }
 
 .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {

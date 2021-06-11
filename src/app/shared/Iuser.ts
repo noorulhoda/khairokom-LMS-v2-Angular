@@ -15,5 +15,6 @@ export interface Iuser{
     roles:string[];
     joinedClasses?:Iclass[],
     teachedCourses?:Icourse[]
-    //verifiedTeacher:false
+    verifiedTeacher:boolean,
+    suitableTimes:Number[]
 }

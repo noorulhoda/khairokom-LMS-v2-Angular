@@ -31,9 +31,9 @@ export class countryService {
     }));
   }
 
-  getCountryByName(name:string):Observable<Icountry>
+  getCountryByName(name:string):Observable<any>
   {
-    return this.http.get<Icountry>(this.url+"/withName/"+name).pipe(catchError((err)=>
+    return this.http.get<any>(this.url+"/withName/"+name,httpOptions).pipe(catchError((err)=>
     {
       return throwError(err.message ||"Internal Server error contact site adminstarator");
     }));

@@ -1,3 +1,4 @@
+// *{font-family: "ahmed-lt-regular";}
 .slideshow{
     width: 100%;
     height: 100vh;
@@ -154,17 +155,17 @@
     z-index: 2;
 }
 
-.categoryOnline .button, .courseOnline .button, .contact-us .form button{
+.category .button, .course .button, .contact-us .form button{
     background-color: rgba(255,173,5,0.8);  
     color: #fff;    
 }
-.categoryOnline .button:hover, .courseOnline .button:hover,  .contact-us .form button:hover {
+.category .button:hover, .courseOnline .button:hover,  .contact-us .form button:hover {
     background-color: #FFAD05; 
 }
 
 .pillars {
     background-color: #FFAD05;  
-    margin-top: 10%;  
+    // margin-top: 10%;  
 }
 
 .pillars h2{
@@ -180,6 +181,31 @@
     // padding: 50px;
 }
 
+.carousel {
+    background-color: #FFAD05; 
+    color: #fff;
+}
+.carousel .arrows {
+    border: 2px solid #fff; 
+    color: #fff; 
+    border-radius: 50px; 
+    padding: 5px 12px;    
+}
+.carousel .image {
+    display: inline-block; 
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); 
+    // padding: 20px 30px; 
+    border-radius: 65px;
+}
+.carousel .image img {
+    border-radius: 50%;
+}
+.carousel p {
+    padding: 0 40px; 
+    line-height: 40px; 
+    // font-size: 16px; 
+    color: #fff;}
+
 i {font-size: 25px;}
 .contact-us {
     margin-top: 10%; 
@@ -187,11 +213,6 @@ i {font-size: 25px;}
     direction: rtl; 
     background-color: #fff; 
     padding: 50px; 
-}
-.contact-us .form h2 {
-    border-bottom: 2px solid #FFAD05; 
-    display: inline-block; 
-    padding-bottom: 8px;
 }
 .contact-us .form p {
     line-height: 30px;
@@ -220,4 +241,12 @@ i {font-size: 25px;}
     padding: 10px 30px; 
     border-radius: 8px;
     width: 50%;
+}
+
+.about-us .title, .category .title, .course .title, .contact-us .title {
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-image: linear-gradient(to right,#ffe5b3, #ffaa00) 1;
+    display: inline-block;
+    padding-bottom: 8px;
 }

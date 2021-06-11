@@ -21,7 +21,8 @@ i {
 .category .content h3 {
   border-bottom: 2px solid #FFAD05;
   padding-bottom: 10px;
-  width: 17%;
+  // width: 17%;
+  display: inline-block;
   text-align: center;
   font-weight: normal;
 }
@@ -30,7 +31,7 @@ i {
   // color: gray;
 }
 
-.category .content .photo, .category .content .title{
+.category .content .photo{
   margin-right: 40%;
 }
 

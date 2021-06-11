@@ -47,6 +47,7 @@ import {HttpClientModule} from '@angular/common/http';
     GetAllRolesComponent,
     GetRoleByIDComponent,
     DashboardControlsComponent,
+    PermissionManagementComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,12 +104,14 @@ import { UpdateRoleComponent } from './Role/update-role/update-role.component';
 import { GetAllRolesComponent } from './Role/get-all-roles/get-all-roles.component';
 import { GetRoleByIDComponent } from './Role/get-role-by-id/get-role-by-id.component';
 import { DashboardControlsComponent } from './Admin_Dashboard/dashboard-controls/dashboard-controls.component';
+import { PermissionManagementComponent } from './Admin_Dashboard/permission-management/permission-management.component';
 @NgModule({
   imports: [
     BrowserModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
+    
   ],
   // ...
 })

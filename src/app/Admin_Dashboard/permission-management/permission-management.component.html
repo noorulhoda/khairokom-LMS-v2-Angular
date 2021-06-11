@@ -1,0 +1,20 @@
+<div class="container">
+    <h2 style="direction: rtl;">الصلاحيات</h2>
+    <table class="table table-light" >
+        <thead class="thead-light">
+            <tr>
+                <th>اسم المستخدم</th>
+                <th>الصلاحيات</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users;let i= index">
+                <td>{{user.userName}}</td>
+                <td *ngFor="let role of roles" >
+                    
+                    <input type="checkbox" *ngIf="role.type!='superAdmin'" (change)="onChange(role.type,user._id, role._id,$event.target.checked)"/> <b *ngIf="role.type!='superAdmin'">{{role.type}}</b>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

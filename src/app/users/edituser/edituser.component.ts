@@ -112,7 +112,7 @@ export class EdituserComponent implements OnInit {
       gender:this.user.gender,
       img:this.user.img,
       //how to show on date input??
-      birthDate:this.user.birthDate,
+      birthDate:this.formatDate(this.user.birthDate),
       joinedClasses:this.user.joinedClasses,
       teachedCourses:this.user.teachedCourses,
       phone:this.user.phone,
@@ -144,6 +144,16 @@ export class EdituserComponent implements OnInit {
     console.log(this.user)
   }
 
+
+  private formatDate(date) {
+    const d = new Date(date);
+    let month = '' + (d.getMonth() + 1);
+    let day = '' + d.getDate();
+    const year = d.getFullYear();
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+    return [year, month, day].join('-');
+  }
 update()
 {  
     var newuser: Iuser = {
@@ -159,7 +169,9 @@ update()
     joinedClasses:this.joinedClasses?.value,
     teachedCourses:this.teachedCourses?.value,
     phone:this.phone?.value,
-    country:this.country?.value
+    country:this.country?.value,
+    verifiedTeacher:false,
+    suitableTimes:[]
   }
   console.log(newuser)
   

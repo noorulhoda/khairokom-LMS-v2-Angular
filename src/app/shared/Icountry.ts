@@ -1,6 +1,6 @@
 
 export interface Icountry{
-    name:string,
     code:string,
+    name:string,
     dialCode:string
 }

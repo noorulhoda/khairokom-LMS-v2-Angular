@@ -57,7 +57,7 @@ const routes: Routes = [
   {path:'getAllSessions',component:GetAllSessionsComponent},
   {path:'addSession',component:AddSessionComponent},
   {path:'upload',component:UploadComponent},
-  {path:'Admin',component:DashboardComponent},
+  {path:'Admin',component:DashboardComponent},  
   {path:'**',component:NotFoundComponent}
   
 ];

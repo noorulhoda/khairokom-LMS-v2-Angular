@@ -3,16 +3,19 @@
     text-align: right;
     color: #fff;    
     direction: rtl;   
-    background-color: #222222;
-    border-bottom: 5px solid #FFAD05;
+    background-color: #333;    
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    border-image: linear-gradient(to right,#ffe5b3, #ffaa00) 1;
 }
 .navbar .logo {color: #FFAD05;}
 
-.navbar a {color: #fff;}
+.navbar .title {color: #fff; font-family: "old-antic-decorative";}
 
 .navbar .nav-link {
     font-size: 17px;
     color: #fff;
+    display: inline-block;
 }
 .navbar .nav-link:hover {
     color: #FFAD05;
@@ -36,11 +39,6 @@
     padding: 0 5px;
 }
 
-@media screen and (max-width: 990px){
-    .navbar {background-color: #222222;}
-    .navbar .logo {color: #fff;}  
-    .navbar { border-bottom: 5px solid #FFAD05; }
-}
 
 .navbar form .button-style{
     position: relative; 

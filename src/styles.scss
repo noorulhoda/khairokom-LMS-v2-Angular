@@ -1,8 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
-// @font-face {
-//     font-family: Almarai;
-//     src: url(../Fonts/Almarai-Regular.ttf);
-//   }
+@font-face {
+    font-family: "cortoba" ;   
+    src: url(assets/fonts/cortoba.ttf);
+  }
+  @font-face {
+    font-family: "ahmed-lt-regular" ;
+    src: url(assets/fonts/ahmed-lt-regular.ttf);    
+  }
+  @font-face {
+    font-family: "basem-algharib" ;    
+    src: url(assets/fonts/basem-algharib.ttf);  
+  }
+  @font-face {
+    font-family: "old-antic-decorative" ;    
+    src: url(assets/fonts/old-antic-decorative.ttf);    
+  }
 // @import "~bootstrap/dist/css/bootstrap.css";
 @import "~bootstrap/dist/css/bootstrap-grid.css";
 @import "~bootstrap/dist/css/bootstrap-reboot.css";

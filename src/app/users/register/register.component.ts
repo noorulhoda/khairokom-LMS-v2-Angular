@@ -142,9 +142,11 @@ submit()
     birthDate:this.birthDate?.value,
     img:"newUser.jpg",
     phone:this.dialCode+this.phone?.value,
-    country:this.cntry.name
+    country:this.cntry.name,
     //joinedClasses:this.joinedClasses?.value,
     //teachedCourses:this.teachedCourses?.value
+    verifiedTeacher:false,
+    suitableTimes:[]
   }
   
   console.log(user)

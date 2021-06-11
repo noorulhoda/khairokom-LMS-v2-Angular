@@ -169,7 +169,9 @@ update()
     joinedClasses:this.joinedClasses?.value,
     teachedCourses:this.teachedCourses?.value,
     phone:this.phone?.value,
-    country:this.country?.value
+    country:this.country?.value,
+    verifiedTeacher:false,
+    suitableTimes:[]
   }
   console.log(newuser)
   

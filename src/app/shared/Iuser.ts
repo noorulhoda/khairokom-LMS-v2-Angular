@@ -13,8 +13,8 @@ export interface Iuser{
     country:string;
     phone:string;
     roles:string[];
-    joinedClasses?:Iclass[],
-    teachedCourses?:Icourse[]
-    verifiedTeacher:boolean,
-    suitableTimes:Number[]
+    joinedClasses?:Iclass[];
+    teachedCourses?:Icourse[];
+    verifiedTeacher:boolean;
+    suitableTimes:Number[];
 }

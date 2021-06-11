@@ -107,6 +107,7 @@ import { GetRoleByIDComponent } from './Role/get-role-by-id/get-role-by-id.compo
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
+    
   ],
   // ...
 })

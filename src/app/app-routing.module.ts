@@ -61,7 +61,6 @@ const routes: Routes = [
   {path:'getSessionById/:id',component:GetSessionByIdComponent},
   {path:'getAllSessions',component:GetAllSessionsComponent},
   {path:'addSession',component:AddSessionComponent},
-
   {path:'Admin',component:DashboardComponent},
   {path:'AddRole',component:AddRoleComponent},
   {path:'GetAllRoles',component:GetAllRolesComponent},

@@ -47,6 +47,9 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
 
+// main {height: 100vh;}
+.last-card {margin-bottom: 75px;}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -10027,14 +10030,14 @@ body {
   transform: translateX(-225px);
 }
 #layoutSidenav #layoutSidenav_content {
-  position: relative;
+  // position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-width: 0;
   flex-grow: 1;
-  min-height: calc(100vh - 56px);
-  margin-right: 225px;
+  // min-height: calc(100vh - 56px);
+  // margin-right: 225px;
 }
 
 .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
@@ -10066,9 +10069,9 @@ body {
   .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
     transform: translateX(-225px);
   }
-  .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content {
-    margin-left: -225px;
-  }
+  // .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content {
+  //   margin-left: -225px;
+  // }
   .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
     display: none;
   }
@@ -10087,10 +10090,10 @@ body {
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
   overflow-y: auto;
 }
-.sb-nav-fixed #layoutSidenav #layoutSidenav_content {
-  padding-left: 225px;
-  top: 56px;
-}
+// .sb-nav-fixed #layoutSidenav #layoutSidenav_content {
+//   padding-left: 225px;
+//   top: 56px;
+// }
 
 #layoutError {
   display: flex;

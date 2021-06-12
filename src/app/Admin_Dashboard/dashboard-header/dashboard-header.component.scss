@@ -1,0 +1,51 @@
+.navbar {    
+    z-index: 10;
+    text-align: right;
+    color: #fff;    
+    direction: rtl;   
+    background-color: #333;    
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    border-image: linear-gradient(to right,#ffe5b3, #ffaa00) 1;
+}
+.navbar .logo {color: #FFAD05;}
+
+.navbar .title {color: #fff; font-family: "old-antic-decorative";}
+
+.navbar .nav-link {
+    font-size: 17px;
+    color: #fff;
+    display: inline-block;
+}
+.navbar .nav-link:hover {
+    color: #FFAD05;
+}
+.navbar .nav-link:hover::after{
+    width: 100%;
+}
+.navbar .nav-link::after{ 
+    content: ''; 
+    color: #FFAD05; 
+    background-color: #FFAD05; 
+    display: block; 
+    width: 0; 
+    height: 2px; 
+    transition: width .3s;
+}
+.navbar .collapse .navbar-nav {
+    margin-left: 150px;    
+}
+.navbar .collapse .navbar-nav .nav-item {
+    padding: 0 5px;
+}
+
+
+.navbar form .button-style{
+    position: relative; 
+    // border: 1px solid #FFAD05;   
+    // background-color: transparent;
+    // color: #fff;    
+    // transition: all 1s ease;
+    background-image: linear-gradient(to right,#ffe5b3, #ffaa00);
+
+}

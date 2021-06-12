@@ -11,8 +11,7 @@
             <tr *ngFor="let user of users;let i= index">
                 <td>{{user.userName}}</td>
                 <td *ngFor="let role of roles" >
-                    
-                    <input type="checkbox" *ngIf="role.type!='superAdmin'" (change)="onChange(role.type,user._id, role._id,$event.target.checked)"/> <b *ngIf="role.type!='superAdmin'">{{role.type}}</b>
+                    <input type="checkbox" *ngIf="role.type!='superAdmin'" [checked]="user.roles.includes(role._id)" (change)="onChange(role.type,user._id, role._id,$event.target.checked)"/> <b *ngIf="role.type!='superAdmin'">  {{role.type}}</b>
                 </td>
             </tr>
         </tbody>

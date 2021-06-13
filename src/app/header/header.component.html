@@ -65,8 +65,10 @@
         </li>          
       </ul>
       <form class="form-inline my-2 my-lg-0">          
-        <button class="button-style btn my-2 my-sm-0" type="submit" routerLink="register">إنشاء حساب</button>&nbsp; &nbsp;
-        <button class="button-style btn my-2 my-sm-0" type="submit" routerLink="login">تسجيل الدخول</button>
+        <button class="button-style btn my-2 my-sm-0" type="submit" routerLink="/register" *ngIf="currentUserName=='guest'">إنشاء حساب</button>&nbsp; &nbsp;
+        <button class="button-style btn my-2 my-sm-0" type="submit" routerLink="/login" *ngIf="currentUserName=='guest'">تسجيل الدخول</button>
+        <button class="button-style btn my-2 my-sm-0" (click)="logout()" *ngIf="currentUserName!='guest'">تسجيل الخروج</button>
+        <button class="button-style btn my-2 my-sm-0" routerLink="/profile/{{userId}}" *ngIf="currentUserName!='guest'">ملفي الشخصي</button>
       </form>
     </div>
   </div>

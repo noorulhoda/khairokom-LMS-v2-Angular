@@ -30,7 +30,7 @@ export class CourseDetailsComponent implements OnInit {
     private commentService: commentService,
     private categoryService: categoryService,
     private userService: UsersService,
-    private classService:classService,
+    //private classService:classService,
     private notificationService:notificationService) {
     this.route.params.subscribe(params => {
       console.log(params)
@@ -58,7 +58,7 @@ export class CourseDetailsComponent implements OnInit {
       error => console.log(error)
     );
 
-    this.classService.GetAllclass().subscribe(
+   /*  this.classService.GetAllclass().subscribe(
       data => {
         this.classes = data;
         console.log(data);
@@ -68,7 +68,7 @@ export class CourseDetailsComponent implements OnInit {
 
       },
       error => console.log(error)
-    );
+    ); */
 
     this.GetCourseComments();
 

@@ -33,6 +33,7 @@ import {GetAllRolesComponent} from './Role/get-all-roles/get-all-roles.component
 import {GetRoleByIDComponent} from './Role/get-role-by-id/get-role-by-id.component'
 import {UpdateRoleComponent} from './Role/update-role/update-role.component'
 import {PermissionManagementComponent} from './Admin_Dashboard/permission-management/permission-management.component'
+import { WaitingstudentsComponent } from './Course/waitingstudents/waitingstudents.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -67,6 +68,7 @@ const routes: Routes = [
   {path:'GetRoleByID/:id',component:GetRoleByIDComponent},
   {path:'UpdateRole/:id',component:UpdateRoleComponent},
   {path:'PermissionManagement',component:PermissionManagementComponent},
+  {path:'waitingStudents/:id',component:WaitingstudentsComponent},
   {path:'**',component:NotFoundComponent}
   
 ];

@@ -10,6 +10,7 @@ import { UsersService } from 'src/app/services/users.service';
 import { Iuser } from 'src/app/shared/Iuser';
 import { classService } from 'src/app/services/class.service';
 import { Iclass } from 'src/app/shared/Iclass';
+import { notificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-course-details',
@@ -29,7 +30,8 @@ export class CourseDetailsComponent implements OnInit {
     private commentService: commentService,
     private categoryService: categoryService,
     private userService: UsersService,
-    private classService:classService) {
+    private classService:classService,
+    private notificationService:notificationService) {
     this.route.params.subscribe(params => {
       console.log(params)
       this.courseId = params['id']
@@ -137,7 +139,7 @@ export class CourseDetailsComponent implements OnInit {
     return c.courseID == this.courseId;
   }
 
-  enroll() {
+ /* enroll() {
   var userAge=Date.now()-this.user.birthDate
   if(this.courseClasses.length==0){
     var clas:Iclass={ 
@@ -199,7 +201,7 @@ export class CourseDetailsComponent implements OnInit {
         error => {
           console.log("errooorrrrr-_-" + error)
         }
-      ); */
+      ); 
  
-   } }
+   } }*/
 }

@@ -50,6 +50,7 @@ import {HttpClientModule} from '@angular/common/http';
     PermissionManagementComponent,
     DashboardHeaderComponent,
     DashboardFooterComponent,
+    WaitingstudentsComponent,
   ],
   imports: [
     BrowserModule,
@@ -109,6 +110,7 @@ import { DashboardControlsComponent } from './Admin_Dashboard/dashboard-controls
 import { PermissionManagementComponent } from './Admin_Dashboard/permission-management/permission-management.component';
 import { DashboardHeaderComponent } from './Admin_Dashboard/dashboard-header/dashboard-header.component';
 import { DashboardFooterComponent } from './Admin_Dashboard/dashboard-footer/dashboard-footer.component';
+import { WaitingstudentsComponent } from './Course/waitingstudents/waitingstudents.component';
 @NgModule({
   imports: [
     BrowserModule,

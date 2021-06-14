@@ -1,9 +1,8 @@
-
-export class Inotification{
+export interface Inotification{
     message:String
-    notifiedUserId:String
-    courseId:String
-    teacherId:String
-    studentId:String
-    isRead:Boolean
+    notifiedUserId:String//if for Admin =>"Admin"
+    courseId?:String
+    teacherId?:String
+    studentId?:String
+    isRead?:Boolean
 }

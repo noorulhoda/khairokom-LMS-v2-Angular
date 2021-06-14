@@ -38,7 +38,7 @@ Login(user:any): Observable<any>{
       return throwError(err.message||"customError happened")
     }));
   }
-  getUserById(id:string):Observable<Iuser>
+  getUserById(id:String):Observable<Iuser>
   {
     return this.http.get<Iuser>(this.url+"/"+id).pipe(catchError((err)=>
     {

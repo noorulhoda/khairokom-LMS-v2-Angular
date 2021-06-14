@@ -14,18 +14,21 @@
        >
          <span class="navbar-toggler-icon"></span>
        </button>
-   
-   <!--     <ul class="navbar-nav ml-auto ml-md-0" >
-        <li class="nav-item dropdown" *ngFor="let n in notifications">
-            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">notifications</a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" routerLink="/waitingStudents/{{n._id}}">{{n.message}}</a>
-            </div>
-        </li>
-       </ul> -->
-
+        
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+               الاشعارات
+            </a>
+            <div class="dropdown-menu" >
+              <a class="dropdown-item"  *ngFor="let n of notifications|async">
+                <p *ngIf="n.notifiedUserId=='Admin'&&n.hasOwnProperty('studentId')"><b routerLink="/waitingStudents/{{n._id}}">{{n.message}}</b></p>
+                <p *ngIf="n.notifiedUserId=='Admin'&&n.hasOwnProperty('teacherId');"><b routerLink="/waitingTeachers/{{n._id}}">{{n.message}}</b></p>
+             
+              </a>
+            </div>
+           </li>
            <li class="nav-item">
              <a class="nav-link" href="#home"  routerLink="/addCategory">إضافة قسم <span class="sr-only">(current)</span></a>
            </li>
@@ -48,3 +51,4 @@
    </nav>
    <!-- END NAVBAR -->
    </div>
+    

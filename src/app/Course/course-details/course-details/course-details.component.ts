@@ -11,6 +11,7 @@ import { Iuser } from 'src/app/shared/Iuser';
 import { classService } from 'src/app/services/class.service';
 import { Iclass } from 'src/app/shared/Iclass';
 import { notificationService } from 'src/app/services/notification.service';
+import { Inotification } from 'src/app/shared/Inotification';
 
 @Component({
   selector: 'app-course-details',
@@ -76,7 +77,12 @@ export class CourseDetailsComponent implements OnInit {
 
   comments: Icomment[] = [];
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+
+
+
+    
+  }
   addCommentForm = this.fb.group(
     {
       content: [''],
@@ -139,69 +145,43 @@ export class CourseDetailsComponent implements OnInit {
     return c.courseID == this.courseId;
   }
 
- /* enroll() {
-  var userAge=Date.now()-this.user.birthDate
-  if(this.courseClasses.length==0){
-    var clas:Iclass={ 
-      Number:'c1',
-      StudentsMinAge:userAge-2,
-      StudentsMaxAge:userAge+3,
-      StudentGender:this.user.gender,
-      ClassLink:"",
-      ClassLinkPassword:"",
-      StartDate:new Date(),
-      EndDate:new Date(),
-      CourseId:this.courseId,
-      TeacherId:"",
-      Students:[this.user]
-     
-   }
-   console.log(clas)
- 
-   this.classService.AddClass(clas).subscribe(
-     data => {
-       this.router.navigateByUrl("/home")
-     },
-     error => {
-       console.log(error)
-     }
-   );
+notifyWithNewWaitingStudent(){
+  var notification:Inotification={
+    message:"a student Waiting to enroll",
+    notifiedUserId:"Admin",
+    courseId:this.courseId,
+    studentId:this.userId,
+    isRead:false
   }
+  this.notificationService.addNotification(notification).subscribe(
+    data => {
+      //this.router.navigateByUrl("/home")
+      alert("تم ارسال طلب انضمامك للدورة التدريبية سنوافيك باخر الاخبار في اشعارات ملفك الشخصي ")
+    },
+    error => {
+      console.log(error)
+    }
+  );
+}
 
-  else{
-  //var classs
-  this.courseClasses.forEach(element => {
-      if(
-        element.StudentGender==this.user.gender
-        &&element.StudentsMinAge<userAge
-        &&element.StudentsMaxAge>userAge
-        )
-      {
-           this.user.joinedClasses.push(element);
-           //element.Students.push(this.user)
-           //classs=element;
-      }
-    });
-    this.userService.updateUser(localStorage.getItem('currentUserId'), this.user)
-      .subscribe(
-        data => {
-          console.log("Data: " + data);
-          //this.router.navigateByUrl("/home")
-        },
-        error => {
-          console.log("errooorrrrr-_-" + error)
-        }
-      );
-   /*    this.classService.updateClass("howTo get this class id ?", classs)
-      .subscribe(
-        data => {
-          console.log("Data: " + data);
-          //this.router.navigateByUrl("/home")
-        },
-        error => {
-          console.log("errooorrrrr-_-" + error)
-        }
-      ); 
- 
-   } }*/
+
+notifyWithNewWaitingTeacher(){
+  var notification:Inotification={
+    message:"teacher wait to be assigned",
+    notifiedUserId:"Admin",
+    courseId:this.courseId,
+    teacherId:this.userId,
+    isRead:false
+  }
+  this.notificationService.addNotification(notification).subscribe(
+    data => {
+      //this.router.navigateByUrl("/home")
+      alert("تم ارسال طلب تدريسك للدورة التدريبية سنوافيك باخر الاخبار في اشعارات ملفك الشخصي ")
+    },
+    error => {
+      console.log(error)
+    }
+  );
+}
+
 }

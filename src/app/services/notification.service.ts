@@ -16,14 +16,18 @@ export class notificationService {
   constructor(private http:HttpClient) { 
   
   }
-  getAllCountries():Observable<Inotification[]>
+  getAllNotifications():Observable<Inotification[]>
   {
     return this.http.get<Inotification[]>(this.url).pipe(catchError(err=>{
       return throwError(err.message||"customError happened")
     }));
   }
-
-  getNotificationById(id:string):Observable<Inotification>
+ addNotification(notification: Inotification): Observable<any> {
+    return this.http.post(this.url,notification,httpOptions).pipe(catchError(err => {
+        return throwError(err.message || "Internal Server error contact site adminstarator")
+    }));
+}
+  getNotificationById(id:String):Observable<Inotification>
   {
     return this.http.get<Inotification>(this.url+"/"+id).pipe(catchError((err)=>
     {
@@ -31,13 +35,7 @@ export class notificationService {
     }));
   }
 
-  getNotificationByName(name:string):Observable<any>
-  {
-    return this.http.get<any>(this.url+"/withName/"+name,httpOptions).pipe(catchError((err)=>
-    {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
-    }));
-  } 
+
 
 
 

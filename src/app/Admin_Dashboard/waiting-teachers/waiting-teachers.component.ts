@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { categoryService } from 'src/app/services/category.service';
 import { classService } from 'src/app/services/class.service';
 import { courseService } from 'src/app/services/course.service';
 import { notificationService } from 'src/app/services/notification.service';
 import { UsersService } from 'src/app/services/users.service';
+import { Icategory } from 'src/app/shared/Icategory';
 import { Iclass } from 'src/app/shared/Iclass';
 import { Icourse } from 'src/app/shared/Icourse';
 import { Inotification } from 'src/app/shared/Inotification';
@@ -19,13 +21,15 @@ export class WaitingTeachersComponent implements OnInit {
   notification:Inotification;
   course:Icourse;
   teacher:Iuser;
+  category:Icategory;
   classes:Iclass[];
   courseClasses:Iclass[]=[];
   constructor(private notificationService:notificationService,
     private route:ActivatedRoute,
     private courseService:courseService,
     private classService:classService,
-    private userService:UsersService
+    private userService:UsersService,
+    private categoryService:categoryService
     ) { 
     //this.route.queryParamMap.subscribe((params: any) => this.id=params.params.id);   
     this.route.params.subscribe(params => {
@@ -39,6 +43,14 @@ export class WaitingTeachersComponent implements OnInit {
           this.courseService.getCourseById(this.notification.courseId).subscribe(
             data=>{
                 this.course=data[0];
+                this.categoryService.getCategoryById(this.course.categoryID).subscribe(
+                  data=>{
+                  this.category=data[0];
+                  },
+                  error=>{
+                    console.log(error);
+                  }
+                )
             },
             error=>{
                 console.log(error);

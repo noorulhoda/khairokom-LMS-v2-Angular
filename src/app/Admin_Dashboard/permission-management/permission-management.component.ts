@@ -95,6 +95,8 @@ export class PermissionManagementComponent implements OnInit {
     this.filterUsers();
     console.log(this.user);
     console.log(this.role);
+    userId='';
+    roleId='';
 
   }
    deleteOldRoles(roleId)
@@ -103,12 +105,12 @@ export class PermissionManagementComponent implements OnInit {
        if(element==roleId) this.user.roles.splice(index,1);
     });
    }
-   deleteOldUsers(userId)
-   {
-     this.role.users.forEach((element,index)=>{
-       if(element==userId) this.role.users.splice(index,1);
-    });
-   }
+    deleteOldUsers(userId)
+    {
+      this.role.users.forEach((element,index)=>{
+        if(element==userId) this.role.users.splice(index,1);
+     });
+    }
   updateRoles()
   {
      this.arrayRole.forEach((element,index)=>{
@@ -116,25 +118,26 @@ export class PermissionManagementComponent implements OnInit {
      });
   //  this.user.roles=this.arrayRole;
   }
-  updateUsers()
-  {
-     this.arrayUser.forEach((element,index)=>{
-          this.role.users.push(this.arrayUser[index]);
-    });
-    //this.role.users=this.arrayUser;
-  }
+   updateUsers()
+   {
+      this.arrayUser.forEach((element,index)=>{
+           this.role.users.push(this.arrayUser[index]);
+     });
+     //this.role.users=this.arrayUser;
+   }
   filterRoles()
   {
     this.user.roles = this.user.roles.filter((element, i) => i === this.user.roles.indexOf(element));
     console.log(this.user.roles);
     this.updateUserServices();
   }
-  filterUsers()
-  {
-    this.role.users = this.role.users.filter((element, i) => i === this.role.users.indexOf(element));
-    console.log(this.role.users);
-    this.updateRoleServices();
-  }
+   filterUsers()
+   {
+     this.role.users = this.role.users.filter((element, i) => i === this.role.users.indexOf(element));
+     console.log(this.role.users);
+     this.updateRoleServices();
+      this.arrayRole=[];
+   }
  updateUserServices()
  {
   this.userServices.updateUser(this.idUser,this.user)
@@ -145,23 +148,23 @@ export class PermissionManagementComponent implements OnInit {
     error => {
       console.log("Error"+ error)
     }
-  ); 
+  );
  }
- updateRoleServices()
- {
-  this.roleService.updateRole(this.idRole,this.role)
-  .subscribe(
-    data => {
-      console.log(data);
-    },
-    error => {
-      console.log("Error"+ error)
+  updateRoleServices()
+  {
+   this.roleService.updateRole(this.idRole,this.role)
+   .subscribe(
+     data => {
+       console.log(data);
+     },
+     error => {
+       console.log("Error"+ error) 
     }
-  ); 
- }
+   );
+  }
 
-  
 
- 
+
+
 }
 

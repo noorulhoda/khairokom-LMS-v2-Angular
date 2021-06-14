@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
        
-    this.userService.findByUserName(localStorage.getItem('currentUser')).subscribe(
+    this.userService.findByUserName(localStorage.getItem('currentUserName')).subscribe(
    
       data => {this.user= data[0]; this.userId=data[0]['_id']},
       er =>console.log(er) ,
@@ -29,7 +29,10 @@ export class HeaderComponent implements OnInit {
   logout(){
     //console.log(localStorage.getItem('token'))
     localStorage.setItem('token','');
-    localStorage.setItem('currentUser','guest')
+    localStorage.setItem('currentUserName','guest')
+    this.currentUserName='guest'
+    localStorage.setItem('currentUserId','')
+
     console.log('logouted successfully')
   //console.log(localStorage.getItem('token'))
   }
@@ -37,7 +40,7 @@ export class HeaderComponent implements OnInit {
   currentUser:Iuser;
   currentUserRoles:string[];
   findCurrentUser(){
-    this.currentUserName=localStorage.getItem('currentUser');
+    this.currentUserName=localStorage.getItem('currentUserName');
     this.userService.findByUserName(this.currentUserName).subscribe(
       data => {
         console.log(data)

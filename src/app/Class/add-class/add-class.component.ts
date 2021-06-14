@@ -6,6 +6,8 @@ import { Iclass } from 'src/app/shared/Iclass';
 import { courseService } from 'src/app/services/course.service';
 import { UsersService } from 'src/app/services/users.service';
 import { RolesService } from 'src/app/services/roles.service';
+import { Iuser } from 'src/app/shared/Iuser';
+import { Icourse } from 'src/app/shared/Icourse';
 
 @Component({
   selector: 'app-add-class',
@@ -14,6 +16,7 @@ import { RolesService } from 'src/app/services/roles.service';
 })
 export class AddClassComponent implements OnInit {
   courses;usersList;teachersList=[];teacherRole="60b79235865a7e0ac79fdb85";
+  teacher:Iuser;course:Icourse;
   constructor(private roleService:RolesService,private userService:UsersService,private classservice:classService,private courseService:courseService,private fb:FormBuilder,private router:Router)
   {
     courseService.GetAllCourses().subscribe(
@@ -126,9 +129,30 @@ export class AddClassComponent implements OnInit {
         console.log(error)
       }
     );
+    this.addTeacherToCourse()
   }
+//////////////
+  addTeacherToCourse(){
+    this.userService.getUserById(this.TeacherId?.value).subscribe(
+      data=>this.teacher=data[0]
+      ,er=>console.log(er)
+    )
+    this.courseService.getCourseById(this.CourseId?.value).subscribe(
+      data=>this.teacher=data[0]
+      ,er=>console.log(er)
+    )
+     this.teacher.teachedCourses.push(this.CourseId.value);
+     this.userService.updateUser(this.TeacherId.value,this.teacher).subscribe(
+       data=>console.log(data),
+       er=>console.log(er)
+     )
 
-
+     this.course.teachers.push(this.TeacherId.value);
+     this.courseService.UpdateCourse(this.CourseId.value,this.course).subscribe(
+      data=>console.log(data),
+      er=>console.log(er)
+     )
+  }
 }
 
 

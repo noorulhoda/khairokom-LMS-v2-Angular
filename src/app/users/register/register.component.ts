@@ -9,7 +9,7 @@ import { Icountry } from 'src/app/shared/Icountry';
 import { Iuser } from 'src/app/shared/Iuser';
 import { ConfirmPassword } from '../../misMatch.validator';
 import { ForbiddenNameValidator } from '../../username.validatior';
-import { formatDate } from '@angular/common';
+
 import { timesChecker } from 'src/app/timesCheckerValidator';
 
 
@@ -100,7 +100,7 @@ registerError="......";//error in duplicate userName or email(how can i get it f
   {
     return this.registerForm.get('country');
   }
-  get time1()
+ /*  get time1()
   {
     return this.registerForm.get('time1'); 
   }
@@ -111,7 +111,7 @@ registerError="......";//error in duplicate userName or email(how can i get it f
   get time3()
   {
     return this.registerForm.get('time3'); 
-  }
+  } */
 token='';
 
 countryChanged(){
@@ -198,20 +198,15 @@ countryChanged(){
   );
 
 }
-//not working
-private formatDate1(date) {
+
+private formatDate(date) {
   const d = new Date(date);
   let month = '' + (d.getMonth() + 1);
   let day = '' + d.getDate();
   const year = d.getFullYear();
   if (month.length < 2) month = '0' + month;
   if (day.length < 2) day = '0' + day;
-  return [year,month,day].join('-');
-}
-//notworking
-fromJsonDate(jDate): string {
-  const bDate: Date = new Date(jDate);
-  return bDate.toISOString().substring(0, 10);  //Ignore time
+  return [year, month, day].join('-');
 }
   d:Date;
   loadApiData()
@@ -228,7 +223,7 @@ fromJsonDate(jDate): string {
       gender:"Male",
       img:"image",
       //roles:"Student",
-      birthdate:this.d,//formatDate(this.d, 'yyyy-MM-dd', 'en'),//this.formatDate(this.d),
+      birthdate:this.formatDate(this.d),//formatDate(this.d, 'yyyy-MM-dd', 'en'),//this.formatDate(this.d),
       //joinedClasses:this.user.joinedClasses,
       //teachedCourses:this.user.teachedCourses,
       phone:"1223456789",
@@ -239,7 +234,7 @@ fromJsonDate(jDate): string {
 
   }
 
-  userSuitableTimes=[];
+/*   userSuitableTimes=[];
   checkedTimes=0;
   noTimeChoosen=false;
   onChangeCheck(isChecked){
@@ -260,6 +255,6 @@ fromJsonDate(jDate): string {
       if(this.time3.value==true)
       this.userSuitableTimes.push(20)     
 
-  }
+  } */
 
 }

@@ -142,5 +142,24 @@ export class WaitingTeachersComponent implements OnInit {
    this.router.navigateByUrl("/addClass")
  }
 
+ NotifyToTeacherWithNotAccept(){
+  var notification:Inotification={
+    message:"you have not accepted to teach a course",
+    notifiedUserId:this.notification.teacherId,
+    courseId:this.notification.courseId,
+    isRead:false
+  }
+  this.notificationService.addNotification(notification).subscribe(
+    data => {
+      //this.router.navigateByUrl("/home")
+      alert("تم ارسال رفض للمعلم للتدريس ")
+      console.log(data)
+    },
+    error => {
+      console.log(error)
+    }
+  );
+}
+
   
 }

@@ -15,10 +15,15 @@ import { Icourse } from 'src/app/shared/Icourse';
   styleUrls: ['./add-class.component.scss']
 })
 export class AddClassComponent implements OnInit {
+  courseId:String;
+  teacherId:String;
   courses;usersList;teachersList=[];teacherRole="60b79235865a7e0ac79fdb85";
   teacher:Iuser;course:Icourse;
   constructor(private roleService:RolesService,private userService:UsersService,private classservice:classService,private courseService:courseService,private fb:FormBuilder,private router:Router)
   {
+     this.courseId=localStorage.getItem('courseId');
+     this.teacherId=localStorage.getItem('teacherId');
+     console.log(this.teacherId);
     courseService.GetAllCourses().subscribe(
       data => {
         this.courses = data;
@@ -54,7 +59,7 @@ export class AddClassComponent implements OnInit {
     StartDate:['',[Validators.required]],
     EndDate:['',[Validators.required]],
     CourseId:['',[Validators.required]],
-    TeacherId:[''],
+    TeacherId:['',[Validators.required]],
     Students:[[],[Validators.required]]
    });
 
@@ -131,6 +136,7 @@ export class AddClassComponent implements OnInit {
     );
     this.addTeacherToCourse()
   }
+
 //////////////
   addTeacherToCourse(){
     this.userService.getUserById(this.TeacherId?.value).subscribe(

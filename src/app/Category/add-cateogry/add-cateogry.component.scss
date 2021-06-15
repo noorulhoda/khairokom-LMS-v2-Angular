@@ -48,7 +48,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 } 
 
 main{
-  background-color: #fff;  
+  background-color: #fff;    
 }
 main form {
   padding: 72.5px;
@@ -63,6 +63,11 @@ main form .add {
 main form .add:hover{
   background-color: #FFAD05; 
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+main form .upload{
+  background-color: #333;
+  color: #fff;
+  border: none;
 }
 
 body {

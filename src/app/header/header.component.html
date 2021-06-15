@@ -62,27 +62,40 @@
         </li>
         <li class="nav-item">
           <a class="nav-link line" href="#contact">تواصل معانا<span class="sr-only">(current)</span></a>
-        </li>          
+        </li>                   
       </ul>
       
       <form class="form-inline my-2 my-lg-0">                         
         <button class="button-style btn my-2 my-sm-0" type="submit" routerLink="/register" *ngIf="currentUserName=='guest'">إنشاء حساب</button>&nbsp; &nbsp;
         <button class="button-style btn my-2 my-sm-0" type="submit" routerLink="/login" *ngIf="currentUserName=='guest'">تسجيل الدخول</button>
-        <button class="button-style btn my-2 my-sm-0" (click)="logout()" *ngIf="currentUserName!='guest'">تسجيل الخروج</button>&nbsp; &nbsp;
-        <button class="button-style btn my-2 my-sm-0" routerLink="/profile/{{userId}}" *ngIf="currentUserName!='guest'">ملفي الشخصي</button>
+        <!-- <button class="button-style btn my-2 my-sm-0" (click)="logout()" *ngIf="currentUserName!='guest'">تسجيل الخروج</button>&nbsp; &nbsp;
+        <button class="button-style btn my-2 my-sm-0" routerLink="/profile/{{userId}}" *ngIf="currentUserName!='guest'">ملفي الشخصي</button> -->
       </form>
 
-      <div class="user">
+      <div class="user" *ngIf="currentUserName!='guest'">
         <ul class="navbar-nav user ml-auto ml-md-0">
+          <li class="nav-item dropdown" style="cursor: pointer;">
+            <!-- <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+               الاشعارات<span class="badge">{{unReadNotifications}}</span>
+            </a> -->
+            <i class="fas fa-bell"></i>
+            <div class="dropdown-menu" >
+              <!-- <a class="dropdown-item"  *ngFor="let n of notifications">
+                <p *ngIf="n.hasOwnProperty('studentId')" (click)="notificationRead(n._id,n)"><b routerLink="/waitingStudents/{{n._id}}">{{n.message}}</b></p>
+                <p *ngIf="n.hasOwnProperty('teacherId');" (click)="notificationRead(n._id,n)"><b routerLink="/waitingTeachers/{{n._id}}">{{n.message}}</b></p>             
+              </a> -->
+            </div>
+           </li>
+                     
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img class="img-fluid" src="https://www.materialui.co/materialIcons/action/account_circle_grey_192x192.png" width="40px">
               </a>
               <div class="dropdown-menu dropdown-menu-left" aria-labelledby="userDropdown">                 
-                  <a class="dropdown-item" href="">الملف الشخصي</a>
-                  <a class="dropdown-item" href="">تسجيل الخروج</a>                  
+                  <a class="dropdown-item" routerLink="/profile/{{userId}}">الملف الشخصي</a>
+                  <a class="dropdown-item" (click)="logout()">تسجيل الخروج</a>                  
               </div>
-          </li>
+          </li>          
         </ul>
       </div>
     </div>

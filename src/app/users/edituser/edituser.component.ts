@@ -4,6 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 // import * as moment from 'moment';
 import { Observable } from 'rxjs';
+import { countryService } from 'src/app/services/country.service';
 import { UploadService } from 'src/app/services/upload.service';
 import { UsersService } from '../../services/users.service';
 import{Iuser} from '../../shared/Iuser'
@@ -19,8 +20,9 @@ export class EdituserComponent implements OnInit {
   msg = '';
   FileDetail: Observable<any>;
   fileName:string;
-
-   constructor(private uploadService: UploadService,private fb:FormBuilder,private userservice:UsersService,private route:ActivatedRoute,private router:Router) {
+  countries;cntry;dialCode;
+  countryName;
+   constructor(private cntryService:countryService,private uploadService: UploadService,private fb:FormBuilder,private userservice:UsersService,private route:ActivatedRoute,private router:Router) {
    }
     
     registerForm=this.fb.group({
@@ -28,16 +30,16 @@ export class EdituserComponent implements OnInit {
       lastName:['',[Validators.required,Validators.minLength(5)]],
       userName:['',[Validators.required,Validators.minLength(5)]],
       password:['',[Validators.required,Validators.minLength(8)]],
-      confirmPassword:[''],
-      email:[''],
-      role:[''],
-      gender:[''],
-      birthDate:[''],
-      phone:[''],
-      country:[''],
-      img:[''],
-      joinedClasses:[''],
-      teachedCourses:['']
+      confirmPassword:['',[Validators.required]],
+      email:['',[Validators.required]],
+      roles:[[],[Validators.required]],
+      gender:['',[Validators.required]],
+      birthDate:[,[Validators.required]],
+      phone:['',[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10), Validators.maxLength(10)]],
+      country:['',[Validators.required]],
+      img:['',[Validators.required]],
+      joinedClasses:[[],[Validators.required]],
+      teachedCourses:[[],[Validators.required]],
     });
   
   get firstName()
@@ -64,17 +66,17 @@ export class EdituserComponent implements OnInit {
   {
     return this.registerForm.get('teachedCourses');
   }
- /*  get password()
+  get password()
   {
     return this.registerForm.get('password');
   }
   get confirmPassword()
   {
     return this.registerForm.get('confirmPassword');
-  }
-  get role()
+  }/*
+  get roles()
   {
-    return this.registerForm.get('role');
+    return this.registerForm.get('roles');
   } */
   get birthDate()
   {
@@ -101,21 +103,20 @@ export class EdituserComponent implements OnInit {
 
   
   loadApiData()
-  {
+  {    var phonee:string=this.user.phone;
       this.registerForm.patchValue({
       firstName:this.user.firstName,
       lastName:this.user.lastName,
       userName:this.user.userName,
-      //password:this.user.password,
-      //confirmPassword:this.user.password,
+      password:this.user.password,
+      confirmPassword:this.user.password,
       email:this.user.email,
       gender:this.user.gender,
       img:this.user.img,
-      //how to show on date input??
       birthDate:this.formatDate(this.user.birthDate),
       joinedClasses:this.user.joinedClasses,
       teachedCourses:this.user.teachedCourses,
-      phone:this.user.phone,
+      phone:phonee.substr(-10,10),
       country:this.user.country
     })
     this.fileName=this.user.img;
@@ -132,6 +133,10 @@ export class EdituserComponent implements OnInit {
       console.log(params) //log the entire params object
       this.id=params['id'] //log the value of id
       console.log('id : '+(this.id));
+
+      this.cntryService.getAllCountries().subscribe(
+        data=>  this.countries=data
+      ); 
       
   });
 
@@ -143,6 +148,24 @@ export class EdituserComponent implements OnInit {
     );
     console.log(this.user)
   }
+
+
+
+  countryChanged(){
+    this.cntryService.getCountryById(this.country?.value).subscribe(
+      data=>
+        {
+        this.cntry=data[0]
+        console.log(this.cntry)    
+        this.dialCode=data[0]['dialCode']
+        this.countryName=data[0]['name']
+        console.log("dC :"+this.dialCode+"  name:"+this.countryName)
+        console.log("-------------------------------------------------***************")
+      }
+        ); 
+  }
+
+
 
 
   private formatDate(date) {
@@ -168,8 +191,8 @@ update()
     img:this.fileName,
     joinedClasses:this.joinedClasses?.value,
     teachedCourses:this.teachedCourses?.value,
-    phone:this.phone?.value,
-    country:this.country?.value,
+    phone:this.dialCode+this.phone?.value,
+    country:this.countryName,
     verifiedTeacher:false,
     suitableTimes:[]
   }

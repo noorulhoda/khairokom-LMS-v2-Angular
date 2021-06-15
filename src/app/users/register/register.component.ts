@@ -9,7 +9,9 @@ import { Icountry } from 'src/app/shared/Icountry';
 import { Iuser } from 'src/app/shared/Iuser';
 import { ConfirmPassword } from '../../misMatch.validator';
 import { ForbiddenNameValidator } from '../../username.validatior';
-import { formatDate } from '@angular/common';
+
+import { timesChecker } from 'src/app/timesCheckerValidator';
+
 
 
 @Component({
@@ -19,27 +21,17 @@ import { formatDate } from '@angular/common';
 })
 export class RegisterComponent implements OnInit {
   countries;cntry;
-  
+  user;userId;
 chosenRoleId='';
 rolesList=[];
 dialCode;
+countryName;
 registerError="......";//error in duplicate userName or email(how can i get it from api to render in html ???)
   constructor(private cntryService:countryService,private fb:FormBuilder,private userService:UsersService,private roleService:RolesService,private router: Router) { }
   ngOnInit(): void {
     this.cntryService.getAllCountries().subscribe(
       data=>  this.countries=data
-    );
-    this.cntryService.getCountryById("60bebc929106212df0897b17").subscribe(
-      data=>
-      {
-      this.cntry=data[0]
-      console.log("cntry"+this.cntry.name)      
-      },
-      err=>console.log(err)
-      );
-
-      console.log(this.birthDate);
-      
+    );  
   }
 
 
@@ -57,8 +49,11 @@ registerError="......";//error in duplicate userName or email(how can i get it f
     country:['',[Validators.required]],
     img:['',[Validators.required]],
     joinedClasses:[[],[Validators.required]],
-    teachedCourses:[[],[Validators.required]]
-  },{validators:[ConfirmPassword]});
+    teachedCourses:[[],[Validators.required]],
+    time1:[''],
+    time2:[''],
+    time3:['']
+  },{validators:[ConfirmPassword,timesChecker]});
   
 
 
@@ -105,11 +100,35 @@ registerError="......";//error in duplicate userName or email(how can i get it f
   {
     return this.registerForm.get('country');
   }
+ /*  get time1()
+  {
+    return this.registerForm.get('time1'); 
+  }
+  get time2()
+  {
+    return this.registerForm.get('time2'); 
+  }
+  get time3()
+  {
+    return this.registerForm.get('time3'); 
+  } */
 token='';
 
+countryChanged(){
+  this.cntryService.getCountryById(this.country?.value).subscribe(
+    data=>
+      {
+      this.cntry=data[0]
+      console.log(this.cntry)    
+      this.dialCode=data[0]['dialCode']
+      this.countryName=data[0]['name']
+      console.log("dC :"+this.dialCode+"  name:"+this.countryName)
+      console.log("-------------------------------------------------***************")
+    }
+      ); 
+}
 
-
-submit()
+ submit()
 {  
 /*   this.roleService.findByRoleType(this.roles?.value).subscribe(
     data=>
@@ -119,16 +138,23 @@ submit()
       }
     ); */
 
-    this.cntryService.getCountryById(this.country?.value).subscribe(
-      data=>
-      {
-      this.cntry=data[0]
-      console.log(this.cntry)    
-      this.dialCode=data[0]['dialCode']
-      console.log("dC :"+data[0]['dialCode'])
-    }
-      ); 
+
+/*     if(this.checkedTimes==0)
+        this.userSuitableTimes=null; */
+    
   
+
+      /*this.cntryService.getCountryById("60bebc929106212df0897b17").subscribe(
+        data=>
+        {
+        this.cntry=data[0]
+        console.log("cntry"+this.cntry.name)      
+        },
+        err=>console.log(err)
+        );*/
+  
+
+    //  this.whichChecked();
   //this.rolesList=[this.chosenRoleId];
    
     var user: Iuser = {
@@ -142,45 +168,45 @@ submit()
     birthDate:this.birthDate?.value,
     img:"newUser.jpg",
     phone:this.dialCode+this.phone?.value,
-    country:this.cntry.name,
+    country:this.countryName,
     //joinedClasses:this.joinedClasses?.value,
     //teachedCourses:this.teachedCourses?.value
     verifiedTeacher:false,
-    suitableTimes:[]
+    suitableTimes:[]//this.checkedTimes>0 ? this.userSuitableTimes:[]////////time Checker validator???
   }
   
   console.log(user)
-  console.log("value"+this.country.value)
+  //console.log("value"+this.country.value)
   this.userService.Register(user).subscribe(
     data => {
       this.token=data['token'];
       console.log(this.token);
       localStorage.setItem('token',this.token)
       localStorage.setItem('currentUser',this.userName?.value)
-      this.router.navigateByUrl("/home")
+     
       this.registerError=data['msg'];
-    },
+   
+      this.router.navigateByUrl("/home")
+  console.log(this.user)
+ 
+}
+    ,
     error => {
      // this.registerError=error;
       console.log(error)
     }
   );
-   
+
 }
-//not working
-private formatDate1(date) {
+
+private formatDate(date) {
   const d = new Date(date);
   let month = '' + (d.getMonth() + 1);
   let day = '' + d.getDate();
   const year = d.getFullYear();
   if (month.length < 2) month = '0' + month;
   if (day.length < 2) day = '0' + day;
-  return [year,month,day].join('-');
-}
-//notworking
-fromJsonDate(jDate): string {
-  const bDate: Date = new Date(jDate);
-  return bDate.toISOString().substring(0, 10);  //Ignore time
+  return [year, month, day].join('-');
 }
   d:Date;
   loadApiData()
@@ -197,7 +223,7 @@ fromJsonDate(jDate): string {
       gender:"Male",
       img:"image",
       //roles:"Student",
-     birthdate:this.d,//formatDate(this.d, 'yyyy-MM-dd', 'en'),//this.formatDate(this.d),
+      birthdate:this.formatDate(this.d),//formatDate(this.d, 'yyyy-MM-dd', 'en'),//this.formatDate(this.d),
       //joinedClasses:this.user.joinedClasses,
       //teachedCourses:this.user.teachedCourses,
       phone:"1223456789",
@@ -208,6 +234,27 @@ fromJsonDate(jDate): string {
 
   }
 
+/*   userSuitableTimes=[];
+  checkedTimes=0;
+  noTimeChoosen=false;
+  onChangeCheck(isChecked){
+    if(isChecked){
+    this.checkedTimes++;
+    this.noTimeChoosen=false;
+  }
+    else{
+    this.checkedTimes--;
+    if(this.checkedTimes==0)this.noTimeChoosen=true;
+  }
+  }
+  whichChecked(){
+      if(this.time1.value==true)
+      this.userSuitableTimes.push(8)
+      if(this.time2.value==true)
+      this.userSuitableTimes.push(15)
+      if(this.time3.value==true)
+      this.userSuitableTimes.push(20)     
 
+  } */
 
 }

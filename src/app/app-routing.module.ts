@@ -26,13 +26,15 @@ import { GetSessionByIdComponent } from './Session/get-session-by-id/get-session
 import { GetAllSessionsComponent } from './Session/get-all-sessions/get-all-sessions.component';
 import { AddSessionComponent } from './Session/add-session/add-session.component';
 import { UpdateSessionComponent } from './Session/update-session/update-session.component';
-import {UploadComponent } from './upload/upload.component';
+
 import {DashboardComponent} from './Admin_Dashboard/dashboard/dashboard.component';
 import {AddRoleComponent} from './Role/add-role/add-role.component'
 import {GetAllRolesComponent} from './Role/get-all-roles/get-all-roles.component'
 import {GetRoleByIDComponent} from './Role/get-role-by-id/get-role-by-id.component'
 import {UpdateRoleComponent} from './Role/update-role/update-role.component'
 import {PermissionManagementComponent} from './Admin_Dashboard/permission-management/permission-management.component'
+import { WaitingstudentsComponent } from './Admin_Dashboard/waitingstudents/waitingstudents.component';
+import { WaitingTeachersComponent } from './Admin_Dashboard/waiting-teachers/waiting-teachers.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -61,13 +63,14 @@ const routes: Routes = [
   {path:'getSessionById/:id',component:GetSessionByIdComponent},
   {path:'getAllSessions',component:GetAllSessionsComponent},
   {path:'addSession',component:AddSessionComponent},
-  {path:'upload',component:UploadComponent},
-  {path:'Admin',component:DashboardComponent},    
+  {path:'Admin',component:DashboardComponent},
   {path:'AddRole',component:AddRoleComponent},
   {path:'GetAllRoles',component:GetAllRolesComponent},
   {path:'GetRoleByID/:id',component:GetRoleByIDComponent},
   {path:'UpdateRole/:id',component:UpdateRoleComponent},
   {path:'PermissionManagement',component:PermissionManagementComponent},
+  {path:'waitingStudents/:id',component:WaitingstudentsComponent},
+  {path:'waitingTeachers/:id',component:WaitingTeachersComponent},
   {path:'**',component:NotFoundComponent}
   
 ];

@@ -14,24 +14,34 @@
        >
          <span class="navbar-toggler-icon"></span>
        </button>
-   
+        
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mr-auto">
-           <li class="nav-item">
-             <a class="nav-link" href="#home"  routerLink="/home">إضافة قسم <span class="sr-only">(current)</span></a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+               الاشعارات<span class="badge">{{unReadNotifications}}</span>
+            </a>
+            <div class="dropdown-menu" >
+              <a class="dropdown-item text-danger"  *ngFor="let n of adminNotifications">
+                <b  [ngClass.text-danger]="!n.isRead" [ngClass.text-primary]="n.isRead"  (click)="notificationRead(n._id,n)">{{n.message}}</b>
+               </a>
+            </div>
            </li>
            <li class="nav-item">
-             <a class="nav-link" href="#category" routerLink="/getAllCategories">إضافة دورة تدريبية <span class="sr-only">(current)</span></a
+             <a class="nav-link" href="#home"  routerLink="/addCategory">إضافة قسم <span class="sr-only">(current)</span></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="#category" routerLink="/addCourse">إضافة دورة تدريبية <span class="sr-only">(current)</span></a
              >
            </li>
            <li class="nav-item">
-             <a class="nav-link" href="#course" routerLink="/getAllCourses/">إضافة مستخدم <span class="sr-only">(current)</span></a>
+             <a class="nav-link" href="#course" routerLink="/register">إضافة مستخدم <span class="sr-only">(current)</span></a>
            </li>
            <li class="nav-item">
-             <a class="nav-link" href="#contact">إضافة مجموعة<span class="sr-only">(current)</span></a>
+             <a class="nav-link" href="#contact" routerLink="/addClass">إضافة مجموعة<span class="sr-only">(current)</span></a>
            </li> 
            <li class="nav-item">
-            <a class="nav-link" href="#contact">إضافة حلقة<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#contact" routerLink="/addSession">إضافة حلقة<span class="sr-only">(current)</span></a>
           </li>          
          </ul>         
        </div>
@@ -39,3 +49,4 @@
    </nav>
    <!-- END NAVBAR -->
    </div>
+    

@@ -155,15 +155,18 @@
               </div>
               
        -->
-      
-          <div class="form-group">
-            <!-- <label>Country :</label> -->
-            <select class="form-control mt-4" formControlName="country">
-              <option *ngFor="let c of countries" value="{{ c._id }}">
-                {{ c.name }}
-              </option>
-            </select>
-          </div>
+               
+        
+ -->
+
+            
+        <div class="form-group">
+            <label>Country :</label>
+            <select class="form-control" formControlName="country" (change)="countryChanged()"  >
+                <option *ngFor = "let c of countries"  value="{{c._id}}">{{c.name}}</option>
+              </select>
+        </div>
+        
       
           <div class="form-group">
             <!-- <label>Phone</label> -->
@@ -198,5 +201,17 @@
        </div>
       </div>
 </div>
+
+        <!-- <div class="form-group">
+            <label>SuitableTimes (cairo Time ):</label><br>
+            After 8Am<input type="checkbox" (change)="onChangeCheck($event.target.checked)" formControlName="time1"> <br>
+            After 3pm<input type="checkbox" (change)="onChangeCheck($event.target.checked)" formControlName="time2" ><br>
+            After 8pm<input type="checkbox" (change)="onChangeCheck($event.target.checked)" formControlName="time3" ><br>
+            <small class="text-danger"  *ngIf="checkedTimes==0">
+                one time required at Least
+            </small>
+        </div>
+ -->        
+        
 
 <app-footer></app-footer>

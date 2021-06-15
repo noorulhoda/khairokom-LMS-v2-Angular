@@ -13,6 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UsersService {
+ 
 url=usersController.GetAllUsers;//api/user
   constructor(private http:HttpClient) { 
   }
@@ -37,7 +38,7 @@ Login(user:any): Observable<any>{
       return throwError(err.message||"customError happened")
     }));
   }
-  getUserById(id:string):Observable<Iuser>
+  getUserById(id:String):Observable<Iuser>
   {
     return this.http.get<Iuser>(this.url+"/"+id).pipe(catchError((err)=>
     {
@@ -55,19 +56,15 @@ Login(user:any): Observable<any>{
     }));
   }
   findByUserName(userName:string): Observable<Iuser>{
-    return this.http.get<Iuser>(this.url+"/"+userName).pipe(catchError((err)=>
-    {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
-    }));
-  }
-  uploadImage(formData:FormData): Observable<any>{
-    return this.http.post(this.url+"/uploadImage", formData).pipe(catchError((err)=>
+    return this.http.get<Iuser>(this.url+"/name/"+userName).pipe(catchError((err)=>
     {
       return throwError(err.message ||"Internal Server error contact site adminstarator");
     }));
   }
 
-}
+  }
+
+
 /*
 addProduct(product:IProduct): Observable<any>{
   return this.http.post(Url,product, httpOptions).pipe(catchError((err)=>

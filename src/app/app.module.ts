@@ -37,7 +37,7 @@ import {HttpClientModule} from '@angular/common/http';
     GetAllSessionsComponent,
     GetSessionByIdComponent,
     UpdateSessionComponent,
-    UploadComponent,
+
     DashboardComponent,
     GetAllCategoriesAdminComponent,
     GetAllClassesAdminComponent,
@@ -50,6 +50,8 @@ import {HttpClientModule} from '@angular/common/http';
     PermissionManagementComponent,
     DashboardHeaderComponent,
     DashboardFooterComponent,
+    WaitingstudentsComponent,
+    WaitingTeachersComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +98,7 @@ import { AddSessionComponent } from './Session/add-session/add-session.component
 import { GetAllSessionsComponent } from './Session/get-all-sessions/get-all-sessions.component';
 import { GetSessionByIdComponent } from './Session/get-session-by-id/get-session-by-id.component';
 import { UpdateSessionComponent } from './Session/update-session/update-session.component';
-import {UploadComponent} from './upload/upload.component';
+
 import { DashboardComponent } from './Admin_Dashboard/dashboard/dashboard.component';
 import { GetAllCategoriesAdminComponent } from './Category/get-all-categories-admin/get-all-categories-admin.component';
 import { GetAllClassesAdminComponent } from './Class/get-all-classes-admin/get-all-classes-admin.component';
@@ -107,8 +109,10 @@ import { GetAllRolesComponent } from './Role/get-all-roles/get-all-roles.compone
 import { GetRoleByIDComponent } from './Role/get-role-by-id/get-role-by-id.component';
 import { DashboardControlsComponent } from './Admin_Dashboard/dashboard-controls/dashboard-controls.component';
 import { PermissionManagementComponent } from './Admin_Dashboard/permission-management/permission-management.component';
-import { DashboardHeaderComponent } from './Admin_Dashboard/dashboard-header/dashboard-header.component';
+import{DashboardHeaderComponent} from './Admin_Dashboard/dashboard-header/dashboard-header.component'
 import { DashboardFooterComponent } from './Admin_Dashboard/dashboard-footer/dashboard-footer.component';
+import { WaitingstudentsComponent } from './Admin_Dashboard/waitingstudents/waitingstudents.component';
+import { WaitingTeachersComponent } from './Admin_Dashboard/waiting-teachers/waiting-teachers.component';
 @NgModule({
   imports: [
     BrowserModule,

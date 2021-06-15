@@ -6,6 +6,12 @@ import { categoryService } from 'src/app/services/category.service';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Icourse } from 'src/app/shared/Icourse';
 import { Icomment } from 'src/app/shared/Icomment';
+import { UsersService } from 'src/app/services/users.service';
+import { Iuser } from 'src/app/shared/Iuser';
+import { classService } from 'src/app/services/class.service';
+import { Iclass } from 'src/app/shared/Iclass';
+import { notificationService } from 'src/app/services/notification.service';
+import { Inotification } from 'src/app/shared/Inotification';
 
 @Component({
   selector: 'app-course-details',
@@ -13,96 +19,169 @@ import { Icomment } from 'src/app/shared/Icomment';
   styleUrls: ['./course-details.component.scss']
 })
 export class CourseDetailsComponent implements OnInit {
-
-  constructor(private cs:courseService,
-    private route:ActivatedRoute,
-    private router:Router,private fb:FormBuilder,
-    private commentService:commentService,
-    private categoryService: categoryService) 
-  { 
+  user;
+  userId=localStorage.getItem('currentUserId');
+  courseId: string;
+  classes:Iclass[]=[];
+  courseClasses:Iclass[]=[];
+  userClasses: any;
+  constructor(private cs: courseService,
+    private route: ActivatedRoute,
+    private router: Router, private fb: FormBuilder,
+    private commentService: commentService,
+    private categoryService: categoryService,
+    private userService: UsersService,
+    //private classService:classService,
+    private notificationService:notificationService) {
     this.route.params.subscribe(params => {
-      console.log(params) 
-      this.id=params['id'] 
-      console.log('id : '+(this.id));
-     });
-     
-     this.cs.getCourseById(this.id).subscribe(
+      console.log(params)
+      this.courseId = params['id']
+      console.log('id : ' + (this.courseId));
+    });
+
+    this.cs.getCourseById(this.courseId).subscribe(
       data => {
         this.course = data[0];
         this.categoryService.getCategoryById(data[0].categoryID).subscribe(
           data2 => {
-            this.courseCategoryTitle = data2[0].Title;});
+            this.courseCategoryTitle = data2[0].Title;
+          });
       },
       error => console.log(error)
     );
 
-   this.GetCourseComments();
-  
-  }
-
-  comments:Icomment[]=[];
-
-  ngOnInit(): void {}
-  addCommentForm=this.fb.group(
-    {
-    content:[''],
-    courseID:[''],
-    userID:[''],
-   });  
-  id:String;
-  courseCategoryTitle:String;
-    course:Icourse={
-    tittle:'',
-    description:'',
-    image:'',
-    categoryID:'',
-    teachers:[]
-  }
-  
-  delete(){
-    this.cs.DeleteCourse(this.id)
-    .subscribe(
+    this.userService.getUserById(localStorage.getItem('currentUserId')).subscribe(
       data => {
-        this.router.navigateByUrl("course")
+        this.user = data[0];
+        this.userClasses = data[0]['joinedClasses']
+
       },
-      error => {
-        console.log("errooorrrrr-_-"+ error)
-      }
-    );  
+      error => console.log(error)
+    );
+
+   /*  this.classService.GetAllclass().subscribe(
+      data => {
+        this.classes = data;
+        console.log(data);
+        this.classes.forEach(element => {
+          if(element.CourseId==this.courseId){this.courseClasses.push(element)}
+        });
+
+      },
+      error => console.log(error)
+    ); */
+
+    this.GetCourseComments();
+
   }
-  get content()
-  {
+
+  comments: Icomment[] = [];
+
+  ngOnInit(): void { 
+
+
+
+    
+  }
+  addCommentForm = this.fb.group(
+    {
+      content: [''],
+      courseID: [''],
+      userID: [''],
+    });
+
+  courseCategoryTitle: string;
+  course: Icourse = {
+    tittle: '',
+    description: '',
+    image: '',
+    categoryID: '',
+    teachers: []
+  }
+
+  delete() {
+    this.cs.DeleteCourse(this.courseId)
+      .subscribe(
+        data => {
+          this.router.navigateByUrl("course")
+        },
+        error => {
+          console.log("errooorrrrr-_-" + error)
+        }
+      );
+  }
+  get content() {
     return this.addCommentForm.get('content');
   }
-  AddComment(){
-    var comment:Icomment={ 
-      content:this.content?.value,
-      userID:'user#',
-      courseID:this.id,
+  AddComment() {
+    var comment: Icomment = {
+      content: this.content?.value,
+      userID: "#user",//localStorage.getItem('currentUserId'),
+      courseID: this.courseId,
     }
-   this.commentService.AddComment(comment).subscribe(
-     data => {
-       this.router.navigateByUrl("/course")
-     },
-     error => {
-       console.log(error)
-     }
-   );
+    this.commentService.AddComment(comment).subscribe(
+      data => {
+        this.router.navigateByUrl("/course")
+      },
+      error => {
+        console.log(error)
+      }
+    );
   }
 
-  GetCourseComments(){
-    this.commentService.GetAllComments().subscribe( 
-    data => {
-     this.comments=data;
-     console.log(data);
-    },
-   error => {
-    console.log(error)
-     }
-   );
-   console.log(this.comments);
+  GetCourseComments() {
+    this.commentService.GetAllComments().subscribe(
+      data => {
+        this.comments = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error)
+      }
+    );
+    console.log(this.comments);
   }
-fun(c:Icomment){
-  return c.courseID==this.id;
+  fun(c: Icomment) {
+    return c.courseID == this.courseId;
+  }
+
+notifyWithNewWaitingStudent(){
+  var notification:Inotification={
+    message:"a student Waiting to enroll",
+    notifiedUserId:"Admin",
+    courseId:this.courseId,
+    studentId:this.userId,
+    isRead:false
+  }
+  this.notificationService.addNotification(notification).subscribe(
+    data => {
+      //this.router.navigateByUrl("/home")
+      alert("تم ارسال طلب انضمامك للدورة التدريبية سنوافيك باخر الاخبار في اشعارات ملفك الشخصي ")
+    },
+    error => {
+      console.log(error)
+    }
+  );
 }
+
+
+notifyWithNewWaitingTeacher(){
+  var notification:Inotification={
+    message:"teacher wait to be assigned",
+    notifiedUserId:"Admin",
+    courseId:this.courseId,
+    teacherId:this.userId,
+    isRead:false
+  }
+  this.notificationService.addNotification(notification).subscribe(
+    data => {
+      //this.router.navigateByUrl("/home")
+      alert("تم ارسال طلب تدريسك للدورة التدريبية سنوافيك باخر الاخبار في اشعارات ملفك الشخصي ")
+    },
+    error => {
+      console.log(error)
+    }
+  );
+}
+
 }

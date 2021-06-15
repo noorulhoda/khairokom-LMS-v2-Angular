@@ -49,8 +49,8 @@
             </a>
             <div class="dropdown-menu" >
               <a class="dropdown-item"  *ngFor="let n of notifications">
-                <p *ngIf="n.hasOwnProperty('studentId')" (click)="notificationRead(n._id,n)"><b routerLink="/waitingStudents/{{n._id}}">{{n.message}}</b></p>
-                <p *ngIf="n.hasOwnProperty('teacherId');" (click)="notificationRead(n._id,n)"><b routerLink="/waitingTeachers/{{n._id}}">{{n.message}}</b></p>             
+                <p  (click)="notificationRead(n._id,n)"><b routerLink="/waitingStudents/{{n._id}}">{{n.message}}</b></p>
+         
               </a>
             </div>
            </li>         

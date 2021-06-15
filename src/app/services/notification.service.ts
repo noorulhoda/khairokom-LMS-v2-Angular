@@ -35,7 +35,20 @@ export class notificationService {
     }));
   }
 
+  updateNotification(id:String, notification:Inotification): Observable<any>{
 
+    return this.http.put(this.url+"/"+id, notification, httpOptions).pipe(catchError((err)=>
+    {
+      return throwError(err.message ||"Internal Server error contact site adminstarator");
+    }));
+  }
+
+  deleteNotification(id:String): Observable<any>{
+    return this.http.delete(this.url+"/"+id, httpOptions).pipe(catchError((err)=>
+    {
+      return throwError(err.message ||"Internal Server error contact site adminstarator");
+    }));
+  }
 
 
 

@@ -9,13 +9,35 @@ import { Inotification } from 'src/app/shared/Inotification';
   styleUrls: ['./dashboard-header.component.scss']
 })
 export class DashboardHeaderComponent implements OnInit {
-  notifications:Observable<Inotification[]>;
+  notifications:Inotification[];
+  adminNotifications:Inotification[];
+  unReadNotifications=0;
   constructor(private notificationService:notificationService) { 
-    this.notifications=this.notificationService.getAllNotifications();
+    this.notificationService.getAllNotifications().subscribe(
+      data=>{this.notifications=data
+         this.notifications.forEach(element => {
+          if(element.notifiedUserId=="Admin")
+          this.adminNotifications.push(element)
+        });
+        this.computeUnRead()},
+      er=>console.log(er)
+    );
 
   }
 
   ngOnInit(): void {
+    
   }
-
+  notificationRead(id:String,notification:Inotification){
+    notification.isRead=true;
+    this.notificationService.updateNotification(id,notification).subscribe(
+      data=>console.log(data),
+      er=> console.log(er)
+    )
+  }
+  computeUnRead(){
+    this.adminNotifications.forEach(element => {
+      if(!element.isRead)this.unReadNotifications++;
+    });
+  }
 }

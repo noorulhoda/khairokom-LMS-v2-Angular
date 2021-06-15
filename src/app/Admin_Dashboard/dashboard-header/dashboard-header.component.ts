@@ -12,17 +12,24 @@ export class DashboardHeaderComponent implements OnInit {
   notifications:Inotification[];
   adminNotifications:Inotification[];
   unReadNotifications=0;
-  constructor(private notificationService:notificationService) { 
+  constructor(private notificationService:notificationService)
+   { 
+
+  
     this.notificationService.getAllNotifications().subscribe(
-      data=>{this.notifications=data
-         this.notifications.forEach(element => {
-          if(element.notifiedUserId=="Admin")
-          this.adminNotifications.push(element)
-        });
-        this.computeUnRead()},
+      data=>{
+        this.notifications=data
+        //  this.notifications.forEach(element => {
+        //   // if(element.notifiedUserId=="Admin")
+        //   this.adminNotifications.push(element)
+        // });
+        this.computeUnRead();//صح
+        console.log(data);
+        },
       er=>console.log(er)
     );
 
+    
   }
 
   ngOnInit(): void {
@@ -36,8 +43,10 @@ export class DashboardHeaderComponent implements OnInit {
     )
   }
   computeUnRead(){
-    this.adminNotifications.forEach(element => {
-      if(!element.isRead)this.unReadNotifications++;
+    this.notifications.forEach(element => {
+      if(!element.isRead&&element.notifiedUserId=="Admin")
+        this.unReadNotifications++;
     });
+    console.log(this.unReadNotifications);
   }
 }

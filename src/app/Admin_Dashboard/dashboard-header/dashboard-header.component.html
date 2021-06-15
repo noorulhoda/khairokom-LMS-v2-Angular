@@ -19,12 +19,12 @@
          <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
-               الاشعارات
+               الاشعارات<span class="badge">{{unReadNotifications}}</span>
             </a>
             <div class="dropdown-menu" >
-              <a class="dropdown-item"  *ngFor="let n of notifications|async">
-                <p *ngIf="n.notifiedUserId=='Admin'&&n.hasOwnProperty('studentId')"><b routerLink="/waitingStudents/{{n._id}}">{{n.message}}</b></p>
-                <p *ngIf="n.notifiedUserId=='Admin'&&n.hasOwnProperty('teacherId');"><b routerLink="/waitingTeachers/{{n._id}}">{{n.message}}</b></p>
+              <a class="dropdown-item"  *ngFor="let n of adminNotifications">
+                <p *ngIf="n.hasOwnProperty('studentId')" (click)="notificationRead(n._id,n)"><b routerLink="/waitingStudents/{{n._id}}">{{n.message}}</b></p>
+                <p *ngIf="n.hasOwnProperty('teacherId');" (click)="notificationRead(n._id,n)"><b routerLink="/waitingTeachers/{{n._id}}">{{n.message}}</b></p>
              
               </a>
             </div>

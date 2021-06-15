@@ -22,11 +22,9 @@
                الاشعارات<span class="badge">{{unReadNotifications}}</span>
             </a>
             <div class="dropdown-menu" >
-              <a class="dropdown-item"  *ngFor="let n of adminNotifications">
-                <p *ngIf="n.hasOwnProperty('studentId')" (click)="notificationRead(n._id,n)"><b routerLink="/waitingStudents/{{n._id}}">{{n.message}}</b></p>
-                <p *ngIf="n.hasOwnProperty('teacherId');" (click)="notificationRead(n._id,n)"><b routerLink="/waitingTeachers/{{n._id}}">{{n.message}}</b></p>
-             
-              </a>
+              <a class="dropdown-item text-danger"  *ngFor="let n of adminNotifications">
+                <b  [ngClass.text-danger]="!n.isRead" [ngClass.text-primary]="n.isRead"  (click)="notificationRead(n._id,n)">{{n.message}}</b>
+               </a>
             </div>
            </li>
            <li class="nav-item">

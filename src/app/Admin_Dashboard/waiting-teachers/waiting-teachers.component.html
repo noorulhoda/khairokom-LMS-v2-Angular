@@ -30,6 +30,7 @@
     <button class="btn btn-success " [disabled]="teacher.verifiedTeacher" (click)="verified()" >اعتماد المعلم  </button>
     <button class="btn btn-success " [disabled]="!teacher.verifiedTeacher" (click)="unVerified()" >سحب الاعتماد </button>
     <button class="btn btn-success" (click)="addClass()">إضافة مجموعة للمعلم</button> 
+    <button class="btn btn-secondary" (click)="NotifyToTeacherWithNotAccept()">رفض المعلم</button> 
                                    
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

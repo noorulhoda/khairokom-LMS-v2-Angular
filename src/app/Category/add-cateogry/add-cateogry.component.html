@@ -1,8 +1,8 @@
-<app-dashboard-controls></app-dashboard-controls>
-<main>    
-    <div class="container">
-        <br>
-        <form  [formGroup]="addForm" enctype="multipart/form-data" >
+<app-dashboard-header></app-dashboard-header>
+
+<main>     
+    <div class="container">        
+        <form [formGroup]="addForm" enctype="multipart/form-data" >
             <div class="form-group">
                 <label>اســم القســم</label>
                 <input formControlName="Title" [class.is-invalid]="Title.invalid && Title.touched" type="text"
@@ -40,7 +40,9 @@
                 </div>
             </div>
     
-            <input type="submit" class="btn btn-primary" value="إضافة" (click)="submit()">
+            <input type="submit" class="add btn btn-primary mt-3" value="إضافة" (click)="submit()">
         </form>
     </div>
 </main>
+
+<app-dashboard-footer></app-dashboard-footer>

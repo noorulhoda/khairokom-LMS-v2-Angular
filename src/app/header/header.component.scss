@@ -12,18 +12,18 @@
 
 .navbar .title {color: #fff; font-family: "old-antic-decorative";}
 
-.navbar .nav-link {
+.navbar .line {
     font-size: 17px;
     color: #fff;
     display: inline-block;
 }
-.navbar .nav-link:hover {
+.navbar .line:hover {
     color: #FFAD05;
 }
-.navbar .nav-link:hover::after{
+.navbar .line:hover::after{
     width: 100%;
 }
-.navbar .nav-link::after{ 
+.navbar .line::after{ 
     content: ''; 
     color: #FFAD05; 
     background-color: #FFAD05; 
@@ -39,7 +39,7 @@
     padding: 0 5px;
 }
 
-
+// .navbar form {display: none;}
 .navbar form .button-style{
     position: relative; 
     // border: 1px solid #FFAD05;   
@@ -49,6 +49,8 @@
     background-image: linear-gradient(to right,#ffe5b3, #ffaa00);
 
 }
+
+// .navbar .user {display: none;}
 
 // .navbar form .button-style::before {
 //     background-color: #FFAD05;

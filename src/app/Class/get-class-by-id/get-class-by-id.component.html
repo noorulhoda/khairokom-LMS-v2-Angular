@@ -1,88 +1,100 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<app-dashboard-header></app-dashboard-header>
+
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 <div class="container emp-profile">
-            <form method="post">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-work">
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>رقـــم المجموعة</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{clas.Number}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>اقل سن مسموح بيه للطلاب</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{clas.StudentsMinAge}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>اكبر سن مسموح بيه للطلاب</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{clas.StudentsMaxAge}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>الجنــــس</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{clas.StudentGender}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>رابط المجموعة</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{clas.ClassLink}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>كلمة سر لرابط المجموعة</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{clas.ClassLinkPassword}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>تاريخ البداية</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{clas.StartDate}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>تاريخ النهاية </label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{clas.EndDate}}</p>
-                                            </div>
-                                        </div>
-    
-                                        <!-- <div style="float: left;margin-left: 10px;"><a class="btn btn-secondary " (click)="delete()" >Remove</a></div>
+  <form method="post">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="profile-work"></div>
+      </div>
+      <div class="col-md-8">
+        <div class="tab-content profile-tab" id="myTabContent">
+          <div
+            class="tab-pane fade show active"
+            id="home"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+          >
+            <div class="row">
+              <div class="col-md-6">
+                <label>رقـــم المجموعة</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ clas.Number }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>اقل سن مسموح بيه للطلاب</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ clas.StudentsMinAge }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>اكبر سن مسموح بيه للطلاب</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ clas.StudentsMaxAge }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>الجنــــس</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ clas.StudentGender }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>رابط المجموعة</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ clas.ClassLink }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>كلمة سر لرابط المجموعة</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ clas.ClassLinkPassword }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>تاريخ البداية</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ clas.StartDate }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>تاريخ النهاية </label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ clas.EndDate }}</p>
+              </div>
+            </div>
+
+            <!-- <div style="float: left;margin-left: 10px;"><a class="btn btn-secondary " (click)="delete()" >Remove</a></div>
                                         <div style="float: left;margin-left: 10px;"><a class="btn btn-warning"  routerLink="/updateClass/{{id}}">Update</a></div> 
                                          -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>           
+          </div>
         </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<app-dashboard-footer></app-dashboard-footer>

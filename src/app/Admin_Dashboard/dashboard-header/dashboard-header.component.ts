@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { notificationService } from 'src/app/services/notification.service';
 import { Inotification } from 'src/app/shared/Inotification';
@@ -10,12 +11,9 @@ import { Inotification } from 'src/app/shared/Inotification';
 })
 export class DashboardHeaderComponent implements OnInit {
   notifications:Inotification[];
-  adminNotifications:Inotification[];
+  adminNotifications:Inotification[]=[];
   unReadNotifications=0;
-  constructor(private notificationService:notificationService)
-   { 
-
-  
+  constructor(private notificationService:notificationService,private router:Router) { 
     this.notificationService.getAllNotifications().subscribe(
       data=>{
         this.notifications=data
@@ -41,7 +39,12 @@ export class DashboardHeaderComponent implements OnInit {
       data=>console.log(data),
       er=> console.log(er)
     )
+    if(notification.hasOwnProperty('studentId'))
+     {this.router.navigateByUrl('/waitingStudents/'+id)}
+    else if(notification.hasOwnProperty('teacherId'))
+    this.router.navigateByUrl('/waitingTeachers/'+id)
   }
+
   computeUnRead(){
     this.notifications.forEach(element => {
       if(!element.isRead&&element.notifiedUserId=="Admin")

@@ -4,9 +4,7 @@
     height: 100vh;
     position: relative;
     overflow: hidden;
-    background-color: black;
-    // margin-top: -110px;
-    // height: 700px;
+    background-color: black;    
 }
 @media screen and (max-width: 990px){
     .slideshow {margin-top: 0px; height: 100vh;}
@@ -47,7 +45,7 @@
     top: 50%;
     left: 20%;
     transform: translateY(-50%);        
-    padding: 3% 3%;
+    padding: 3%;
     border-radius: 8px;
     // border: 2px solid #000;
 
@@ -129,11 +127,8 @@
     color: #88897D;
 }
 .about-us .text .more {
-    position: relative;
-    background-color: #FFAD05;
-    color: #fff;
+    position: relative;   
     font-size: 18px;
-    padding: 10px 40px;
     transition: all 1s ease;    
 }
 .about-us .text .more::before{
@@ -152,15 +147,17 @@
 .about-us .text .more:hover:before{
     width: 100%;
     color: #fff;
-    z-index: 2;
+    // z-index: 2;
 }
 
-.category .button, .course .button, .contact-us .form button{
+.category .button, .course .button, .contact-us .form button, .about-us .text .more{
     background-color: rgba(255,173,5,0.8);  
-    color: #fff;    
+    color: #fff;  
+    padding: 10px 30px;  
 }
-.category .button:hover, .courseOnline .button:hover,  .contact-us .form button:hover {
+.category .button:hover, .course .button:hover,  .contact-us .form button:hover, .about-us .text .more:hover {
     background-color: #FFAD05; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .pillars {
@@ -176,7 +173,7 @@
     font-weight: normal;
     color: #fff;
 }
-.courseOnline {
+.course {
     margin-top: 10%;           
     // padding: 50px;
 }
@@ -236,11 +233,6 @@ i {font-size: 25px;}
     font-size: 20px; 
     font-weight: bold; 
     color: #88897D;
-}
-.contact-us .form button {
-    padding: 10px 30px; 
-    border-radius: 8px;
-    width: 50%;
 }
 
 .about-us .title, .category .title, .course .title, .contact-us .title {

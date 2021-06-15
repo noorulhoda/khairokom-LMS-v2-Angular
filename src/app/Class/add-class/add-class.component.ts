@@ -8,6 +8,8 @@ import { UsersService } from 'src/app/services/users.service';
 import { RolesService } from 'src/app/services/roles.service';
 import { Iuser } from 'src/app/shared/Iuser';
 import { Icourse } from 'src/app/shared/Icourse';
+import { Inotification } from 'src/app/shared/Inotification';
+import { notificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-add-class',
@@ -17,9 +19,11 @@ import { Icourse } from 'src/app/shared/Icourse';
 export class AddClassComponent implements OnInit {
   courseId:String;
   teacherId:String;
-  courses;usersList;teachersList=[];teacherRole="60b79235865a7e0ac79fdb85";
+  courses;usersList;
+  teachersList=[];
+  teacherRole="60b79235865a7e0ac79fdb85";
   teacher:Iuser;course:Icourse;
-  constructor(private roleService:RolesService,private userService:UsersService,private classservice:classService,private courseService:courseService,private fb:FormBuilder,private router:Router)
+  constructor(private notificationService:notificationService,private roleService:RolesService,private userService:UsersService,private classservice:classService,private courseService:courseService,private fb:FormBuilder,private router:Router)
   {
      this.courseId=localStorage.getItem('courseId');
      this.teacherId=localStorage.getItem('teacherId');
@@ -40,6 +44,7 @@ export class AddClassComponent implements OnInit {
           this.usersList.forEach(user => {
             if(user.roles.includes(this.teacherRole))
                this.teachersList.push(user);
+               console.log(this.teachersList)
           });
        }
      )
@@ -158,6 +163,24 @@ export class AddClassComponent implements OnInit {
       data=>console.log(data),
       er=>console.log(er)
      )
+  }
+
+  NotifyToTeacherWithAccept(){
+    var notification:Inotification={
+      message:"you have  accepted to teach a course",
+      notifiedUserId:this.teacherId,
+      courseId:this.courseId,
+      isRead:false
+    }
+    this.notificationService.addNotification(notification).subscribe(
+      data => {
+        //this.router.navigateByUrl("/home")
+        alert("تم ارسال رد للمعلم بقبوله للتدريس ")
+      },
+      error => {
+        console.log(error)
+      }
+    );
   }
 }
 

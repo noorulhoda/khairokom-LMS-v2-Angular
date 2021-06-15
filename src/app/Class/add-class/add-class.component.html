@@ -172,7 +172,6 @@
                                 <option   *ngFor="let teacher of teachersList" value="{{teacher._id}}" [selected]="teacher._id==teacherId">{{teacher.userName}}
                                 </option>
                             </select>
-
                         </div>
 
                         <input type="submit" class="btn btn-primary" value="إضافة" (click)="submit()">

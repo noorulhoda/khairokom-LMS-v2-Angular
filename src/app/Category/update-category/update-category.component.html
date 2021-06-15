@@ -47,9 +47,28 @@
       </div>
 
       <div class="form-group">
-        <label>الصـــورة</label>
-        <input formControlName="Image" type="text" class="form-control" />
-      </div>
+        <div class="progress" *ngIf="existingFile">
+            <div
+              class="progress-bar progress-bar-striped bg-danger"
+              attr.aria-valuenow="{{ progress }}"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              [ngStyle]="{ width: progress + '%' }"
+            >
+              {{ progress }}%
+            </div>
+          </div>
+          
+          <label class="btn btn-default">
+            <input type="file" (change)="chooseFile($event)" />
+          </label>
+          <img src="https://khairokomuploadfiles.azurewebsites.net/files/{{fileName}}" height="200px" width="200px">
+          <button class="btn btn-primary" [disabled]="!chosenFiles" (click)="upload()">
+           رفع الصـــورة
+          </button>
+          
+          <div class="alert alert-light">{{ msg }}</div>
+    </div>
 
       <button type="submit" class="update btn btn-success mt-3" (click)="update()">
         تعديـــل

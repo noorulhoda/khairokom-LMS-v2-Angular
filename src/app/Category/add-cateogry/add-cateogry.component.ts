@@ -13,47 +13,47 @@ import { HttpEventType, HttpResponse } from '@angular/common/http';
 })
 export class AddCateogryComponent implements OnInit {
 
-  // chosenFiles: FileList;
-  // existingFile: File;
+  chosenFiles: FileList;
+  existingFile: File;
   
-  // progress = 0;
-  // msg = '';
+  progress = 0;
+  msg = '';
 
-  // FileDetail: Observable<any>;
-  // fileName:string;
+  FileDetail: Observable<any>;
+  fileName:string;
   constructor(private uploadService: UploadService,private cs:categoryService,private fb:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
-    // this.FileDetail = this.uploadService.getFiles();
+    this.FileDetail = this.uploadService.getFiles();
   }
 
 
 
-  // chooseFile(event): void {
-  //   this.chosenFiles = event.target.files;
-  // }
+  chooseFile(event): void {
+    this.chosenFiles = event.target.files;
+  }
 
-  // upload(): void {
-  //   this.progress = 0;
+  upload(): void {
+    this.progress = 0;
   
-  //   this.existingFile = this.chosenFiles.item(0);
+    this.existingFile = this.chosenFiles.item(0);
 
-  //   this.uploadService.uploadFile(this.existingFile).subscribe( (event) => {
-  //       if (event.type === HttpEventType.UploadProgress) {
-  //         this.progress = Math.round(100 * event.loaded / event.total);
-  //       } else if (event instanceof HttpResponse) {
-  //         this.msg = event.body.message;
-  //         this.FileDetail = this.uploadService.getFiles();
-  //         this.fileName=this.existingFile.name;
-  //       }
-  //     }, (error) => {
-  //       this.progress = 0;
-  //       this.msg = 'Error occured while uploading file';
-  //       this.existingFile = undefined;
-  //     });
+    this.uploadService.uploadFile(this.existingFile).subscribe( (event) => {
+        if (event.type === HttpEventType.UploadProgress) {
+          this.progress = Math.round(100 * event.loaded / event.total);
+        } else if (event instanceof HttpResponse) {
+          this.msg = event.body.message;
+          this.FileDetail = this.uploadService.getFiles();
+          this.fileName=this.existingFile.name;
+        }
+      }, (error) => {
+        this.progress = 0;
+        this.msg = 'Error occured while uploading file';
+        this.existingFile = undefined;
+      });
 
-  //   this.chosenFiles = undefined;
-  // }  
+    this.chosenFiles = undefined;
+  }  
 
 
 

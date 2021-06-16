@@ -14,11 +14,12 @@ import { notificationService } from 'src/app/services/notification.service';
 import { Inotification } from 'src/app/shared/Inotification';
 
 @Component({
-  selector: 'app-course-details',
-  templateUrl: './course-details.component.html',
-  styleUrls: ['./course-details.component.scss']
+  selector: 'app-get-course-by-id',
+  templateUrl: './get-course-by-id.component.html',
+  styleUrls: ['./get-course-by-id.component.scss']
 })
-export class CourseDetailsComponent implements OnInit {
+export class GetCourseByIDComponent implements OnInit {
+
   user;
   userId=localStorage.getItem('currentUserId');
   userName=localStorage.getItem('currentUserName')

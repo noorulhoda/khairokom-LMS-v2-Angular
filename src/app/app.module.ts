@@ -52,6 +52,9 @@ import {HttpClientModule} from '@angular/common/http';
     DashboardFooterComponent,
     WaitingstudentsComponent,
     WaitingTeachersComponent,
+    AddCourseComponent,
+    GetCourseByIDComponent,
+    UpdateCourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,6 +116,9 @@ import{DashboardHeaderComponent} from './Admin_Dashboard/dashboard-header/dashbo
 import { DashboardFooterComponent } from './Admin_Dashboard/dashboard-footer/dashboard-footer.component';
 import { WaitingstudentsComponent } from './Admin_Dashboard/waitingstudents/waitingstudents.component';
 import { WaitingTeachersComponent } from './Admin_Dashboard/waiting-teachers/waiting-teachers.component';
+import { AddCourseComponent } from './Course/add-course/add-course.component';
+import { GetCourseByIDComponent } from './Course/get-course-by-id/get-course-by-id.component';
+import { UpdateCourseComponent } from './Course/update-course/update-course.component';
 @NgModule({
   imports: [
     BrowserModule,

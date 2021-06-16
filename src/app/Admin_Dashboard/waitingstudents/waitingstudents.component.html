@@ -1,1 +1,42 @@
-
+<div>
+    <span> 
+        <h3>Course Details</h3> 
+        <span class="card" style="width:400px">
+            <img class="card-img-top" src="" alt="Card image" style="width:100%">
+            <div class="card-body">
+             <h4>{{course.tittle}}</h4>
+             <p>{{notification.courseId}}</p>
+             <p>{{category.Title}}</p>
+             <p>classes</p>
+             <ul *ngFor="let class of courseClasses">
+                 <li><input (change)="onCheckingChange(class._id)" type="checkbox" value="class._id">{{class.Number}} 
+                    <b>studentNumber :</b> {{ class.Students.length}} 
+                    from : {{class.StudentsMinAge}} 
+                    To: {{class.StudentsMaxAge}} 
+                     Gender: {{class.StudentGender}} </li>
+             </ul>
+            </div>
+        </span>
+    </span>
+    <span> 
+        <h3>Student Details</h3> 
+        <span class="card" style="width:400px">
+            <img class="card-img-top" src="" alt="Card image" style="width:100%">
+            <div class="card-body">
+             <h4>{{student.userName}} :اسم الطالب/ة</h4>
+             <p>{{student.email}} : البريـــــد الالكترونى  </p>
+             <p>{{student.phone}} : رقم التليفون</p>
+             <p>{{student.gender}} : الجنـــس</p>
+             <p>{{studentAge}}:  العمر </p>
+             <p>{{student.country}}: الدولة</p>
+    
+            </div>
+        </span>
+    </span>
+    </div>
+    <div>
+       <button class="btn btn-success" (click)="addStudentToClass()">إضافة الطالب للمجموعة </button> 
+  
+                                       
+    </div>
+    

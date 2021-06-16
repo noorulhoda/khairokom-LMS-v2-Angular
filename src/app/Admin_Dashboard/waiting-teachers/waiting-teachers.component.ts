@@ -144,7 +144,7 @@ export class WaitingTeachersComponent implements OnInit {
 
  NotifyToTeacherWithNotAccept(){
   var notification:Inotification={
-    message:"you have not accepted to teach a course",
+    message:" لم يتم قبول طلبك لتدريس الدورة التدريبية.. نأسف لذلك ",
     notifiedUserId:this.notification.teacherId,
     courseId:this.notification.courseId,
     isRead:false

@@ -51,19 +51,10 @@
             </form>       
             
             <h3>Comments</h3>
-
-            <div class="form-group">
-                    <span *ngFor="let comment of comments">
-                        <div *ngIf="comment.courseID===id"  class="card" style="width: 18rem;">
-                            <div class="card-body">
-                              <h5 class="card-title">user#</h5>
-                              <p class="card-text">{{comment.content}}</p>
-                            <!--   <a href="#" class="card-link">Card link</a>
-                              <a href="#" class="card-link">Another link</a> -->
-                            </div>
-                          </div>
-                    </span>
-            </div>
+             <ul  *ngFor="let comment of courseComments">
+                 <li><a routerLink="/profile/{{comment.userID}}"><b>{{comment.userName}} </b></a> <p>{{comment.content}}</p></li>
+             </ul>
+         
 
              <button (click)="notifyWithNewWaitingStudent()" >Enroll</button>
              <button (click)="notifyWithNewWaitingTeacher()" >Teach</button>

@@ -46,8 +46,8 @@ export class DashboardHeaderComponent implements OnInit {
   }
 
   computeUnRead(){
-    this.notifications.forEach(element => {
-      if(!element.isRead&&element.notifiedUserId=="Admin")
+    this.adminNotifications.forEach(element => {
+      if(!element.isRead)
         this.unReadNotifications++;
     });
     console.log(this.unReadNotifications);

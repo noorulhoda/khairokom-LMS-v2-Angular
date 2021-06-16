@@ -18,7 +18,6 @@ import {HttpClientModule} from '@angular/common/http';
     ProfileComponent,
     AddCateogryComponent,
     UpdateCategoryComponent,
-    AddComponent,
     GetCateogryByIDComponent,
     GetAllCateogriesComponent,
     AddClassComponent,
@@ -28,9 +27,6 @@ import {HttpClientModule} from '@angular/common/http';
     GetClassByIDComponent,
     AddCateogryComponent,
     EdituserComponent,
-    GetAllCoursesComponent,
-    CourseDetailsComponent,
-    EditCourseComponent,
     IndexCourseComponent,
     IndexCategoryComponent,
     AddSessionComponent,
@@ -81,7 +77,6 @@ import { LoginComponent } from './users/login/login.component';
 import { GetAllComponent } from './users/get-all/get-all.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { UpdateCategoryComponent } from './Category/update-category/update-category.component';
-import { AddComponent } from './Course/add/add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './users/register/register.component';
 import { GetCateogryByIDComponent } from './Category/get-cateogry-by-id/get-cateogry-by-id.component';
@@ -92,9 +87,6 @@ import { AddClassComponent } from './Class/add-class/add-class.component';
 import { GetClassByIDComponent } from './Class/get-class-by-id/get-class-by-id.component';
 import { AddCateogryComponent } from './Category/add-cateogry/add-cateogry.component';
 import { EdituserComponent } from './users/edituser/edituser.component';
-import { GetAllCoursesComponent } from './Course/get-all-courses/get-all-courses/get-all-courses.component';
-import { CourseDetailsComponent } from './Course/course-details/course-details/course-details.component';
-import { EditCourseComponent } from './Course/edit-course/edit-course/edit-course.component';
 import { IndexCourseComponent } from './index-course/index-course.component';
 import { IndexCategoryComponent } from './index-category/index-category.component';
 import { AddSessionComponent } from './Session/add-session/add-session.component';

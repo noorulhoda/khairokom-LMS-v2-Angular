@@ -6,11 +6,12 @@
             <div class="card-body">
              <h4>{{course.tittle}}</h4>
              <p>{{notification.courseId}}</p>
-             <p>{{category.Title}}</p>
+           <!--   <p>{{category.Title}}</p> -->
              <p>classes</p>
              <ul *ngFor="let class of courseClasses">
-                 <li><input (change)="onCheckingChange(class._id)" type="checkbox" value="class._id">{{class.Number}} 
-                    <b>studentNumber :</b> {{ class.Students.length}} 
+                 <li><input (change)="onCheckingChange(class._id)" type="checkbox" value="class._id">
+                    {{class.Number}} 
+                    <b>studentsNumber :</b> {{ class.Students.length}} 
                     from : {{class.StudentsMinAge}} 
                     To: {{class.StudentsMaxAge}} 
                      Gender: {{class.StudentGender}} </li>

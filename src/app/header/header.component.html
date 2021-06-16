@@ -88,6 +88,29 @@
             </div>
            </li>
 
+
+           <li class="nav-item dropdown" style="cursor: pointer;">
+            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+              الاشعارات<span class="badge">{{unReadNotifications}}</span>
+            </a>
+            <div class="dropdown-menu" >
+              <a class="dropdown-item"  *ngFor="let n of adminNotifications">
+                <b  (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}">{{n.message}}</b>
+                <button  class="text-danger mr-0" (click)="deleteNotification(n._id) "> X</button>
+              </a>
+            </div>
+          </li>   
+
+
+
+
+
+
+
+
+
+
+
           <li class="nav-item dropdown">
               <a class="nav-link" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img class="img-fluid" src="https://www.materialui.co/materialIcons/action/account_circle_grey_192x192.png" width="40px">

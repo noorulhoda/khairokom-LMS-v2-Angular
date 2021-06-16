@@ -54,25 +54,30 @@ export class WaitingstudentsComponent implements OnInit {
                     console.log(error);
                   }
                 );
+
+
+                this.userService.getUserById(this.notification.studentId).subscribe(
+                  data=>{
+                      this.student=data[0];
+                      var dob =this.student.birthDate;
+                  var today = new Date();
+                  var birthDate = new Date(dob);
+                  var age = today.getFullYear() - birthDate.getFullYear();
+                  this.studentAge=age;
+                  },
+                  error=>{
+                      console.log(error);
+                  }
+                );
+
+                
             },
             error=>{
                 console.log(error);
             }
           );
       
-          this.userService.getUserById(this.notification.studentId).subscribe(
-            data=>{
-                this.student=data[0];
-                var dob =this.student.birthDate;
-            var today = new Date();
-            var birthDate = new Date(dob);
-            var age = today.getFullYear() - birthDate.getFullYear();
-            this.studentAge=age;
-            },
-            error=>{
-                console.log(error);
-            }
-          );
+          
       },
       error=>{
           console.log(error);

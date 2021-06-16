@@ -1,67 +1,63 @@
 <div class="container-xxl">
     <!-- START NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light">
-     <div class="container">
-       <a class="title navbar-brand" href="#"><h1><span class="logo">خَيْرُ</span>كُمْ</h1></a>
-       <button
-         class="navbar-toggler"
-         type="button"
-         data-toggle="collapse"
-         data-target="#navbarSupportedContent"
-         aria-controls="navbarSupportedContent"
-         aria-expanded="false"
-         aria-label="Toggle navigation"
-       >
-         <span class="navbar-toggler-icon"></span>
-       </button>
-        
-       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-<<<<<<< HEAD
-         <ul class="navbar-nav mr-auto">          
-=======
-         <ul class="navbar-nav mr-auto">
-       
->>>>>>> 63e79f384e014ba7f66f068815e32920ecc5837c
-           <li class="nav-item">
-             <a class="nav-link" href="#home"  routerLink="/addCategory">إضافة قسم <span class="sr-only">(current)</span></a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="#category" routerLink="/addCourse">إضافة دورة تدريبية <span class="sr-only">(current)</span></a
-             >
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="#course" routerLink="/register">إضافة مستخدم <span class="sr-only">(current)</span></a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="#contact" routerLink="/addClass">إضافة مجموعة<span class="sr-only">(current)</span></a>
-           </li> 
-           <li class="nav-item">
-            <a class="nav-link" href="#contact" routerLink="/addSession">إضافة حلقة<span class="sr-only">(current)</span></a>
-          </li> 
-          <li class="nav-item dropdown" style="cursor: pointer;">
-            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
-               الاشعارات<span class="badge">{{unReadNotifications}}</span>
-            </a>
-            <div class="dropdown-menu" >
-              <a class="dropdown-item d-flex justify-content-between align-items-center"  *ngFor="let n of notifications">
-                <p *ngIf="n.hasOwnProperty('studentId')" (click)="notificationRead(n._id,n)">
-                  <b routerLink="/waitingStudents/{{n._id}}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
-                  <i class="fas fa-times"></i>
-                </p>
-                <p *ngIf="n.hasOwnProperty('teacherId');" (click)="notificationRead(n._id,n)">
-                  <b routerLink="/waitingTeachers/{{n._id}}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
-                  <i class="fas fa-times"></i>
-                </p>             
+        <div class="container">
+          <a class="title navbar-brand" href="#"><h1><span class="logo">خَيْرُ</span>كُمْ</h1></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+          
+              <li class="nav-item">
+                <a class="nav-link" href="#home"  routerLink="/addCategory">إضافة قسم <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#category" routerLink="/addCourse">إضافة دورة تدريبية <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#course" routerLink="/register">إضافة مستخدم <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact" routerLink="/addClass">إضافة مجموعة<span class="sr-only">(current)</span></a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="#contact" routerLink="/addSession">إضافة حلقة<span class="sr-only">(current)</span></a>
+              </li> 
+              <li class="nav-item dropdown" style="cursor: pointer;">
+                <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                  الاشعارات<span class="badge">{{unReadNotifications}}</span>
+                </a>
+                <div class="dropdown-menu" >
+                  <a class="dropdown-item d-flex justify-content-between align-items-center"  *ngFor="let n of notifications">
+                    <p *ngIf="n.hasOwnProperty('studentId')" (click)="notificationRead(n._id,n)">
+                      <b routerLink="/waitingStudents/{{n._id}}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
+                      <i class="fas fa-times"></i>
+                    </p>
+                    <p *ngIf="n.hasOwnProperty('teacherId');" (click)="notificationRead(n._id,n)">
+                      <b routerLink="/waitingTeachers/{{n._id}}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
+                      <i class="fas fa-times"></i>
+                    </p>             
 
-              <a class="dropdown-item"  *ngFor="let n of adminNotifications">
-                <b  (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}">{{n.message}}</b> <button  class="text-danger mr-0" (click)="deleteNotification(n._id) "> X</button>
-              </a>
-            </div>
-           </li>         
-         </ul>         
-       </div>
-     </div>
+                  <a class="dropdown-item"  *ngFor="let n of adminNotifications">
+                    <b  (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}">{{n.message}}</b> <button  class="text-danger mr-0" (click)="deleteNotification(n._id) "> X</button>
+                  </a>
+                </div>
+              </li>         
+            </ul>         
+          </div>
+        </div>
    </nav>
    <!-- END NAVBAR -->
-   </div>
+</div>
     

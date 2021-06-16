@@ -1,5 +1,5 @@
 <div class="container-xxl">
-    <!-- START NAVBAR -->
+   <!-- START NAVBAR  -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <a class="title navbar-brand" href="#"><h1><span class="logo">خَيْرُ</span>كُمْ</h1></a>
@@ -48,7 +48,7 @@
                       <b routerLink="/waitingTeachers/{{n._id}}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
                       <i class="fas fa-times"></i>
                     </p>             
-
+                    </a>
                   <a class="dropdown-item"  *ngFor="let n of adminNotifications">
                     <b  (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}">{{n.message}}</b> <button  class="text-danger mr-0" (click)="deleteNotification(n._id) "> X</button>
                   </a>
@@ -58,6 +58,6 @@
           </div>
         </div>
    </nav>
-   <!-- END NAVBAR -->
+    <!-- END NAVBAR  -->
 </div>
-    
+     

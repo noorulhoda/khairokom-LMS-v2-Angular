@@ -17,7 +17,10 @@
             اسم القسم مطلوب
           </small>
           <small class="text-danger" *ngIf="Title.errors.minlength">
-            اقل عدد احرف مسموح بها 5 احروف
+            اقل عدد احرف مسموح بها 3 احروف
+          </small>
+          <small class="text-danger" *ngIf="Title.errors.maxlength">
+            اكبر عدداحرف مسموح بها 15 احروف
           </small>
           <small *ngIf="Title.errors?.forbiddenName">
             {{ Title.errors?.forbiddenName.value }} غير مسموح بيه
@@ -42,7 +45,7 @@
             الوصـــف مطلوب
           </small>
           <small class="text-danger" *ngIf="Description.errors.minlength">
-            اقل عدد احرف مسموح بها 5 احروف
+            اقل عدد احرف مسموح بها 50 احروف
           </small>
           <small *ngIf="Description.errors?.forbiddenName">
             {{ Description.errors?.forbiddenName.value }} غير مسموح بيه
@@ -89,6 +92,7 @@
         class="add btn btn-primary"
         value="إضافة"
         (click)="submit()"
+        [disabled]="!addForm.valid"
       />
 
     </form>

@@ -4,7 +4,7 @@
   <div class="container">
     <form [formGroup]="addForm" enctype="multipart/form-data">
       <div class="form-group">
-        <label>رقـــم المجموعة</label>
+        <label>اســم المجموعة</label>
         <input
           formControlName="Number"
           [class.is-invalid]="Number.invalid && Number.touched"
@@ -13,17 +13,24 @@
         />
         <div *ngIf="Number.errors && Number.invalid && Number.touched">
           <small class="text-danger" *ngIf="Number.errors?.required">
-            رقـــم المجموعة مطلوب
+            اســم المجموعة مطلوب
+          </small>
+          <small class="text-danger" *ngIf="Number.errors.minlength">
+            اقل عدد احرف مسموح بها 1 احروف
+          </small>
+          <small class="text-danger" *ngIf="Number.errors.maxlength">
+            اقل عدد احرف مسموح بها 15 احروف
           </small>
         </div>
       </div>
       <div class="form-group">
-        <label>اقل سن مسموح للطلاب</label>
+        <label>اقل سن مسموح للطالب/ة</label>
         <input
           type="number"
           formControlName="StudentsMinAge"
           [class.is-invalid]="StudentsMinAge.invalid && StudentsMinAge.touched"
           class="form-control"
+          pattern="/^\d+$/"
         />
         <div
           *ngIf="
@@ -32,17 +39,21 @@
           "
         >
           <small class="text-danger" *ngIf="StudentsMinAge.errors?.required">
-            اقل سن مسموح للطلاب مطلوب
+            اقل سن مسموح للطالب/ة مطلوب
+          </small>
+          <small class="text-danger" *ngIf="StudentsMinAge.errors?.valid">
+            يرجى ادخال ارقام فقط وليس حروف او رموز
           </small>
         </div>
       </div>
       <div class="form-group">
-        <label>اكبر سن مسموح للطلاب</label>
+        <label>اكبر سن مسموح للطالب/ة</label>
         <input
           type="number"
           formControlName="StudentsMaxAge"
           [class.is-invalid]="StudentsMaxAge.invalid && StudentsMaxAge.touched"
           class="form-control"
+          pattern="/^\d+$/"
         />
         <div
           *ngIf="
@@ -51,7 +62,10 @@
           "
         >
           <small class="text-danger" *ngIf="StudentsMaxAge.errors?.required">
-            اكبر سن مسموح للطلاب مطلوب
+            اكبر سن مسموح للطالب/ة مطلوب
+          </small>
+          <small class="text-danger" *ngIf="StudentsMaxAge.errors?.valid">
+            يرجى ادخال ارقام فقط وليس حروف او رموز
           </small>
         </div>
       </div>
@@ -84,10 +98,14 @@
           [class.is-invalid]="ClassLink.invalid && ClassLink.touched"
           type="text"
           class="form-control"
+          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
         />
         <div *ngIf="ClassLink.errors && ClassLink.invalid && ClassLink.touched">
           <small class="text-danger" *ngIf="ClassLink.errors?.required">
             رابط المجموعة مطلوب
+          </small>
+          <small class="text-danger" *ngIf="ClassLink.errors?.valid">
+            رابط المجموعة يجب ان يحتوى على @ و ان يكون صحيح
           </small>
         </div>
       </div>
@@ -100,6 +118,7 @@
           "
           type="password"
           class="form-control"
+
         />
         <div
           *ngIf="
@@ -109,6 +128,9 @@
         >
           <small class="text-danger" *ngIf="ClassLinkPassword.errors?.required">
             كلمة سر لرابط المجموعة مطلوب
+          </small>
+          <small class="text-danger" *ngIf="ClassLinkPassword.errors?.minlength">
+            كلمة سر لرابط المجموعةيجب الا تقل عن 8 احرف
           </small>
         </div>
       </div>
@@ -148,7 +170,7 @@
         </select>
     </div>
     <div class="form-group">
-        <label>المعلم/ المعلمة </label>
+        <label>المعلم/ة </label>
         <select class="custom-select" formControlName="TeacherId">
             <option   *ngFor="let teacher of teachersList" value="{{teacher._id}}" [selected]="teacher._id==teacherId">{{teacher.userName}}
             </option>

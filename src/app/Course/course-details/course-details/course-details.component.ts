@@ -21,6 +21,7 @@ import { Inotification } from 'src/app/shared/Inotification';
 export class CourseDetailsComponent implements OnInit {
   user;
   userId=localStorage.getItem('currentUserId');
+  userName=localStorage.getItem('currentUserName')
   courseId: string;
   classes:Iclass[]=[];
   courseClasses:Iclass[]=[];
@@ -41,10 +42,14 @@ export class CourseDetailsComponent implements OnInit {
 
     this.cs.getCourseById(this.courseId).subscribe(
       data => {
+        console.log(data)
         this.course = data[0];
-        this.categoryService.getCategoryById(data[0].categoryID).subscribe(
+        this.categoryService.getCategoryById(data[0]['categoryID']).subscribe(
           data2 => {
-            this.courseCategoryTitle = data2[0].Title;
+            console.log(data2)
+            this.courseCategoryTitle =data2[0]['Title'] ;
+           er=>console.log(er)
+            
           });
       },
       error => console.log(error)
@@ -116,23 +121,33 @@ export class CourseDetailsComponent implements OnInit {
   AddComment() {
     var comment: Icomment = {
       content: this.content?.value,
-      userID: "#user",//localStorage.getItem('currentUserId'),
+      userID: this.userId,
+      userName:this.userName,
       courseID: this.courseId,
     }
     this.commentService.AddComment(comment).subscribe(
       data => {
-        this.router.navigateByUrl("/course")
+       // this.router.navigateByUrl("/course")
       },
       error => {
         console.log(error)
       }
     );
-  }
+    
+    window.location.reload()
+    //this.courseComments=[]
+    //this.GetCourseComments();
 
+  }
+courseComments:Icomment[]=[];
   GetCourseComments() {
     this.commentService.GetAllComments().subscribe(
       data => {
         this.comments = data;
+         this.comments.forEach(element => {
+           if(element.courseID==this.courseId)
+             this.courseComments.push(element)
+        });
         console.log(data);
       },
       error => {

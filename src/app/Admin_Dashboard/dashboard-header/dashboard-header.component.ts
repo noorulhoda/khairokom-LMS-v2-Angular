@@ -17,10 +17,10 @@ export class DashboardHeaderComponent implements OnInit {
     this.notificationService.getAllNotifications().subscribe(
       data=>{
         this.notifications=data
-        //  this.notifications.forEach(element => {
-        //   // if(element.notifiedUserId=="Admin")
-        //   this.adminNotifications.push(element)
-        // });
+         this.notifications.forEach(element => {
+          if(element.notifiedUserId=="Admin")
+          this.adminNotifications.push(element)
+        });
         this.computeUnRead();//صح
         console.log(data);
         },
@@ -52,4 +52,28 @@ export class DashboardHeaderComponent implements OnInit {
     });
     console.log(this.unReadNotifications);
   }
+
+
+  sureDelete:Boolean=false;
+  deleteNew:Boolean=true;
+  deleteNotification(id) {
+    if(this.deleteNew){
+      alert(" سوف تقوم بحذف الاشعار إذا كنت متأكدا أغلق هذه النافذة واضغط مرة أخرى  على زر الحذف ")
+      this.sureDelete=true; 
+      this.deleteNew=false;
+     }
+
+else if(this.sureDelete){
+    this.notificationService.deleteNotification(id)
+      .subscribe(
+        data => {
+          console.log(data)
+        },
+        error => {
+          console.log("Error-_-" + error)
+        }
+      );
+      window.location.reload();
+  }
+}
 }

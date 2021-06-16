@@ -167,7 +167,7 @@ export class AddClassComponent implements OnInit {
 
   NotifyToTeacherWithAccept(){
     var notification:Inotification={
-      message:"you have  accepted to teach a course",
+      message:"لقد تم قبولك  لتدريس الدورة التدريبية",
       notifiedUserId:this.teacherId,
       courseId:this.courseId,
       isRead:false

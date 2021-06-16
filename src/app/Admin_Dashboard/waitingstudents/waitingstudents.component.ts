@@ -121,6 +121,28 @@ export class WaitingstudentsComponent implements OnInit {
       data=>console.log(data),
       er=>console.log(er)
     )
-    
+    this.NotifyToTeacherWithAccept();
   }
+
+
+  NotifyToTeacherWithAccept(){
+    var notification:Inotification={
+      message:"تم قبولك في الدورة التدريبية التي قدمت عليها ",
+      notifiedUserId:this.notification.studentId,
+      courseId:this.notification.courseId,
+      isRead:false
+    }
+    this.notificationService.addNotification(notification).subscribe(
+      data => {
+        //this.router.navigateByUrl("/home")
+        alert("تم ارسال رسالة قبول الى الطالب ")
+        console.log(data)
+      },
+      error => {
+        console.log(error)
+      }
+    );
+  }
+
+
 }

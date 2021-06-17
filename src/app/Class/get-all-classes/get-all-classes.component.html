@@ -1,23 +1,39 @@
 <app-header></app-header>
 
- <div class="row" >
-    <div  *ngFor="let class of classList">
-      <div class="card" style="float:right;margin-left: 40px; width: 250px; height: 280px;">
-        <h5 class="card-title">رقم المجموعة : {{class.Number}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">اقل سن مسموح بيه للطلاب:{{class.StudentsMinAge}}</h6>
-        <h6 class="card-subtitle mb-2 text-muted">اكبر سن مسموح بيه للطلاب:{{class.StudentsMaxAge}}</h6>
-        <h6 class="card-subtitle mb-2 text-muted">الجنــــس:{{class.StudentGender}}</h6>
-        <h6 class="card-subtitle mb-2 text-muted">رابط المجموعة:{{class.ClassLink}}</h6>
-        <h6 class="card-subtitle mb-2 text-muted">كلمة سر لرابط المجموعة:{{class.ClassLinkPassword}}</h6>
-        <h6 class="card-subtitle mb-2 text-muted">تاريخ البداية:{{class.StartDate}}</h6>
-        <h6 class="card-subtitle mb-2 text-muted">تاريخ النهاية:{{class.EndDate}}</h6>
-      <br>
-        <br>
-        <a class="btn btn-primary"  routerLink="/getClassById/{{class._id}}">Show Details</a>                      
+<div class="container-xxl">
+  <section class="banner d-flex justify-content-center align-items-center text-center">
+    <div class="content">
+      <div class="title">
+        <span>المجموعة</span>
       </div>
-      <br>
+    
+      <div class="links">
+        <a class="text-decoration-none" href="/home"> الرئيسية </a>
+        <span>/ المجموعة </span>
+      </div>
     </div>
-  </div>
-  {{errorMsg}}
+  </section>
+  
+   <section class="all-classes">
+     <div class="container">
+      <div class="row d-flex justify-content-center align-items-center mt-5 mb-5" >
+        <div  *ngFor="let class of classList">
+          <div class="content mt-5 mb-5 text-center">
+            <h3 class="card-title">رقم المجموعة: {{class.Number}}</h3>
+            <h6 class="card-subtitle mb-2 text-muted">اقل سن مسموح بيه للطلاب: {{class.StudentsMinAge}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">اكبر سن مسموح بيه للطلاب: {{class.StudentsMaxAge}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">الجنــــس: {{class.StudentGender}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">رابط المجموعة: {{class.ClassLink}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">كلمة سر لرابط المجموعة: {{class.ClassLinkPassword}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">تاريخ البداية: {{class.StartDate}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">تاريخ النهاية: {{class.EndDate}}</h6>        
+            <a class="btn btn-primary"  routerLink="/getClassById/{{class._id}}">Show Details</a>                      
+          </div>        
+        </div>
+      </div>
+      {{errorMsg}}
+     </div>
+   </section>
+</div>
 
   <app-footer></app-footer>

@@ -1,18 +1,49 @@
-<app-dashboard-header></app-dashboard-header>
+<app-header></app-header>
 
-<div class="row" >
-    <div  *ngFor="let category of categoryList">
-      <div class="card" style="float:right;margin-left: 40px;">
-        <img src="{{category.Image}}" alt=" تحميل الصـــورة" style="width:100%">
-        <h1>{{category.Title}}</h1>
-        <p>{{category.Description}}</p>
-        <br>
-        <a class="btn btn-primary"  routerLink="/getCateogryById/{{category._id}}">Show Details</a>                      
-      </div>
-      <br>
+<div class="container-xxl">
+
+<section class="banner d-flex justify-content-center align-items-center text-center">
+  <div class="content">
+    <div class="title">
+      <span>الأقسام</span>
+    </div>
+  
+    <div class="links">
+      <a class="text-decoration-none" href="/home"> الرئيسية </a>
+      <span>/ الأقسام </span>
     </div>
   </div>
+</section>
 
-  <!-- {{errorMsg}} -->
+<section class="all-categories mt-5 mb-5">
+  <div class="container">    
+    <div class="row d-flex justify-content-center align-items-center mt-5 mb-5">      
+      <div  *ngFor="let category of categoryList">
+        <div class="content mt-4 text-center">
 
-  <app-dashboard-footer></app-dashboard-footer>
+          <div class="image d-flex justify-content-center align-items-center">
+            <img class="" src="{{category.Image}}" alt="تحميل الصـــورة" width="380px">
+          </div>
+
+          <div class="title mt-4">
+            <h3>{{category.Title}}</h3>
+          </div>                    
+
+          <div class="description mt-2">
+            <p>{{category.Description}}</p>          
+          </div>
+          
+          <div class="details mb-4">
+            <a class="text-decoration-none" routerLink="/getCateogryById/{{category._id}}">عرض التفاصيل <i class="fas fa-arrow-left"></i></a>                      
+          </div>
+
+        </div>        
+      </div>
+
+    </div>
+  
+    {{errorMsg}}
+  </div>
+</section>
+</div>
+  <app-footer></app-footer>

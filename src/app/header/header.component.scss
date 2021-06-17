@@ -50,8 +50,16 @@
 
 }
 
-.navbar .user {margin-right: 60px;}
+.navbar .user {margin-right: 48px;}
 .navbar .user .notification {margin-left: -20px;}
+.navbar .user .notification .bell{
+    color: #FFAD05;
+    font-size: 20px; 
+    margin-top: 4px; 
+    background-color: #757575 ; 
+    padding: 6px 8px;  
+    border-radius: 50%;
+}
 
 // .navbar form .button-style::before {
 //     background-color: #FFAD05;

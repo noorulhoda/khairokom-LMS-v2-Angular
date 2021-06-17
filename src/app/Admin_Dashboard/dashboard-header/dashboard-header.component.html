@@ -16,12 +16,8 @@
        </button>
         
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-<<<<<<< HEAD
-         <ul class="navbar-nav mr-auto">          
-=======
          <ul class="navbar-nav mr-auto">
        
->>>>>>> 63e79f384e014ba7f66f068815e32920ecc5837c
            <li class="nav-item">
              <a class="nav-link" href="#home"  routerLink="/addCategory">إضافة قسم <span class="sr-only">(current)</span></a>
            </li>
@@ -38,24 +34,32 @@
            <li class="nav-item">
             <a class="nav-link" href="#contact" routerLink="/addSession">إضافة حلقة<span class="sr-only">(current)</span></a>
           </li> 
-          <li class="nav-item dropdown" style="cursor: pointer;">
-            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
-               الاشعارات<span class="badge">{{unReadNotifications}}</span>
+          <li class="notification nav-item dropdown" style="cursor: pointer;">
+            <a class="" id="navbardrop" data-toggle="dropdown">
+              <i class="bell fas fa-bell"></i><span class="badge">{{unReadNotifications}}</span>
             </a>
+
             <div class="dropdown-menu" >
               <a class="dropdown-item d-flex justify-content-between align-items-center"  *ngFor="let n of notifications">
                 <p *ngIf="n.hasOwnProperty('studentId')" (click)="notificationRead(n._id,n)">
-                  <b routerLink="/waitingStudents/{{n._id}}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
-                  <i class="fas fa-times"></i>
+                  <b (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}" routerLink="/waitingStudents/{{n._id}}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
+                  <i class="fas fa-times text-danger" (click)="deleteNotification(n._id) "></i>
                 </p>
-                <p *ngIf="n.hasOwnProperty('teacherId');" (click)="notificationRead(n._id,n)">
-                  <b routerLink="/waitingTeachers/{{n._id}}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
-                  <i class="fas fa-times"></i>
-                </p>             
 
-              <a class="dropdown-item"  *ngFor="let n of adminNotifications">
-                <b  (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}">{{n.message}}</b> <button  class="text-danger mr-0" (click)="deleteNotification(n._id) "> X</button>
+                <p *ngIf="n.hasOwnProperty('teacherId');" (click)="notificationRead(n._id,n)">
+                  <b (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}" routerLink="/waitingTeachers/{{n._id}}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
+                  <i class="fas fa-times text-danger" (click)="deleteNotification(n._id) "></i>
+                </p>             
               </a>
+
+              <!-- <a class="dropdown-item"  *ngFor="let n of adminNotifications">
+                <p>
+                  <b  (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
+                  <i class="fas fa-times text-danger" (click)="deleteNotification(n._id) "></i>
+                  <button  class="text-danger mr-0" (click)="deleteNotification(n._id) "> X</button>
+                </p>
+              </a> -->
+
             </div>
            </li>         
          </ul>         
@@ -63,5 +67,4 @@
      </div>
    </nav>
    <!-- END NAVBAR -->
-   </div>
-    
+   </div>    

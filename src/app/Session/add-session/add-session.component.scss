@@ -46,6 +46,28 @@ html {
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
+main{
+  background-color: #fff; 
+  overflow: hidden;   
+}
+main form {
+  padding: 81.5px;
+}
+main form .add {
+  background-color: rgba(255,173,5,0.8);  
+  color: #fff;  
+  padding: 10px 30px; 
+  border: none;  
+}
+main form .add:hover{
+  background-color: #FFAD05; 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+// main form .upload{
+//   background-color: #333;
+//   color: #fff;
+//   border: none;
+// }
 
 body {
   margin: 0;

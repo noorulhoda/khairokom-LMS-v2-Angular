@@ -48,7 +48,7 @@ export class AddCateogryComponent implements OnInit {
         }
       }, (error) => {
         this.progress = 0;
-        this.msg = 'Error occured while uploading file';
+        this.msg = 'حدث خطأ اثناء رفع الصورة يرجى المحاولة مرة أخرى';
         this.existingFile = undefined;
       });
 
@@ -59,8 +59,8 @@ export class AddCateogryComponent implements OnInit {
 
   addForm=this.fb.group(
     {
-    Title:['',[Validators.required,Validators.minLength(5)]],
-    Description:['',[Validators.required,Validators.minLength(5)]],
+    Title:['',[Validators.required,Validators.minLength(3),Validators.maxLength(15)]],
+    Description:['',[Validators.required,Validators.minLength(50)]],
     Image:[''],
    });
 
@@ -88,7 +88,7 @@ export class AddCateogryComponent implements OnInit {
     }
     this.cs.AddCategory(category).subscribe(
       data => {
-        this.router.navigateByUrl("/home")
+        this.router.navigateByUrl("/addCategory")
       },
       error => {
         console.log(error)

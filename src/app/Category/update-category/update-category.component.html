@@ -16,7 +16,10 @@
             اسم القســـم مطلوب
           </small>
           <small class="text-danger" *ngIf="Title.errors.minlength">
-            اقل عدد احرف مسموح بها 5 احروف
+            اقل عدد احرف مسموح بها 3 احروف
+          </small>
+          <small class="text-danger" *ngIf="Title.errors.maxlength">
+            اكبر عدد احرف مسموح بها 15 احروف
           </small>
           <small *ngIf="Title.errors?.forbiddenName">
             {{ Title.errors?.forbiddenName.value }} غير مسموح بيه
@@ -41,7 +44,7 @@
             الوصف مطلوب
           </small>
           <small class="text-danger" *ngIf="Description.errors.minlength">
-            اقل عدد احرف مسموح بها 5 احروف
+            اقل عدد احرف مسموح بها 50 احروف
           </small>
         </div>
       </div>
@@ -80,7 +83,7 @@
         <div class="alert alert-light">{{ msg }}</div>
       </div>
 
-      <button type="submit" class="update btn btn-success mt-2" (click)="update()">
+      <button type="submit" class="update btn btn-success mt-2" [disabled]="!updateForm.valid" (click)="update()">
         تعديـــل
       </button>
     </form>

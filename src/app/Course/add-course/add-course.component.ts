@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { courseService } from 'src/app/services/course.service';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { courseService } from '../../services/course.service';
 import { Icourse } from 'src/app/shared/Icourse';
+import { Router } from '@angular/router';
 import { Icategory } from 'src/app/shared/Icategory';
 import { categoryService } from 'src/app/services/category.service';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UploadService } from 'src/app/services/upload.service';
-
+import { HttpEventType, HttpResponse } from '@angular/common/http';
 @Component({
-  selector: 'app-edit-course',
-  templateUrl: './edit-course.component.html',
-  styleUrls: ['./edit-course.component.scss']
+  selector: 'app-add-course',
+  templateUrl: './add-course.component.html',
+  styleUrls: ['./add-course.component.scss']
 })
-export class EditCourseComponent implements OnInit {
+export class AddCourseComponent implements OnInit {
   chosenFiles: FileList;
   existingFile: File;
   
@@ -23,56 +22,26 @@ export class EditCourseComponent implements OnInit {
 
   FileDetail: Observable<any>;
   fileName:string;
-  constructor(private uploadService:UploadService, private cs:courseService,private fb:FormBuilder,private route:ActivatedRoute,private router:Router,private categoryService: categoryService) 
+  constructor(private uploadService:UploadService, private cs:courseService,private fb:FormBuilder,private router:Router,private categoryService: categoryService) 
   {
-    this.route.params.subscribe(params => {
-      console.log(params) 
-      this.id=params['id'] 
-      console.log('id : '+(this.id));
-     });
-
-     this.cs.getCourseById(this.id).subscribe(
-      data => {
-        this.course = data[0];
-        console.log( data);
-        console.log(this.course);
-        //console.log('course '+this.course.tittle);
-        this.LoadCourseData();
-      },
-      error => console.log(error)
-    );
-    
     this.categoryService.GetAllcateories().subscribe(
       data => {
         this.categories = data;
+        console.log(data);
       },
       error => {
         console.log(error);
       }
     );
-
   }
-  LoadCourseData() {
-    this.editForm.get("tittle")?.setValue(this.course.tittle);
-    this.editForm.get("description")?.setValue(this.course.description);
-    this.editForm.get("image")?.setValue(this.course.image);
-    this.editForm.get("categoryID")?.setValue(this.course.categoryID);
-    this.editForm.get("taechers")?.setValue(this.course.teachers);
-  }
-
   ngOnInit(): void {
+
     this.FileDetail = this.uploadService.getFiles();
   
+    
   }
-    course:Icourse={
-    tittle:'',
-    description:'',
-    image:'',
-    categoryID:'',
-    teachers:[]
-  }
-
-  editForm=this.fb.group(
+  
+  addForm=this.fb.group(
     {
     tittle:[''],
     description:[''],
@@ -81,29 +50,29 @@ export class EditCourseComponent implements OnInit {
     teachers:[]
    });
 
-  id:String;
-  categories: Icategory[] = [];
+   categories: Icategory[] = [];
 
    get tittle()
    {
-     return this.editForm.get('tittle');
+     return this.addForm.get('tittle');
    }
    get description()
    {
-     return this.editForm.get('description');
+     return this.addForm.get('description');
    }
 
-
+   get image()
+   {
+     return this.addForm.get('image');
+   }
    get categoryID()
    {
-     return this.editForm.get('categoryID');
+     return this.addForm.get('categoryID');
    }
    get teachers()
    {
-     return this.editForm.get('teachers');
+     return this.addForm.get('teachers');
    }
-  
-  
   submit() 
   {
     var course:Icourse={ 
@@ -111,9 +80,9 @@ export class EditCourseComponent implements OnInit {
        description:this.description?.value,
        image:this.fileName,
        categoryID:this.categoryID?.value,
-       teachers:this.teachers?.value,
+       teachers:this.teachers?.value
     }
-    this.cs.UpdateCourse(this.id,course).subscribe(
+    this.cs.AddCourse(course).subscribe(
       data => {
         this.router.navigateByUrl("/home")
       },
@@ -122,7 +91,6 @@ export class EditCourseComponent implements OnInit {
       }
     );
   }
-
 
 
 
@@ -157,3 +125,12 @@ upload(): void {
 
 
 }
+
+
+
+
+
+
+
+  
+  

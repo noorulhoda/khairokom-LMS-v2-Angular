@@ -24,8 +24,8 @@ export class UpdateCategoryComponent implements OnInit {
   constructor(private uploadService: UploadService,private fb:FormBuilder,private categoryservice:categoryService,private route:ActivatedRoute,private router:Router) { }
 
   updateForm=this.fb.group({
-    Title:['',[Validators.required,Validators.minLength(5)]],
-    Description:['',[Validators.required,Validators.minLength(10)]],
+    Title:['',[Validators.required,Validators.minLength(3),Validators.maxLength(15)]],
+    Description:['',[Validators.required,Validators.minLength(50)]],
     Image:[''],
   });
 
@@ -82,9 +82,6 @@ this.categoryservice.getCategoryById(this.id).subscribe(
   console.log(this.category)
 }
 
-
-
-
 update()
 {  
   var newcategory: Icategory = {
@@ -126,7 +123,7 @@ upload(): void {
       }
     }, (error) => {
       this.progress = 0;
-      this.msg = 'Error occured while uploading file';
+      this.msg = 'حدث خطأ اثناء رفع الصورة يرجى المحاولة مرة أخرى';
       this.existingFile = undefined;
     });
 

@@ -87,10 +87,7 @@ export class HeaderComponent implements OnInit {
       data=>console.log(data),
       er=> console.log(er)
     )
-    if(notification.hasOwnProperty('studentId'))
-     {this.router.navigateByUrl('/waitingStudents/'+id)}
-    else if(notification.hasOwnProperty('teacherId'))
-    this.router.navigateByUrl('/waitingTeachers/'+id)
+    this.router.navigateByUrl('/getCourseById/'+ notification.courseId);
   }
 
   computeUnRead(){

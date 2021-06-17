@@ -1,10 +1,10 @@
 <app-dashboard-header></app-dashboard-header>
 
 <main>
-  <div class="container">
-    <h2 style="direction: rtl">المجموعـــــــــات</h2>
-    <table class="table table-light" style="direction: rtl">
-      <thead class="thead-light">
+  <div class="container-xxl">
+    <h2 class="mt-5">المجموعـــــــــات</h2>
+    <table class="table table-bordered table-hover mt-5 mb-5">
+      <thead class="thead-dark">
         <tr>
           <th>رقــم التسلسل</th>
           <th>رقـــم المجموعة</th>
@@ -36,8 +36,8 @@
           <td>{{ clas.TeacherId }}</td>
           <td>الطلاب</td>
           <td>
-            <a class="btn btn-secondary" (click)="delete(clas._id)">الحـــذف</a>
-            <a class="btn btn-success" routerLink="/updateClass">التعـــديل</a>
+            <a class="delete btn btn-secondary" (click)="delete(clas._id)">الحـــذف</a>
+            <a class="update btn btn-success" routerLink="/updateClass">التعـــديل</a>
           </td>
         </tr>
       </tbody>

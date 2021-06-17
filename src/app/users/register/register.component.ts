@@ -169,8 +169,8 @@ countryChanged(){
     img:"newUser.jpg",
     phone:this.dialCode+this.phone?.value,
     country:this.countryName,
-    //joinedClasses:this.joinedClasses?.value,
-    //teachedCourses:this.teachedCourses?.value
+    joinedClasses:[],
+    teachedCourses:[],
     verifiedTeacher:false,
     suitableTimes:[]//this.checkedTimes>0 ? this.userSuitableTimes:[]////////time Checker validator???
   }

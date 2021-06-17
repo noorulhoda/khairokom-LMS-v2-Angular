@@ -2,9 +2,9 @@
 
 <main>
   <div class="container">
-    <h2>الاقســـــــام</h2>
-    <table class="table table-light mt-3">
-      <thead class="thead-light">
+    <h2 class="mt-5">الاقســـــــام</h2>
+    <table class="table table-bordered table-hover mt-5 mb-5">
+      <thead class="thead-dark">
         <tr>
           <th>رقــم التسلسل</th>
           <th>اســم القســـم</th>
@@ -27,10 +27,10 @@
           </td>
           <td>{{ category.Description }}</td>
           <td>
-            <a class="btn btn-secondary" (click)="delete(category._id)"
+            <a class="delete btn btn-secondary" (click)="delete(category._id)"
               >الحـــذف</a
             >
-            <a class="btn btn-success" routerLink="/updateCategory/category._id"
+            <a class="update btn btn-success" routerLink="/updateCategory/category._id"
               >التعـــديل</a
             >
           </td>

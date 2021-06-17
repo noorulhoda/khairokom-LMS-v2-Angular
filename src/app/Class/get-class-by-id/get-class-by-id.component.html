@@ -75,7 +75,7 @@
                 <label>تاريخ البداية</label>
               </div>
               <div class="col-md-6">
-                <p>{{ clas.StartDate }}</p>
+                <p>{{ clas.StartDate | date:'short' }}</p>
               </div>
             </div>
             <div class="row">
@@ -83,7 +83,7 @@
                 <label>تاريخ النهاية </label>
               </div>
               <div class="col-md-6">
-                <p>{{ clas.EndDate }}</p>
+                <p>{{ clas.EndDate | date:'short' }}</p>
               </div>
             </div>
 

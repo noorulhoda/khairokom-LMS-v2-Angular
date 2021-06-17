@@ -140,6 +140,7 @@ export class AddClassComponent implements OnInit {
       }
     );
     this.addTeacherToCourse()
+    this.NotifyToTeacherWithAccept();
   }
 
 //////////////

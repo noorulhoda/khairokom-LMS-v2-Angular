@@ -39,27 +39,12 @@
               <i class="bell fas fa-bell"></i><span class="badge">{{unReadNotifications}}</span>
             </a>
 
-            <div class="dropdown-menu" >
-              <a class="dropdown-item d-flex justify-content-between align-items-center"  *ngFor="let n of notifications">
-                <p *ngIf="n.hasOwnProperty('studentId')" (click)="notificationRead(n._id,n)">
-                  <b (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}" routerLink="/waitingStudents/{{n._id}}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
-                  <i class="fas fa-times text-danger" (click)="deleteNotification(n._id) "></i>
-                </p>
-
-                <p *ngIf="n.hasOwnProperty('teacherId');" (click)="notificationRead(n._id,n)">
-                  <b (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}" routerLink="/waitingTeachers/{{n._id}}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
-                  <i class="fas fa-times text-danger" (click)="deleteNotification(n._id) "></i>
-                </p>             
-              </a>
-
-              <!-- <a class="dropdown-item"  *ngFor="let n of adminNotifications">
-                <p>
+            <div class="dropdown-menu" >              
+              <a class="dropdown-item"  *ngFor="let n of adminNotifications">                
                   <b  (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
-                  <i class="fas fa-times text-danger" (click)="deleteNotification(n._id) "></i>
-                  <button  class="text-danger mr-0" (click)="deleteNotification(n._id) "> X</button>
-                </p>
-              </a> -->
-
+                  <i class="fas fa-times text-danger" (click)="deleteNotification(n._id) "></i>                                                    
+                  <hr>
+              </a>              
             </div>
            </li>         
          </ul>         

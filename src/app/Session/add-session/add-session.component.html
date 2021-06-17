@@ -26,14 +26,7 @@
             <label>Image</label>
             <input formControlName="image" type="text" class="form-control" />
         </div> -->
-      <div class="form-group">
-        <label>بداية الوقـــت</label>
-        <input formControlName="startTime" type="datetime-local" />
-      </div>
-      <div class="form-group">
-        <label>نهابة الوقـــت</label>
-        <input formControlName="endTime" type="datetime-local" />
-      </div>
+      
       <div class="form-group">
         <label>المجموعة</label>
         <select class="custom-select" formControlName="classId">
@@ -41,6 +34,15 @@
             {{ class.Number }}
           </option>
         </select>
+      </div>
+
+      <div class="form-group">
+        <label>بداية الوقـــت</label>
+        <input formControlName="startTime" type="datetime-local"  class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>نهاية الوقـــت</label>
+        <input formControlName="endTime" type="datetime-local"  class="form-control" />
       </div>
 
       <input

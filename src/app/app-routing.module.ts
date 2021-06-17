@@ -37,11 +37,13 @@ import {EdituserComponent} from './users/edituser/edituser.component';
 import {RegisterComponent} from './users/register/register.component';
 import {LoginComponent} from './users/login/login.component';
 import {GetAllComponent} from './users/get-all/get-all.component';
+import { MyCoursesComponent } from './users/my-courses/my-courses.component';
 
 import {DashboardComponent} from './Admin_Dashboard/dashboard/dashboard.component';
 import {PermissionManagementComponent} from './Admin_Dashboard/permission-management/permission-management.component'
 import {WaitingstudentsComponent} from './Admin_Dashboard/waitingstudents/waitingstudents.component';
 import {WaitingTeachersComponent} from './Admin_Dashboard/waiting-teachers/waiting-teachers.component';
+
 
 
 
@@ -55,6 +57,7 @@ const routes: Routes = [
   {path:'updateUser/:id',component:EdituserComponent},
   {path:'getAllUsers',component:GetAllComponent},
   {path:'profile/:id',component:ProfileComponent},
+  {path:'myCourses/:id',component:MyCoursesComponent},
   
   {path:'addCategory',component:AddCateogryComponent},
   {path:'getAllCategories',component:GetAllCateogriesComponent},
@@ -94,7 +97,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],  
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -51,6 +51,7 @@ import {HttpClientModule} from '@angular/common/http';
     AddCourseComponent,
     GetCourseByIDComponent,
     UpdateCourseComponent,
+    MyCoursesComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,6 +112,7 @@ import { WaitingTeachersComponent } from './Admin_Dashboard/waiting-teachers/wai
 import { AddCourseComponent } from './Course/add-course/add-course.component';
 import { GetCourseByIDComponent } from './Course/get-course-by-id/get-course-by-id.component';
 import { UpdateCourseComponent } from './Course/update-course/update-course.component';
+import { MyCoursesComponent } from './users/my-courses/my-courses.component';
 @NgModule({
   imports: [
     BrowserModule,

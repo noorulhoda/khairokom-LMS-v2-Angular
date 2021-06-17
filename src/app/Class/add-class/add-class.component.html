@@ -30,7 +30,6 @@
           formControlName="StudentsMinAge"
           [class.is-invalid]="StudentsMinAge.invalid && StudentsMinAge.touched"
           class="form-control"
-          pattern="/^\d+$/"
         />
         <div
           *ngIf="
@@ -53,7 +52,6 @@
           formControlName="StudentsMaxAge"
           [class.is-invalid]="StudentsMaxAge.invalid && StudentsMaxAge.touched"
           class="form-control"
-          pattern="/^\d+$/"
         />
         <div
           *ngIf="
@@ -98,15 +96,14 @@
           [class.is-invalid]="ClassLink.invalid && ClassLink.touched"
           type="text"
           class="form-control"
-          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
         />
         <div *ngIf="ClassLink.errors && ClassLink.invalid && ClassLink.touched">
           <small class="text-danger" *ngIf="ClassLink.errors?.required">
             رابط المجموعة مطلوب
           </small>
-          <small class="text-danger" *ngIf="ClassLink.errors?.valid">
+          <!-- <small class="text-danger" *ngIf="ClassLink.errors?.valid">
             رابط المجموعة يجب ان يحتوى على @ و ان يكون صحيح
-          </small>
+          </small> -->
         </div>
       </div>
       <div class="form-group">
@@ -171,7 +168,7 @@
     </div>
     <div class="form-group">
         <label>المعلم/ة </label>
-        <select class="custom-select" formControlName="TeacherId">
+        <select class="custom-select" formControlName="TeacherId" disabled>
             <option   *ngFor="let teacher of teachersList" value="{{teacher._id}}" [selected]="teacher._id==teacherId">{{teacher.userName}}
             </option>
         </select>

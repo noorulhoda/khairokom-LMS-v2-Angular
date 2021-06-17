@@ -21,5 +21,10 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 *{margin: 0; padding: 0; box-sizing: border-box;}
-body{background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9))
-    , url('assets/images/body-image.jpg'); text-align: right; direction: rtl;}
+body{
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9))
+    , url('assets/images/body-image.jpg');
+    text-align: right; 
+    direction: rtl;
+    font-family: "basem-algharib";    
+  }

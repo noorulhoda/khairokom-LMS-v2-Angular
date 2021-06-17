@@ -42,7 +42,6 @@ import {HttpClientModule} from '@angular/common/http';
     UpdateRoleComponent,
     GetAllRolesComponent,
     GetRoleByIDComponent,
-    DashboardControlsComponent,
     PermissionManagementComponent,
     DashboardHeaderComponent,
     DashboardFooterComponent,
@@ -52,6 +51,7 @@ import {HttpClientModule} from '@angular/common/http';
     GetCourseByIDComponent,
     UpdateCourseComponent,
     MyCoursesComponent,
+    GetAllSessionsAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,7 +103,6 @@ import { AddRoleComponent } from './Role/add-role/add-role.component';
 import { UpdateRoleComponent } from './Role/update-role/update-role.component';
 import { GetAllRolesComponent } from './Role/get-all-roles/get-all-roles.component';
 import { GetRoleByIDComponent } from './Role/get-role-by-id/get-role-by-id.component';
-import { DashboardControlsComponent } from './Admin_Dashboard/dashboard-controls/dashboard-controls.component';
 import { PermissionManagementComponent } from './Admin_Dashboard/permission-management/permission-management.component';
 import{DashboardHeaderComponent} from './Admin_Dashboard/dashboard-header/dashboard-header.component'
 import { DashboardFooterComponent } from './Admin_Dashboard/dashboard-footer/dashboard-footer.component';
@@ -113,6 +112,7 @@ import { AddCourseComponent } from './Course/add-course/add-course.component';
 import { GetCourseByIDComponent } from './Course/get-course-by-id/get-course-by-id.component';
 import { UpdateCourseComponent } from './Course/update-course/update-course.component';
 import { MyCoursesComponent } from './users/my-courses/my-courses.component';
+import { GetAllSessionsAdminComponent } from './Session/get-all-sessions-admin/get-all-sessions-admin.component';
 @NgModule({
   imports: [
     BrowserModule,

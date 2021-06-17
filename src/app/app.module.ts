@@ -51,6 +51,7 @@ import {HttpClientModule} from '@angular/common/http';
     GetCourseByIDComponent,
     UpdateCourseComponent,
     MyCoursesComponent,
+    GetAllSessionsAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,6 +112,7 @@ import { AddCourseComponent } from './Course/add-course/add-course.component';
 import { GetCourseByIDComponent } from './Course/get-course-by-id/get-course-by-id.component';
 import { UpdateCourseComponent } from './Course/update-course/update-course.component';
 import { MyCoursesComponent } from './users/my-courses/my-courses.component';
+import { GetAllSessionsAdminComponent } from './Session/get-all-sessions-admin/get-all-sessions-admin.component';
 @NgModule({
   imports: [
     BrowserModule,

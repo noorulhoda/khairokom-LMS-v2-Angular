@@ -42,7 +42,6 @@ import {HttpClientModule} from '@angular/common/http';
     UpdateRoleComponent,
     GetAllRolesComponent,
     GetRoleByIDComponent,
-    DashboardControlsComponent,
     PermissionManagementComponent,
     DashboardHeaderComponent,
     DashboardFooterComponent,
@@ -104,7 +103,6 @@ import { AddRoleComponent } from './Role/add-role/add-role.component';
 import { UpdateRoleComponent } from './Role/update-role/update-role.component';
 import { GetAllRolesComponent } from './Role/get-all-roles/get-all-roles.component';
 import { GetRoleByIDComponent } from './Role/get-role-by-id/get-role-by-id.component';
-import { DashboardControlsComponent } from './Admin_Dashboard/dashboard-controls/dashboard-controls.component';
 import { PermissionManagementComponent } from './Admin_Dashboard/permission-management/permission-management.component';
 import{DashboardHeaderComponent} from './Admin_Dashboard/dashboard-header/dashboard-header.component'
 import { DashboardFooterComponent } from './Admin_Dashboard/dashboard-footer/dashboard-footer.component';

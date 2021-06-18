@@ -161,15 +161,17 @@
       </div>
       <div class="form-group">
         <label>الدورة التدربية </label>
-        <select disabled class="custom-select" formControlName="CourseId">
-            <option   *ngFor="let course of courses" value="{{course._id}}" [selected]="course._id==courseId">{{course.tittle}}
+        <select  class="custom-select" formControlName="CourseId">
+            <option   *ngFor="let course of courses" value="{{course._id}}" >{{course.tittle}}
+              <!-- [selected]="course._id==courseId" -->
             </option>
         </select>
     </div>
     <div class="form-group">
         <label>المعلم/ة </label>
-        <select class="custom-select" formControlName="TeacherId" disabled>
-            <option   *ngFor="let teacher of teachersList" value="{{teacher._id}}" [selected]="teacher._id==teacherId">{{teacher.userName}}
+        <select class="custom-select" formControlName="TeacherId" >
+            <option   *ngFor="let teacher of teachersList" value="{{teacher._id}}" >{{teacher.userName}}
+              <!-- [selected]="teacher._id==teacherId" -->
             </option>
         </select>
     </div>

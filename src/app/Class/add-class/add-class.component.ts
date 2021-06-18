@@ -19,10 +19,12 @@ import { notificationService } from 'src/app/services/notification.service';
 export class AddClassComponent implements OnInit {
   courseId:String;
   teacherId:String;
-  courses;usersList;
+  courses;
+  usersList;
   teachersList=[];
   teacherRole="60b79235865a7e0ac79fdb85";
-  teacher:Iuser;course:Icourse;
+  teacher:Iuser;
+  course:Icourse;
   constructor(private notificationService:notificationService,private roleService:RolesService,private userService:UsersService,private classservice:classService,private courseService:courseService,private fb:FormBuilder,private router:Router)
   {
      this.courseId=localStorage.getItem('courseId');
@@ -133,14 +135,14 @@ export class AddClassComponent implements OnInit {
     console.log(this.teachersList);
     this.classservice.AddClass(clas).subscribe(
       data => {
-        this.router.navigateByUrl("/home")
+        this.addTeacherToCourse()
+        this.NotifyToTeacherWithAccept();
       },
       error => {
         console.log(error)
       }
     );
-    this.addTeacherToCourse()
-    this.NotifyToTeacherWithAccept();
+ 
   }
 
 //////////////

@@ -1,151 +1,157 @@
-<div class="container">
-    <h2>Edit profile</h2>
-    <form [formGroup]="registerForm">
-        <div class="form-group">
-            <label>User Name</label>
-            <input formControlName="userName" [class.is-invalid]="userName.invalid && userName.touched" type="text"
-                class="form-control" />
-            <div *ngIf=" userName.errors && (userName.invalid && userName.touched)">
-                <small class="text-danger" *ngIf="userName.errors?.required">
-                    User name is required
-                </small>
-                <small class="text-danger" *ngIf="userName.errors.minlength">
-                    Min length is 5
-                </small>
-                <small *ngIf="userName.errors?.forbiddenName">
-                    {{userName.errors?.forbiddenName.value}} is not allowed
-                </small>
-            </div>
-        </div>
+<app-dashboard-header></app-dashboard-header>
 
-        <div class="form-group">
-            <label>First Name</label>
-            <input formControlName="firstName" [class.is-invalid]="firstName.invalid && firstName.touched" type="text"
-                class="form-control" />
-            <div *ngIf=" firstName.errors && (firstName.invalid && firstName.touched)">
-                <small class="text-danger" *ngIf="firstName.errors?.required">
-                    first name is required
-                </small>
-                <small class="text-danger" *ngIf="firstName.errors.minlength">
-                    Min length is 5
-                </small>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Last Name</label>
-            <input formControlName="lastName" [class.is-invalid]="lastName.invalid && lastName.touched" type="text"
-                class="form-control" />
-            <div *ngIf=" lastName.errors && (lastName.invalid && lastName.touched)">
-                <small class="text-danger" *ngIf="lastName.errors?.required">
-                    last name is required
-                </small>
-                <small class="text-danger" *ngIf="lastName.errors.minlength">
-                    Min length is 5
-                </small>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Password</label>
-            <input formControlName="password" type="password" class="form-control" />
-            <div *ngIf=" password.errors && (password.invalid && password.touched)">
-                <small class="text-danger" *ngIf="password.errors?.required">
-                    password is required
-                </small>
-                <small class="text-danger" *ngIf="password.errors.minlength">
-                    Min length is 8
-                </small>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Confirm Passsword</label>
-            <input [class.is-invalid]="registerForm.errors?.misMatch" formControlName="confirmPassword" type="password"
-                class="form-control" />
-            <small *ngIf="registerForm.errors?.misMatch" class="text-danger">
-                Passwords does not match
-            </small>
-        </div> 
-
-        <div class="form-group">
-            <label>Email</label>
-            <input pattern='^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' type="text"
-                 [class.is-invalid]="email.invalid && email.touched"  formControlName="email"  class="form-control">
-            <small class="text-danger" [class.d-none]="email.valid || email.untouched">
-                Email is not valid
-            </small>
-        </div>
-
-    
-        {{user.birthDate|date:"yyyy-MM-dd"}}
-        <div class="form-group">
-            <label>BirthDate</label>
-            <input formControlName="birthDate" type="date" class="form-control"
-            />
-        </div>
-
-        
-
-        <div class="form-group">
-            <label>Gender :</label>
-            <select  formControlName="gender"  class="form-control">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-        </div>
-
-             
-        <div class="form-group">
-            <label>Country :</label>
-            <select class="form-control" formControlName="country" (change)="countryChanged()"  >
-                <option *ngFor = "let c of countries"  value="{{c._id}}">{{c.name}}</option>
-              </select>
-        </div>
-        
-      
-        <div class="form-group">
-            <label>Phone</label>
-            <input  type="tel"  formControlName="phone"  class="form-control">
-            <div *ngIf=" phone.errors && (phone.invalid && phone.touched)">
-                <small class="text-danger" *ngIf="phone.errors?.required">
-                    phone is required
-                </small>
-                <small class="text-danger" *ngIf="phone.errors.minlength||phone.errors.maxlength">
-                    length is 10
-                </small>
-            </div>
-        </div>
-
-           
-
-
-        <div class="form-group">
-            <div class="progress" *ngIf="existingFile">
-                <div
-                  class="progress-bar progress-bar-striped bg-danger"
-                  attr.aria-valuenow="{{ progress }}"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  [ngStyle]="{ width: progress + '%' }"
-                >
-                  {{ progress }}%
+<main>
+    <div class="container">
+        <h2 class="mt-5">تعديل الملف الشخصي</h2>
+        <form [formGroup]="registerForm">
+            <div class="form-group">
+                <label>الاسم</label>
+                <input formControlName="userName" [class.is-invalid]="userName.invalid && userName.touched" type="text"
+                    class="form-control" />
+                <div *ngIf=" userName.errors && (userName.invalid && userName.touched)">
+                    <small class="text-danger" *ngIf="userName.errors?.required">
+                        الاسم مطلوب
+                    </small>
+                    <small class="text-danger" *ngIf="userName.errors.minlength">
+                        لا يجب ان يقل الاسم عن 5 حروف
+                    </small>
+                    <small *ngIf="userName.errors?.forbiddenName">
+                        {{userName.errors?.forbiddenName.value}} غير متاح
+                    </small>
                 </div>
-              </div>
-              
-              <label class="btn btn-default">
-                <input type="file" (change)="chooseFile($event)" />
-              </label>
-              <img src="https://khairokomuploadfiles.azurewebsites.net/files/{{fileName}}" height="200px" width="200px">
-              <button class="btn btn-primary" [disabled]="!chosenFiles" (click)="upload()">
-                Upload
-              </button>
-              
-              <div class="alert alert-light">{{ msg }}</div>
-        </div>
-        <button type="submit" class="btn btn-success" (click)="update()">Update</button>
+            </div>
+    
+            <div class="form-group">
+                <label>الاسم الأول</label>
+                <input formControlName="firstName" [class.is-invalid]="firstName.invalid && firstName.touched" type="text"
+                    class="form-control" />
+                <div *ngIf=" firstName.errors && (firstName.invalid && firstName.touched)">
+                    <small class="text-danger" *ngIf="firstName.errors?.required">
+                        الاسم الأول مطلوب
+                    </small>
+                    <small class="text-danger" *ngIf="firstName.errors.minlength">
+                        لا يجب ان يقل الاسم عن 5 حروف
+                    </small>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>اسم العائلة</label>
+                <input formControlName="lastName" [class.is-invalid]="lastName.invalid && lastName.touched" type="text"
+                    class="form-control" />
+                <div *ngIf=" lastName.errors && (lastName.invalid && lastName.touched)">
+                    <small class="text-danger" *ngIf="lastName.errors?.required">
+                        اسم العائلة مطلوب
+                    </small>
+                    <small class="text-danger" *ngIf="lastName.errors.minlength">
+                        لا يجب ان يقل الاسم عن 5 حروف
+                    </small>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>الرقم السري</label>
+                <input formControlName="password" type="password" class="form-control" />
+                <div *ngIf=" password.errors && (password.invalid && password.touched)">
+                    <small class="text-danger" *ngIf="password.errors?.required">
+                        الرقم السري مطلوب
+                    </small>
+                    <small class="text-danger" *ngIf="password.errors.minlength">
+                        لا يجب ان يقل الاسم عن 8 حروف
+                    </small>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>تأكيد الرقم السري</label>
+                <input [class.is-invalid]="registerForm.errors?.misMatch" formControlName="confirmPassword" type="password"
+                    class="form-control" />
+                <small *ngIf="registerForm.errors?.misMatch" class="text-danger">
+                   الرقم السري غير مطابق
+                </small>
+            </div> 
+    
+            <div class="form-group">
+                <label>البريد الإلكتروني</label>
+                <input pattern='^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' type="text"
+                     [class.is-invalid]="email.invalid && email.touched"  formControlName="email"  class="form-control">
+                <small class="text-danger" [class.d-none]="email.valid || email.untouched">
+                   البريد الإلكتروني غير متاح
+                </small>
+            </div>
+    
         
-    </form>
-    <br>
-   
-</div>
+            {{user.birthDate|date:"yyyy-MM-dd"}}
+            <div class="form-group">
+                <label>تاريخ الميلاد</label>
+                <input formControlName="birthDate" type="date" class="form-control"
+                />
+            </div>
+    
+            
+    
+            <div class="form-group">
+                <label>النوع:</label>
+                <select  formControlName="gender"  class="form-control">
+                    <option value="Male">ذكر</option>
+                    <option value="Female">أنثى</option>
+                </select>
+            </div>
+    
+                 
+            <div class="form-group">
+                <label>البلد :</label>
+                <select class="form-control" formControlName="country" (change)="countryChanged()"  >
+                    <option *ngFor = "let c of countries"  value="{{c._id}}">{{c.name}}</option>
+                  </select>
+            </div>
+            
+          
+            <div class="form-group">
+                <label>رقم الهاتف</label>
+                <input  type="tel"  formControlName="phone"  class="form-control">
+                <div *ngIf=" phone.errors && (phone.invalid && phone.touched)">
+                    <small class="text-danger" *ngIf="phone.errors?.required">
+                        رقم الهاتف مطلوب
+                    </small>
+                    <small class="text-danger" *ngIf="phone.errors.minlength||phone.errors.maxlength">
+                        length is 10
+                    </small>
+                </div>
+            </div>
+    
+               
+    
+    
+            <div class="form-group">
+                <div class="progress" *ngIf="existingFile">
+                    <div
+                      class="progress-bar progress-bar-striped bg-danger"
+                      attr.aria-valuenow="{{ progress }}"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      [ngStyle]="{ width: progress + '%' }"
+                    >
+                      {{ progress }}%
+                    </div>
+                  </div>
+                  
+                  <label class="btn btn-default">
+                    <input type="file" (change)="chooseFile($event)" />
+                  </label>
+                  <img src="https://khairokomuploadfiles.azurewebsites.net/files/{{fileName}}" height="200px" width="200px">
+                  <button class="upload btn btn-primary" [disabled]="!chosenFiles" (click)="upload()">
+                    تحميل الصورة
+                  </button>
+                  
+                  <div class="alert alert-light">{{ msg }}</div>
+            </div>
+            <button type="submit" class="update btn btn-success" (click)="update()">تعديل</button>
+            
+        </form>
+        <br>
+       
+    </div>
+</main>
+
+<app-dashboard-footer></app-dashboard-footer>

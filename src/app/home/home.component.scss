@@ -43,7 +43,7 @@
     position: absolute;
     text-align: center;
     top: 50%;
-    left: 20%;
+    left: 30%;
     transform: translateY(-50%);        
     padding: 3%;
     border-radius: 8px;
@@ -51,8 +51,12 @@
 
 }
 
-.slideshow .slideshow-item .right-text .inside{margin-top: 70px;}
-
+.slideshow .slideshow-item .right-text .inside{
+    margin-top: 70px;
+}
+.slideshow .slideshow-item .right-text .inside p {
+    font-size: 25px;
+}
 .slideshow .slideshow-item .right-text{
     max-width: 25%;
     height: 100vh;
@@ -113,22 +117,23 @@
 }
 
 .about-us .text .welcome{
-    font-size: 20px;
+    font-size: 25px;
     color: #FFAD05;
 }
 .about-us .text .title {
-    font-size: 40px;
+    font-size: 50px;
 }
 .about-us .text .start {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
 }
 .about-us .text .text-body{
+    font-size: 25px;
     color: #88897D;
 }
 .about-us .text .more {
     position: relative;   
-    font-size: 18px;
+    font-size: 22px;
     transition: all 1s ease;    
 }
 .about-us .text .more::before{
@@ -153,11 +158,16 @@
 .category .button, .course .button, .contact-us .form button, .about-us .text .more{
     background-color: rgba(255,173,5,0.8);  
     color: #fff;  
-    padding: 10px 30px;  
+    padding: 10px 30px; 
+    font-size: 22px; 
 }
 .category .button:hover, .course .button:hover,  .contact-us .form button:hover, .about-us .text .more:hover {
     background-color: #FFAD05; 
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.category .title, .course h2, .carousel h2, .contact-us .title {
+    font-size: 50px;
 }
 
 .pillars {
@@ -166,12 +176,13 @@
 }
 
 .pillars h2{
+    font-size: 50px;
     color: #fff;        
 }
 
 .pillars .content .title h3 {
     font-weight: normal;
-    color: #fff;
+    color: #fff;    
 }
 .course {
     margin-top: 10%;           
@@ -181,6 +192,9 @@
 .carousel {
     background-color: #FFAD05; 
     color: #fff;
+}
+.carousel .title{ 
+    font-size: 30px;
 }
 .carousel .arrows {
     border: 2px solid #fff; 
@@ -200,7 +214,7 @@
 .carousel p {
     padding: 0 40px; 
     line-height: 40px; 
-    // font-size: 16px; 
+    font-size: 25px; 
     color: #fff;}
 
 i {font-size: 25px;}
@@ -213,10 +227,12 @@ i {font-size: 25px;}
 }
 .contact-us .form p {
     line-height: 30px;
+    font-size: 25px;
 }
 .contact-us .form input, .contact-us .form textarea {
     border: none; 
     background-color: rgba(255,173,5,0.5);
+    font-size: 20px;
 }
 ::placeholder{
     color: #333;
@@ -229,10 +245,12 @@ i {font-size: 25px;}
     background-color: #FFAD05;    
     color: #fff;
 }
-.contact-us .info span{
-    font-size: 20px; 
-    font-weight: bold; 
-    color: #88897D;
+.contact-us .info h3{
+    font-size: 30px;     
+    color: #fff;
+}
+.contact-us .info p {
+    font-size: 20px;
 }
 
 .about-us .title, .category .title, .course .title, .contact-us .title {

@@ -54,5 +54,11 @@ export class courseService {
           return throwError(err.message ||"Internal Server error contact site adminstarator");
         }));
       }
+      findByTitle(tittle:string): Observable<Icourse>{
+        return this.http.get<Icourse>(this.Url+"/title/"+tittle).pipe(catchError((err)=>
+        {
+          return throwError(err.message ||"Internal Server error contact site adminstarator");
+        }));
+      }
     }
  

@@ -42,6 +42,26 @@
                 <img src="{{ category.Image }}" alt="تحميل الصورة" />
               </div>
             </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>الدورات التدربية</label>
+              </div>
+              <div *ngFor="let course of categoryCourses">
+                <div class="col-md-6">
+                  <label>اسم الدورة التدربية</label>
+                 </div>
+                 <div class="col-md-6">
+                   <a routerLink="/getCourseById/course._id">{{course.tittle}}</a>
+                  </div>
+                  <div class="col-md-6">
+                    <label>الصـــورة</label>
+                  </div>
+                  <div class="col-md-6">
+                    <img src="{{ course.Image }}" alt="تحميل الصورة"  width="100px" height="100px"/>
+                  </div>
+              </div>
+              
+            </div>
           </div>
         </div>
       </div>

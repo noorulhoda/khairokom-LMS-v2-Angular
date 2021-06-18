@@ -19,14 +19,19 @@ import { notificationService } from 'src/app/services/notification.service';
 export class AddClassComponent implements OnInit {
   courseId:String;
   teacherId:String;
-  courses;usersList;
+  courses;
+  usersList;
   teachersList=[];
   teacherRole="60b79235865a7e0ac79fdb85";
-  teacher:Iuser;course:Icourse;
+  teacher:Iuser;
+  course:Icourse;
   constructor(private notificationService:notificationService,private roleService:RolesService,private userService:UsersService,private classservice:classService,private courseService:courseService,private fb:FormBuilder,private router:Router)
   {
      this.courseId=localStorage.getItem('courseId');
      this.teacherId=localStorage.getItem('teacherId');
+
+ 
+
      console.log(this.teacherId);
     courseService.GetAllCourses().subscribe(
       data => {
@@ -51,7 +56,14 @@ export class AddClassComponent implements OnInit {
   
     } 
   ngOnInit(): void {
-   
+    this.userService.getUserById(this.teacherId).subscribe(
+      data=>this.teacher=data[0]
+      ,er=>console.log(er)
+    )
+    this.courseService.getCourseById(this.courseId).subscribe(
+      data=>this.course=data[0]
+      ,er=>console.log(er)
+    )
   }
   addForm=this.fb.group(
     {
@@ -101,14 +113,14 @@ export class AddClassComponent implements OnInit {
    {
      return this.addForm.get('EndDate');
    }
-   get CourseId()
+ /*   get CourseId()
    {
      return this.addForm.get('CourseId');
    }
    get TeacherId()
    {
      return this.addForm.get('TeacherId');
-   }
+   } */
    get Students()
    {
      return this.addForm.get('Students');
@@ -124,8 +136,8 @@ export class AddClassComponent implements OnInit {
        ClassLinkPassword:this.ClassLinkPassword?.value,
        StartDate:this.StartDate?.value,
        EndDate:this.EndDate?.value,
-       CourseId:this.CourseId?.value,
-       TeacherId:this.TeacherId?.value,
+       CourseId:this.courseId.toString(),
+       TeacherId:this.teacherId.toString(),
        Students:this.Students?.value
       
     }
@@ -133,34 +145,37 @@ export class AddClassComponent implements OnInit {
     console.log(this.teachersList);
     this.classservice.AddClass(clas).subscribe(
       data => {
-        this.router.navigateByUrl("/home")
+        console.log(this.teacher)
+        this.addTeacherToCourse()
+        this.NotifyToTeacherWithAccept();
       },
       error => {
+        console.log("*****************************")
+        console.log(this.teacher)
+        console.log("*****************************")
         console.log(error)
       }
     );
-    this.addTeacherToCourse()
-    this.NotifyToTeacherWithAccept();
+ 
   }
 
 //////////////
   addTeacherToCourse(){
-    this.userService.getUserById(this.TeacherId?.value).subscribe(
-      data=>this.teacher=data[0]
-      ,er=>console.log(er)
-    )
-    this.courseService.getCourseById(this.CourseId?.value).subscribe(
-      data=>this.teacher=data[0]
-      ,er=>console.log(er)
-    )
-     this.teacher.teachedCourses.push(this.CourseId.value);
-     this.userService.updateUser(this.TeacherId.value,this.teacher).subscribe(
+    console.log(this.teacher)
+   /*   var oldTeachedCourses=this.teacher.teachedCourses;
+     var newTeachedCourses=[];
+     newTeachedCourses.push(oldTeachedCourses);
+     newTeachedCourses.push(this.course)
+ */
+ 
+     this.teacher.teachedCourses.push(this.course);
+     this.userService.updateUser(this.teacherId,this.teacher).subscribe(
        data=>console.log(data),
        er=>console.log(er)
      )
 
-     this.course.teachers.push(this.TeacherId.value);
-     this.courseService.UpdateCourse(this.CourseId.value,this.course).subscribe(
+     this.course.teachers.push(this.teacher);
+     this.courseService.UpdateCourse(this.courseId,this.course).subscribe(
       data=>console.log(data),
       er=>console.log(er)
      )

@@ -135,9 +135,9 @@ export class GetCourseByIDComponent implements OnInit {
       }
     );
     
-    window.location.reload()
-    //this.courseComments=[]
-    //this.GetCourseComments();
+    //window.location.reload()
+    this.courseComments=[]
+    this.GetCourseComments();
 
   }
 courseComments:Icomment[]=[];

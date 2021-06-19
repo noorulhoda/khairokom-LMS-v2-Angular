@@ -159,11 +159,11 @@
           </small>
         </div>
       </div>
-      <div class="form-group">
+  <!--     <div class="form-group">
         <label>الدورة التدربية </label>
         <select  class="custom-select" formControlName="CourseId">
             <option   *ngFor="let course of courses" value="{{course._id}}" >{{course.tittle}}
-              <!-- [selected]="course._id==courseId" -->
+             [selected]="course._id==courseId"
             </option>
         </select>
     </div>
@@ -171,10 +171,10 @@
         <label>المعلم/ة </label>
         <select class="custom-select" formControlName="TeacherId" >
             <option   *ngFor="let teacher of teachersList" value="{{teacher._id}}" >{{teacher.userName}}
-              <!-- [selected]="teacher._id==teacherId" -->
+              [selected]="teacher._id==teacherId" 
             </option>
         </select>
-    </div>
+    </div> -->
 
       <input
         type="submit"

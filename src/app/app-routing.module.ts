@@ -26,6 +26,7 @@ import { GetSessionByIdComponent } from './Session/get-session-by-id/get-session
 import { GetAllSessionsComponent } from './Session/get-all-sessions/get-all-sessions.component';
 import { AddSessionComponent } from './Session/add-session/add-session.component';
 import { UpdateSessionComponent } from './Session/update-session/update-session.component';
+import { GetAllSessionsAdminComponent } from './Session/get-all-sessions-admin/get-all-sessions-admin.component';
 
 import {AddRoleComponent} from './Role/add-role/add-role.component'
 import {GetAllRolesComponent} from './Role/get-all-roles/get-all-roles.component'
@@ -43,6 +44,7 @@ import {DashboardComponent} from './Admin_Dashboard/dashboard/dashboard.componen
 import {PermissionManagementComponent} from './Admin_Dashboard/permission-management/permission-management.component'
 import {WaitingstudentsComponent} from './Admin_Dashboard/waitingstudents/waitingstudents.component';
 import {WaitingTeachersComponent} from './Admin_Dashboard/waiting-teachers/waiting-teachers.component';
+
 
 
 
@@ -81,6 +83,7 @@ const routes: Routes = [
   {path:'updateSession/:id',component:UpdateSessionComponent},
   {path:'getAllSessions',component:GetAllSessionsComponent},
   {path:'addSession',component:AddSessionComponent},
+  {path:'getAllSessionsAdmin',component:GetAllSessionsAdminComponent},
 
   {path:'addRole',component:AddRoleComponent},
   {path:'getAllRoles',component:GetAllRolesComponent},

@@ -33,10 +33,13 @@
     transition: width .3s;
 }
 .navbar .collapse .navbar-nav {
-    margin-left: 150px;    
+    margin-left: 220px;    
 }
 .navbar .collapse .navbar-nav .nav-item {
     padding: 0 5px;
+}
+.navbar .collapse .navbar-nav .nav-item .nav-link{
+    font-size: 25px;
 }
 
 // .navbar form {display: none;}
@@ -50,7 +53,7 @@
 
 }
 
-.navbar .user {margin-right: 48px;}
+.navbar .user {margin-right: 15px;}
 .navbar .user .notification {margin-left: -20px;}
 .navbar .user .notification .bell{
     color: #FFAD05;

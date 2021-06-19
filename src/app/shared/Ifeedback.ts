@@ -5,4 +5,5 @@ export interface Ifeedback{
    getterId:String
    feedbackedUserType:String
    classId:String
+   courseId:String
 }

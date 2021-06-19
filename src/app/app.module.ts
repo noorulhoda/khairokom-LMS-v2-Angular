@@ -52,6 +52,9 @@ import {HttpClientModule} from '@angular/common/http';
     UpdateCourseComponent,
     MyCoursesComponent,
     GetAllSessionsAdminComponent,
+    TeacherFeedbackComponent,
+    StudentFeedbackComponent,
+    DetailedFeedbackComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,6 +116,9 @@ import { GetCourseByIDComponent } from './Course/get-course-by-id/get-course-by-
 import { UpdateCourseComponent } from './Course/update-course/update-course.component';
 import { MyCoursesComponent } from './users/my-courses/my-courses.component';
 import { GetAllSessionsAdminComponent } from './Session/get-all-sessions-admin/get-all-sessions-admin.component';
+import { TeacherFeedbackComponent } from './FeedBacks/teacher-feedback/teacher-feedback.component';
+import { StudentFeedbackComponent } from './FeedBacks/student-feedback/student-feedback.component';
+import { DetailedFeedbackComponent } from './FeedBacks/detailed-feedback/detailed-feedback.component';
 @NgModule({
   imports: [
     BrowserModule,

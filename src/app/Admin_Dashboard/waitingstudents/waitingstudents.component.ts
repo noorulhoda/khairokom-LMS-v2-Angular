@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { categoryService } from 'src/app/services/category.service';
@@ -31,7 +32,8 @@ export class WaitingstudentsComponent implements OnInit {
     private courseService:courseService,
     private classService:classService,
     private userService:UsersService,
-    private categoryService:categoryService
+    private categoryService:categoryService,
+    private p:ViewportScroller
     ) { 
     //this.route.queryParamMap.subscribe((params: any) => this.id=params.params.id);   
     this.route.params.subscribe(params => {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-my-courses',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyCoursesComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private userServices:UsersService) {
+    // localStorage.getItem()
+   }
+   
   ngOnInit(): void {
   }
+  
 
 }

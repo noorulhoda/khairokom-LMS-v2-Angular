@@ -164,7 +164,7 @@ courseComments:Icomment[]=[];
 
 notifyWithNewWaitingStudent(){
   var notification:Inotification={
-    message:"a student Waiting to enroll",
+    message:"طالب ينتظر الموافقة للالتحاق بدورة تدريبية",
     notifiedUserId:"Admin",
     courseId:this.courseId,
     studentId:this.userId,
@@ -184,7 +184,7 @@ notifyWithNewWaitingStudent(){
 
 notifyWithNewWaitingTeacher(){
   var notification:Inotification={
-    message:"teacher wait to be assigned",
+    message:"معلم ينتظر الموافقة لتدريس دورة تدريبية",
     notifiedUserId:"Admin",
     courseId:this.courseId,
     teacherId:this.userId,

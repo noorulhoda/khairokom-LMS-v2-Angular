@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { classService } from 'src/app/services/class.service';
 import { notificationService } from 'src/app/services/notification.service';
 import { Inotification } from 'src/app/shared/Inotification';
 
@@ -13,7 +14,8 @@ export class DashboardHeaderComponent implements OnInit {
   notifications:Inotification[];
   adminNotifications:Inotification[]=[];
   unReadNotifications=0;
-  constructor(private notificationService:notificationService,private router:Router) { 
+  classes:any[];
+  constructor(private notificationService:notificationService,private router:Router,private classService:classService) { 
     this.notificationService.getAllNotifications().subscribe(
       data=>{
         this.notifications=data
@@ -26,6 +28,10 @@ export class DashboardHeaderComponent implements OnInit {
         },
       er=>console.log(er)
     );
+    this.classService.GetAllclass().subscribe(
+      data=>this.classes=data
+      ,er=>console.log(er)
+    )
 
     
   }
@@ -76,4 +82,11 @@ else if(this.sureDelete){
       window.location.reload();
   }
 }
+
+checkFinishedClasses(){
+ this.classes.forEach(element => {
+  
+ });
+}
+
 }

@@ -162,12 +162,6 @@ export class AddClassComponent implements OnInit {
 //////////////
   addTeacherToCourse(){
     console.log(this.teacher)
-   /*   var oldTeachedCourses=this.teacher.teachedCourses;
-     var newTeachedCourses=[];
-     newTeachedCourses.push(oldTeachedCourses);
-     newTeachedCourses.push(this.course)
- */
- 
      this.teacher.teachedCourses.push(this.course);
      this.userService.updateUser(this.teacherId,this.teacher).subscribe(
        data=>console.log(data),

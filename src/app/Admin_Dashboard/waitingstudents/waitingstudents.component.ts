@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { categoryService } from 'src/app/services/category.service';
@@ -31,7 +32,8 @@ export class WaitingstudentsComponent implements OnInit {
     private courseService:courseService,
     private classService:classService,
     private userService:UsersService,
-    private categoryService:categoryService
+    private categoryService:categoryService,
+    private p:ViewportScroller
     ) { 
     //this.route.queryParamMap.subscribe((params: any) => this.id=params.params.id);   
     this.route.params.subscribe(params => {
@@ -121,16 +123,16 @@ export class WaitingstudentsComponent implements OnInit {
       data=>console.log(data),
       er=>console.log(er)
     )
-    this.student.joinedClasses.push(this.checkedClass);
+    this.student.joinedClasses.push(this.checkedClassId);
     this.userService.updateUser(this.notification.studentId,this.student).subscribe(
       data=>console.log(data),
       er=>console.log(er)
     )
-    this.NotifyToTeacherWithAccept();
+    this.NotifyToStudentWithAccept();
   }
 
 
-  NotifyToTeacherWithAccept(){
+  NotifyToStudentWithAccept(){
     var notification:Inotification={
       message:"تم قبولك في الدورة التدريبية التي قدمت عليها ",
       notifiedUserId:this.notification.studentId,

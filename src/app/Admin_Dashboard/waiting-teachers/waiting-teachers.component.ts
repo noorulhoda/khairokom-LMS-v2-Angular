@@ -121,7 +121,7 @@ export class WaitingTeachersComponent implements OnInit {
     console.log(error);
   }
 );
-
+this.NotifyToTeacherWithVerified();
 }
   unVerified()
   {
@@ -134,6 +134,7 @@ export class WaitingTeachersComponent implements OnInit {
     console.log(error);
   }
 );
+ this.NotifyToTeacherWithNotVerified();
   }
   addClass()
  {
@@ -153,6 +154,42 @@ export class WaitingTeachersComponent implements OnInit {
     data => {
       //this.router.navigateByUrl("/home")
       alert("تم ارسال رفض للمعلم للتدريس ")
+      console.log(data)
+    },
+    error => {
+      console.log(error)
+    }
+  );
+}
+NotifyToTeacherWithVerified(){
+  var notification:Inotification={
+    message:" مبارك لقد تم اعتمادك كمعلم/ة من قبل الموقع ",
+    notifiedUserId:this.notification.teacherId,
+    courseId:this.notification.courseId,
+    isRead:false
+  }
+  this.notificationService.addNotification(notification).subscribe(
+    data => {
+      //this.router.navigateByUrl("/home")
+      alert("تم ارسال الاعنماد للمعلم  ")
+      console.log(data)
+    },
+    error => {
+      console.log(error)
+    }
+  );
+}
+NotifyToTeacherWithNotVerified(){
+  var notification:Inotification={
+    message:" نأسف لقد تم سحب اعتمادك كمعلم/ة من قبل الموقع ",
+    notifiedUserId:this.notification.teacherId,
+    courseId:this.notification.courseId,
+    isRead:false
+  }
+  this.notificationService.addNotification(notification).subscribe(
+    data => {
+      //this.router.navigateByUrl("/home")
+      alert("تم ارسال سحب الاعتماد للمعلم  ")
       console.log(data)
     },
     error => {

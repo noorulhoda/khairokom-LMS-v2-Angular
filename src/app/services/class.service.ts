@@ -37,11 +37,11 @@ url=classController.GetAllClasses;//api/user
         return throwError(err.message )
     }));
 }
-updateClass(id, clas): Observable<any> {
+updateClass(id:String, clas:Iclass): Observable<any> {
   return this.http.put(`${this.url}/${id}`, clas,httpOptions);
 }
   
-  deleteCLass(id:string): Observable<any>{
+  deleteCLass(id:String): Observable<any>{
     return this.http.delete(this.url+"/"+id, httpOptions).pipe(catchError((err)=>
     {
       return throwError(err.message ||"Internal Server error contact site adminstarator");

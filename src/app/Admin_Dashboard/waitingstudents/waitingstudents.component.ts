@@ -121,7 +121,7 @@ export class WaitingstudentsComponent implements OnInit {
       data=>console.log(data),
       er=>console.log(er)
     )
-    this.student.joinedClasses.push(this.checkedClass);
+    this.student.joinedClasses.push(this.checkedClassId);
     this.userService.updateUser(this.notification.studentId,this.student).subscribe(
       data=>console.log(data),
       er=>console.log(er)

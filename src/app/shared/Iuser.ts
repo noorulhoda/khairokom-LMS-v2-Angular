@@ -13,7 +13,7 @@ export interface Iuser{
     country:string;
     phone:string;
     roles:string[];
-    joinedClasses?:Iclass[];
+    joinedClasses?:String[];
     teachedCourses?:Icourse[];
     verifiedTeacher:boolean;
     suitableTimes:Number[];

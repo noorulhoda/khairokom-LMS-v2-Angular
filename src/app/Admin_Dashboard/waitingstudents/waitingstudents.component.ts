@@ -126,11 +126,11 @@ export class WaitingstudentsComponent implements OnInit {
       data=>console.log(data),
       er=>console.log(er)
     )
-    this.NotifyToTeacherWithAccept();
+    this.NotifyToStudentWithAccept();
   }
 
 
-  NotifyToTeacherWithAccept(){
+  NotifyToStudentWithAccept(){
     var notification:Inotification={
       message:"تم قبولك في الدورة التدريبية التي قدمت عليها ",
       notifiedUserId:this.notification.studentId,

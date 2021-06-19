@@ -81,13 +81,22 @@ export class HeaderComponent implements OnInit {
 
 
 
-  notificationRead(id:String,notification:Inotification){
+  notificationRead(notificationId:String,notification:Inotification){
     notification.isRead=true;
-    this.notificationService.updateNotification(id,notification).subscribe(
+    this.notificationService.updateNotification(notificationId,notification).subscribe(
       data=>console.log(data),
       er=> console.log(er)
     )
+    if(notification.hasOwnProperty('isFeedbackFrom')){
+        if(notification.isFeedbackFrom=="Student")
+        this.router.navigateByUrl('/studentFeedback/'+ notificationId);
+        else if(notification.isFeedbackFrom=="Teacher")
+        this.router.navigateByUrl('/teacherFeedback/'+ notificationId);
+    }
+    else
     this.router.navigateByUrl('/getCourseById/'+ notification.courseId);
+  
+   // this.router.navigateByUrl('/getClassById/'+ notification.classId);
   }
 
   computeUnRead(){
@@ -108,7 +117,7 @@ export class HeaderComponent implements OnInit {
       this.deleteNew=false;
      }
 
-else if(this.sureDelete){
+  else if(this.sureDelete){
     this.notificationService.deleteNotification(id)
       .subscribe(
         data => {

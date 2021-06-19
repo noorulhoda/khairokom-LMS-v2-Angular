@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { classService } from 'src/app/services/class.service';
 import { notificationService } from 'src/app/services/notification.service';
+import { Iclass } from 'src/app/shared/Iclass';
 import { Inotification } from 'src/app/shared/Inotification';
 
 @Component({
@@ -14,7 +15,7 @@ export class DashboardHeaderComponent implements OnInit {
   notifications:Inotification[];
   adminNotifications:Inotification[]=[];
   unReadNotifications=0;
-  classes:any[];
+  classes;
   constructor(private notificationService:notificationService,private router:Router,private classService:classService) { 
     this.notificationService.getAllNotifications().subscribe(
       data=>{
@@ -28,16 +29,17 @@ export class DashboardHeaderComponent implements OnInit {
         },
       er=>console.log(er)
     );
-    this.classService.GetAllclass().subscribe(
-      data=>this.classes=data
-      ,er=>console.log(er)
-    )
+
 
     
   }
 
   ngOnInit(): void {
-    
+    this.classService.GetAllclass().subscribe(
+      data=>{this.classes=data
+        this.checkFinishedClasses()}
+      ,er=>console.log(er)
+    )
   }
   notificationRead(id:String,notification:Inotification){
     notification.isRead=true;
@@ -84,9 +86,70 @@ else if(this.sureDelete){
 }
 
 checkFinishedClasses(){
- this.classes.forEach(element => {
-  
+ this.classes.forEach(element => {//element is class
+  var d =element.EndDate
+  var today = new Date();
+  var endDate= new Date(d);
+  var monthDiff = endDate.getMonth()-today.getMonth();
+  var dayDiff = endDate.getDay()-today.getDay();
+  if(monthDiff<=0&&dayDiff<=0&&element.IsFeedbacked==false){
+    console.log("finishedClass")
+    console.log(monthDiff+"|"+dayDiff+"|"+element.IsFeedbacked)
+    
+    this.notifyTeacherToFeedback(element);
+     element.Students.forEach(stdnt => {
+      this.notifyStudentToFeedback(stdnt,element)
+    });
+    element.IsFeedbacked=true;
+    this.classService.updateClass(element._id,element).subscribe(
+      data=>console.log(data),
+      er=>console.log(er)
+    )
+  }
+  else{
+     console.log("runningClass")
+     console.log(monthDiff+"|"+dayDiff+"|"+element.IsFeedbacked)
+  }
+
  });
 }
+ 
+notifyStudentToFeedback(studentId,clas){
+  var notification:Inotification={
+    message:"يرجى تقييم دراستك في المجموعة التي انهيتها ",
+    notifiedUserId:studentId,
+    courseId:clas.CourseId,
+    isRead:false,
+    classId:clas._id,
+    isFeedbackFrom:"Student"
+  }
+  this.notificationService.addNotification(notification).subscribe(
+    data => {
+      console.log(data)
+    },
+    error => {
+      console.log(error)
+    }
+  );
+}
+notifyTeacherToFeedback(clas){
+  var notification:Inotification={
+    message:"يرجى تقييم طلاب المجموعة التي أنهيت تدريسها بفضل الله  ",
+    notifiedUserId:clas.TeacherId,
+    courseId:clas.CourseId,
+    classId:clas._id,
+    isRead:false,
+    isFeedbackFrom:"Teacher"
+  }
+  this.notificationService.addNotification(notification).subscribe(
+    data => {
+      console.log(data)
+    },
+    error => {
+      console.log(error)
+    }
+  );
+}
+
 
 }

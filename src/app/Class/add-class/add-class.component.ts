@@ -25,6 +25,7 @@ export class AddClassComponent implements OnInit {
   teacherRole="60b79235865a7e0ac79fdb85";
   teacher:Iuser;
   course:Icourse;
+  classId;
   constructor(private notificationService:notificationService,private roleService:RolesService,private userService:UsersService,private classservice:classService,private courseService:courseService,private fb:FormBuilder,private router:Router)
   {
      this.courseId=localStorage.getItem('courseId');
@@ -138,13 +139,18 @@ export class AddClassComponent implements OnInit {
        EndDate:this.EndDate?.value,
        CourseId:this.courseId.toString(),
        TeacherId:this.teacherId.toString(),
-       Students:this.Students?.value
-      
+       Students:this.Students?.value,
+       IsFeedbacked:false/////????????????????????????????????????
     }
     console.log(clas)
     console.log(this.teachersList);
     this.classservice.AddClass(clas).subscribe(
       data => {
+        var c=data
+        console.log(c);
+        console.log("++++++++++++++++++++++++++++++++++")
+        console.log(data)
+        this.classId=c._id
         console.log(this.teacher)
         this.addTeacherToCourse()
         this.NotifyToTeacherWithAccept();
@@ -168,7 +174,7 @@ export class AddClassComponent implements OnInit {
        er=>console.log(er)
      )
 
-     this.course.teachers.push(this.teacher);
+     this.course.teachers.push(this.teacherId);
      this.courseService.UpdateCourse(this.courseId,this.course).subscribe(
       data=>console.log(data),
       er=>console.log(er)
@@ -180,6 +186,7 @@ export class AddClassComponent implements OnInit {
       message:"لقد تم قبولك  لتدريس الدورة التدريبية",
       notifiedUserId:this.teacherId,
       courseId:this.courseId,
+      classId:this.classId,
       isRead:false
     }
     this.notificationService.addNotification(notification).subscribe(

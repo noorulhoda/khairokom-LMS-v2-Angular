@@ -5,4 +5,6 @@ export interface Inotification{
     teacherId?:String
     studentId?:String
     isRead?:Boolean
+    isFeedbackFrom?:String
+    classId?:String
 }

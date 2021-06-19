@@ -182,7 +182,7 @@ countryChanged(){
       this.token=data['token'];
       console.log(this.token);
       localStorage.setItem('token',this.token)
-      localStorage.setItem('currentUser',this.userName?.value)
+      localStorage.setItem('currentUserName',this.userName?.value)
      
       this.registerError=data['msg'];
    

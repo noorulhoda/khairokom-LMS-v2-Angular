@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { notificationService } from 'src/app/services/notification.service';
 import { Inotification } from 'src/app/shared/Inotification';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -13,14 +14,14 @@ import { Inotification } from 'src/app/shared/Inotification';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  userName: any;
+  userName: any = localStorage.getItem('currentUserName');
   user: any;
   userId: any;
   notifications:Inotification[];
   userNotifications:Inotification[]=[];
   unReadNotifications=0;
-  constructor(private notificationService:notificationService,private router:Router,private userService:UsersService) { 
-    this.userService.findByUserName(localStorage.getItem('currentUserName')).subscribe(
+  constructor(private notificationService:notificationService,private router:Router,private userService:UsersService, private _vps: ViewportScroller) { 
+    this.userService.findByUserName(this.userName).subscribe(
    
       data => {this.user= data[0]; this.userId=data[0]['_id']
                
@@ -131,5 +132,8 @@ export class HeaderComponent implements OnInit {
   }
 }
 
-  
+scrollFn(anchor: string): void{
+  this.router.navigateByUrl('/home').then(() => this._vps.scrollToAnchor(anchor));
+  // this._vps.scrollToAnchor(anchor);
+}
 }

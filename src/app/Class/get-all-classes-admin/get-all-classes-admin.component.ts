@@ -75,7 +75,7 @@ export class GetAllClassesAdminComponent implements OnInit {
           console.log("Error-_-" + error)
         }
       );
-      window.location.reload();
+     //this.ngOnInit();
   }
   }
 

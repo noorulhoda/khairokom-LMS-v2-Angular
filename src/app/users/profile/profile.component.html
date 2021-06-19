@@ -1,97 +1,135 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<app-header></app-header>
+
+<!-- <link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <!------ Include the above in your HEAD tag ---------->
+
+<section class="banner d-flex justify-content-center align-items-center text-center">
+    <div class="content">
+      <div class="title">
+        <span>الملف الشخصي</span>
+      </div>
+    
+      <div class="links">
+        <a class="text-decoration-none" href="/home"> الرئيسية </a>
+        <span>/ الملف الشخصي </span>
+      </div>
+    </div>
+  </section>
+
 <div class="container emp-profile">
-            <form method="post">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-img">
-                            <img src="https://khairokomuploadfiles.azurewebsites.net/files/{{user.img}}" alt=""/>
-                            <!-- <img src="{{user.img}}" alt=""/> -->
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="profile-head">
-                                    <h3>
-                                      {{user.userName}}
-                                    </h3>
-                    
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab"  role="tab" aria-controls="home" aria-selected="true">About</a>
-                                </li>
-                             
-                            </ul>
-                        </div>
-                    </div>
-                   
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-work">
-                    
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>User Id</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{id}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Name</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{user.userName}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Email</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{user.email}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Age</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{user.birthDate}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Gender</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{user.gender}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Registered As:</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{user.roles}}</p>
-                                            </div>
-                                        </div>
-                                        <a class="btn btn-warning" routerLink="/updateUser/{{id}}" >  Edit Profile  </a> 
-                    
-                                        <a class="btn btn-primary " (click)="delete()" >Remove Account</a>
-                           
-                              
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>           
+  <form method="post">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="profile-img">
+          <img
+            src="https://khairokomuploadfiles.azurewebsites.net/files/{{
+              user.img
+            }}"
+            alt=""
+          />
+          <!-- <img src="{{user.img}}" alt=""/> -->
         </div>
+      </div>
+      <div class="col-md-6">
+        <div class="profile-head">
+          <h3>
+            {{ user.userName }}
+          </h3>
+
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="home-tab"
+                data-toggle="tab"
+                role="tab"
+                aria-controls="home"
+                aria-selected="true"
+                >About</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="profile-work"></div>
+      </div>
+      <div class="col-md-8">
+        <div class="tab-content profile-tab" id="myTabContent">
+          <div
+            class="tab-pane fade show active"
+            id="home"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+          >
+            <!-- <div class="row">
+              <div class="col-md-6">
+                <label>User Id</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ id }}</p>
+              </div>
+            </div> -->
+            <div class="row">
+              <div class="col-md-6">
+                <label>الاسم</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ user.userName }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>البريد الإلكتروني</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ user.email }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>السن</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ user.birthDate | date :'short'}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>النوع</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ user.gender }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>مسجل كـ:</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{ user.roles }}</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <a class="btn btn-warning" routerLink="/updateUser/{{ id }}">
+                    تعديل حسابي
+                  </a>
+      
+                  <a class="btn btn-primary" (click)="delete()">حذف الحساب</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<app-footer></app-footer>

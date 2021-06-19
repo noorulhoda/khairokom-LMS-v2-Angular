@@ -1,18 +1,18 @@
 .banner{
-    background: linear-gradient(to right, rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url('https://cdn.wallpapersafari.com/67/44/VcLXHh.jpg') center center;
+    background: linear-gradient(to right, rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url('https://cdn.wallpapersafari.com/67/44/VcLXHh.jpg') center center;
     background-size: cover;    
-    height: 90vh;
+    height: 80vh;
     // overflow: hidden;
 }
 .banner .title span {
-    font-size: 60px;
+    font-size: 70px;
     font-weight: bold;
     color: #fff;    
 }
 .banner .links a, .banner .links span 
 {
     color: #fff; 
-    font-size: 18px;
+    font-size: 25px;
 }
 .banner .links a:hover {
     border-bottom: 2px solid #fff;

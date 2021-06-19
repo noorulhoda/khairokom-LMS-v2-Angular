@@ -1,76 +1,111 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<app-header></app-header>
+
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
 <div class="container emp-profile">
-            <form method="post">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-work">
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>اسم الدورة التدربية</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                {{course.tittle}}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>الصورة</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <img src="{{course.image}}" alt="تحميل الصورة" >
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>الوصـــف</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{course.description}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>القســـم</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{courseCategoryTitle}}</p>
-                                            </div>
-                                        </div>       
-                            </div>
-                        </div>
-                    </div>
-            </form>       
-            
-            <h3>Comments</h3>
-             <ul  *ngFor="let comment of courseComments">
-                 <li><a routerLink="/profile/{{comment.userID}}"><b>{{comment.userName}} </b></a> <p>{{comment.content}}</p></li>
-             </ul>
-         
+  <form method="post">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="profile-work"></div>
+      </div>
+      <div class="col-md-8">
+        <div class="tab-content profile-tab" id="myTabContent">
+          <div
+            class="tab-pane fade show active"
+            id="home"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+          ></div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>اسم الدورة التدربية</label>
+            </div>
+            <div class="col-md-6">
+              {{ course.tittle }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>الصورة</label>
+            </div>
+            <div class="col-md-6">
+              <img src="{{ course.image }}" alt="تحميل الصورة" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>الوصـــف</label>
+            </div>
+            <div class="col-md-6">
+              <p>{{ course.description }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>القســـم</label>
+            </div>
+            <div class="col-md-6">
+              <p>{{ courseCategoryTitle }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>التقييم</label>
+            </div>
+            <div class="col-md-6" (mouseenter)="changeColor=true" (mouseout)="changeColor=false">              
+              <span class="favourit" *ngIf="!changeColor"><i class="far fa-star"></i></span>
+              <!-- <span class="favourit" *ngIf="!changeColor"><i class="far fa-star"></i></span>
+              <span class="favourit" *ngIf="!changeColor"><i class="far fa-star"></i></span>
+              <span class="favourit" *ngIf="!changeColor"><i class="far fa-star"></i></span>
+              <span class="favourit" *ngIf="!changeColor"><i class="far fa-star"></i></span> -->
 
-             <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()" >Enroll</button>
-             <button  class="btn btn-success" (click)="notifyWithNewWaitingTeacher()" >Teach</button>
- 
-            
-
-            <br><br><br><br><br>
-            <h3>Leave a comment</h3>
-            <form  [formGroup]="addCommentForm" enctype="multipart/form-data" >
-                <div class="form-group">
-                    <label>Content</label>
-                    <input formControlName="content" type="text"
-                        class="form-control" />
-                </div>
-        
-                <input type="submit" class="btn btn-primary" value="Add Comment" (click)="AddComment()">
-            </form>
-        
+              <span class="colored-favourit" *ngIf="changeColor"><i class="fas fa-star"></i></span>
+              <!-- <span class="colored-favourit" *ngIf="changeColor"><i class="fas fa-star"></i></span>
+              <span class="colored-favourit" *ngIf="changeColor"><i class="fas fa-star"></i></span>
+              <span class="colored-favourit" *ngIf="changeColor"><i class="fas fa-star"></i></span>
+              <span class="colored-favourit" *ngIf="changeColor"><i class="fas fa-star"></i></span> -->
+              <!-- <p>{{courseCategoryTitle}}</p> -->
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </form>
+
+  <h3>التعليقات</h3>
+  <ul *ngFor="let comment of courseComments">
+    <li>
+      <a routerLink="/profile/{{ comment.userID }}"
+        ><b>{{ comment.userName }} </b></a
+      >
+      <p>{{ comment.content }}</p>
+    </li>
+  </ul>
+
+  <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()">
+    سجل كطالب
+  </button>
+  <button class="btn btn-success" (click)="notifyWithNewWaitingTeacher()">
+    درّس كمعلم
+  </button>
+
+  <br /><br /><br /><br /><br />
+  <h3>اترك تعليقاً</h3>
+  <form [formGroup]="addCommentForm" enctype="multipart/form-data">
+    <div class="form-group">
+      <label>التعليق</label>
+      <input formControlName="content" type="text" class="form-control" />
+    </div>
+
+    <input
+      type="submit"
+      class="btn btn-primary"
+      value="أضف تعليقاً"
+      (click)="AddComment()"
+    />
+  </form>
+</div>
+
+<app-footer></app-footer>

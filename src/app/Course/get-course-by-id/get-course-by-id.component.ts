@@ -19,7 +19,7 @@ import { Inotification } from 'src/app/shared/Inotification';
   styleUrls: ['./get-course-by-id.component.scss']
 })
 export class GetCourseByIDComponent implements OnInit {
-
+  changeColor: boolean;
   user;
   userId=localStorage.getItem('currentUserId');
   userName=localStorage.getItem('currentUserName')
@@ -39,6 +39,7 @@ export class GetCourseByIDComponent implements OnInit {
       console.log(params)
       this.courseId = params['id']
       console.log('id : ' + (this.courseId));
+      this.changeColor = false;
     });
 
     this.cs.getCourseById(this.courseId).subscribe(

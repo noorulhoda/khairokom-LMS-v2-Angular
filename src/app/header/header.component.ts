@@ -42,10 +42,6 @@ export class HeaderComponent implements OnInit {
     );
     this.findCurrentUser();
     
-
-
-  
-  
   }
   pannerSrc="https://i.imgur.com/bkCeTu7.png";
 
@@ -54,19 +50,18 @@ export class HeaderComponent implements OnInit {
 
   }
   logout(){
-    //console.log(localStorage.getItem('token'))
-    localStorage.setItem('token','');
-    localStorage.setItem('currentUserName','guest')
-    this.currentUserName='guest'
-    localStorage.setItem('currentUserId','')
-
+    localStorage.setItem('token',"0000");
+    localStorage.setItem('currentUserName',"0000")
+    this.currentUserName="0000"
+    localStorage.setItem('currentUserId',"0000")
     console.log('logouted successfully')
-  //console.log(localStorage.getItem('token'))
+
   }
-  currentUserName:string;
+  currentUserName;
   currentUser:Iuser;
   currentUserRoles:string[];
   findCurrentUser(){
+    if(this.currentUserName!="0000"){
     this.currentUserName=localStorage.getItem('currentUserName');
     this.userService.findByUserName(this.currentUserName).subscribe(
       data => {
@@ -74,7 +69,7 @@ export class HeaderComponent implements OnInit {
         this.currentUser= data;this.currentUserRoles=this.currentUser.roles;
         localStorage.setItem('currentUserId',this.userId)},
       er => console.log('error happened in determine user') ,
-    )
+    )}
   }
 
 

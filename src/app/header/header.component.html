@@ -21,7 +21,7 @@
                     <div class="auth">
                       <span class="navbar-text"><a class="login" routerLink="register">تسجيل الدخول</a></span>
                       <a  class="btn btn-light action-button" role="button" routerLink="login">الدخول</a>
-                      <a *ngIf='currentUserName!= "guest" 'class="btn btn-light action-button" role="button"(click)="logout()">logout</a>
+                      <a *ngIf='currentUserName!= "0000" 'class="btn btn-light action-button" role="button"(click)="logout()">logout</a>
                     </div>
                
                 </div>
@@ -66,11 +66,11 @@
       </ul>
       
       <form class="form-inline my-2 my-lg-0">                         
-        <button class="button-style btn my-2 my-sm-0" type="submit" routerLink="/register" *ngIf="currentUserName=='guest'">إنشاء حساب</button>&nbsp; &nbsp;
-        <button class="button-style btn my-2 my-sm-0" type="submit" routerLink="/login" *ngIf="currentUserName=='guest'">تسجيل الدخول</button>        
+        <button class="button-style btn my-2 my-sm-0" type="submit" routerLink="/register" *ngIf="currentUserName=='0000'">إنشاء حساب</button>&nbsp; &nbsp;
+        <button class="button-style btn my-2 my-sm-0" type="submit" routerLink="/login" *ngIf="currentUserName=='0000'">تسجيل الدخول</button>        
       </form>
 
-      <div class="user" *ngIf="currentUserName!='guest'">
+      <div class="user" *ngIf="!(currentUserName=='0000')">
         <ul class="navbar-nav user ml-auto ml-md-0">         
 
            <li class="notification nav-item dropdown" style="cursor: pointer;">

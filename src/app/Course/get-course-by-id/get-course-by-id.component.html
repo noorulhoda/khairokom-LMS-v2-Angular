@@ -54,18 +54,19 @@
             <div class="col-md-6">
               <label>التقييم</label>
             </div>
-            <div class="col-md-6" (mouseenter)="changeColor=true" (mouseout)="changeColor=false">              
-              <span class="favourit" *ngIf="!changeColor"><i class="far fa-star"></i></span>
-              <!-- <span class="favourit" *ngIf="!changeColor"><i class="far fa-star"></i></span>
-              <span class="favourit" *ngIf="!changeColor"><i class="far fa-star"></i></span>
-              <span class="favourit" *ngIf="!changeColor"><i class="far fa-star"></i></span>
-              <span class="favourit" *ngIf="!changeColor"><i class="far fa-star"></i></span> -->
+            <!-- (mouseover)="changeColor=true" (mouseout)="changeColor=false" -->
+            <div class="col-md-6" (mouseover)="changeColor=true" (mouseout)="changeColor=false">
+              <span class="favourit"><i class="far fa-star"></i></span>
+              <span class="favourit"><i class="far fa-star"></i></span>
+              <span class="favourit"><i class="far fa-star"></i></span>
+              <span class="favourit"><i class="far fa-star"></i></span>
+              <span class="favourit"><i class="far fa-star"></i></span>
 
-              <span class="colored-favourit" *ngIf="changeColor"><i class="fas fa-star"></i></span>
-              <!-- <span class="colored-favourit" *ngIf="changeColor"><i class="fas fa-star"></i></span>
-              <span class="colored-favourit" *ngIf="changeColor"><i class="fas fa-star"></i></span>
-              <span class="colored-favourit" *ngIf="changeColor"><i class="fas fa-star"></i></span>
-              <span class="colored-favourit" *ngIf="changeColor"><i class="fas fa-star"></i></span> -->
+              <span class="colored-favourit"><i class="fas fa-star"></i></span>
+              <span class="colored-favourit"><i class="fas fa-star"></i></span>
+              <span class="colored-favourit"><i class="fas fa-star"></i></span>
+              <span class="colored-favourit"><i class="fas fa-star"></i></span>
+              <span class="colored-favourit"><i class="fas fa-star"></i></span>
               <!-- <p>{{courseCategoryTitle}}</p> -->
             </div>
           </div>

@@ -19,7 +19,8 @@ import { Inotification } from 'src/app/shared/Inotification';
   styleUrls: ['./get-course-by-id.component.scss']
 })
 export class GetCourseByIDComponent implements OnInit {
-  changeColor: boolean;
+
+  changeColor : boolean = false;
   user;
   userId=localStorage.getItem('currentUserId');
   userName=localStorage.getItem('currentUserName')
@@ -38,8 +39,7 @@ export class GetCourseByIDComponent implements OnInit {
     this.route.params.subscribe(params => {
       console.log(params)
       this.courseId = params['id']
-      console.log('id : ' + (this.courseId));
-      this.changeColor = false;
+      console.log('id : ' + (this.courseId));      
     });
 
     this.cs.getCourseById(this.courseId).subscribe(
@@ -84,9 +84,7 @@ export class GetCourseByIDComponent implements OnInit {
 
   comments: Icomment[] = [];
 
-  ngOnInit(): void { 
-
-
+  ngOnInit(): void {     
 
     
   }
@@ -104,7 +102,7 @@ export class GetCourseByIDComponent implements OnInit {
     image: '',
     categoryID: '',
     teachers: []
-  }
+  } 
 
   delete() {
     this.cs.DeleteCourse(this.courseId)

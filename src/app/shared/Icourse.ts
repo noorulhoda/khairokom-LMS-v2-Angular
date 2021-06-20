@@ -4,5 +4,5 @@ export interface Icourse{
     description:string,
     image:string,
     categoryID:string,
-    teachers:Iuser[]
+    teachers:String[]
 }

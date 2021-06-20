@@ -10,5 +10,6 @@ export interface Iclass{
     EndDate:Date,
     CourseId:string,
     TeacherId:string,
-    Students:Iuser[]
+    Students:String[],
+    IsFeedbacked?:Boolean
      }

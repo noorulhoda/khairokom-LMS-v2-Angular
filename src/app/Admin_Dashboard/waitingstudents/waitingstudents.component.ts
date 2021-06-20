@@ -118,7 +118,7 @@ export class WaitingstudentsComponent implements OnInit {
       },
       er=>console.log(er)
     )
-    this.checkedClass.Students.push(this.student)
+    this.checkedClass.Students.push(this.notification.studentId)
     this.classService.updateClass(this.checkedClassId,this.checkedClass).subscribe(
       data=>console.log(data),
       er=>console.log(er)
@@ -137,7 +137,8 @@ export class WaitingstudentsComponent implements OnInit {
       message:"تم قبولك في الدورة التدريبية التي قدمت عليها ",
       notifiedUserId:this.notification.studentId,
       courseId:this.notification.courseId,
-      isRead:false
+      isRead:false,
+      classId:this.checkedClassId
     }
     this.notificationService.addNotification(notification).subscribe(
       data => {

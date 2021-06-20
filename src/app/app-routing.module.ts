@@ -44,6 +44,9 @@ import {DashboardComponent} from './Admin_Dashboard/dashboard/dashboard.componen
 import {PermissionManagementComponent} from './Admin_Dashboard/permission-management/permission-management.component'
 import {WaitingstudentsComponent} from './Admin_Dashboard/waitingstudents/waitingstudents.component';
 import {WaitingTeachersComponent} from './Admin_Dashboard/waiting-teachers/waiting-teachers.component';
+import { StudentFeedbackComponent } from './FeedBacks/student-feedback/student-feedback.component';
+import { TeacherFeedbackComponent } from './FeedBacks/teacher-feedback/teacher-feedback.component';
+import { DetailedFeedbackComponent } from './FeedBacks/detailed-feedback/detailed-feedback.component';
 
 
 
@@ -92,8 +95,13 @@ const routes: Routes = [
 
   {path:'admin',component:DashboardComponent},
   {path:'permissionManagement',component:PermissionManagementComponent},
-  {path:'waitingStudents/:id',component:WaitingstudentsComponent},
+  {path:'waitingStudents/:id',component:WaitingstudentsComponent},//notificationId
   {path:'waitingTeachers/:id',component:WaitingTeachersComponent},
+
+  {path:'studentFeedback/:notificationId',component:StudentFeedbackComponent},
+  {path:'teacherFeedback/:notificationId',component:TeacherFeedbackComponent},
+  {path:'detailedFeedback/:courseId',component:DetailedFeedbackComponent},
+  
   
   {path:'**',component:NotFoundComponent}
   

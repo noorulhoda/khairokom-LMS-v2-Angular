@@ -27,6 +27,9 @@ rolesList=[];
 dialCode;
 countryName;
 registerError="......";//error in duplicate userName or email(how can i get it from api to render in html ???)
+  currentUserName: any;
+  currentUser: Iuser;
+  currentUserRoles: string[];
   constructor(private cntryService:countryService,private fb:FormBuilder,private userService:UsersService,private roleService:RolesService,private router: Router) { }
   ngOnInit(): void {
     this.cntryService.getAllCountries().subscribe(
@@ -123,47 +126,20 @@ countryChanged(){
       this.dialCode=data[0]['dialCode']
       this.countryName=data[0]['name']
       console.log("dC :"+this.dialCode+"  name:"+this.countryName)
-      console.log("-------------------------------------------------***************")
+      //console.log("-------------------------------------------------***************")
     }
       ); 
 }
 
  submit()
-{  
-/*   this.roleService.findByRoleType(this.roles?.value).subscribe(
-    data=>
-    {
-    this.chosenRoleId=data[0]._id
-    //console.log(data)
-      }
-    ); */
-
-
-/*     if(this.checkedTimes==0)
-        this.userSuitableTimes=null; */
-    
-  
-
-      /*this.cntryService.getCountryById("60bebc929106212df0897b17").subscribe(
-        data=>
-        {
-        this.cntry=data[0]
-        console.log("cntry"+this.cntry.name)      
-        },
-        err=>console.log(err)
-        );*/
-  
-
-    //  this.whichChecked();
-  //this.rolesList=[this.chosenRoleId];
-   
+{     
     var user: Iuser = {
     userName: this.userName?.value,
     firstName:this.firstName?.value,
     lastName:this.lastName?.value,
     password:this.password?.value,
     email:this.email?.value,
-    roles:["60b79235865a7e0ac79fdb85","60cb92b9fa458482f28b5cd8"],//teacher85,student86
+    roles:["60b79235865a7e0ac79fdb85","60cb92b9fa458482f28b5cd8"],//teacher85,studentd8
     gender:this.gender?.value,
     birthDate:this.birthDate?.value,
     img:"newUser.jpg",
@@ -176,26 +152,27 @@ countryChanged(){
   }
   
   console.log(user)
-  //console.log("value"+this.country.value)
+
   this.userService.Register(user).subscribe(
     data => {
+      console.log(data)
       this.token=data['token'];
       console.log(this.token);
       localStorage.setItem('token',this.token)
       localStorage.setItem('currentUserName',this.userName?.value)
-     
-      this.registerError=data['msg'];
-   
+      this.registerError=data['error'];
+      //console.log(this.registerError)
+      this.findCurrentUser()
       this.router.navigateByUrl("/home")
-  console.log(this.user)
- 
+      //
+      console.log(this.user)
 }
     ,
     error => {
-     // this.registerError=error;
       console.log(error)
     }
   );
+
 
 }
 
@@ -222,16 +199,27 @@ private formatDate(date) {
       email:"n@n.com",
       gender:"Male",
       img:"image",
-      //roles:"Student",
-      birthdate:this.formatDate(this.d),//formatDate(this.d, 'yyyy-MM-dd', 'en'),//this.formatDate(this.d),
-      //joinedClasses:this.user.joinedClasses,
-      //teachedCourses:this.user.teachedCourses,
+      birthdate:this.formatDate(this.d),
       phone:"1223456789",
-     //country:"أفغانستان",
-     
     })
     console.log(this.birthDate);
 
+  }
+
+
+
+  findCurrentUser():any{
+    if(this.currentUserName!="0000"){
+    this.currentUserName=localStorage.getItem('currentUserName');
+    this.userService.findByUserName(this.currentUserName).subscribe(
+      data => {
+        console.log("-------------------------")
+        console.log(data)
+        this.currentUser= data;this.currentUserRoles=this.currentUser.roles;
+        localStorage.setItem('currentUserId',this.userId)},
+      er => console.log('error happened in determine user') ,
+    )}
+    return 0
   }
 
 /*   userSuitableTimes=[];
@@ -254,7 +242,35 @@ private formatDate(date) {
       this.userSuitableTimes.push(15)
       if(this.time3.value==true)
       this.userSuitableTimes.push(20)     
+    } */
 
-  } */
+/////////////
+//////////////in submit()
+/*   this.roleService.findByRoleType(this.roles?.value).subscribe(
+    data=>
+    {
+    this.chosenRoleId=data[0]._id
+    //console.log(data)
+      }
+    ); */
+
+
+/*     if(this.checkedTimes==0)
+        this.userSuitableTimes=null; */
+    
+  
+
+      /*this.cntryService.getCountryById("60bebc929106212df0897b17").subscribe(
+        data=>
+        {
+        this.cntry=data[0]
+        console.log("cntry"+this.cntry.name)      
+        },
+        err=>console.log(err)
+        );*/
+  
+
+    //  this.whichChecked();
+  //this.rolesList=[this.chosenRoleId];
 
 }

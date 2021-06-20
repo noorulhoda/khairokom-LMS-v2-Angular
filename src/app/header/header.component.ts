@@ -42,10 +42,6 @@ export class HeaderComponent implements OnInit {
     );
     this.findCurrentUser();
     
-
-
-  
-  
   }
   pannerSrc="https://i.imgur.com/bkCeTu7.png";
 
@@ -54,19 +50,18 @@ export class HeaderComponent implements OnInit {
 
   }
   logout(){
-    //console.log(localStorage.getItem('token'))
-    localStorage.setItem('token','');
-    localStorage.setItem('currentUserName','guest')
-    this.currentUserName='guest'
-    localStorage.setItem('currentUserId','')
-
+    localStorage.setItem('token',"0000");
+    localStorage.setItem('currentUserName',"0000")
+    this.currentUserName="0000"
+    localStorage.setItem('currentUserId',"0000")
     console.log('logouted successfully')
-  //console.log(localStorage.getItem('token'))
+
   }
-  currentUserName:string;
+  currentUserName;
   currentUser:Iuser;
   currentUserRoles:string[];
   findCurrentUser(){
+    if(this.currentUserName!="0000"){
     this.currentUserName=localStorage.getItem('currentUserName');
     this.userService.findByUserName(this.currentUserName).subscribe(
       data => {
@@ -74,7 +69,7 @@ export class HeaderComponent implements OnInit {
         this.currentUser= data;this.currentUserRoles=this.currentUser.roles;
         localStorage.setItem('currentUserId',this.userId)},
       er => console.log('error happened in determine user') ,
-    )
+    )}
   }
 
 
@@ -82,13 +77,22 @@ export class HeaderComponent implements OnInit {
 
 
 
-  notificationRead(id:String,notification:Inotification){
+  notificationRead(notificationId:String,notification:Inotification){
     notification.isRead=true;
-    this.notificationService.updateNotification(id,notification).subscribe(
+    this.notificationService.updateNotification(notificationId,notification).subscribe(
       data=>console.log(data),
       er=> console.log(er)
     )
+    if(notification.hasOwnProperty('isFeedbackFrom')){
+        if(notification.isFeedbackFrom=="Student")
+        this.router.navigateByUrl('/studentFeedback/'+ notificationId);
+        else if(notification.isFeedbackFrom=="Teacher")
+        this.router.navigateByUrl('/teacherFeedback/'+ notificationId);
+    }
+    else
     this.router.navigateByUrl('/getCourseById/'+ notification.courseId);
+  
+   // this.router.navigateByUrl('/getClassById/'+ notification.classId);
   }
 
   computeUnRead(){
@@ -109,7 +113,7 @@ export class HeaderComponent implements OnInit {
       this.deleteNew=false;
      }
 
-else if(this.sureDelete){
+  else if(this.sureDelete){
     this.notificationService.deleteNotification(id)
       .subscribe(
         data => {

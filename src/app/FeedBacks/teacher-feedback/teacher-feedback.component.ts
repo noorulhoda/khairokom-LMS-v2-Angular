@@ -8,6 +8,8 @@ import { Inotification } from 'src/app/shared/Inotification';
 import { Ifeedback } from 'src/app/shared/Ifeedback';
 import { feedbackService } from 'src/app/services/feedback.service';
 import { UsersService } from 'src/app/services/users.service';
+import { Iuser } from 'src/app/shared/Iuser';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-teacher-feedback',
@@ -19,7 +21,11 @@ export class TeacherFeedbackComponent implements OnInit {
   classId:string;
   notification:Inotification;
   class:Iclass;
+  studentsIds=[];
+  studentsNames=[];
   students=[];
+  user:Iuser;
+  studentName:String 
   constructor(private userService:UsersService,private feedbackService:feedbackService ,private fb:FormBuilder,private classService:classService,private route:ActivatedRoute,private notificationService:notificationService) 
   {
 
@@ -28,6 +34,27 @@ export class TeacherFeedbackComponent implements OnInit {
       this.notificationId = params['notificationId']
       console.log('id : ' + (this.notificationId));
     });
+ 
+
+   }
+  getStudentName(student):any
+  {
+      
+       this.userService.getUserById(student).subscribe(
+       data=>{
+        this.user=data[0]
+        this.studentName=this.user.userName
+       },
+       error=>{console.log(error)}
+       )
+       //console.log(studentName)
+       return this.studentName
+  }
+   
+
+  ngOnInit(): void {
+    console.log("****************")
+    // console.log(this.getStudentName("60c3fa7c7c5863003dc8fec1"));
     this.notificationService.getNotificationById(this.notificationId ).subscribe(
       data=>{
         this.notification=data[0]
@@ -39,8 +66,17 @@ export class TeacherFeedbackComponent implements OnInit {
         this.classService.getClassById(this.classId).subscribe(
           data=>{
               this.class=data[0]
-                this.students=this.class.Students;  
-                console.log(this.students);
+                this.studentsIds=this.class.Students;  
+              this.studentsIds.forEach(element=>{
+                console.log(element)
+               this.getStudentName(element).then(name=>this.studentsNames.push(name))
+                
+              
+                //this.students.push({"name":this.getStudentName(element),"id":element})
+              })
+                console.log(this.studentsNames)
+                console.log(this.studentsIds);
+                // console.log(this.students)
           },
           error=>{console.log(error)}
         )
@@ -48,24 +84,8 @@ export class TeacherFeedbackComponent implements OnInit {
       error=>
       { console.log(error); }
     )
-
-   }
-  getStudentName(student):String
-  {
-      var studentName:String 
-       this.userService.getUserById(student).subscribe(
-       data=>{
-        studentName=data[0]['userName']
-       },
-       error=>{console.log(error)}
-       )
-       console.log(studentName)
-       return studentName
   }
-   
 
-  ngOnInit(): void {
-  }
 
   addForm=this.fb.group(
     {

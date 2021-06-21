@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { classService } from 'src/app/services/class.service';
+import { SessionService } from 'src/app/services/session.service';
 import { Iclass } from 'src/app/shared/Iclass';
+import { Isession } from 'src/app/shared/Isession';
 
 @Component({
   selector: 'app-get-class-by-id',
@@ -10,10 +12,12 @@ import { Iclass } from 'src/app/shared/Iclass';
 })
 export class GetClassByIDComponent implements OnInit {
 
-  constructor(private cs:classService,private route:ActivatedRoute,private router:Router) { }
+  constructor(private sessionService:SessionService,private cs:classService,private route:ActivatedRoute,private router:Router) { }
   clas:Iclass;
-  id:string='defaultID';
+  id:String='defaultID';
   errMsg='errroor';
+  sessions:Isession[]=[]
+  classSessions:Isession[]=[];
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params: any) => this.id=params.params.id);   
     this.route.params.subscribe(params => {
@@ -22,24 +26,38 @@ export class GetClassByIDComponent implements OnInit {
      console.log('id : '+(this.id));
     });
  
-    this.cs.getClassById(this.id).subscribe(
+    this.cs.getClassById(this.id.toString()).subscribe(
      
-        data => {this.clas= data[0]; console.log(this.id);console.log(this.clas);},
+        data => {
+          this.clas= data[0]; 
+          console.log(this.id);
+          console.log(this.clas);
+          this.sessionService.GetAllSessions().subscribe(
+            data=>{
+                this.sessions=data;
+                console.log(this.sessions);
+                this.sessions.forEach(element => {
+                 if(element.classId==this.id)
+                 {
+                   this.classSessions.push(element);
+                 }
+               });
+               console.log("*****************")
+                console.log(this.classSessions)
+            },
+            error=>{
+              console.log(error)
+             }
+            )
+        },
         er =>this.errMsg=er ,
       );
       console.log(this.clas)
+    
+
+    
   }
-  // delete(){
-  //   this.cs.deleteCLass(this.id)
-  //   .subscribe(
-  //     data => {
-  //       this.router.navigateByUrl("/home")
-  //     },
-  //     error => {
-  //       console.log("errooorrrrr-_-"+ error)
-  //     }
-  //   );  
-  // }
+  
    
 
 }

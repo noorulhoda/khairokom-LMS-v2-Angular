@@ -9,7 +9,7 @@ import { Ifeedback } from 'src/app/shared/Ifeedback';
 import { feedbackService } from 'src/app/services/feedback.service';
 import { UsersService } from 'src/app/services/users.service';
 import { Iuser } from 'src/app/shared/Iuser';
-import { ThrowStmt } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-teacher-feedback',
@@ -70,8 +70,6 @@ export class TeacherFeedbackComponent implements OnInit {
               this.studentsIds.forEach(element=>{
                 console.log(element)
                this.getStudentName(element).then(name=>this.studentsNames.push(name))
-                
-              
                 //this.students.push({"name":this.getStudentName(element),"id":element})
               })
                 console.log(this.studentsNames)

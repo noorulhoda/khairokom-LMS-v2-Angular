@@ -42,7 +42,6 @@ export class GetClassByIDComponent implements OnInit {
                    this.classSessions.push(element);
                  }
                });
-               console.log("*****************")
                 console.log(this.classSessions)
             },
             error=>{

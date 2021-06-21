@@ -2,7 +2,7 @@
     background: linear-gradient(to right, rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url('https://cdn.wallpapersafari.com/67/44/VcLXHh.jpg') center center;
     background-size: cover;    
     height: 80vh;
-    // overflow: hidden;
+    overflow: hidden;
 }
 .banner .title span {
     font-size: 70px;
@@ -18,22 +18,45 @@
     border-bottom: 2px solid #fff;
     padding-bottom: 2px;
 } 
+i {
+    font-size: 19px;
+    color: #7B9699;
+}
+.profile .edu .courses, .profile .edu .favourit, .profile .edu .rate, .profile .edu .certificate{
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+.profile .edu .rate .stars .star {
+    font-size: 40px;
+    color: #FFBD37;
+}
+.profile .edu .certificate .gold, .profile .edu .certificate .silver, 
+.profile .edu .certificate .bronze {
+    font-size: 70px;
+}
+.profile .edu .certificate .gold{
+    color: #F4AE1D;
+}
+.profile .edu .certificate .silver{
+    color: #757371;
+}
+.profile .edu .certificate .bronze{
+    color: #CC6326;
+}
 
 
 .emp-profile{
-    padding: 3%;
-    margin-top: 3%;
-    margin-bottom: 3%;
+    padding: 3%;    
     border-radius: 0.5rem;
-    background: #fff;
 }
-.profile-img{
-    text-align: center;
-}
-.profile-img img{
-    width: 70%;
-    height: 100%;
-}
+// .profile-img{
+//     text-align: center;
+// }
+// .profile-img img{
+//     width: 70%;
+//     height: 100%;
+// }
 .profile-img .file {
     position: relative;
     overflow: hidden;
@@ -53,9 +76,7 @@
 .profile-head h5{
     color: #333;
 }
-.profile-head h6{
-    color: #0062cc;
-}
+
 .profile-edit-btn{
     border: none;
     border-radius: 1.5rem;
@@ -110,5 +131,4 @@
 }
 .profile-tab p{
     font-weight: 600;
-    color: #0062cc;
 }

@@ -18,7 +18,8 @@ import {GetAllClassesAdminComponent} from './Class/get-all-classes-admin/get-all
 
 import {AddCourseComponent} from './Course/add-course/add-course.component';
 import {UpdateCourseComponent} from './Course/update-course/update-course.component';
-import {GetAllCoursesComponent} from './Course/get-all-courses/get-all-courses.component';
+import { GetAllCoursesComponent } from './Course/get-all-courses/get-all-courses.component';
+
 import {GetCourseByIDComponent} from './Course/get-course-by-id/get-course-by-id.component';
 import {GetAllCoursesAdminComponent} from './Course/get-all-courses-admin/get-all-courses-admin.component'
 

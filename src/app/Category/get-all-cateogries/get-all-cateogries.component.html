@@ -19,25 +19,25 @@
   <div class="container">    
     <div class="row d-flex justify-content-center align-items-center mt-5 mb-5">      
       <div  *ngFor="let category of categoryList">
-        <div class="content mt-4 text-center">
+        <a class="content text-center" routerLink="/getCateogryById/{{category._id}}">
 
           <div class="image d-flex justify-content-center align-items-center">
-            <img class="" src="{{category.Image}}" alt="تحميل الصـــورة" width="380px">
+            <img class="" src="{{category.Image}}" alt="تحميل الصـــورة" width="320px" height="300px">
           </div>
 
           <div class="title mt-4">
             <h3>{{category.Title}}</h3>
           </div>                    
 
-          <div class="description mt-2">
+          <!-- <div class="description mt-2">
             <p>{{category.Description}}</p>          
-          </div>
+          </div> -->
           
-          <div class="details mb-4">
-            <a class="text-decoration-none" routerLink="/getCateogryById/{{category._id}}">عرض التفاصيل <i class="fas fa-arrow-left"></i></a>                      
-          </div>
+          <!-- <div class="details mb-4">
+            <a class="text-decoration-none">عرض التفاصيل <i class="fas fa-arrow-left"></i></a>                      
+          </div> -->
 
-        </div>        
+        </a>        
       </div>
 
     </div>

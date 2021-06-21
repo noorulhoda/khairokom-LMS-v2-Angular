@@ -1,4 +1,4 @@
-<app-dashboard-header></app-dashboard-header>
+<app-header></app-header>
 
 <link
   href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -56,14 +56,6 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <label>رابط المجموعة</label>
-              </div>
-              <div class="col-md-6">
-                <p>{{ clas.ClassLink }}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
                 <label>كلمة سر لرابط المجموعة</label>
               </div>
               <div class="col-md-6">
@@ -87,6 +79,9 @@
               </div>
             </div>
             <div class="row">
+             <a class="col-md-12 btn btn-success" href={{clas.ClassLink}}>ادخل إلى مجموعتك الآن</a>
+            </div>
+            <div class="row">
               <h2 class="mt-5">الحلقــــــــات</h2>
               <table class="table table-bordered table-hover mt-5 mb-5">
                 <thead class="thead-dark">
@@ -100,8 +95,8 @@
                   <tr *ngFor="let classSession of classSessions; let i = index">
                  
                     <td>{{ classSession.sessionNumber }}</td>
-                    <td>{{ classSession.startTime }}</td>
-                    <td>{{ classSession.endTime }}</td>
+                    <td>{{ classSession.startTime|date:'short' }}</td>
+                    <td>{{ classSession.endTime|date:'short' }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -114,4 +109,4 @@
   </form>
 </div>
 
-<app-dashboard-footer></app-dashboard-footer>
+<app-footer></app-footer>

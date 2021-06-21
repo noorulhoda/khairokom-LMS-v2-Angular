@@ -25,9 +25,12 @@ export class GetCourseByIDComponent implements OnInit {
   userId=localStorage.getItem('currentUserId');
   userName=localStorage.getItem('currentUserName')
   courseId: string;
-  classes:Iclass[]=[];
-  courseClasses:Iclass[]=[];
-  userClasses: any;
+  classes=[];
+  studnentCourseClasses=[];
+  studentClasses: any;
+  currentUserClasses=[];
+  teacherCourseClasses=[];
+  clas:Iclass[];
   
   constructor(private cs: courseService,
     private route: ActivatedRoute,
@@ -35,8 +38,9 @@ export class GetCourseByIDComponent implements OnInit {
     private commentService: commentService,
     private categoryService: categoryService,
     private userService: UsersService,
-    //private classService:classService,
-    private notificationService:notificationService) {
+    private classService:classService,
+    private notificationService:notificationService) 
+    {
     this.route.params.subscribe(params => {
       console.log(params)
       this.courseId = params['id']
@@ -61,23 +65,48 @@ export class GetCourseByIDComponent implements OnInit {
     this.userService.getUserById(localStorage.getItem('currentUserId')).subscribe(
       data => {
         this.user = data[0];
-        this.userClasses = data[0]['joinedClasses']
+        this.studentClasses = data[0]['joinedClasses']
+        console.log("@@@@@@")
+         console.log(this.studentClasses)
+        this.studentClasses.forEach(element => {
 
+          this.classService.getClassById(element).subscribe(
+            data=>{
+               this.clas=data[0]
+               console.log("//////////////////")
+               console.log(this.clas)
+              if(data[0]['CourseId']==this.courseId)
+              {
+                this.studnentCourseClasses.push(data[0])
+              }
+            },
+            error=>{console.log(error)}
+          )
+        
+        });
+        console.log("*********************")
+       
+        console.log(this.studnentCourseClasses)
       },
       error => console.log(error)
     );
 
-   /*  this.classService.GetAllclass().subscribe(
+     this.classService.GetAllclass().subscribe(
       data => {
         this.classes = data;
-        console.log(data);
+        console.log(this.classes);
+
         this.classes.forEach(element => {
-          if(element.CourseId==this.courseId){this.courseClasses.push(element)}
+          if(element.TeacherId==localStorage.getItem('currentUserId')&&element.CourseId==this.courseId)
+          {
+            this.teacherCourseClasses.push(element)
+          }
         });
+        console.log(this.teacherCourseClasses)
 
       },
       error => console.log(error)
-    ); */
+    ); 
 
     this.GetCourseComments();
 

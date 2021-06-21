@@ -12,6 +12,7 @@ import { classService } from 'src/app/services/class.service';
 import { Iclass } from 'src/app/shared/Iclass';
 import { notificationService } from 'src/app/services/notification.service';
 import { Inotification } from 'src/app/shared/Inotification';
+import { feedbackService } from 'src/app/services/feedback.service';
 
 @Component({
   selector: 'app-get-course-by-id',
@@ -31,8 +32,13 @@ export class GetCourseByIDComponent implements OnInit {
   currentUserClasses=[];
   teacherCourseClasses=[];
   clas:Iclass[];
-  
-  constructor(private cs: courseService,
+  courseStars=0;
+  AbsCourseStars=0;
+   feedbacks=[];
+   feedbacksAsCousre=[];
+
+  constructor(private feedbackService:feedbackService,
+    private cs: courseService,
     private route: ActivatedRoute,
     private router: Router, private fb: FormBuilder,
     private commentService: commentService,
@@ -61,6 +67,26 @@ export class GetCourseByIDComponent implements OnInit {
       },
       error => console.log(error)
     );
+    this.feedbackService.getAllFeedbacks().subscribe(
+      data=>{
+       this.feedbacks=data;
+       this.feedbacks.forEach(element=>{
+         console.log(element)
+
+         if(element.courseId==this.courseId && element.feedbackedUserType=="Teacher")
+         {
+           console.log(element)
+           this.feedbacksAsCousre.push(element);
+           this.courseStars+=element.starsNumber;
+           
+         }
+         console.log(this.courseStars)
+       })
+       this.AbsCourseStars=Math.round(this.courseStars/this.feedbacksAsCousre.length);
+       console.log(this.AbsCourseStars)
+      },
+      error=>{console.log(error)}
+    )
 
     this.userService.getUserById(localStorage.getItem('currentUserId')).subscribe(
       data => {
@@ -227,6 +253,9 @@ notifyWithNewWaitingTeacher(){
       console.log(error)
     }
   );
+}
+counter(i: number) {
+  return new Array(i);
 }
 
 }

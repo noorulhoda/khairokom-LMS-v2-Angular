@@ -59,7 +59,7 @@
             </div>
             <!-- (mouseover)="changeColor=true" (mouseout)="changeColor=false" -->
             <div class="col-md-6" (mouseover)="changeColor=true" (mouseout)="changeColor=false">
-              <span class="favourit"><i class="far fa-star"></i></span>
+              <!-- <span class="favourit"><i class="far fa-star"></i></span>
               <span class="favourit"><i class="far fa-star"></i></span>
               <span class="favourit"><i class="far fa-star"></i></span>
               <span class="favourit"><i class="far fa-star"></i></span>
@@ -69,7 +69,10 @@
               <span class="colored-favourit"><i class="fas fa-star"></i></span>
               <span class="colored-favourit"><i class="fas fa-star"></i></span>
               <span class="colored-favourit"><i class="fas fa-star"></i></span>
-              <span class="colored-favourit"><i class="fas fa-star"></i></span>
+              <span class="colored-favourit"><i class="fas fa-star"></i></span> -->
+              <i *ngFor='let in of counter(AbsCourseStars) ;let i = index' class="filledStar fas fa-star" ></i>
+           <i *ngFor='let in of counter(5-AbsCourseStars) ;let i = index' class="star fas fa-star" ></i>
+
               <!-- <p>{{courseCategoryTitle}}</p> -->
             </div>
           </div>
@@ -112,7 +115,7 @@
             <button class="btn btn-success" (click)="notifyWithNewWaitingTeacher()">
               درّس كمعلم
             </button>
-            <button class="btn btn-warning">
+            <button class="btn btn-warning" routerLink="/detailedFeedback/"{{courseId}}>
               للمزيد من التقييمـــات
             </button>
           </div>

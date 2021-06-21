@@ -27,9 +27,13 @@ i {
     padding: 15px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
 }
-.profile .edu .rate .stars .star {
+.profile .edu .rate .stars .filledStar {
     font-size: 40px;
     color: #FFBD37;
+}
+.profile .edu .rate .stars .star {
+    font-size: 40px;
+    color:rgba(192, 192, 192, 0.623);
 }
 .profile .edu .certificate .gold, .profile .edu .certificate .silver, 
 .profile .edu .certificate .bronze {

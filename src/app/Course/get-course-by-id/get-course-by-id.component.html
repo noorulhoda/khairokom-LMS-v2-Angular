@@ -5,7 +5,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 
 <div class="container emp-profile">
-  <form method="post">
+  <form class="course-details mt-5 mb-5" method="post">
     <div class="row">
       <div class="col-md-4">
         <div class="profile-work">          
@@ -73,17 +73,23 @@
               <!-- <p>{{courseCategoryTitle}}</p> -->
             </div>
           </div>
+          <div class="">
+            <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()">
+              سجل كطالب
+            </button>
+            <button class="btn btn-success" (click)="notifyWithNewWaitingTeacher()">
+              درّس كمعلم
+            </button>
+            <button class="btn btn-warning">
+              نسيت اسم الزرار ^_^
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </form>
 
-  <button class="btn btn-primary mt-5" (click)="notifyWithNewWaitingStudent()">
-    سجل كطالب
-  </button>
-  <button class="btn btn-success mt-5" (click)="notifyWithNewWaitingTeacher()">
-    درّس كمعلم
-  </button>
+  
 
   <h3>التعليقات</h3>
   <div class="comments">

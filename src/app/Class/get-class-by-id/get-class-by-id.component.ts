@@ -37,12 +37,14 @@ export class GetClassByIDComponent implements OnInit {
                 this.sessions=data;
                 console.log(this.sessions);
                 this.sessions.forEach(element => {
+                  console.log(element)
+                  console.log("*****************")
                  if(element.classId==this.id)
                  {
                    this.classSessions.push(element);
                  }
                });
-               console.log("*****************")
+              
                 console.log(this.classSessions)
             },
             error=>{

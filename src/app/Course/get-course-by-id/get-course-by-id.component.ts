@@ -12,6 +12,7 @@ import { classService } from 'src/app/services/class.service';
 import { Iclass } from 'src/app/shared/Iclass';
 import { notificationService } from 'src/app/services/notification.service';
 import { Inotification } from 'src/app/shared/Inotification';
+import { feedbackService } from 'src/app/services/feedback.service';
 
 @Component({
   selector: 'app-get-course-by-id',
@@ -25,18 +26,27 @@ export class GetCourseByIDComponent implements OnInit {
   userId=localStorage.getItem('currentUserId');
   userName=localStorage.getItem('currentUserName')
   courseId: string;
-  classes:Iclass[]=[];
-  courseClasses:Iclass[]=[];
-  userClasses: any;
-  
-  constructor(private cs: courseService,
+  classes=[];
+  studnentCourseClasses=[];
+  studentClasses: any;
+  currentUserClasses=[];
+  teacherCourseClasses=[];
+  clas:Iclass[];
+  courseStars=0;
+  AbsCourseStars=0;
+   feedbacks=[];
+   feedbacksAsCousre=[];
+
+  constructor(private feedbackService:feedbackService,
+    private cs: courseService,
     private route: ActivatedRoute,
     private router: Router, private fb: FormBuilder,
     private commentService: commentService,
     private categoryService: categoryService,
     private userService: UsersService,
-    //private classService:classService,
-    private notificationService:notificationService) {
+    private classService:classService,
+    private notificationService:notificationService) 
+    {
     this.route.params.subscribe(params => {
       console.log(params)
       this.courseId = params['id']
@@ -57,27 +67,72 @@ export class GetCourseByIDComponent implements OnInit {
       },
       error => console.log(error)
     );
+    this.feedbackService.getAllFeedbacks().subscribe(
+      data=>{
+       this.feedbacks=data;
+       this.feedbacks.forEach(element=>{
+         console.log(element)
+
+         if(element.courseId==this.courseId && element.feedbackedUserType=="Teacher")
+         {
+           console.log(element)
+           this.feedbacksAsCousre.push(element);
+           this.courseStars+=element.starsNumber;
+           
+         }
+         console.log(this.courseStars)
+       })
+       this.AbsCourseStars=Math.round(this.courseStars/this.feedbacksAsCousre.length);
+       console.log(this.AbsCourseStars)
+      },
+      error=>{console.log(error)}
+    )
 
     this.userService.getUserById(localStorage.getItem('currentUserId')).subscribe(
       data => {
         this.user = data[0];
-        this.userClasses = data[0]['joinedClasses']
+        this.studentClasses = data[0]['joinedClasses']
+        console.log("@@@@@@")
+         console.log(this.studentClasses)
+        this.studentClasses.forEach(element => {
 
+          this.classService.getClassById(element).subscribe(
+            data=>{
+               this.clas=data[0]
+               console.log("//////////////////")
+               console.log(this.clas)
+              if(data[0]['CourseId']==this.courseId)
+              {
+                this.studnentCourseClasses.push(data[0])
+              }
+            },
+            error=>{console.log(error)}
+          )
+        
+        });
+        console.log("*********************")
+       
+        console.log(this.studnentCourseClasses)
       },
       error => console.log(error)
     );
 
-   /*  this.classService.GetAllclass().subscribe(
+     this.classService.GetAllclass().subscribe(
       data => {
         this.classes = data;
-        console.log(data);
+        console.log(this.classes);
+
         this.classes.forEach(element => {
-          if(element.CourseId==this.courseId){this.courseClasses.push(element)}
+          if(element.TeacherId==localStorage.getItem('currentUserId')&&element.CourseId==this.courseId)
+          {
+            this.teacherCourseClasses.push(element)
+          }
         });
+        console.log(this.teacherCourseClasses)
 
       },
       error => console.log(error)
-    ); */
+    ); 
 
     this.GetCourseComments();
 
@@ -198,6 +253,9 @@ notifyWithNewWaitingTeacher(){
       console.log(error)
     }
   );
+}
+counter(i: number) {
+  return new Array(i);
 }
 
 }

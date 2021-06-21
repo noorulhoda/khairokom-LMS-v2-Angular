@@ -169,18 +169,20 @@
         </div>
 
         <div class="rate mt-4">
-          <h2 class="title"> <i class="far fa-star"></i> &nbsp; التقييم</h2>
+          <h2 class="title"> <i class="far fa-star"></i> &nbsp; تقييمك كمعلم</h2>
           <div class="stars text-center">
-            <i class="star fas fa-star" id="star1"></i>
-            <i class="star fas fa-star" id="star2"></i>
-            <i class="star fas fa-star" id="star3"></i>
+        
+           <i *ngFor='let in of counter(AbsTeacherStars) ;let i = index' class="filledStar fas fa-star" ></i>
+           <i *ngFor='let in of counter(5-AbsTeacherStars) ;let i = index' class="star fas fa-star" ></i>
+
+            <!-- <i class="star fas fa-star" id="star3"></i>
             <i class="star fas fa-star" id="star4"></i>
-            <i class="star fas fa-star" id="star5"></i>
+            <i class="star fas fa-star" id="star5"></i>  -->
           </div>
         </div>
 
         <div class="certificate mt-4">
-          <h2 class="title"> <i class="fas fa-medal"></i> &nbsp; الأوسمة</h2>
+          <h2 class="title"> <i class="fas fa-medal"></i> &nbsp; أوسمتك فى رحلة طلبك للعلم</h2>
           <div class="text-center">
             <i class="bronze fas fa-medal"></i>            
             <i class="silver fas fa-medal"></i>

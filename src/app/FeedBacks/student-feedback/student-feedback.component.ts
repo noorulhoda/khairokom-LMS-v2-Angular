@@ -9,6 +9,7 @@ import { Ifeedback } from 'src/app/shared/Ifeedback';
 import { feedbackService } from 'src/app/services/feedback.service';
 import { UsersService } from 'src/app/services/users.service';
 import { Iuser } from 'src/app/shared/Iuser';
+import { courseService } from 'src/app/services/course.service';
 
 @Component({
   selector: 'app-student-feedback',
@@ -22,7 +23,8 @@ export class StudentFeedbackComponent implements OnInit {
   class:Iclass;
   teacher:Iuser;
   tacherName:String 
-  constructor(private userService:UsersService,private feedbackService:feedbackService ,private fb:FormBuilder,private classService:classService,private route:ActivatedRoute,private notificationService:notificationService) 
+  courseTitle:String;
+  constructor(private courseService:courseService ,private userService:UsersService,private feedbackService:feedbackService ,private fb:FormBuilder,private classService:classService,private route:ActivatedRoute,private notificationService:notificationService) 
   {
     this.route.params.subscribe(params => {
       console.log(params)
@@ -49,7 +51,14 @@ export class StudentFeedbackComponent implements OnInit {
                   console.log(error)
                 }
               )
-          },
+              this.courseService.getCourseById(this.notification.courseId).subscribe(
+               data=>{
+                 console.log(data[0])
+                  this.courseTitle=data[0]['tittle']
+               },
+               error=>{console.log(error)}
+              )          
+            },
           error=>{console.log(error)}
        )
        
@@ -63,45 +72,46 @@ export class StudentFeedbackComponent implements OnInit {
   
 
 
-  // addForm=this.fb.group(
-  //   {
-  //     message:[''],
-  //     starsNumber:[''],
-  //     setterId:[''],
-  //     getterId:[''],
-  //     feedbackedUserType:[''],
-  //     classId:[''],
-  //     courseId:['']
-  //  });
+  addForm=this.fb.group(
+    {
+      message:[''],
+      starsNumber:[''],
+      setterId:[''],
+      getterId:[''],
+      feedbackedUserType:[''],
+      classId:[''],
+      courseId:['']
+   });
 
-  //  get message()
-  //  {
-  //    return this.addForm.get('message');
-  //  }
-  //  get starsNumber()
-  //  {
-  //    return this.addForm.get('starsNumber');
-  //  }
+   get message()
+   {
+     return this.addForm.get('message');
+   }
+   get starsNumber()
+   {
+     return this.addForm.get('starsNumber');
+   }
 
-  // submit() 
-  // {
-  //   var feedback:Ifeedback={ 
-  //     message:this.message?.value,
-  //     starsNumber:this.starsNumber?.value,
-  //     setterId:localStorage.getItem('currentUserName'),
-  //     getterId:this.class.TeacherId,
-  //     feedbackedUserType:"Teacher",
-  //     classId:this.classId,
-  //     courseId:this.class.CourseId
-  //   }
-  //   this.feedbackService.addFeedback(feedback).subscribe(
-  //     data => {
-  //       console.log(data)
-  //     },
-  //     error => {
-  //       console.log(error)
-  //     }
-  //   );
-  // }
+  submit() 
+  {
+    var feedback:Ifeedback={ 
+      message:this.message?.value,
+      starsNumber:this.starsNumber?.value,
+      setterId:localStorage.getItem('currentUserId'),
+      getterId:this.class.TeacherId,
+      feedbackedUserType:"Teacher",
+      classId:this.classId,
+      courseId:this.class.CourseId
+    }
+    this.feedbackService.addFeedback(feedback).subscribe(
+      data => {
+        console.log(data)
+        alert('تم اضافة تقييمك لدراستك فى المجموعة')
+      },
+      error => {
+        console.log(error)
+      }
+    );
+  }
 
 }

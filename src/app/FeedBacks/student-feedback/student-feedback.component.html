@@ -1,10 +1,45 @@
-<!-- <br>
+<app-header></app-header>
+
+
 <main>
     <div class="container">
-      <b style="text-align: center; margin: auto;">{{class.Number}}</b>
+      
+      <br>
+      <div style="background-color: #ffac0593; padding: 15px; border: 1px black solid;">
+        <b>لقد انهيت الدراسة فى هذه المجموعة نطلب منك ابداء رأيك فى رحلتك الدراسية فى هذه المجموعة</b>
+        <hr>
+        <br>
+        <div>
+          <div class="row">
+            <div class="col-md-3">
+              <label>اسم المعلم</label>
+            </div>
+            <div class="col-md-6">
+              <b>{{teacher.userName}}</b> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label>اسم الدورة التدربية</label>
+            </div>
+            <div class="col-md-6">
+              <b>{{courseTitle}}</b> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label>رقـــم المجموعة</label>
+            </div>
+            <div class="col-md-6">
+              <p>{{ class.Number }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      <br>
       <form [formGroup]="addForm" enctype="multipart/form-data" style="border:1px solid black; margin: 10px; padding: 10px;" >
           <div class="form-group">
-             <b>{{teacher.userName}}</b> 
             <label>رأيك فى المجموعة </label>
             <input
               formControlName="message"
@@ -57,4 +92,5 @@
         <br>
       </form>
     </div>
-  </main> -->
+  </main>
+  <app-footer></app-footer>

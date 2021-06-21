@@ -59,7 +59,7 @@
             </div>
             <!-- (mouseover)="changeColor=true" (mouseout)="changeColor=false" -->
             <div class="col-md-6" (mouseover)="changeColor=true" (mouseout)="changeColor=false">
-              <span class="favourit"><i class="far fa-star"></i></span>
+              <!-- <span class="favourit"><i class="far fa-star"></i></span>
               <span class="favourit"><i class="far fa-star"></i></span>
               <span class="favourit"><i class="far fa-star"></i></span>
               <span class="favourit"><i class="far fa-star"></i></span>
@@ -69,9 +69,44 @@
               <span class="colored-favourit"><i class="fas fa-star"></i></span>
               <span class="colored-favourit"><i class="fas fa-star"></i></span>
               <span class="colored-favourit"><i class="fas fa-star"></i></span>
-              <span class="colored-favourit"><i class="fas fa-star"></i></span>
+              <span class="colored-favourit"><i class="fas fa-star"></i></span> -->
+              <i *ngFor='let in of counter(AbsCourseStars) ;let i = index' class="filledStar fas fa-star" ></i>
+           <i *ngFor='let in of counter(5-AbsCourseStars) ;let i = index' class="star fas fa-star" ></i>
+
               <!-- <p>{{courseCategoryTitle}}</p> -->
             </div>
+          </div>
+          <div class="row">
+            <h2 class="mt-5">المجموعات التى بها معلم/ة</h2>
+            <table class="table table-bordered table-hover mt-5 mb-5">
+              <thead class="thead-dark">
+                <tr>
+                  <th>رقـــم المجموعة</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let teacherCourseClass of teacherCourseClasses; let i = index">
+                  <td routerLink="/getClassById/"{{teacherCourseClass._id}}>{{teacherCourseClass.Number}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+          <div class="row">
+            <h2 class="mt-5">المجموعات التى بها طالب/ة</h2>
+            <table class="table table-bordered table-hover mt-5 mb-5">
+              <thead class="thead-dark">
+                <tr>
+                  <th>رقـــم المجموعة</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let studnentCourseClass of studnentCourseClasses; let i = index">
+                  <td routerLink="/getClassById/"{{studnentCourseClass._id}}>{{studnentCourseClass.Number}}</td>
+                </tr>
+              </tbody>
+            </table>
+
           </div>
           <div class="">
             <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()">
@@ -80,8 +115,8 @@
             <button class="btn btn-success" (click)="notifyWithNewWaitingTeacher()">
               درّس كمعلم
             </button>
-            <button class="btn btn-warning">
-              نسيت اسم الزرار ^_^
+            <button class="btn btn-warning" routerLink="/detailedFeedback/"{{courseId}}>
+              للمزيد من التقييمـــات
             </button>
           </div>
         </div>

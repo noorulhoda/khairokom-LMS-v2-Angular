@@ -12,16 +12,16 @@
 <section class="banner d-flex justify-content-center align-items-center text-center">
     <div class="content">
       <div class="title">
-        <span>الملف الشخصي</span>
+        <span>الحساب</span>
       </div>
     
       <div class="links">
         <a class="text-decoration-none" href="/home"> الرئيسية </a>
-        <span>/ الملف الشخصي </span>
+        <span> / الحساب </span>
       </div>
     </div>
   </section>
-
+<!-- 
 <div class="container emp-profile">
   <form method="post">
     <div class="row">
@@ -33,10 +33,10 @@
             }}"
             alt=""
           />
-          <!-- <img src="{{user.img}}" alt=""/> -->
+          <img src="{{user.img}}" alt=""/>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-8">
         <div class="profile-head">
           <h3>
             {{ user.userName }}
@@ -51,7 +51,7 @@
                 role="tab"
                 aria-controls="home"
                 aria-selected="true"
-                >About</a
+                > معلومات عن {{user.userName}} </a
               >
             </li>
           </ul>
@@ -70,14 +70,14 @@
             role="tabpanel"
             aria-labelledby="home-tab"
           >
-            <!-- <div class="row">
+            <div class="row">
               <div class="col-md-6">
                 <label>User Id</label>
               </div>
               <div class="col-md-6">
                 <p>{{ id }}</p>
               </div>
-            </div> -->
+            </div>
             <div class="row">
               <div class="col-md-6">
                 <label>الاسم</label>
@@ -96,7 +96,7 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <label>السن</label>
+                <label>تاريخ الميلاد</label>
               </div>
               <div class="col-md-6">
                 <p>{{ user.birthDate | date :'short'}}</p>
@@ -130,6 +130,65 @@
       </div>
     </div>
   </form>
-</div>
+</div> -->
 
+<section class="profile">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 mt-5 mb-5 text-center">
+        <div class="profile-img">
+          <img class="img-fluid" src="https://i.pinimg.com/564x/cb/16/2f/cb162f6ecc6de1c8c52c66c64a569b70.jpg" alt="صورة الحساب"/>
+        </div>
+        <div class="user-name">
+          <h3>{{ user.userName }}</h3>
+        </div>
+        <div class="email">
+          <p>{{ user.email }}</p>
+        </div>
+        <div class="birthdate">
+          <p>{{ user.birthDate | date :'shortDate'}}</p>
+        </div>
+        <div class="country">
+          <p>{{ user.country }}</p>
+        </div>
+        <div class="d-flex justify-content-center">
+          <a class="btn btn-warning" routerLink="/updateUser/{{ id }}">تعديل حسابي</a>
+          <a class="btn btn-primary" (click)="delete()">حذف الحساب</a>
+      </div>
+      </div>
+
+      <div class="edu col-md-9 mt-5 mb-5">
+        <div class="courses">
+          <!-- <h2 class="title"> <i class="fas fa-chalkboard-teacher"></i> &nbsp; الدورات التدريبية</h2> -->
+          <app-my-courses></app-my-courses>
+        </div>
+
+
+        <div class="favourit mt-4">
+          <h2 class="title"> <i class="far fa-bookmark"></i> &nbsp; المفضلة</h2>
+        </div>
+
+        <div class="rate mt-4">
+          <h2 class="title"> <i class="far fa-star"></i> &nbsp; التقييم</h2>
+          <div class="stars text-center">
+            <i class="star fas fa-star" id="star1"></i>
+            <i class="star fas fa-star" id="star2"></i>
+            <i class="star fas fa-star" id="star3"></i>
+            <i class="star fas fa-star" id="star4"></i>
+            <i class="star fas fa-star" id="star5"></i>
+          </div>
+        </div>
+
+        <div class="certificate mt-4">
+          <h2 class="title"> <i class="fas fa-medal"></i> &nbsp; الأوسمة</h2>
+          <div class="text-center">
+            <i class="bronze fas fa-medal"></i>            
+            <i class="silver fas fa-medal"></i>
+            <i class="gold fas fa-medal"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <app-footer></app-footer>

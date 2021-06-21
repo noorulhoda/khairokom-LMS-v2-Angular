@@ -1,4 +1,6 @@
-<div class="container">
+<app-header></app-header>
+
+<!-- <div class="container">
     <table class="table table-light">
         <thead class="thead-light">
             <tr>
@@ -15,7 +17,7 @@
                 <td>{{course._id}}</td>
                 <td>{{course.tittle}}</td>
                 <td>{{course.description}}</td>
-                <td><img src="{course.image}" width="200px" height="auto"/></td>
+                <td><img src="{{course.image}}" width="200px" height="auto"/></td>
                 <td>{{course.categoryID}}</td>
                 <td>
                     <a class="btn btn-secondary " (click)="delete(course._id)" >الحـــذف</a>
@@ -24,4 +26,43 @@
             </tr>
         </tbody>
     </table>
+</div> -->
+
+<div class="container-xxl">
+    <section class="banner d-flex justify-content-center align-items-center text-center">
+        <div class="content">
+          <div class="title">
+            <span>الدورات التدريبية</span>
+          </div>
+        
+          <div class="links">
+            <a class="text-decoration-none" href="/home"> الرئيسية </a>
+            <span>/ الدورات التدريبية </span>
+          </div>
+        </div>
+      </section>
+    
+    <section class="courses mt-5 mb-5">
+        <div class="container">
+           <div class="group" *ngFor="let course of courses;let i= index">
+
+            <a class="course row mt-5" routerLink="/getCourseById/{{course._id}}">
+                <div class="course-image col-md-3 d-flex justify-content-center align-items-center">
+                    <!-- {{course.image}} -->
+                    <img class="img-fluid" src="{{course.image}}">
+                </div>
+    
+                <div class="course-content col-md-9 d-flex align-items-center mt-4">
+                    <div class="content">
+                        <h2 class="title">{{course.tittle}}</h2>                    
+                        <p class="desc">{{course.description}}</p> 
+                    </div>               
+                </div>                        
+            </a>  
+
+           </div>      
+        </div>
+    </section>
 </div>
+
+<app-footer></app-footer>

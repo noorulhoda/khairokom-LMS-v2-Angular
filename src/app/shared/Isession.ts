@@ -1,6 +1,6 @@
 export interface Isession {
     sessionNumber:number,
-    classId:string,
+    classId:String,
     startTime:Date,
     endTime:Date
 }

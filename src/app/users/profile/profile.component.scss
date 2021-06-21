@@ -22,11 +22,29 @@ i {
     font-size: 19px;
     color: #7B9699;
 }
-.profile .edu .courses, .profile .edu .favourit, .profile .edu .rate{
+.profile .edu .courses, .profile .edu .favourit, .profile .edu .rate, .profile .edu .certificate{
     background-color: #fff;
     padding: 15px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
 }
+.profile .edu .rate .stars .star {
+    font-size: 40px;
+    color: #FFBD37;
+}
+.profile .edu .certificate .gold, .profile .edu .certificate .silver, 
+.profile .edu .certificate .bronze {
+    font-size: 70px;
+}
+.profile .edu .certificate .gold{
+    color: #F4AE1D;
+}
+.profile .edu .certificate .silver{
+    color: #757371;
+}
+.profile .edu .certificate .bronze{
+    color: #CC6326;
+}
+
 
 .emp-profile{
     padding: 3%;    

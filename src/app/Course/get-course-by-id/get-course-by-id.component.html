@@ -8,7 +8,10 @@
   <form method="post">
     <div class="row">
       <div class="col-md-4">
-        <div class="profile-work"></div>
+        <div class="profile-work">          
+          <!-- {{ course.image }} -->
+            <img class="img-fluid" src="" alt="تحميل الصورة" />          
+        </div>
       </div>
       <div class="col-md-8">
         <div class="tab-content profile-tab" id="myTabContent">
@@ -26,14 +29,14 @@
               {{ course.tittle }}
             </div>
           </div>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-md-6">
               <label>الصورة</label>
             </div>
             <div class="col-md-6">
               <img src="{{ course.image }}" alt="تحميل الصورة" />
             </div>
-          </div>
+          </div> -->
           <div class="row">
             <div class="col-md-6">
               <label>الوصـــف</label>
@@ -75,34 +78,41 @@
     </div>
   </form>
 
-  <h3>التعليقات</h3>
-  <ul *ngFor="let comment of courseComments">
-    <li>
-      <a routerLink="/profile/{{ comment.userID }}"
-        ><b>{{ comment.userName }} </b></a
-      >
-      <p>{{ comment.content }}</p>
-    </li>
-  </ul>
-
-  <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()">
+  <button class="btn btn-primary mt-5" (click)="notifyWithNewWaitingStudent()">
     سجل كطالب
   </button>
-  <button class="btn btn-success" (click)="notifyWithNewWaitingTeacher()">
+  <button class="btn btn-success mt-5" (click)="notifyWithNewWaitingTeacher()">
     درّس كمعلم
   </button>
 
-  <br /><br /><br /><br /><br />
-  <h3>اترك تعليقاً</h3>
-  <form [formGroup]="addCommentForm" enctype="multipart/form-data">
+  <h3>التعليقات</h3>
+  <div class="comments">
+    <div class="row" *ngFor="let comment of courseComments">     
+      <div class="comment-image col-md-1 d-flex justify-content-center align-items-center">
+        <img class="img-fluid" src="https://www.materialui.co/materialIcons/action/account_circle_grey_192x192.png" width="50px">
+      </div>
+
+      <div class="coment-text col-md-11 mt-3 d-flex align-items-center">
+        <div>
+          <a routerLink="/profile/{{ comment.userID }}">          
+            <b>{{ comment.userName }} </b>
+         </a>
+         <p>{{ comment.content }}</p>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  <!-- <h3 class="mt-5">اترك تعليقاً</h3> -->
+  <form class="" [formGroup]="addCommentForm" enctype="multipart/form-data">
     <div class="form-group">
-      <label>التعليق</label>
-      <input formControlName="content" type="text" class="form-control" />
+      <!-- <label>التعليق</label> -->
+      <input formControlName="content" type="text" class="form-control write mt-4 mb-2" placeholder="اترك تعليقاً" />
     </div>
 
     <input
       type="submit"
-      class="btn btn-primary"
+      class="submit btn btn-light mb-2"
       value="أضف تعليقاً"
       (click)="AddComment()"
     />

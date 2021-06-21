@@ -28,6 +28,7 @@ export class GetCourseByIDComponent implements OnInit {
   classes:Iclass[]=[];
   courseClasses:Iclass[]=[];
   userClasses: any;
+  
   constructor(private cs: courseService,
     private route: ActivatedRoute,
     private router: Router, private fb: FormBuilder,

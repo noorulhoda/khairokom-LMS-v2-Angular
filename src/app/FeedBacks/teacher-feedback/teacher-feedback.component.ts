@@ -17,6 +17,10 @@ import { ThrowStmt } from '@angular/compiler';
   styleUrls: ['./teacher-feedback.component.scss']
 })
 export class TeacherFeedbackComponent implements OnInit {
+  currentStudentId;
+  currentStudentName;
+  indx=0;
+  studentsEnded:Boolean;
   notificationId: string;
   classId:string;
   notification:Inotification;
@@ -53,8 +57,8 @@ export class TeacherFeedbackComponent implements OnInit {
    
 
   ngOnInit(): void {
-    console.log("****************")
-    // console.log(this.getStudentName("60c3fa7c7c5863003dc8fec1"));
+    
+    console.log(this.getStudentName("00"));
     this.notificationService.getNotificationById(this.notificationId ).subscribe(
       data=>{
         this.notification=data[0]
@@ -67,15 +71,14 @@ export class TeacherFeedbackComponent implements OnInit {
           data=>{
               this.class=data[0]
                 this.studentsIds=this.class.Students;  
-              this.studentsIds.forEach(element=>{
-                console.log(element)
-               this.getStudentName(element).then(name=>this.studentsNames.push(name))
-                
-              
-                //this.students.push({"name":this.getStudentName(element),"id":element})
-              })
-                console.log(this.studentsNames)
-                console.log(this.studentsIds);
+                this.currentStudentId=this.studentsIds[this.indx++]
+                //console.log(this.currentStudentId)
+                this.currentStudentName=this.getStudentName(this.currentStudentId)
+               // console.log(this.currentStudentName)
+                //console.log(this.getStudentName("60cc9a22e9c3450ac4f9004c"))
+      
+                //console.log(this.studentsNames)
+                //console.log(this.studentsIds);
                 // console.log(this.students)
           },
           error=>{console.log(error)}
@@ -91,11 +94,7 @@ export class TeacherFeedbackComponent implements OnInit {
     {
       message:[''],
       starsNumber:[''],
-      setterId:[''],
-      getterId:[''],
-      feedbackedUserType:[''],
-      classId:[''],
-      courseId:['']
+    
    });
 
    get message()
@@ -107,13 +106,13 @@ export class TeacherFeedbackComponent implements OnInit {
      return this.addForm.get('starsNumber');
    }
 
-  submit(student) 
+  submit() 
   {
     var feedback:Ifeedback={ 
       message:this.message?.value,
       starsNumber:this.starsNumber?.value,
       setterId:this.class.TeacherId,
-      getterId:student,
+      getterId:this.currentStudentId,
       feedbackedUserType:"Student",
       classId:this.classId,
       courseId:this.class.CourseId
@@ -121,11 +120,24 @@ export class TeacherFeedbackComponent implements OnInit {
     this.feedbackService.addFeedback(feedback).subscribe(
       data => {
         console.log(data)
+        console.log(this.currentStudentName)
+        console.log(this.currentStudentId)
+        console.log("-*-*-*-*-*-*-*-*-*-*-*-***--*-*-*-*-*-*")
       },
       error => {
         console.log(error)
       }
+      
     );
+    if(this.indx<=this.students.length+2){
+    console.log(this.currentStudentName)
+    this.currentStudentId=this.studentsIds[this.indx++]
+    this.currentStudentName=this.getStudentName(this.currentStudentId)}
+    else{
+      this.studentsEnded=true
+    }
+    
+    
   }
 
 }

@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit{
   notifications:Inotification[];
   userNotifications:Inotification[]=[];
   unReadNotifications=0;
-  isAdmin=false
+  isAdmin=true
   constructor(private notificationService:notificationService,private router:Router,private userService:UsersService, private _vps: ViewportScroller) { 
     this.userService.findByUserName(this.userName).subscribe(
    
@@ -52,7 +52,7 @@ export class HeaderComponent implements OnInit{
   }
 
 checkIfAdmin():void{
-     if(this.currentUser.roles.includes("60b2b84a865a7e0ac79fdb84")){
+     if(this.currentUser.roles.includes("60d224612eae814ad0e9ce64")){
         localStorage.setItem("isAdmin","true")
         this.isAdmin=true
         console.log(this.isAdmin)
@@ -79,7 +79,8 @@ checkIfAdmin():void{
     this.userService.findByUserName(this.currentUserName).subscribe(
       data => {
         console.log(data)
-        this.currentUser= data;this.currentUserRoles=this.currentUser.roles;
+        this.currentUser= data[0];
+        this.currentUserRoles=this.currentUser.roles;
         localStorage.setItem('currentUserId',this.userId)
           console.log(this.isAdmin)
        this.checkIfAdmin()

@@ -72,21 +72,25 @@
                 <div class="text col-md-6">
                   <p>{{ clas.ClassLinkPassword }}</p>
                 </div>
+              <div class="col-md-6">
+                <p>{{ clas.StartDate | date:'shortDate' }}</p>
               </div>
+              
               <div class="row">
                 <div class="col-md-6">
                   <label>تاريخ البداية</label>
                 </div>
                 <div class="text col-md-6">
-                  <p>{{ clas.StartDate | date:'short' }}</p>
+                  <p>{{ clas.StartDate | date:'shortDate' }}</p>
                 </div>
               </div>
+
               <div class="row">
                 <div class="col-md-6">
-                  <label>تاريخ النهاية </label>
+                  <label>تاريخ النهاية</label>
                 </div>
-                <div class="text col-md-6">
-                  <p>{{ clas.EndDate | date:'short' }}</p>
+                <div class="col-md-6">
+                  <p>{{ clas.EndDate | date:'shortDate' }}</p>
                 </div>
               </div>
               <div class="row">

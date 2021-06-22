@@ -159,16 +159,16 @@
       </div>
 
       <div class="edu col-md-9 mt-5 mb-5">
-        <div class="courses">
-          <!-- <h2 class="title"> <i class="fas fa-chalkboard-teacher"></i> &nbsp; الدورات التدريبية</h2> -->
-          <app-my-courses></app-my-courses>
+        <div class="courses" routerLink="/myCourses/{{id}}" style="cursor:pointer">
+          <h2 class="title"> <i class="fas fa-chalkboard-teacher"></i> &nbsp; دوراتي التدريبية</h2>
+        <!--   <app-my-courses></app-my-courses> -->
         </div>
 
 
-        <div class="favourit mt-4">
+   <!--      <div class="favourit mt-4">
           <h2 class="title"> <i class="far fa-bookmark"></i> &nbsp; المفضلة</h2>
         </div>
-
+ -->
         <div class="rate mt-4">
           <h2 class="title"> <i class="far fa-star"></i> &nbsp; تقييمك كمعلم</h2>
           <div class="stars text-center">

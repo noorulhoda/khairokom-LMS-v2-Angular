@@ -2,12 +2,37 @@
 <br>
 <main>
     <div class="container">
-      <b style="text-align: center; margin: auto;">{{class.Number}}</b>
+      
+      <div style="background-color: #ffac0593; padding: 15px; border: 1px black solid;">
+        <b>لقد انهيت التعليم فى هذه المجموعة نطلب منك تقييم طلابك في المجموعة</b>
+        <hr>
+        <br>
+        <div>
+          <div class="row">
+            <div class="col-md-3">
+              <label>اسم الدورة التدربية</label>
+            </div>
+            <div class="col-md-6">
+              <b>{{courseTitle}}</b> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label>رقـــم المجموعة</label>
+            </div>
+            <div class="col-md-6">
+              <p>{{ class.Number }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+     
       <form [formGroup]="addForm"  *ngIf="!studentsEnded"enctype="multipart/form-data" style="border:1px solid black; margin: 10px; padding: 10px;" >
         
           <div class="form-group">
+       
+            <label>رأيك فى أداء الطالب</label><br>
             <b style="text-align: center;">{{currentStudentName}}</b><br>
-            <label>رأيك فى أداء الطالب</label>
             <input
               formControlName="message"
               [class.is-invalid]="message.invalid && message.touched"
@@ -27,7 +52,7 @@
             </div>
           </div>
     
-          <div class="form-group">
+         <!--  <div class="form-group">
             <label>التقييم</label>
             <input
               formControlName="starsNumber"
@@ -45,7 +70,20 @@
               </small>
             </div>
           </div>
-    
+     -->
+
+
+     <div class="form-group">
+      <label>التقييم</label>
+
+      <input type="radio" name="stars"(change)="checkChanged(1,$event.target.checked)"value="1" > 1 
+      <input type="radio" name="stars"(change)="checkChanged(2,$event.target.checked)" value="2"> 2
+      <input type="radio" name="stars"(change)="checkChanged(3,$event.target.checked)" value="3"> 3
+      <input type="radio" name="stars"(change)="checkChanged(4,$event.target.checked)"  value="4"> 4
+      <input type="radio" name="stars" (change)="checkChanged(5,$event.target.checked)"  value="5"> 5
+       
+
+    </div>
           <input
             type="submit"
             class="add btn btn-primary"
@@ -58,7 +96,7 @@
         
         <br>
       </form>
-      <p *ngIf="studentsEnded">لقد أنهيت تقييم جميع طلبة الفصل شكرا</p>
+      <p *ngIf="studentsEnded"><br>لقد أنهيت تقييم جميع طلبة الفصل شكرا</p>
     </div>
   </main>
   <app-footer></app-footer>

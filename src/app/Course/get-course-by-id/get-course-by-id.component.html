@@ -142,13 +142,13 @@
 
           </div>
           <div class="">
-            <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()">
+            <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()" *ngIf="userName!='0000'">
               سجل كطالب
-            </button> &nbsp; &nbsp; &nbsp;
-            <button class="btn btn-success" (click)="notifyWithNewWaitingTeacher()">
+            </button>
+            <button class="btn btn-success" (click)="notifyWithNewWaitingTeacher()" *ngIf="userName!='0000'">
               درّس كمعلم
-            </button> &nbsp; &nbsp; &nbsp;
-            <button class="btn btn-warning" routerLink="/detailedFeedback/"{{courseId}}>
+            </button>
+            <button class="btn btn-warning" routerLink="/detailedFeedback/{{courseId}}" *ngIf="userName!='0000'">
               للمزيد من التقييمـــات
             </button> &nbsp; &nbsp; &nbsp;
           </div>
@@ -174,23 +174,23 @@
           </div>
         </div>
       </div>
-    </div> 
-  
-    <!-- <h3 class="mt-5">اترك تعليقاً</h3> -->
-    <form class="buttons" [formGroup]="addCommentForm" enctype="multipart/form-data">
-      <div class="form-group">
-        <!-- <label>التعليق</label> -->
-        <input formControlName="content" type="text" class="form-control write mt-5 mb-2" placeholder="اترك تعليقاً" />
-      </div>
-  
-      <input
-        type="submit"
-        class="submit btn btn-light mb-5"
-        value="أضف تعليقاً"
-        (click)="AddComment()"
-      />
-    </form>
-  </div>
+    </div>
+  </div> 
+
+  <!-- <h3 class="mt-5">اترك تعليقاً</h3> -->
+  <form class="" [formGroup]="addCommentForm" enctype="multipart/form-data">
+    <div class="form-group">
+      <!-- <label>التعليق</label> -->
+      <input formControlName="content" type="text" class="form-control write mt-4 mb-2" placeholder="اترك تعليقاً" />
+    </div>
+
+    <input *ngIf="userName!='0000'"
+      type="submit"
+      class="submit btn btn-light mb-2"
+      value="أضف تعليقاً"
+      (click)="AddComment()"
+    />
+  </form>
 </div>
 
 <app-footer></app-footer>

@@ -24,6 +24,7 @@ export class StudentFeedbackComponent implements OnInit {
   teacher:Iuser;
   tacherName:String 
   courseTitle:String;
+  feedbackStars: any;
   constructor(private courseService:courseService ,private userService:UsersService,private feedbackService:feedbackService ,private fb:FormBuilder,private classService:classService,private route:ActivatedRoute,private notificationService:notificationService) 
   {
     this.route.params.subscribe(params => {
@@ -96,7 +97,7 @@ export class StudentFeedbackComponent implements OnInit {
   {
     var feedback:Ifeedback={ 
       message:this.message?.value,
-      starsNumber:this.starsNumber?.value,
+      starsNumber:this.feedbackStars,
       setterId:localStorage.getItem('currentUserId'),
       getterId:this.class.TeacherId,
       feedbackedUserType:"Teacher",
@@ -114,4 +115,13 @@ export class StudentFeedbackComponent implements OnInit {
     );
   }
 
+
+
+  checkChanged(stars,isChecked){
+    if(isChecked)
+       this.feedbackStars=stars
+  }
+/*   counter(i: number) {
+    return new Array(i);
+} */
 }

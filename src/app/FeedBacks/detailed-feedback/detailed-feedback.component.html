@@ -1,4 +1,23 @@
-<p>detailed-feedback works!</p>
+<app-header></app-header>
+<!-- <p>detailed-feedback works!</p>
 <uL *ngFor="let f of courseFeedbacks">
     <li>{{f.starsNumber}}:{{f.message}}  </li>
-</uL>
+</uL> -->
+
+<div class="row" *ngFor="let f of courseFeedbacks">     
+    <div class="comment-image col-md-1 d-flex justify-content-center align-items-center">
+      <img class="img-fluid" src="https://www.materialui.co/materialIcons/action/account_circle_grey_192x192.png" width="50px">
+    </div>
+
+    <div class="coment-text col-md-11 mt-3 d-flex align-items-center">
+      <div>
+        <i *ngFor='let i of counter(f.starsNumber)' class="filledStar fas fa-star"></i>
+        <i *ngFor='let i of counter(5-f.starsNumber)' class="star fas fa-star" ></i>
+        <br>
+       <p>{{ f.message }}</p>
+
+      </div>
+    </div>
+  </div>
+
+<app-footer></app-footer>

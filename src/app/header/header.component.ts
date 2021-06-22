@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { Irole } from '../shared/Irole';
 import { Iuser } from '../shared/Iuser';
@@ -13,13 +13,14 @@ import { ViewportScroller } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit{
   userName: any = localStorage.getItem('currentUserName');
   user: any;
   userId: any;
   notifications:Inotification[];
   userNotifications:Inotification[]=[];
   unReadNotifications=0;
+  isAdmin=false
   constructor(private notificationService:notificationService,private router:Router,private userService:UsersService, private _vps: ViewportScroller) { 
     this.userService.findByUserName(this.userName).subscribe(
    
@@ -46,8 +47,20 @@ export class HeaderComponent implements OnInit {
   pannerSrc="https://i.imgur.com/bkCeTu7.png";
 
   ngOnInit(): void {
-       
+   
 
+  }
+
+checkIfAdmin():void{
+     if(this.currentUser.roles.includes("60b2b84a865a7e0ac79fdb84")){
+        localStorage.setItem("isAdmin","true")
+        this.isAdmin=true
+        console.log(this.isAdmin)
+        }
+        else{
+        localStorage.setItem("isAdmin","false")
+        this.isAdmin=false
+         console.log(this.isAdmin)}
   }
   logout(){
     localStorage.setItem('token',"0000");
@@ -67,7 +80,10 @@ export class HeaderComponent implements OnInit {
       data => {
         console.log(data)
         this.currentUser= data;this.currentUserRoles=this.currentUser.roles;
-        localStorage.setItem('currentUserId',this.userId)},
+        localStorage.setItem('currentUserId',this.userId)
+          console.log(this.isAdmin)
+       this.checkIfAdmin()
+        },
       er => console.log('error happened in determine user') ,
     )}
   }

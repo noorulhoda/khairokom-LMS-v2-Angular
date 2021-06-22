@@ -20,6 +20,8 @@ import { timesChecker } from 'src/app/timesCheckerValidator';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  studentRoleId;
+  teacherRoleId;
   countries;cntry;
   user;userId;
 chosenRoleId='';
@@ -30,11 +32,28 @@ registerError="......";//error in duplicate userName or email(how can i get it f
   currentUserName: any;
   currentUser: Iuser;
   currentUserRoles: string[];
-  constructor(private cntryService:countryService,private fb:FormBuilder,private userService:UsersService,private roleService:RolesService,private router: Router) { }
+  constructor(private cntryService:countryService,
+    private fb:FormBuilder,
+    private userService:UsersService,
+    private roleService:RolesService,
+    private router: Router
+    ) { }
   ngOnInit(): void {
     this.cntryService.getAllCountries().subscribe(
       data=>  this.countries=data
     );  
+    this.roleService.findByRoleType("Teacher").subscribe(
+      data=>{this.teacherRoleId=data[0]['_id'];
+      console.log(data)
+    }
+      ,er=>console.log(er)
+    )
+    this.roleService.findByRoleType("Student").subscribe(
+      data=>{this.studentRoleId=data[0]['_id'];
+      console.log(data)
+    }
+      ,er=>console.log(er)
+    )
   }
 
 
@@ -139,7 +158,7 @@ countryChanged(){
     lastName:this.lastName?.value,
     password:this.password?.value,
     email:this.email?.value,
-    roles:["60b79235865a7e0ac79fdb85","60cb92b9fa458482f28b5cd8"],//teacher85,studentd8
+    roles:[this.teacherRoleId,this.studentRoleId],
     gender:this.gender?.value,
     birthDate:this.birthDate?.value,
     img:"newUser.jpg",

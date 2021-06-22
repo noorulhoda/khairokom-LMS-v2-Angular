@@ -104,7 +104,7 @@
               <span class="colored-favourit"><i class="fas fa-star"></i></span>
               <span class="colored-favourit"><i class="fas fa-star"></i></span> -->
               <i *ngFor='let in of counter(AbsCourseStars) ;let i = index' class="filledStar fas fa-star" ></i>
-           <i *ngFor='let in of counter(5-AbsCourseStars) ;let i = index' class="star fas fa-star" ></i>
+              <i *ngFor='let in of counter(5-AbsCourseStars) ;let i = index' class="star fas fa-star" ></i>
 
               <!-- <p>{{courseCategoryTitle}}</p> -->
             </div>
@@ -144,13 +144,13 @@
           <div class="">
             <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()">
               سجل كطالب
-            </button>
+            </button> &nbsp; &nbsp; &nbsp;
             <button class="btn btn-success" (click)="notifyWithNewWaitingTeacher()">
               درّس كمعلم
-            </button>
+            </button> &nbsp; &nbsp; &nbsp;
             <button class="btn btn-warning" routerLink="/detailedFeedback/"{{courseId}}>
               للمزيد من التقييمـــات
-            </button>
+            </button> &nbsp; &nbsp; &nbsp;
           </div>
         </div>
       </div>

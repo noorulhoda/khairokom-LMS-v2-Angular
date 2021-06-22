@@ -1,1 +1,96 @@
-<p>student-feedback works!</p>
+<app-header></app-header>
+
+
+<main>
+    <div class="container">
+      
+      <br>
+      <div style="background-color: #ffac0593; padding: 15px; border: 1px black solid;">
+        <b>لقد انهيت الدراسة فى هذه المجموعة نطلب منك ابداء رأيك فى رحلتك الدراسية فى هذه المجموعة</b>
+        <hr>
+        <br>
+        <div>
+          <div class="row">
+            <div class="col-md-3">
+              <label>اسم المعلم</label>
+            </div>
+            <div class="col-md-6">
+              <b>{{teacher.userName}}</b> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label>اسم الدورة التدربية</label>
+            </div>
+            <div class="col-md-6">
+              <b>{{courseTitle}}</b> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label>رقـــم المجموعة</label>
+            </div>
+            <div class="col-md-6">
+              <p>{{ class.Number }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      <br>
+      <form [formGroup]="addForm" enctype="multipart/form-data" style="border:1px solid black; margin: 10px; padding: 10px;" >
+          <div class="form-group">
+            <label>رأيك فى المجموعة </label>
+            <input
+              formControlName="message"
+              [class.is-invalid]="message.invalid && message.touched"
+              type="text"
+              class="form-control"
+            />
+            <div *ngIf="message.errors && message.invalid && message.touched">
+              <small class="text-danger" *ngIf="message.errors?.required">
+                الرأى مطلوب
+              </small>
+              <small class="text-danger" *ngIf="Title.errors.minlength">
+                اقل عدد احرف مسموح بها 3 احروف
+              </small>
+              <small *ngIf="Title.errors?.forbiddenName">
+                {{ Title.errors?.forbiddenName.value }} غير مسموح بيه
+              </small>
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label>التقييم</label>
+            <input
+              formControlName="starsNumber"
+              [class.is-invalid]="starsNumber.invalid && starsNumber.touched"
+              type="text"
+              class="form-control"
+            />
+            <div
+              *ngIf="
+                starsNumber.errors && starsNumber.invalid && starsNumber.touched
+              "
+            >
+              <small class="text-danger" *ngIf="starsNumber.errors?.required">
+                التقييم مطلوب
+              </small>
+            </div>
+          </div>
+    
+          <input
+            type="submit"
+            class="add btn btn-primary"
+            value="إضافة"
+            (click)="submit()"
+            [disabled]="!addForm.valid"
+          />
+    
+     
+        
+        <br>
+      </form>
+    </div>
+  </main>
+  <app-footer></app-footer>

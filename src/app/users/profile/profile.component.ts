@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { feedbackService } from 'src/app/services/feedback.service';
 import { UsersService } from '../../services/users.service';
 import{Iuser} from '../../shared/Iuser'
 @Component({
@@ -8,10 +9,14 @@ import{Iuser} from '../../shared/Iuser'
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-   constructor(private userservice:UsersService,private route:ActivatedRoute,private router:Router) {}
+   constructor(private feedbackService:feedbackService ,private userservice:UsersService,private route:ActivatedRoute,private router:Router) {}
    user:Iuser;
    id:string='defaultID';
    errMsg='errroor';
+   teacherStars=0;
+   AbsTeacherStars=0;
+   feedbacks=[];
+   feedbacksAsTeacher=[];
    ngOnInit(): void {
    this.route.queryParamMap.subscribe((params: any) => this.id=params.params.id);   
    this.route.params.subscribe(params => {
@@ -27,6 +32,26 @@ export class ProfileComponent implements OnInit {
        er =>this.errMsg=er ,
      );
      console.log(this.user)
+     this.feedbackService.getAllFeedbacks().subscribe(
+       data=>{
+        this.feedbacks=data;
+        this.feedbacks.forEach(element=>{
+          console.log(element)
+
+          if(element.getterId==this.id && element.feedbackedUserType=="Teacher")
+          {
+            console.log(element)
+            this.feedbacksAsTeacher.push(element);
+            this.teacherStars+=element.starsNumber;
+            
+          }
+          console.log(this.teacherStars)
+        })
+        this.AbsTeacherStars=Math.round(this.teacherStars/this.feedbacksAsTeacher.length);
+        console.log(this.AbsTeacherStars)
+       },
+       error=>{console.log(error)}
+     )
    }
    sureDelete;
    delete(){
@@ -45,6 +70,10 @@ export class ProfileComponent implements OnInit {
       }
     ); } }
  
+    counter(i: number) {
+      return new Array(i);
+  }
+
 }
 
 

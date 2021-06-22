@@ -42,7 +42,9 @@ export class GetCateogryByIDComponent implements OnInit {
                   this.categoryCourses.push(element);
                 }
               });
-            },
+              console.log("********************")
+              console.log(this.categoryCourses)  
+                      },
             er=>{
               console.log(er);
             }

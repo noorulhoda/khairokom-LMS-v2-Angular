@@ -1,6 +1,39 @@
 <app-header></app-header>
 
-<div class="container emp-profile">
+<div class="container-xxl">
+  <section class="banner d-flex justify-content-center align-items-center text-center">
+    <div class="content">
+      <div class="title">
+        <span>الأقسام</span>
+      </div>
+    
+      <div class="links">
+        <a class="text-decoration-none" routerLink="/home"> الرئيسية </a>
+        <span>/</span>
+        <a class="text-decoration-none" routerLink="/getAllCategories"> الأقسام </a>
+        <span>/ {{ category.Title }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="category mt-5">
+    <div class="container">
+      <div class="text-center">
+        <div class="title">
+          <h2>{{ category.Title }}</h2>
+        </div>
+        <div class="description">
+          <span>{{ category.Description }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+</div>
+
+
+<!-- <div class="container emp-profile">
   <form method="post">
     <div class="row">      
       <div class="col-md-8">
@@ -71,6 +104,6 @@
       </div>
     </div>
   </form>
-</div>
+</div> -->
 
 <app-footer></app-footer>

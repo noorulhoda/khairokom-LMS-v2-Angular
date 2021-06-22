@@ -75,14 +75,18 @@
 
            <li class="notification nav-item dropdown" style="cursor: pointer;">
             <a class="nav-link" id="navbardrop" data-toggle="dropdown">
-             <p style="color: #FFAD05;" class="badge badge-pill badge-outline-info">{{unReadNotifications}}</p> 
+             <p style="color: #FFAD05;" class=" badge badge-pill badge-outline-info">{{unReadNotifications}}</p> 
              <i class="bell fas fa-bell"></i>
             </a>
             <div class="dropdown-menu">
+              <div class="noti">
+                <p> الاشعارات</p>
+                <hr>
+              </div>
               <a class="dropdown-item" *ngFor="let n of userNotifications">
                 <p class="row d-flex justify-content-between align-items-center" (click)="notificationRead(n._id,n)">
-                  <b  (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
-                  <i class="fas fa-times text-danger" (click)="deleteNotification(n._id) "></i>                                                                                        
+                  <b  (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}">{{n.message}}</b>
+                  <i class="fas fa-times text-danger" (click)="deleteNotification(n._id) "></i>                                                                                                          
                 </p>
               </a>
             </div>

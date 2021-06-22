@@ -4,58 +4,91 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 
-<div class="container emp-profile">
-  <form class="course-details mt-5 mb-5" method="post">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="profile-work">          
-          <!-- {{ course.image }} -->
-            <img class="img-fluid" src="" alt="تحميل الصورة" />          
-        </div>
+<div class="container-xxl">
+
+  <section class="banner d-flex justify-content-center align-items-center text-center">
+    <div class="content">
+      <div class="title">
+        <span>الدورات التدريبية</span>
       </div>
-      <div class="col-md-8">
-        <div class="tab-content profile-tab" id="myTabContent">
-          <div
-            class="tab-pane fade show active"
-            id="home"
-            role="tabpanel"
-            aria-labelledby="home-tab"
-          ></div>
-          <div class="row">
-            <div class="col-md-6">
-              <label>اسم الدورة التدربية</label>
-            </div>
-            <div class="col-md-6">
-              {{ course.tittle }}
-            </div>
+    
+      <div class="links">
+        <a class="text-decoration-none" href="/home"> الرئيسية </a>
+        <span>/</span>
+        <a class="text-decoration-none" href="/getAllCourses"> الدورات التدريبية </a>
+        <span> / {{ course.tittle }}</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container emp-profile">
+    <form class="course-details" method="post">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-work d-flex justify-content-center align-items-center">          
+            <!-- {{ course.image }} -->
+              <img class="img-fluid" src="https://image.freepik.com/vector-gratis/nina-envia-mensajes-telefono-inteligente_102172-505.jpg" alt="تحميل الصورة" />          
           </div>
-          <!-- <div class="row">
-            <div class="col-md-6">
-              <label>الصورة</label>
+        </div>
+        <div class="col-md-8 d-flex justify-content-center align-items-center">
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="home"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+            ></div>
+            <div class="row">
+              <div class="col-md-4">
+                <label class="title">اسم الدورة التدريبية</label>
+              </div>
+              <div class="text col-md-8">
+                {{ course.tittle }}
+              </div>
             </div>
-            <div class="col-md-6">
-              <img src="{{ course.image }}" alt="تحميل الصورة" />
+            <!-- <div class="row">
+              <div class="col-md-6">
+                <label>الصورة</label>
+              </div>
+              <div class="col-md-6">
+                <img src="{{ course.image }}" alt="تحميل الصورة" />
+              </div>
+            </div> -->
+            <div class="row">
+              <div class="col-md-4">
+                <label class="title">الوصـــف</label>
+              </div>
+              <div class="text col-md-8">
+                <p>{{ course.description }}</p>
+              </div>
             </div>
-          </div> -->
-          <div class="row">
-            <div class="col-md-6">
-              <label>الوصـــف</label>
+            <div class="row">
+              <div class="col-md-4">
+                <label class="title">القســـم</label>
+              </div>
+              <div class="text col-md-8">
+                <p>{{ courseCategoryTitle }}</p>
+              </div>
             </div>
-            <div class="col-md-6">
-              <p>{{ course.description }}</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <label>القســـم</label>
-            </div>
-            <div class="col-md-6">
-              <p>{{ courseCategoryTitle }}</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <label>التقييم</label>
+            <div class="row">
+              <div class="col-md-4">
+                <label class="title">التقييم</label>
+              </div>
+              <!-- (mouseover)="changeColor=true" (mouseout)="changeColor=false" -->
+              <div class="col-md-8" (mouseover)="changeColor=true" (mouseout)="changeColor=false">
+                <span class="favourit"><i class="far fa-star"></i></span>
+                <span class="favourit"><i class="far fa-star"></i></span>
+                <span class="favourit"><i class="far fa-star"></i></span>
+                <span class="favourit"><i class="far fa-star"></i></span>
+                <span class="favourit"><i class="far fa-star"></i></span>
+  
+                <span class="colored-favourit"><i class="fas fa-star"></i></span>
+                <span class="colored-favourit"><i class="fas fa-star"></i></span>
+                <span class="colored-favourit"><i class="fas fa-star"></i></span>
+                <span class="colored-favourit"><i class="fas fa-star"></i></span>
+                <span class="colored-favourit"><i class="fas fa-star"></i></span>
+                <!-- <p>{{courseCategoryTitle}}</p> -->
+              </div>
             </div>
             <!-- (mouseover)="changeColor=true" (mouseout)="changeColor=false" -->
             <div class="col-md-6" (mouseover)="changeColor=true" (mouseout)="changeColor=false">
@@ -71,7 +104,7 @@
               <span class="colored-favourit"><i class="fas fa-star"></i></span>
               <span class="colored-favourit"><i class="fas fa-star"></i></span> -->
               <i *ngFor='let in of counter(AbsCourseStars) ;let i = index' class="filledStar fas fa-star" ></i>
-           <i *ngFor='let in of counter(5-AbsCourseStars) ;let i = index' class="star fas fa-star" ></i>
+              <i *ngFor='let in of counter(5-AbsCourseStars) ;let i = index' class="star fas fa-star" ></i>
 
               <!-- <p>{{courseCategoryTitle}}</p> -->
             </div>
@@ -117,28 +150,28 @@
             </button>
             <button class="btn btn-warning" routerLink="/detailedFeedback/{{courseId}}" *ngIf="userName!='0000'">
               للمزيد من التقييمـــات
-            </button>
+            </button> &nbsp; &nbsp; &nbsp;
           </div>
         </div>
       </div>
-    </div>
-  </form>
-
+    </form>
   
-
-  <h3>التعليقات</h3>
-  <div class="comments">
-    <div class="row" *ngFor="let comment of courseComments">     
-      <div class="comment-image col-md-1 d-flex justify-content-center align-items-center">
-        <img class="img-fluid" src="https://www.materialui.co/materialIcons/action/account_circle_grey_192x192.png" width="50px">
-      </div>
-
-      <div class="coment-text col-md-11 mt-3 d-flex align-items-center">
-        <div>
-          <a routerLink="/profile/{{ comment.userID }}">          
-            <b>{{ comment.userName }} </b>
-         </a>
-         <p>{{ comment.content }}</p>
+    
+  
+    <h2 class="font-weight-bold"> <i style="color: #757575;" class="far fa-comments"></i>&nbsp; التعليقات</h2>
+    <div class="comments mt-4">
+      <div class="row" *ngFor="let comment of courseComments">     
+        <div class="comment-image col-md-1 d-flex justify-content-center align-items-center">
+          <img class="img-fluid" src="https://www.materialui.co/materialIcons/action/account_circle_grey_192x192.png" width="50px">
+        </div>
+  
+        <div class="coment-text col-md-11 mt-3 d-flex align-items-center">
+          <div>
+            <a routerLink="/profile/{{ comment.userID }}">          
+              <b>{{ comment.userName }} </b>
+           </a>
+           <p>{{ comment.content }}</p>
+          </div>
         </div>
       </div>
     </div>

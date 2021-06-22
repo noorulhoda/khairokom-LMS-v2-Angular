@@ -39,11 +39,16 @@
               <i class="bell fas fa-bell"></i><span class="badge">{{unReadNotifications}}</span>
             </a>
 
-            <div class="dropdown-menu" >              
+            <div class="dropdown-menu" > 
+              <div class="noti">
+                <p> الاشعارات</p>
+                <hr>
+              </div>             
               <a class="dropdown-item"  *ngFor="let n of adminNotifications">                
-                  <b  (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
-                  <i class="fas fa-times text-danger" (click)="deleteNotification(n._id) "></i>                                                    
-                  <hr>
+                  <p class="d-flex justify-content-between align-items-center">
+                    <b  (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
+                    <i class="fas fa-times text-danger" (click)="deleteNotification(n._id) "></i> 
+                  </p>                                                   
               </a>              
             </div>
            </li>         

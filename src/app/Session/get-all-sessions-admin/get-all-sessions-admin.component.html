@@ -2,6 +2,33 @@
 
 <main>
   <div class="container">
+    <h2 class="mt-5">الحلقات</h2>
+    <table class="table table-bordered table-hover mt-5 mb-5">
+      <thead class="thead-dark">
+        <tr>
+          <th>رقــم الحلقة</th>          
+          <th>الصورة</th>          
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr style="cursor: pointer;" *ngFor="let session of sessionList" routerLink="/getSessionById/{{ session._id }}">
+          <td>{{ session.sessionNumber }}</td>          
+          <td class="d-flex justify-content-center align-items-center">
+            <img
+            class="img-fluid"
+              src="{category.Image}"
+              alt="تحميل الصورة"
+            />
+          </td>                    
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<!-- <main>
+  <div class="container">
     <div class="row">
       <div *ngFor="let session of sessionList">
         <div class="content">
@@ -21,6 +48,6 @@
       </div>
     </div>
   </div>
-</main>
+</main> -->
 
 <app-dashboard-footer></app-dashboard-footer>

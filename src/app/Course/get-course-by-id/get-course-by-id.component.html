@@ -109,13 +109,13 @@
 
           </div>
           <div class="">
-            <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()">
+            <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()" *ngIf="userName!='0000'">
               سجل كطالب
             </button>
-            <button class="btn btn-success" (click)="notifyWithNewWaitingTeacher()">
+            <button class="btn btn-success" (click)="notifyWithNewWaitingTeacher()" *ngIf="userName!='0000'">
               درّس كمعلم
             </button>
-            <button class="btn btn-warning" routerLink="/detailedFeedback/"{{courseId}}>
+            <button class="btn btn-warning" routerLink="/detailedFeedback/{{courseId}}" *ngIf="userName!='0000'">
               للمزيد من التقييمـــات
             </button>
           </div>
@@ -151,7 +151,7 @@
       <input formControlName="content" type="text" class="form-control write mt-4 mb-2" placeholder="اترك تعليقاً" />
     </div>
 
-    <input
+    <input *ngIf="userName!='0000'"
       type="submit"
       class="submit btn btn-light mb-2"
       value="أضف تعليقاً"

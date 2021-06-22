@@ -9,6 +9,7 @@ import { Ifeedback } from 'src/app/shared/Ifeedback';
 import { feedbackService } from 'src/app/services/feedback.service';
 import { UsersService } from 'src/app/services/users.service';
 import { Iuser } from 'src/app/shared/Iuser';
+import { courseService } from 'src/app/services/course.service';
 
 
 @Component({
@@ -30,7 +31,9 @@ export class TeacherFeedbackComponent implements OnInit ,AfterViewInit {
   students = [];
   user: Iuser;
   studentName: String
-  constructor(private userService: UsersService, private feedbackService: feedbackService, private fb: FormBuilder, private classService: classService, private route: ActivatedRoute, private notificationService: notificationService) {
+  feedbackStars: any;
+  courseTitle: any;
+  constructor(private courseService:courseService,private userService: UsersService, private feedbackService: feedbackService, private fb: FormBuilder, private classService: classService, private route: ActivatedRoute, private notificationService: notificationService) {
 
     this.route.params.subscribe(params => {
       console.log(params)
@@ -67,7 +70,14 @@ export class TeacherFeedbackComponent implements OnInit ,AfterViewInit {
           data => {
             this.class = data[0]
             this.studentsIds = this.class.Students;
-           
+            this.courseService.getCourseById(this.notification.courseId).subscribe(
+              data=>{
+                console.log(data[0])
+                 this.courseTitle=data[0]['tittle']
+              },
+              error=>{console.log(error)}
+             )      
+   
           },
           error => { console.log(error) }
         )
@@ -101,7 +111,7 @@ addForm = this.fb.group(
   submit() {
     var feedback: Ifeedback = {
       message:this.currentStudentName,//this.message?.value,
-      starsNumber: this.starsNumber?.value,
+      starsNumber: this.feedbackStars,
       setterId: this.class.TeacherId,
       getterId: this.currentStudentId,
       feedbackedUserType: "Student",
@@ -126,10 +136,10 @@ addForm = this.fb.group(
         console.log(error)
       }
     );
-
- 
-
-
+  }
+  checkChanged(stars,isChecked){
+    if(isChecked)
+       this.feedbackStars=stars
   }
 
 }

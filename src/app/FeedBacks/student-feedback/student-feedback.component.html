@@ -55,11 +55,11 @@
                 اقل عدد احرف مسموح بها 3 احروف
               </small>
               <small *ngIf="Title.errors?.forbiddenName">
-                {{ Title.errors?.forbiddenName.value }} غير مسموح بيه
+                {{ Title.errors?.forbiddenName.value }} غير مسموح به
               </small>
             </div>
           </div>
-    
+    <!-- 
           <div class="form-group">
             <label>التقييم</label>
             <input
@@ -78,6 +78,20 @@
               </small>
             </div>
           </div>
+ -->
+          <div class="form-group">
+            <label>التقييم</label>
+
+            <input type="radio" name="stars" (change)="checkChanged(1,$event.target.checked)"value="1" > 1 
+            <input type="radio" name="stars" (change)="checkChanged(2,$event.target.checked)" value="2"> 2
+            <input type="radio" name="stars" (change)="checkChanged(3,$event.target.checked)" value="3"> 3
+            <input type="radio" name="stars" (change)="checkChanged(4,$event.target.checked)"  value="4"> 4
+            <input type="radio" name="stars" (change)="checkChanged(5,$event.target.checked)"  value="5"> 5
+             
+
+          </div>
+              <!-- <input type="radio" *ngFor="let c of counter(5); let i = index " name="stars" value="{{i}}" >  -->
+                   <!--    onchange="checkChanged(i,$event.target.checked)"> -->
     
           <input
             type="submit"

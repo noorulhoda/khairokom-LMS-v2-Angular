@@ -13,8 +13,8 @@ import { Iuser } from 'src/app/shared/Iuser';
 })
 export class MyCoursesComponent implements OnInit {
  
-  showTeachedCourses:Icourse[]=[]
-  showJoinedClasses:Iclass[]=[]
+  showTeachedCourses=[]
+  showJoinedClasses=[]
   teachedCourses=[]
   joinedClasses=[]
   userId=localStorage.getItem('currentUserId');

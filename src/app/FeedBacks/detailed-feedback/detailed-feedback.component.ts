@@ -22,11 +22,14 @@ courseFeedbacks=[];
      this.feedbackService.getAllFeedbacks().subscribe(
        data=>{this.feedbacks=data;
     this.feedbacks.forEach(element => {
-      if(element.courseId==this.courseId)
+      if(element.courseId==this.courseId&&element.feedbackedUserType=="Teacher")
         this.courseFeedbacks.push(element)
       });}
        ,er=>console.log(er)
      )
   }
-
+  counter(i: number) {
+    return new Array(i);
+  }
+  
 }

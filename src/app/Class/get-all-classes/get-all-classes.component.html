@@ -8,11 +8,11 @@
       </div>
     
       <div class="links">
-        <a class="text-decoration-none" href="/home"> الرئيسية </a>
+        <a class="text-decoration-none" routerLink="/home"> الرئيسية </a>
         <span> / </span>
-        <a class="text-decoration-none" href="/"> القسم </a> 
+        <a class="text-decoration-none" routerLink="/"> القسم </a> 
         <span> / </span>
-        <a class="text-decoration-none" href="/"> الدورة التدريبية </a>        
+        <a class="text-decoration-none" routerLink="/"> الدورة التدريبية </a>        
         <span>/ المجموعات </span>
       </div>
     </div>
@@ -22,12 +22,11 @@
      <div class="container">
       <div class="row d-flex justify-content-center align-items-center mt-5 mb-5" >
         <div  *ngFor="let class of classList">
-          <div class="content mt-5 mb-5 text-center">
-            <h3 class="card-title">رقم المجموعة: {{class.Number}}</h3>
-            <h6 class="card-subtitle mb-2 text-muted">اقل سن مسموح بيه للطلاب: {{class.StudentsMinAge}}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">اكبر سن مسموح بيه للطلاب: {{class.StudentsMaxAge}}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">الجنــــس: {{class.StudentGender}}</h6>                   
-            <a class="btn btn-primary"  routerLink="/getClassById/{{class._id}}">Show Details</a>                      
+          <div class="content mt-5 mb-5 text-center" style="cursor: pointer;"  routerLink="/getClassById/{{class._id}}">
+            <h3>رقم المجموعة: {{class.Number}}</h3>
+            <p class="">اقل سن مسموح بيه للطلاب: {{class.StudentsMinAge}}</p>
+            <p class="">اكبر سن مسموح بيه للطلاب: {{class.StudentsMaxAge}}</p>
+            <p class="">الجنــــس: {{class.StudentGender}}</p>
           </div>        
         </div>
       </div>

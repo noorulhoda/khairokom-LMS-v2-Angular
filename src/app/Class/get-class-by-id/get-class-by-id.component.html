@@ -1,112 +1,122 @@
 <app-header></app-header>
 
-<link
+<!-- <link
   href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
   rel="stylesheet"
   id="bootstrap-css"
 />
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <!------ Include the above in your HEAD tag ---------->
-<div class="container emp-profile">
-  <form method="post">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="profile-work"></div>
-      </div>
-      <div class="col-md-8">
-        <div class="tab-content profile-tab" id="myTabContent">
-          <div
-            class="tab-pane fade show active"
-            id="home"
-            role="tabpanel"
-            aria-labelledby="home-tab"
-          >
-            <div class="row">
-              <div class="col-md-6">
-                <label>رقـــم المجموعة</label>
-              </div>
-              <div class="col-md-6">
-                <p>{{ clas.Number }}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label>اقل سن مسموح بيه للطلاب</label>
-              </div>
-              <div class="col-md-6">
-                <p>{{ clas.StudentsMinAge }}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label>اكبر سن مسموح بيه للطلاب</label>
-              </div>
-              <div class="col-md-6">
-                <p>{{ clas.StudentsMaxAge }}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label>الجنــــس</label>
-              </div>
-              <div class="col-md-6">
-                <p>{{ clas.StudentGender }}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label>كلمة سر لرابط المجموعة</label>
-              </div>
-              <div class="col-md-6">
-                <p>{{ clas.ClassLinkPassword }}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label>تاريخ البداية</label>
-              </div>
-              <div class="col-md-6">
-                <p>{{ clas.StartDate | date:'short' }}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label>تاريخ النهاية </label>
-              </div>
-              <div class="col-md-6">
-                <p>{{ clas.EndDate | date:'short' }}</p>
-              </div>
-            </div>
-            <div class="row">
-             <a class="col-md-12 btn btn-success" href={{clas.ClassLink}}>ادخل إلى مجموعتك الآن</a>
-            </div>
-            <div class="row">
-              <h2 class="mt-5">الحلقــــــــات</h2>
-              <table class="table table-bordered table-hover mt-5 mb-5">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>رقـــم الحلقة</th>
-                    <th>بداية الحلقة</th>
-                    <th>نهايـــة الحلقة</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let classSession of classSessions; let i = index">
-                 
-                    <td>{{ classSession.sessionNumber }}</td>
-                    <td>{{ classSession.startTime|date:'short' }}</td>
-                    <td>{{ classSession.endTime|date:'short' }}</td>
-                  </tr>
-                </tbody>
-              </table>
+<div class="container-xxl">
 
-            </div>
-          </div>
-        </div>
+  <section class="banner d-flex justify-content-center align-items-center text-center">
+    <div class="content">
+      <div class="title">
+        <span>المجموعات</span>
+      </div>
+    
+      <div class="links">
+        <a class="text-decoration-none" routerLink="/home"> الرئيسية </a>
+        <span> / </span>
+        <a class="text-decoration-none" routerLink="/"> القسم </a> 
+        <span> / </span>
+        <a class="text-decoration-none" routerLink="/"> الدورة التدريبية </a>        
+        <span> / </span>
+        <a class="text-decoration-none" routerLink="/">المجموعات</a>
+        <span>/ {{ clas.Number }}</span>
       </div>
     </div>
-  </form>
+  </section>
+
+
+  <div class="container">
+    <form method="post">
+      <div class="content">                    
+              <div class="row">
+                <div class="col-md-6">
+                  <label>رقـــم المجموعة</label>
+                </div>
+                <div class="text col-md-6">
+                  <p>{{ clas.Number }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>اقل سن مسموح بيه للطلاب</label>
+                </div>
+                <div class="text col-md-6">
+                  <p>{{ clas.StudentsMinAge }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>اكبر سن مسموح بيه للطلاب</label>
+                </div>
+                <div class="text col-md-6">
+                  <p>{{ clas.StudentsMaxAge }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>الجنــــس</label>
+                </div>
+                <div class="text col-md-6">
+                  <p>{{ clas.StudentGender }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>كلمة سر لرابط المجموعة</label>
+                </div>
+                <div class="text col-md-6">
+                  <p>{{ clas.ClassLinkPassword }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>تاريخ البداية</label>
+                </div>
+                <div class="text col-md-6">
+                  <p>{{ clas.StartDate | date:'short' }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>تاريخ النهاية </label>
+                </div>
+                <div class="text col-md-6">
+                  <p>{{ clas.EndDate | date:'short' }}</p>
+                </div>
+              </div>
+              <div class="row">
+               <a class="btn btn-warning" href={{clas.ClassLink}}>ادخل إلى مجموعتك الآن</a>
+              </div>            
+      </div>
+    </form>
+  
+    <div class="session">
+      <h2> <i style="color: #757575;" class="fas fa-desktop"></i>&nbsp; الحلقــــــــات</h2>
+      <table class="table table-bordered table-hover mt-5 mb-5">
+        <thead class="thead-dark">
+          <tr>
+            <th>رقـــم الحلقة</th>
+            <th>بداية الحلقة</th>
+            <th>نهايـــة الحلقة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let classSession of classSessions; let i = index">
+         
+            <td>{{ classSession.sessionNumber }}</td>
+            <td>{{ classSession.startTime|date:'short' }}</td>
+            <td>{{ classSession.endTime|date:'short' }}</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
+  </div>
 </div>
 
 <app-footer></app-footer>

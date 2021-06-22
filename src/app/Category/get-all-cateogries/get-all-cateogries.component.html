@@ -15,14 +15,14 @@
   </div>
 </section>
 
-<section class="all-categories mt-5 mb-5">
-  <div class="container">    
-    <div class="row d-flex justify-content-center align-items-center mt-5 mb-5">      
+<section class="all-categories">
+  <div class="container-xxl">    
+    <div class="row d-flex justify-content-center align-items-center mb-5">      
       <div  *ngFor="let category of categoryList">
         <a class="content text-center" routerLink="/getCateogryById/{{category._id}}">
 
           <div class="image d-flex justify-content-center align-items-center">
-            <img class="" src="{{category.Image}}" alt="تحميل الصـــورة" width="320px" height="300px">
+            <img class="" src="{{category.Image}}" alt="تحميل الصـــورة" width="290px" height="300px">
           </div>
 
           <div class="title mt-4">

@@ -30,4 +30,26 @@ neededRole:string;
 
   }
 
+  sureDelete:Boolean=false;
+  deleteNew:Boolean=true;
+  deleteUser(id) {
+    if(this.deleteNew){
+      alert(" سوف تقوم بحذف هذا المستخدم إذا كنت متأكدا أغلق هذه النافذة واضغط مرة أخرى  على زر الحذف ")
+      this.sureDelete=true; 
+      this.deleteNew=false;
+     }
+
+else if(this.sureDelete){
+    this.userservice.deleteUser(id)
+      .subscribe(
+        data => {
+          console.log(data)
+        },
+        error => {
+          console.log("Error-_-" + error)
+        }
+      );
+      window.location.reload();
+  }
+}
 }

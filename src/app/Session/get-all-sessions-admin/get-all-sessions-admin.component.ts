@@ -9,7 +9,7 @@ import { Isession } from 'src/app/shared/Isession';
   styleUrls: ['./get-all-sessions-admin.component.scss']
 })
 export class GetAllSessionsAdminComponent implements OnInit {
-  sessionList:Isession[]=[];
+  sessionList = [];
   errorMsg:any;
   selectedID:any;
 
@@ -32,4 +32,15 @@ export class GetAllSessionsAdminComponent implements OnInit {
     );
   }
 
+  delete(id){
+    this.sessionService.DeleteSession(id)
+    .subscribe(
+      data => {
+        this.router.navigateByUrl("/home")
+      },
+      error => {
+        console.log("errooorrrrr-_-"+ error)
+      }
+    );  
+  }
 }

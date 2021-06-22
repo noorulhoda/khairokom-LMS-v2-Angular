@@ -12,12 +12,12 @@ import { Isession } from 'src/app/shared/Isession';
   styleUrls: ['./get-all-classes-admin.component.scss']
 })
 export class GetAllClassesAdminComponent implements OnInit {
-  clas:Iclass;
+  clas;
   course:Icourse;
   id:string='defaultID';
   errMsg='errroor';
   sessions:Isession[]=[];
-  classes: Iclass[] = [];
+  classes = [];
   classSessions=[];
   constructor(private classServices: classService,private sessionService:SessionService,private router:Router,private route:ActivatedRoute) {
     this.getClasses();

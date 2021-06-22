@@ -18,10 +18,8 @@
           <td>{{ role.type }}</td>
           <td></td>
           <td>
-            <a class="delete btn btn-secondary" (click)="delete(role._id)">الحـــذف</a>
-            <a class="update btn btn-success" routerLink="/updateRole/{{ role._id }}"
-              >التعـــديل</a
-            >            
+            <a class="update btn btn-success" routerLink="/updateRole/{{ role._id }}">التعـــديل</a>            
+            <a class="delete btn btn-secondary" (click)="delete(role._id)">الحـــذف</a>            
           </td>
         </tr>
       </tbody>

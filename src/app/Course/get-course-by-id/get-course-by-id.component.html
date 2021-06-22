@@ -75,46 +75,18 @@
                 <label class="title">التقييم</label>
               </div>
               <!-- (mouseover)="changeColor=true" (mouseout)="changeColor=false" -->
-              <div class="col-md-8" (mouseover)="changeColor=true" (mouseout)="changeColor=false">
-                <span class="favourit"><i class="far fa-star"></i></span>
-                <span class="favourit"><i class="far fa-star"></i></span>
-                <span class="favourit"><i class="far fa-star"></i></span>
-                <span class="favourit"><i class="far fa-star"></i></span>
-                <span class="favourit"><i class="far fa-star"></i></span>
-  
-                <span class="colored-favourit"><i class="fas fa-star"></i></span>
-                <span class="colored-favourit"><i class="fas fa-star"></i></span>
-                <span class="colored-favourit"><i class="fas fa-star"></i></span>
-                <span class="colored-favourit"><i class="fas fa-star"></i></span>
-                <span class="colored-favourit"><i class="fas fa-star"></i></span>
-                <!-- <p>{{courseCategoryTitle}}</p> -->
+              <div class="col-md-8" (mouseover)="changeColor=true" (mouseout)="changeColor=false">              
+                <i *ngFor='let in of counter(AbsCourseStars) ;let i = index' class="filledStar fas fa-star" ></i>
+                <i *ngFor='let in of counter(5-AbsCourseStars) ;let i = index' class="star fas fa-star" ></i>                
               </div>
             </div>
-            <!-- (mouseover)="changeColor=true" (mouseout)="changeColor=false" -->
-            <div class="col-md-6" (mouseover)="changeColor=true" (mouseout)="changeColor=false">
-              <!-- <span class="favourit"><i class="far fa-star"></i></span>
-              <span class="favourit"><i class="far fa-star"></i></span>
-              <span class="favourit"><i class="far fa-star"></i></span>
-              <span class="favourit"><i class="far fa-star"></i></span>
-              <span class="favourit"><i class="far fa-star"></i></span>
-
-              <span class="colored-favourit"><i class="fas fa-star"></i></span>
-              <span class="colored-favourit"><i class="fas fa-star"></i></span>
-              <span class="colored-favourit"><i class="fas fa-star"></i></span>
-              <span class="colored-favourit"><i class="fas fa-star"></i></span>
-              <span class="colored-favourit"><i class="fas fa-star"></i></span> -->
-              <i *ngFor='let in of counter(AbsCourseStars) ;let i = index' class="filledStar fas fa-star" ></i>
-              <i *ngFor='let in of counter(5-AbsCourseStars) ;let i = index' class="star fas fa-star" ></i>
-
-              <!-- <p>{{courseCategoryTitle}}</p> -->
-            </div>
-          </div>
-          <div class="row">
-            <h2 class="mt-5">المجموعات التى بها معلم/ة</h2>
-            <table class="table table-bordered table-hover mt-5 mb-5">
+            <!-- (mouseover)="changeColor=true" (mouseout)="changeColor=false" -->           
+            <div class="row">
+            <h2 class="">مجموعاتي كمعلم</h2>
+            <table class="table table-bordered table-hover">
               <thead class="thead-dark">
                 <tr>
-                  <th>رقـــم المجموعة</th>
+                  <th>اسم المجموعة</th>
                 </tr>
               </thead>
               <tbody>
@@ -125,12 +97,13 @@
             </table>
 
           </div>
+
           <div class="row">
-            <h2 class="mt-5">المجموعات التى بها طالب/ة</h2>
-            <table class="table table-bordered table-hover mt-5 mb-5">
+            <h2 class="">مجموعاتي كطالب</h2>
+            <table class="table table-bordered table-hover">
               <thead class="thead-dark">
                 <tr>
-                  <th>رقـــم المجموعة</th>
+                  <th>اسم المجموعة</th>
                 </tr>
               </thead>
               <tbody>
@@ -139,19 +112,22 @@
                 </tr>
               </tbody>
             </table>
-
           </div>
+
           <div class="">
             <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()" *ngIf="userName!='0000'">
               سجل كطالب
-            </button>
+            </button>&nbsp; &nbsp; &nbsp;
             <button class="btn btn-success" (click)="notifyWithNewWaitingTeacher()" *ngIf="userName!='0000'">
               درّس كمعلم
-            </button>
+            </button>&nbsp; &nbsp; &nbsp;
             <button class="btn btn-warning" routerLink="/detailedFeedback/{{courseId}}" *ngIf="userName!='0000'">
               للمزيد من التقييمـــات
-            </button> &nbsp; &nbsp; &nbsp;
+            </button> 
           </div>
+          </div>
+          
+
         </div>
       </div>
     </form>
@@ -175,10 +151,9 @@
         </div>
       </div>
     </div>
-  </div> 
 
-  <!-- <h3 class="mt-5">اترك تعليقاً</h3> -->
-  <form class="" [formGroup]="addCommentForm" enctype="multipart/form-data">
+    <!-- <h3 class="mt-5">اترك تعليقاً</h3> -->
+  <form class="buttons" [formGroup]="addCommentForm" enctype="multipart/form-data">
     <div class="form-group">
       <!-- <label>التعليق</label> -->
       <input formControlName="content" type="text" class="form-control write mt-4 mb-2" placeholder="اترك تعليقاً" />
@@ -186,11 +161,14 @@
 
     <input *ngIf="userName!='0000'"
       type="submit"
-      class="submit btn btn-light mb-2"
+      class="submit btn mb-5"
       value="أضف تعليقاً"
       (click)="AddComment()"
     />
   </form>
+  </div> 
+
+  
 </div>
 
 <app-footer></app-footer>

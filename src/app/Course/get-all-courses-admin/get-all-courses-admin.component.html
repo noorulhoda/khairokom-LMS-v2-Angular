@@ -6,7 +6,6 @@
     <table class="table table-bordered table-hover mt-5 mb-5">
       <thead class="thead-dark">
         <tr>
-          <th>رقم التسلسل</th>
           <th>اسم الدورة التدربية</th>
           <th>الوصـــف</th>
           <th>الصـــورة</th>
@@ -15,21 +14,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let course of courses; let i = index">
-          <td>{{ course._id }}</td>
+        <tr *ngFor="let course of courses; let i = index" style="cursor: pointer;" routerLink="/getCourseById/{{course._id}}">
           <td>{{ course.tittle }}</td>
           <td>{{ course.description }}</td>
           <td><img src="{course.image}" width="200px" height="auto" /></td>
           <td>{{ course.categoryID }}</td>
           <td>
+            <a class="update btn btn-light" routerLink="/updateCourse/{{ course._id }}">التعديــــل</a>
             <a class="delete btn btn-secondary" (click)="delete(course._id)"
-              >الحـــذف</a
-            >
-            <a
-              class="update btn btn-dark"
-              routerLink="/updateCourse/{{ course._id }}"
-              >التعديــــل</a
-            >
+              >الحـــذف</a>            
           </td>
         </tr>
       </tbody>

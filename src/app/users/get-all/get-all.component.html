@@ -2,7 +2,7 @@
 
 
 <div class="container">
-  <h2 class="mt-5">المستخدمين</h2>
+  <h2 class="mt-5">المستخدمون</h2>
   <div class="row d-flex justify-content-center align-items-center">
     <div>
       <span>حدد دورًا لإظهار المستخدمين بهذا الدور : </span>
@@ -32,11 +32,10 @@
             />
               <h5 class="mt-0 font-weight-bold mb-2">{{ p.userName }}</h5>
               <p class="font-italic text-muted mb-0 small">{{ p.email }}</p>
-              <div
-                class="d-flex align-items-center justify-content-between mt-1"
-              >
-                <h6 class="font-weight-bold my-2">usererID : {{ p.userId }}</h6>
+              <div class="d-flex align-items-center justify-content-between mt-1">
+                <h6 class="font-weight-bold my-2">usererID : {{ p._id }}</h6>
                 <a routerLink="/profile/{{ p._id }}">go to profile </a>
+                <button class="btn btn-dark" (click)="delete(p._id)">حذف</button>
               </div>
             </div>            
           </div>

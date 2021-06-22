@@ -8,6 +8,7 @@
         <tr>
           <th>رقــم الحلقة</th>          
           <th>الصورة</th>          
+          <th>العمليات</th>          
         </tr>
       </thead>
 
@@ -20,6 +21,10 @@
               src="{category.Image}"
               alt="تحميل الصورة"
             />
+          </td>
+          <td>            
+              <a class="update btn btn-warning" routerLink="/updateSession/{{ session._id }}">التعديــــل</a> &nbsp; &nbsp; &nbsp;
+              <a class="delete btn btn-secondary" (click)="delete(session._id)">الحـــذف</a>                                             
           </td>                    
         </tr>
       </tbody>

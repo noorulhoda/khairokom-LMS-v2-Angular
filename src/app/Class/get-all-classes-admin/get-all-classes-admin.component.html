@@ -1,43 +1,46 @@
 <app-dashboard-header></app-dashboard-header>
 
 <main>
-  <div class="container-xxl">
+  <div class="container">
     <h2 class="mt-5">المجموعـــــــــات</h2>
     <table class="table table-bordered table-hover mt-5 mb-5">
       <thead class="thead-dark">
         <tr>
-          <th>رقــم التسلسل</th>
+          <!-- <th>رقــم التسلسل</th> -->
           <th>رقـــم المجموعة</th>
           <th>اقل سن مسموح بيه للطلاب</th>
           <th>اكبر سن مسموح بيه للطلاب</th>
-          <th>الجنــــس</th>
+          <th>النوع</th>
           <th>رابط المجموعة</th>
           <th>كلمة سر لرابط المجموعة</th>
           <th>تاريخ البداية</th>
           <th>تاريخ النهاية</th>
           <th>اسم الدورة التدربية</th>
-          <th>اسم المعلم / المعلمة</th>
-          <th>الطلبة / الطالبات</th>
+          <th>اسم المعلم/ة</th>
+          <th>عدد الطلاب</th>
           <th>العمليــات</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let clas of classes; let i = index">
-          <td>{{ clas._id }}</td>
+        <tr *ngFor="let clas of classes; let i = index" style="cursor: pointer;" routerLink="/getClassById/{{clas._id}}">
+          <!-- <td>{{ clas._id }}</td> -->
           <td>{{ clas.Number }}</td>
           <td>{{ clas.StudentsMinAge }}</td>
           <td>{{ clas.StudentsMaxAge }}</td>
           <td>{{ clas.StudentGender }}</td>
-          <td>{{ clas.ClassLink }}</td>
+          <td>
+            <a class="btn btn-warning" href="{{ clas.ClassLink }}">الدخول</a>
+          </td>
           <td>{{ clas.ClassLinkPassword }}</td>
-          <td>{{ clas.StartDate }}</td>
-          <td>{{ clas.EndDate }}</td>
+          <td>{{ clas.StartDate | date:'shortDate' }}</td>
+          <td>{{ clas.EndDate | date:'shortDate'  }}</td>
           <td>{{ clas.CourseId }}</td>
           <td>{{ clas.TeacherId }}</td>
           <td>الطلاب</td>
           <td>
+            <a class="update btn btn-light" routerLink="/updateClass">التعـــديل</a>
             <a class="delete btn btn-secondary" (click)="delete(clas._id)">الحـــذف</a>
-            <a class="update btn btn-success" routerLink="/updateClass">التعـــديل</a>
+            
           </td>
         </tr>
       </tbody>

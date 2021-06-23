@@ -9,9 +9,13 @@ import { Icategory } from 'src/app/shared/Icategory';
   styleUrls: ['./get-all-cateogries.component.scss']
 })
 export class GetAllCateogriesComponent implements OnInit {
+
+  searchedTitle;
   categoryList:Icategory[]=[];
   errorMsg:any;
   selectedID:any;
+  selectedCategory=[];
+  renderCategories=[];
   constructor(private categoryServices:categoryService,private router:Router,private activeRouter:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -19,6 +23,7 @@ export class GetAllCateogriesComponent implements OnInit {
       Data=>
       {
         this.categoryList=Data;
+        this.renderCategories=this.categoryList
       },
       errorResponse=>
       {
@@ -29,6 +34,20 @@ export class GetAllCateogriesComponent implements OnInit {
     this.selectedID=params.get('id')
     );
   }
-
+  searchByCategoryTitle(value) 
+  {
+    this.searchedTitle = value;
+    console.log(this.searchedTitle)
+    this.categoryList.forEach(element=>
+    {
+      if(element.Title.includes(this.searchedTitle))
+      {
+        this.selectedCategory.push(element)
+      }
+    })
+     console.log(this.selectedCategory)
+     this.renderCategories=this.selectedCategory
+     this.selectedCategory=[];
+   }
 
 }

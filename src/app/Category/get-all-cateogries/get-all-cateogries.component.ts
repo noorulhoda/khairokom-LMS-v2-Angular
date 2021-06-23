@@ -10,11 +10,12 @@ import { Icategory } from 'src/app/shared/Icategory';
 })
 export class GetAllCateogriesComponent implements OnInit {
 
-  serverName;
+  searchedTitle;
   categoryList:Icategory[]=[];
   errorMsg:any;
   selectedID:any;
-  selectedCategory=[]
+  selectedCategory=[];
+  renderCategories=[];
   constructor(private categoryServices:categoryService,private router:Router,private activeRouter:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class GetAllCateogriesComponent implements OnInit {
       Data=>
       {
         this.categoryList=Data;
+        this.renderCategories=this.categoryList
       },
       errorResponse=>
       {
@@ -34,18 +36,18 @@ export class GetAllCateogriesComponent implements OnInit {
   }
   searchByCategoryTitle(value) 
   {
-    this.serverName = value;
-    console.log(this.serverName)
+    this.searchedTitle = value;
+    console.log(this.searchedTitle)
     this.categoryList.forEach(element=>
     {
-      if(element.Title.includes(this.serverName))
+      if(element.Title.includes(this.searchedTitle))
       {
         this.selectedCategory.push(element)
       }
     })
      console.log(this.selectedCategory)
-     this.categoryList=this.selectedCategory
-    // this.selectedCategory=[];
+     this.renderCategories=this.selectedCategory
+     this.selectedCategory=[];
    }
 
 }

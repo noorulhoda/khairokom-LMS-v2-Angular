@@ -11,17 +11,22 @@ import { categoryService } from 'src/app/services/category.service';
   styleUrls: ['./get-all-courses.component.scss']
 })
 export class GetAllCoursesComponent implements OnInit {
-  serverName;
-  categoriesTitle:Icategory[]=[];
+  searchedTitle;
+  categoriesTitle=[];
   courses: Icourse[] = [];
   selectedCourses=[];
+  renderCourses=[];
+  neededCategory:string;
+  showAll:boolean;
   constructor(private categoryServices:categoryService ,private courseService:courseService,private route:ActivatedRoute,private router:Router,private categoryService: categoryService) 
   { }
 
   ngOnInit(): void {
+    this.showAll=true;
     this.courseService.GetAllCourses().subscribe(
       data => {
         this.courses = data
+        this.renderCourses=this.courses
         console.log(this.courses)
         this.courses.forEach(element=>{
           this.categoryServices.getCategoryById(element.categoryID).subscribe(
@@ -38,21 +43,24 @@ export class GetAllCoursesComponent implements OnInit {
      );
  
   }
-
+  changeShowAll()
+  {
+    this.showAll=false;
+  }
   searchByCouresTitle(value) 
   {
-    this.serverName = value;
-    console.log(this.serverName)
+    this.searchedTitle = value;
+    console.log(this.searchedTitle)
     this.courses.forEach(element=>
     {
-      if(element.tittle.includes(this.serverName))
+      if(element.tittle.includes(this.searchedTitle))
       {
         this.selectedCourses.push(element)
       }
     })
      console.log(this.selectedCourses)
-     this.courses=this.selectedCourses
-    // this.selectedCourses=[];
+     this.renderCourses=this.selectedCourses
+     this.selectedCourses=[];
    }
 }
 

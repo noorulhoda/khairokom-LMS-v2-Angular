@@ -1,51 +1,79 @@
 <app-dashboard-header></app-dashboard-header>
 
-<div>
-  <span>
-    <h3>تفاصيل الدورة التدريبية</h3>
-    <span class="card" style="width: 400px">
-      <img class="card-img-top" src="" alt="Card image" style="width: 100%" />
-      <div class="card-body">
-        <h4>{{ course.tittle }}</h4>
-        <p>{{ notification.courseId }}</p>
-        <!--   <p>{{category.Title}}</p> -->
-        <p>classes</p>
-        <!-- table 7col + input -->
-        <ul *ngFor="let class of courseClasses">
-          <li>
-            <input
-              (change)="onCheckingChange(class._id)"
-              type="checkbox"
-              value="class._id"
-            />
-            {{ class.Number }}
-            <b>studentsNumber :</b> {{ class.Students.length }} from :
-            {{ class.StudentsMinAge }} To: {{ class.StudentsMaxAge }} Gender:
-            {{ class.StudentGender }}
-          </li>
-        </ul>
+<div class="container-xxl">
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="course-details col-md-8 d-flex justify-content-center align-items-center">
+          <span class="mt-5 mb-5">
+            <h3>تفاصيل الدورة التدريبية</h3>
+            <span class="card">
+              <img class="card-img-top" src="" alt="Card image" style="width: 100%" />
+              <div class="card-body">
+                <h4>{{ course.tittle }}</h4>
+                <p>{{ notification.courseId }}</p>
+                <!--   <p>{{category.Title}}</p> -->
+                <p>classes</p>                
+                <table class="table table-hover">
+                  <thead class="thead-dark">
+                      <tr>
+                          <th>اختر المجموعة</th>
+                          <th>رقم المجموعة</th>
+                          <th>عدد الطلاب </th>
+                          <th>أقل عمر للطالب</th>
+                          <th>أكبر عمر للطالب</th>
+                          <th>النوع</th>                          
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let class of courseClasses">
+                          <td>
+                            <input
+                      (change)="onCheckingChange(class._id)"
+                      type="checkbox"
+                      value="class._id"
+                    />
+                          </td>
+                          <td>{{ class.Number }}</td>
+                          <td>{{ class.Students.length }}</td>
+                          <td>{{ class.StudentsMinAge }}</td>
+                          <td>{{ class.StudentsMaxAge }}</td>
+                          <td>{{ class.StudentGender }}</td>                          
+                      </tr>
+                  </tbody>
+              </table>                
+              </div>
+            </span>
+          </span>
+          </div>
+
+          <div class="col-md-4 d-flex justify-content-center align-items-center">
+          <span class="mt-5 mb-5">
+            <h3>تفاصيل الطالب</h3>
+            <span class="card">
+              <img class="card-img-top" src="" alt="Card image" style="width: 100%" />
+              <div class="card-body">
+                <h4>اسم الطالب/ة: &nbsp; &nbsp; {{ student.userName }}</h4>
+                <p> البريـــــد الالكترونى: &nbsp; &nbsp; {{ student.email }}</p>
+                <p>رقم التليفون: &nbsp; &nbsp; {{ student.phone }}</p>
+                <p>النوع: &nbsp; &nbsp; {{ student.gender }}</p>
+                <p>العمر: &nbsp; &nbsp; {{ studentAge }}</p>
+                <p>الدولة: &nbsp; &nbsp; {{ student.country }}</p>
+              </div>
+            </span>
+          </span>
+        </div>
       </div>
-    </span>
-  </span>
-  <span>
-    <h3>تفاصيل الطالب</h3>
-    <span class="card" style="width: 400px">
-      <img class="card-img-top" src="" alt="Card image" style="width: 100%" />
-      <div class="card-body">
-        <h4>{{ student.userName }} :اسم الطالب/ة</h4>
-        <p>{{ student.email }} : البريـــــد الالكترونى</p>
-        <p>{{ student.phone }} : رقم التليفون</p>
-        <p>{{ student.gender }} : الجنـــس</p>
-        <p>{{ studentAge }}: العمر</p>
-        <p>{{ student.country }}: الدولة</p>
-      </div>
-    </span>
-  </span>
-</div>
-<div>
-  <button class="btn btn-success" (click)="addStudentToClass()">
-    إضافة الطالب للمجموعة
-  </button>
+    </div>
+  </section>
+  
+  <div class="pb-5 pt-5">
+    <div class="container d-flex justify-content-center align-items-center">
+      <button class="btn btn-warning" (click)="addStudentToClass()">
+        إضافة الطالب للمجموعة
+      </button>
+    </div>
+  </div>
 </div>
 
 <app-dashboard-footer></app-dashboard-footer>

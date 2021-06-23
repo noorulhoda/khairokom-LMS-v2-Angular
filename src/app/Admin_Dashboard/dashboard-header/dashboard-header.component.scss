@@ -70,11 +70,8 @@
 .navbar .notification .dropdown-menu {
     height: 500px;
     width: 350px;
-    overflow: hidden; 
+    overflow-y: scroll;    
     font-size: 18px;
-}
-.navbar .notification .dropdown-menu:hover{
-    overflow-y: scroll;
 }
 .navbar .notification .dropdown-menu::-webkit-scrollbar{
     width: 10px;

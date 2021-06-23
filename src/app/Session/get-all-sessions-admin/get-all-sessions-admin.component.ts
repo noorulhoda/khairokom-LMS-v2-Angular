@@ -32,15 +32,26 @@ export class GetAllSessionsAdminComponent implements OnInit {
     );
   }
 
-  delete(id){
-    this.sessionService.DeleteSession(id)
-    .subscribe(
-      data => {
-        this.router.navigateByUrl("/home")
-      },
-      error => {
-        console.log("errooorrrrr-_-"+ error)
-      }
-    );  
+  sureDelete:Boolean=false;
+  deleteNew:Boolean=true;
+  delete(id) {
+    if(this.deleteNew){
+      alert(" سوف تقوم بحذف الحلقة إذا كنت متأكدا أغلق هذه النافذة واضغط مرة أخرى  على زر الحذف ")
+      this.sureDelete=true; 
+      this.deleteNew=false;
+     }
+     else if(this.sureDelete){
+
+      this.sessionService.DeleteSession(id).subscribe(
+        data => {
+          console.log(data);
+        },
+        error => {
+          console.log("Error-_-" + error)
+        }
+      );
+      window.location.reload();
   }
+  }
+  
 }

@@ -28,17 +28,27 @@ export class GetAllRolesComponent implements OnInit {
       }
     );
   }
+
+  sureDelete:Boolean=false;
+  deleteNew:Boolean=true;
   delete(id) {
-    this.roleServices.deleteRole(id)
-      .subscribe(
+    if(this.deleteNew){
+      alert(" سوف تقوم بحذف الصلاحية إذا كنت متأكدا أغلق هذه النافذة واضغط مرة أخرى  على زر الحذف ")
+      this.sureDelete=true; 
+      this.deleteNew=false;
+     }
+     else if(this.sureDelete){
+
+      this.roleServices.deleteRole(id).subscribe(
         data => {
-          this.router.navigateByUrl("")
+          console.log(data);
         },
         error => {
           console.log("Error-_-" + error)
         }
       );
+      window.location.reload();
   }
-
+  }
 }
 

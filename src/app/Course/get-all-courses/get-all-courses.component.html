@@ -44,6 +44,12 @@
     
     <section class="courses mt-5 mb-5">
         <div class="container">
+            <div class="group">
+              <form>
+                <input type="text" class="form-control"  #myInput>
+                <button (click)="OnInput(myInput.value)">ابحـــث</button>
+              </form>
+            </div>
            <div class="group" *ngFor="let course of courses;let i= index">
 
             <a class="course row mt-5" routerLink="/getCourseById/{{course._id}}">

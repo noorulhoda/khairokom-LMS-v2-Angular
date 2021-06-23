@@ -58,8 +58,8 @@ registerError="......";//error in duplicate userName or email(how can i get it f
 
 
   registerForm=this.fb.group({
-    firstName:['',[Validators.required,Validators.minLength(5)]],
-    lastName:['',[Validators.required,Validators.minLength(5)]],
+    firstName:['',[Validators.required,Validators.minLength(2)]],
+    lastName:['',[Validators.required,Validators.minLength(3)]],
     userName:['',[Validators.required,Validators.minLength(5)]],
     password:['',[Validators.required,Validators.minLength(8)]],
     confirmPassword:['',[Validators.required]],

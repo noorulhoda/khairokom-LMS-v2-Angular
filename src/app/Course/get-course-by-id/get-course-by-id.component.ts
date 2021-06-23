@@ -23,19 +23,20 @@ export class GetCourseByIDComponent implements OnInit {
 
   changeColor : boolean = false;
   user;
-  userId=localStorage.getItem('currentUserId');
-  userName=localStorage.getItem('currentUserName')
+  userId
+  userName
+  userIsAdmin
   courseId: string;
   classes=[];
   studnentCourseClasses=[];
   studentClasses: any;
   currentUserClasses=[];
   teacherCourseClasses=[];
-  clas:Iclass[];
+  clas;
   courseStars=0;
   AbsCourseStars=0;
-   feedbacks=[];
-   feedbacksAsCousre=[];
+  feedbacks=[];
+  feedbacksAsCousre=[];
 
   constructor(private feedbackService:feedbackService,
     private cs: courseService,
@@ -50,11 +51,17 @@ export class GetCourseByIDComponent implements OnInit {
     this.route.params.subscribe(params => {
       console.log(params)
       this.courseId = params['id']
-      console.log('id : ' + (this.courseId));      
+      console.log('id : ' + (this.courseId));   
+
     });
 
     this.cs.getCourseById(this.courseId).subscribe(
       data => {
+        this.userId=localStorage.getItem('currentUserId');
+        this.userName=localStorage.getItem('currentUserName')
+        if(localStorage.getItem('isAdmin')=="true")this.userIsAdmin=true;else if(localStorage.getItem('isAdmin')=="false") this.userIsAdmin=false
+        console.log(this.userId+this.userIsAdmin)
+        console.log("***********************************************************************")
         console.log(data)
         this.course = data[0];
         this.categoryService.getCategoryById(data[0]['categoryID']).subscribe(
@@ -256,6 +263,10 @@ notifyWithNewWaitingTeacher(){
 }
 counter(i: number) {
   return new Array(i);
+}
+
+deleteComment(id){
+this.commentService.DeleteComment(id).subscribe(data=>{},er=>{})
 }
 
 }

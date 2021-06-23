@@ -146,21 +146,21 @@
         <div class="email">
           <p>{{ user.email }}</p>
         </div>
-        <div class="birthdate">
+        <div class="birthdate" *ngIf="visitorUserId==user._id">
           <p>{{ user.birthDate | date :'shortDate'}}</p>
         </div>
         <div class="country">
           <p>{{ user.country }}</p>
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center" *ngIf="visitorUserId==user._id">
           <a class="btn btn-warning" routerLink="/updateUser/{{ id }}">تعديل حسابي</a>
           <a class="btn btn-primary" (click)="delete()">حذف الحساب</a>
       </div>
       </div>
 
-      <div class="edu col-md-9 mt-5 mb-5">
-        <div class="courses" routerLink="/myCourses/{{id}}" style="cursor:pointer">
-          <h2 class="title"> <i class="fas fa-chalkboard-teacher"></i> &nbsp; دوراتي التدريبية</h2>
+      <div class="edu col-md-9 mt-5 mb-5" >
+        <div class="courses" routerLink="/myCourses/{{id}}" *ngIf="visitorUserId==user._id" style="cursor:pointer">
+          <h2 class="title"> <i class="fas fa-chalkboard-teacher" ></i> &nbsp; دوراتي التدريبية</h2>
         </div>
 
    <!--      <div class="favourit mt-4">
@@ -168,14 +168,14 @@
         </div>
     -->
         <div class="rate mt-4">
-          <h2 class="title"> <i class="far fa-star"></i> &nbsp; تقييمك كمعلم</h2>
+          <h2 class="title"> <i class="far fa-star"></i> &nbsp; التقييم كمعلم</h2>
           <div class="stars text-center" *ngIf="thereIsFeedbackAsTeacher">
           <i *ngFor='let in of counter(AbsTeacherStars) ;let i = index' class="filledStar fas fa-star" ></i>
            <i *ngFor='let in of counter(5-AbsTeacherStars) ;let i = index' class="star fas fa-star" ></i>
           </div>
         </div>
 
-        <div class="certificate mt-4">
+        <div class="certificate mt-4" *ngIf="visitorUserId==user._id">
           <h2 class="title"> <i class="fas fa-medal"></i> &nbsp; أوسمتك فى رحلة طلبك للعلم</h2>
           <div class="text-center"  *ngIf="thereIsFeedbackAsStudent">
             <i *ngFor="let f of feedbacksAsStudent"

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { classService } from 'src/app/services/class.service';
 import { SessionService } from 'src/app/services/session.service';
+import { UsersService } from 'src/app/services/users.service';
 import { Iclass } from 'src/app/shared/Iclass';
 import { Isession } from 'src/app/shared/Isession';
 
@@ -11,9 +12,10 @@ import { Isession } from 'src/app/shared/Isession';
   styleUrls: ['./get-class-by-id.component.scss']
 })
 export class GetClassByIDComponent implements OnInit {
+  teacher: any;
 
-  constructor(private sessionService:SessionService,private cs:classService,private route:ActivatedRoute,private router:Router) { }
-  clas:Iclass;
+  constructor(private userService:UsersService,private sessionService:SessionService,private cs:classService,private route:ActivatedRoute,private router:Router) { }
+  clas;
   id:String='defaultID';
   errMsg='errroor';
   sessions:Isession[]=[]
@@ -25,13 +27,17 @@ export class GetClassByIDComponent implements OnInit {
      this.id=params['id'] 
      console.log('id : '+(this.id));
     });
- 
+    
     this.cs.getClassById(this.id.toString()).subscribe(
      
         data => {
           this.clas= data[0]; 
           console.log(this.id);
           console.log(this.clas);
+          this.userService.getUserById(this.clas.TeacherId).subscribe(
+            data=>this.teacher=data[0],
+            er=>console.log(er)
+          )
           this.sessionService.GetAllSessions().subscribe(
             data=>{
                 this.sessions=data;

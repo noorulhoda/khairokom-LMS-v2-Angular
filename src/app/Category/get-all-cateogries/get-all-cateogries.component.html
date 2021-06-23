@@ -17,7 +17,14 @@
 
 <section class="all-categories">
   <div class="container-xxl">    
-    <div class="row d-flex justify-content-center align-items-center mb-5">      
+    <div class="row d-flex justify-content-center align-items-center mb-5">  
+      <div class="group">
+        <form>
+          <input type="text" class="form-control" placeholder="ابحث عن اسم القســـم " #myInput>
+          <br>
+          <button (click)="searchByCategoryTitle(myInput.value)">ابحـــث</button>
+        </form>
+      </div>    
       <div  *ngFor="let category of categoryList">
         <a class="content text-center" routerLink="/getCategoryById/{{category._id}}">
 

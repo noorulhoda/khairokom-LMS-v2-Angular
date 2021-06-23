@@ -26,8 +26,8 @@
       <div class="row">
         <div class="col-md-4">
           <div class="profile-work d-flex justify-content-center align-items-center">          
-            <!-- {{ course.image }} -->
-              <img class="img-fluid" src="https://image.freepik.com/vector-gratis/nina-envia-mensajes-telefono-inteligente_102172-505.jpg" alt="تحميل الصورة" />          
+ 
+              <img class="img-fluid" src="http://localhost:8888/files/{{course.image}}" alt="تحميل الصورة" />          
           </div>
         </div>
         <div class="col-md-8 d-flex justify-content-center align-items-center">
@@ -135,7 +135,7 @@
     
   
     <h2 class="font-weight-bold"> <i style="color: #757575;" class="far fa-comments"></i>&nbsp; التعليقات</h2>
-    <div class="comments mt-4">
+    <div class="comments mt-4 mb-4">
       <div class="row" *ngFor="let comment of courseComments">     
         <div class="comment-image col-md-1 d-flex justify-content-center align-items-center">
           <img class="img-fluid" src="https://www.materialui.co/materialIcons/action/account_circle_grey_192x192.png" width="50px">
@@ -153,13 +153,13 @@
     </div>
 
     <!-- <h3 class="mt-5">اترك تعليقاً</h3> -->
-  <form class="buttons" [formGroup]="addCommentForm" enctype="multipart/form-data">
+  <form  *ngIf="userName!='0000'" class="buttons" [formGroup]="addCommentForm" enctype="multipart/form-data">
     <div class="form-group">
       <!-- <label>التعليق</label> -->
       <input formControlName="content" type="text" class="form-control write mt-4 mb-2" placeholder="اترك تعليقاً" />
     </div>
 
-    <input *ngIf="userName!='0000'"
+    <input
       type="submit"
       class="submit btn mb-5"
       value="أضف تعليقاً"

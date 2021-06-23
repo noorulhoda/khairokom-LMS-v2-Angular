@@ -57,6 +57,7 @@ loadApiData()
  
   })
   this.fileName=this.category.Image;
+  
 }
 
 ngOnInit(): void 

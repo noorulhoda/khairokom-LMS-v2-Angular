@@ -139,7 +139,7 @@
                   <label class="btn btn-default">
                     <input type="file" (change)="chooseFile($event)" />
                   </label>
-                  <img src="https://khairokomuploadfiles.azurewebsites.net/files/{{fileName}}" height="200px" width="200px">
+                  <img src="http://localhost:8888/files/{{fileName}}" height="200px" width="200px">
                   <button class="upload btn btn-primary" [disabled]="!chosenFiles" (click)="upload()">
                     تحميل الصورة
                   </button>

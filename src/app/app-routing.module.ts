@@ -6,7 +6,7 @@ import{HomeComponent} from './home/home.component';
 
 import {AddCateogryComponent} from './Category/add-cateogry/add-cateogry.component';
 import {GetAllCateogriesComponent} from './Category/get-all-cateogries/get-all-cateogries.component';
-import {GetCateogryByIDComponent} from './Category/get-cateogry-by-id/get-cateogry-by-id.component';
+import {getCategoryByIdComponent} from './Category/get-cateogry-by-id/get-cateogry-by-id.component';
 import {UpdateCategoryComponent} from './Category/update-category/update-category.component';
 import {GetAllCategoriesAdminComponent} from './Category/get-all-categories-admin/get-all-categories-admin.component'
 
@@ -67,7 +67,7 @@ const routes: Routes = [
   
   {path:'addCategory',component:AddCateogryComponent},
   {path:'getAllCategories',component:GetAllCateogriesComponent},
-  {path:'getCateogryById/:id',component:GetCateogryByIDComponent},
+  {path:'getCategoryById/:id',component:getCategoryByIdComponent},
   {path:'updateCategory/:id',component:UpdateCategoryComponent},
   {path:'getAllCategoriesAdmin',component:GetAllCategoriesAdminComponent},
 

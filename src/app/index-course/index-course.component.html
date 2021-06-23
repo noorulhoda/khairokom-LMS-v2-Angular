@@ -1,17 +1,19 @@
 <div class="course row justify-content-center align-items-center">
 
-  <a class="content text-center mt-4" href="#" *ngFor="let courseList of coursesList">    
+  <a class="content text-center mt-4" href="#" *ngFor="let course of coursesList" routerLink="/getCourseById/{{course._id}}">    
       <div class="photo d-flex justify-content-center align-items-center">      
-        <img class="img-fluid" src="https://i.pinimg.com/564x/7d/77/3f/7d773fd6b1b6fd4fc6d56de96e864716.jpg" alt="" width="330px">
+        <img class="img-fluid" src="http://localhost:8888/files/{{course.image}}" alt="" width="330px">
         <!-- <div class="frame d-flex justify-content-center align-items-center">
           <i class="far fa-check-circle"></i>          
         </div>      -->
       </div>
       <div class="title">
-        <h3 class="mt-5">{{courseList.tittle}}</h3>
+        <h3 class="mt-5">{{course.tittle}}</h3>
       </div>
-      <p>{{courseList.description}}</p>    
-  </a>      
+<!--       <p >{{courseList.description}}</p>    
+ -->  </a>      
+  
+
   
   <!-- <a class="content text-center mt-4" href="#">    
       <div class="photo d-flex justify-content-center align-items-center">  

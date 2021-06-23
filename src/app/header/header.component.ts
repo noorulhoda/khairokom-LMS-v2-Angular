@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { notificationService } from 'src/app/services/notification.service';
 import { Inotification } from 'src/app/shared/Inotification';
 import { ViewportScroller } from '@angular/common';
+import { RolesService } from '../services/roles.service';
 
 @Component({
   selector: 'app-header',
@@ -21,9 +22,11 @@ export class HeaderComponent implements OnInit{
   userNotifications:Inotification[]=[];
   unReadNotifications=0;
   isAdmin=false
-  constructor(private notificationService:notificationService,private router:Router,private userService:UsersService, private _vps: ViewportScroller) { 
+  adminRoleId;
+  constructor(private roleService:RolesService,private notificationService:notificationService,private router:Router,private userService:UsersService, private _vps: ViewportScroller) { 
+
     this.userService.findByUserName(this.userName).subscribe(
-   
+     
       data => {this.user= data[0]; this.userId=data[0]['_id']
                
     this.notificationService.getAllNotifications().subscribe(
@@ -52,7 +55,7 @@ export class HeaderComponent implements OnInit{
   }
 
 checkIfAdmin():void{
-     if(this.currentUser.roles.includes("60b2b84a865a7e0ac79fdb84")){
+     if(this.currentUser.roles.includes(this.adminRoleId)){
         localStorage.setItem("isAdmin","true")
         this.isAdmin=true
         console.log(this.isAdmin)
@@ -68,6 +71,8 @@ checkIfAdmin():void{
     this.currentUserName="0000"
     localStorage.setItem('currentUserId',"0000")
     console.log('logouted successfully')
+    localStorage.setItem('isAdmin',"false")
+    this.isAdmin=false
 
   }
   currentUserName;
@@ -79,10 +84,19 @@ checkIfAdmin():void{
     this.userService.findByUserName(this.currentUserName).subscribe(
       data => {
         console.log(data)
-        this.currentUser= data;this.currentUserRoles=this.currentUser.roles;
+        this.currentUser= data[0];
+        this.currentUserRoles=this.currentUser.roles;
         localStorage.setItem('currentUserId',this.userId)
           console.log(this.isAdmin)
-       this.checkIfAdmin()
+          this.roleService.findByRoleType("Admin").subscribe(
+            data=>{this.adminRoleId=data[0]['_id'];
+            console.log(data)
+
+            this.checkIfAdmin()
+          }
+            ,er=>console.log(er)
+          )
+ 
         },
       er => console.log('error happened in determine user') ,
     )}

@@ -9,8 +9,8 @@ import { Icourse } from '../shared/Icourse';
 })
 export class IndexCourseComponent implements OnInit {
 
-  courseList:Icourse[]=[];
-  coursesList:Icourse[]=[];
+  courseList=[];
+  coursesList=[];
   errorMsg:any;
   counter=0;
   constructor(private courseServices:courseService ) { }

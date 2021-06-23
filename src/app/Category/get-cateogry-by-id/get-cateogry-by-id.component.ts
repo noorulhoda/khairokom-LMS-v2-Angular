@@ -10,7 +10,7 @@ import { Icourse } from 'src/app/shared/Icourse';
   templateUrl: './get-cateogry-by-id.component.html',
   styleUrls: ['./get-cateogry-by-id.component.scss']
 })
-export class GetCateogryByIDComponent implements OnInit {
+export class getCategoryByIdComponent implements OnInit {
 
   constructor(private courseService:courseService, private categoryService:categoryService,private route:ActivatedRoute) { }
   category:Icategory;
@@ -42,7 +42,9 @@ export class GetCateogryByIDComponent implements OnInit {
                   this.categoryCourses.push(element);
                 }
               });
-            },
+              console.log("********************")
+              console.log(this.categoryCourses)  
+                      },
             er=>{
               console.log(er);
             }

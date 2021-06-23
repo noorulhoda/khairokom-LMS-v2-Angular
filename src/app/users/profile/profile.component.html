@@ -29,7 +29,7 @@
       <div class="col-md-4">
         <div class="profile-img">
           <img
-            src="https://khairokomuploadfiles.azurewebsites.net/files/{{
+            src="http://localhost:8888/files/{{
               user.img
             }}"
             alt=""
@@ -138,7 +138,7 @@
     <div class="row">
       <div class="col-md-3 mt-5 mb-5 text-center">
         <div class="profile-img">
-          <img class="img-fluid" src="https://i.pinimg.com/564x/cb/16/2f/cb162f6ecc6de1c8c52c66c64a569b70.jpg" alt="صورة الحساب"/>
+          <img class="img-fluid rounded-circle" src="http://localhost:8888/files/{{user.img}}" alt="صورة الحساب"/>
         </div>
         <div class="user-name">
           <h3>{{ user.userName }}</h3>
@@ -161,33 +161,34 @@
       <div class="edu col-md-9 mt-5 mb-5">
         <div class="courses" routerLink="/myCourses/{{id}}" style="cursor:pointer">
           <h2 class="title"> <i class="fas fa-chalkboard-teacher"></i> &nbsp; دوراتي التدريبية</h2>
-        <!--   <app-my-courses></app-my-courses> -->
         </div>
-
 
    <!--      <div class="favourit mt-4">
           <h2 class="title"> <i class="far fa-bookmark"></i> &nbsp; المفضلة</h2>
         </div>
- -->
+    -->
         <div class="rate mt-4">
           <h2 class="title"> <i class="far fa-star"></i> &nbsp; تقييمك كمعلم</h2>
-          <div class="stars text-center">
-        
-           <i *ngFor='let in of counter(AbsTeacherStars) ;let i = index' class="filledStar fas fa-star" ></i>
+          <div class="stars text-center" *ngIf="thereIsFeedbackAsTeacher">
+          <i *ngFor='let in of counter(AbsTeacherStars) ;let i = index' class="filledStar fas fa-star" ></i>
            <i *ngFor='let in of counter(5-AbsTeacherStars) ;let i = index' class="star fas fa-star" ></i>
-
-            <!-- <i class="star fas fa-star" id="star3"></i>
-            <i class="star fas fa-star" id="star4"></i>
-            <i class="star fas fa-star" id="star5"></i>  -->
           </div>
         </div>
 
         <div class="certificate mt-4">
           <h2 class="title"> <i class="fas fa-medal"></i> &nbsp; أوسمتك فى رحلة طلبك للعلم</h2>
-          <div class="text-center">
-            <i class="bronze fas fa-medal"></i>            
-            <i class="silver fas fa-medal"></i>
-            <i class="gold fas fa-medal"></i>
+          <div class="text-center"  *ngIf="thereIsFeedbackAsStudent">
+            <i *ngFor="let f of feedbacksAsStudent"
+             [ngClass]="{'gold':f.starsNumber==5,
+                          'silver':f.starsNumber==4||f.starsNumber==3,
+                          'bronze':f.starsNumber==2||f.starsNumber==1}" 
+            class=" fas fa-medal"
+            data-toggle="tooltip"
+            title="{{f.message}}  {{hoveredFeedbackClassNumber}}"
+            (mouseenter)="getClassNumber(f._id)"
+            ></i>        
+           
+          
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { classService } from 'src/app/services/class.service';
 import { feedbackService } from 'src/app/services/feedback.service';
 import { UsersService } from '../../services/users.service';
 import{Iuser} from '../../shared/Iuser'
@@ -9,7 +10,12 @@ import{Iuser} from '../../shared/Iuser'
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-   constructor(private feedbackService:feedbackService ,private userservice:UsersService,private route:ActivatedRoute,private router:Router) {}
+  hoveredFeedbackClassNumber: any;
+   constructor(private feedbackService:feedbackService ,
+    private userservice:UsersService,
+    private route:ActivatedRoute,
+    private classService:classService,
+    private router:Router) {}
    user:Iuser;
    id:string='defaultID';
    errMsg='errroor';
@@ -17,6 +23,9 @@ export class ProfileComponent implements OnInit {
    AbsTeacherStars=0;
    feedbacks=[];
    feedbacksAsTeacher=[];
+   feedbacksAsStudent=[];
+   thereIsFeedbackAsTeacher:Boolean
+   thereIsFeedbackAsStudent:Boolean
    ngOnInit(): void {
    this.route.queryParamMap.subscribe((params: any) => this.id=params.params.id);   
    this.route.params.subscribe(params => {
@@ -45,10 +54,20 @@ export class ProfileComponent implements OnInit {
             this.teacherStars+=element.starsNumber;
             
           }
+          if(this.feedbacksAsTeacher.length>0)this.thereIsFeedbackAsTeacher=true
           console.log(this.teacherStars)
+          this.AbsTeacherStars=Math.round(this.teacherStars/this.feedbacksAsTeacher.length);
+          console.log(this.AbsTeacherStars)
+          if(element.getterId==this.id && element.feedbackedUserType=="Student")
+          {
+            console.log(element)
+            this.feedbacksAsStudent.push(element);
+          }
+          if(this.feedbacksAsStudent.length>0)this.thereIsFeedbackAsStudent=true
+          console.log(this.feedbacksAsStudent)
+          
         })
-        this.AbsTeacherStars=Math.round(this.teacherStars/this.feedbacksAsTeacher.length);
-        console.log(this.AbsTeacherStars)
+     
        },
        error=>{console.log(error)}
      )
@@ -72,6 +91,19 @@ export class ProfileComponent implements OnInit {
  
     counter(i: number) {
       return new Array(i);
+  }
+
+  getClassNumber(classId){
+    console.log(classId)
+    this.classService.getClassById("60d10a23f5f09442cc11b76b").subscribe(
+      data=>{
+        console.log(data)
+        console.log("***********************************")
+       // this.hoveredFeedbackClassNumber= data[0]['Number']
+    
+ },
+      er=>console.log(er)
+    )
   }
 
 }

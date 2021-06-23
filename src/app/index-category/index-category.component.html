@@ -1,29 +1,29 @@
 <section class="category row justify-content-center align-items-center"> 
 
-      <a class="content text-center mt-4" href="#">
+      <a class="content text-center mt-4" href="#" *ngFor="let category of categoriesList" routerLink="/getCategoryById/{{category._id}}">
         <div class="photo d-flex justify-content-center align-items-center">
-          <img class="img-fluid" src="https://i.pinimg.com/564x/7d/77/3f/7d773fd6b1b6fd4fc6d56de96e864716.jpg" alt="" width="450px">     
+          <img class="img-fluid" src="http://localhost:8888/files/{{category.Image}}" alt="" width="450px">     
           <!-- <div class="frame d-flex justify-content-center align-items-center">
             <i class="fas fa-brain"></i>
           </div> -->
         </div>
         <div class="title">
-          <h3 class="mt-5">التدبر</h3>
+          <h3 class="mt-5">{{category.Title}}</h3>
         </div>
-        <p>و هو المقصود من التلاوة التدبر والتعقل والفهم ثم العمل <br>  قال عز وجل: <br>  " كِتَابٌ أَنزَلْنَاهُ إِلَيْكَ مُبَارَكٌ لِيَدَّبَّرُوا آيَاتِهِ وَلِيَتَذَكَّرَ أُوْلُوا الأَلْبَابِ "<br>  [ص:29].</p>
+        <p>{{category.Descrpition}}</p>
       </a>      
       
-      <a class="content text-center mt-4" href="#">
+      <!-- <a class="content text-center mt-4" href="#">
         <div class="photo d-flex justify-content-center align-items-center">
           <img class="img-fluid" src="https://i.pinimg.com/564x/7d/77/3f/7d773fd6b1b6fd4fc6d56de96e864716.jpg" alt="" width="450px">     
-          <!-- <div class="frame d-flex justify-content-center align-items-center">
+        <div class="frame d-flex justify-content-center align-items-center">
             <i class="fas fa-book-open"></i>
-          </div>  -->
+          </div>  
         </div>       
         <div class="title">
           <h3 class="mt-5">الحفظ</h3>
         </div>
         <p>و هو المقصود من التلاوة التدبر والتعقل والفهم ثم العمل <br>  قال عز وجل: <br>  " كِتَابٌ أَنزَلْنَاهُ إِلَيْكَ مُبَارَكٌ لِيَدَّبَّرُوا آيَاتِهِ وَلِيَتَذَكَّرَ أُوْلُوا الأَلْبَابِ "<br>  [ص:29].</p>
-      </a>   
+      </a>    -->
        
 </section>

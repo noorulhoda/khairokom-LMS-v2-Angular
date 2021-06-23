@@ -1,0 +1,52 @@
+.container-xxl{
+    background-color: #fff;
+  }
+  .banner{
+      background: linear-gradient(to right, rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url('https://cdn.wallpapersafari.com/67/44/VcLXHh.jpg') center center;
+      background-size: cover;    
+      height: 80vh;
+      // overflow: hidden;
+  }
+  .banner .title span {
+      font-size: 70px;
+      font-weight: bold;
+      color: #fff;    
+  }
+  .banner .links a, .banner .links span 
+  {
+      color: #fff; 
+      font-size: 25px;
+  }
+  .banner .links a:hover {
+      border-bottom: 2px solid #fff;
+      padding-bottom: 2px;
+  } 
+
+main{
+    background-color: #fff;
+}
+form, .feedback {
+    margin: 8% 0px;
+}
+.feedback{    
+    background-color: #FFAD05;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    font-size: 20px;
+    width: 300px;
+}
+hr{
+    box-shadow: 1px 1px 1px rgba(255,255,255,1);    
+}
+form {
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    font-size: 20px;
+    width: 300px;    
+}
+
+form .submit{
+    background-color: #FFAD05;
+    color: #fff;
+}

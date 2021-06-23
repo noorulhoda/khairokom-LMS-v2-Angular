@@ -1,39 +1,96 @@
 <app-dashboard-header></app-dashboard-header>
 
-<div>
-<span> 
-    <h3>تفاصيل الدورة التدريبية</h3> 
-    <span class="card" style="width:400px">
-        <img class="card-img-top" src="" alt="Card image" style="width:100%">
-        <div class="card-body">
-         <h4>{{course.tittle}}</h4>
-         <p>{{notification.courseId}}</p>
-         <!-- <p>{{category.Title}}</p> -->
+<div class="container-xxl">
+  <section>
+    <div class="container">
+      <div class="row">
+        <div
+          class="
+            course-details
+            col-md-6
+            d-flex
+            justify-content-center
+            align-items-center
+          "
+        >
+          <span class="mt-5 mb-5">
+            <h3>تفاصيل الدورة التدريبية</h3>
+            <span class="card">
+              <img
+                class="card-img-top"
+                src=""
+                alt="Card image"
+                style="width: 100%"
+              />
+              <div class="card-body">
+                <h4>{{ course.tittle }}</h4>
+                <!-- <p>{{ notification.courseId }}</p> -->
+                <!-- <p>{{category.Title}}</p> -->
+              </div>
+            </span>
+          </span>
         </div>
-    </span>
-</span>
-<span> 
-    <h3>تفاصيل المعلم</h3> 
-    <span class="card" style="width:400px">
-        <img class="card-img-top" src="" alt="Card image" style="width:100%">
-        <div class="card-body">
-         <h4>{{teacher.userName}} : اسم المعلم / المعلمة</h4>
-         <p>{{teacher.email}} : البريـــــد الالكترونى  </p>
-         <p>{{teacher.phone}} : رقم التليفون</p>
-         <p>{{teacher.gender}} : الجنـــس</p>
-         <p>{{teacherAge}}:  العمر </p>
-         <p>{{teacher.country}}: الدولة</p>
 
+        <div
+          class="
+            teacher-details
+            col-md-6
+            d-flex
+            justify-content-center
+            align-items-center
+          "
+        >
+          <span class="mt-5 mb-5">
+            <h3>تفاصيل المعلم</h3>
+            <span class="card">
+              <img
+                class="card-img-top"
+                src=""
+                alt="Card image"
+                style="width: 100%"
+              />
+              <div class="card-body">
+                <h4>اسم المعلم / المعلمة:  &nbsp; &nbsp; {{ teacher.userName }}</h4>
+                <p>لبريـــــد الالكترونى:  &nbsp; &nbsp; {{ teacher.email }}</p>
+                <p>رقم التليفون:  &nbsp; &nbsp; {{ teacher.phone }}</p>
+                <p>النوع:  &nbsp; &nbsp; {{ teacher.gender }}</p>
+                <p>العمر:  &nbsp; &nbsp; {{ teacherAge }}</p>
+                <p>الدولة:  &nbsp; &nbsp; {{ teacher.country }}</p>
+              </div>
+            </span>
+          </span>
         </div>
-    </span>
-</span>
-</div>
-<div>
-    <button class="btn btn-success " [disabled]="teacher.verifiedTeacher" (click)="verified()" >اعتماد المعلم </button>
-    <button class="btn btn-success " [disabled]="!teacher.verifiedTeacher" (click)="unVerified()" >سحب الاعتماد </button>
-    <button class="btn btn-success" (click)="addClass()">إضافة مجموعة للمعلم</button> 
-    <button class="btn btn-secondary" (click)="NotifyToTeacherWithNotAccept()">رفض المعلم</button> 
-                                   
+      </div>
+    </div>
+  </section>
+
+  <div class="pb-5 pt-5">
+    <div class="container">
+      <div class="d-flex justify-content-center align-items-center">
+        <button
+          class="btn btn-success"
+          [disabled]="teacher.verifiedTeacher"
+          (click)="verified()"
+        >
+          اعتماد المعلم
+        </button>
+        &nbsp; &nbsp;
+        <button
+          class="btn btn-dark"
+          [disabled]="!teacher.verifiedTeacher"
+          (click)="unVerified()"
+        >
+          سحب الاعتماد</button
+        >&nbsp; &nbsp;
+        <button class="btn btn-warning" (click)="addClass()">
+          إضافة مجموعة للمعلم</button
+        >&nbsp; &nbsp;
+        <button class="btn btn-danger" (click)="NotifyToTeacherWithNotAccept()">
+          رفض المعلم
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <app-dashboard-footer></app-dashboard-footer>

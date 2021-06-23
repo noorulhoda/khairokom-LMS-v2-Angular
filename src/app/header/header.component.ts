@@ -71,6 +71,8 @@ checkIfAdmin():void{
     this.currentUserName="0000"
     localStorage.setItem('currentUserId',"0000")
     console.log('logouted successfully')
+    localStorage.setItem('isAdmin',"false")
+    this.isAdmin=false
 
   }
   currentUserName;

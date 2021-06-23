@@ -17,7 +17,7 @@
         <tr *ngFor="let course of courses; let i = index" style="cursor: pointer;" routerLink="/getCourseById/{{course._id}}">
           <td>{{ course.tittle }}</td>
           <td>{{ course.description }}</td>
-          <td><img src="{course.image}" width="200px" height="auto" /></td>
+          <td><img src="http://localhost:8888/files/{{course.image}}" width="100px" height="auto" /></td>
           <td>{{ course.categoryID }}</td>
           <td>
             <a class="update btn btn-light" routerLink="/updateCourse/{{ course._id }}">التعديــــل</a>

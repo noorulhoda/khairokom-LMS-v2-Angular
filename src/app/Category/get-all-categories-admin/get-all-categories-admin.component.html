@@ -14,20 +14,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let category of categories; let i = index" style="cursor: pointer;" routerLink="/getCateogryById/{{category._id}}">
+        <tr *ngFor="let category of categories; let i = index" style="cursor: pointer;" routerLink="/getCategoryById/{{category._id}}">
           <td>{{ category._id }}</td>
           <td>{{ category.Title }}</td>
           <td>
             <img
-              src="{category.Image}"
-              width="200px"
+              src="http://localhost:8888/files/{{category.Image}}"
+              width="100px"
               height="auto"
               alt="تحميل الصورة"
             />
           </td>
           <td>{{ category.Description }}</td>
           <td>
-            <a class="update btn btn-light" routerLink="/updateCategory/category._id">التعـــديل</a>
+            <a class="update btn btn-light" routerLink="/updateCategory/{{category._id}}">التعـــديل</a>
             <a class="delete btn btn-secondary" (click)="delete(category._id)"
               >الحـــذف</a
             >

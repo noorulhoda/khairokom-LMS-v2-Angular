@@ -59,6 +59,7 @@ export class UpdateCourseComponent implements OnInit {
     this.editForm.get("image")?.setValue(this.course.image);
     this.editForm.get("categoryID")?.setValue(this.course.categoryID);
     this.editForm.get("taechers")?.setValue(this.course.teachers);
+    this.fileName=this.course.image;
   }
 
   ngOnInit(): void {

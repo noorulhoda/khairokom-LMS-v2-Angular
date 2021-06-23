@@ -94,13 +94,13 @@
           
           <li class="nav-item dropdown">
               <a class="nav-link" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="img-fluid" src="https://www.materialui.co/materialIcons/action/account_circle_grey_192x192.png" width="40px">
+                <img class="img-fluid rounded-circle" src="http://localhost:8888/files/{{user.img}}" width="40px">
               </a>
               <div class="dropdown-menu dropdown-menu-left text-center" aria-labelledby="userDropdown" >       
                   <a class="dropdown-item" routerLink="/profile/{{userId}}">{{userName}}</a>                  
                   <a class="dropdown-item" routerLink="/myCourses/{{userId}}">دوراتي التدريبية</a>                  
                   <a class="dropdown-item" routerLink="/updateUser/{{userId}}">تعديل حسابي</a>
-                  <a class="dropdown-item" routerLink="/admin" *ngIf="isAdmin==true"> لوحة التحكم (خاصة بالمدير)</a>
+                  <a class="dropdown-item" routerLink="/admin" class="text-primary " *ngIf="isAdmin==true"> لوحة التحكم (خاصة بالمدير)</a>
                   
                   <a class="dropdown-item" (click)="logout()" style="cursor: pointer;">تسجيل الخروج</a>                  
               </div>

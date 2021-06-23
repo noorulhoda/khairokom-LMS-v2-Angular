@@ -30,7 +30,7 @@
   </section>
   <section class="category mt-5">
     <div class="container">
-    <h1>الدورات التدربية</h1>
+    <h1>الدورات التدريبية</h1>
     <div class="group" *ngFor="let categoryCourse of categoryCourses">
       <a class="course row mt-5" routerLink="/getCourseById/{{categoryCourse._id}}">
           <div class="course-content col-md-9 d-flex align-items-center mt-4">
@@ -61,7 +61,7 @@
             aria-labelledby="home-tab"
           >
             <img
-              src="https://khairokomuploadfiles.azurewebsites.net/files/{{
+              src="http://localhost:8888/files/{{
                 category.Image
               }}"
               height="200px"

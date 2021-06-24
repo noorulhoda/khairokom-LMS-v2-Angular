@@ -7,13 +7,12 @@
         <!-- {{registerError}} -->
         <form [formGroup]="registerForm">
           <div class="form-group">
-            <!-- <label>User Name</label> -->
+            <label class="mt-4">الاسم</label>
             <input [ngClass] = "{whiteInput:userName.value.length > 0}"
               formControlName="userName"
               [class.is-invalid]="userName.invalid && userName.touched"
               type="text"
-              class="form-control mt-5"
-              placeholder="اسم المستخدم"
+              class="form-control"
             />
             <div *ngIf="userName.errors && userName.invalid && userName.touched">
               <small class="text-danger" *ngIf="userName.errors?.required">
@@ -28,13 +27,12 @@
           </div>
       
           <div class="form-group">
-            <!-- <label>First Name</label> -->
+            <label>الاسم الأول</label>
             <input [ngClass] = "{whiteInput:userName.value.length > 0}"
               formControlName="firstName"
               [class.is-invalid]="firstName.invalid && firstName.touched"
               type="text"
-              class="form-control mt-4"
-              placeholder="الاسم الأول"
+              class="form-control"
             />
             <div *ngIf="firstName.errors && firstName.invalid && firstName.touched">
               <small class="text-danger" *ngIf="firstName.errors?.required">
@@ -47,13 +45,12 @@
           </div>
       
           <div class="form-group">
-            <!-- <label>Last Name</label> -->
+            <label>اسم العائلة</label>
             <input [ngClass] = "{whiteInput:userName.value.length > 0}"
               formControlName="lastName"
               [class.is-invalid]="lastName.invalid && lastName.touched"
               type="text"
-              class="form-control mt-4"
-              placeholder="اسم العائلة"
+              class="form-control"
             />
             <div *ngIf="lastName.errors && lastName.invalid && lastName.touched">
               <small class="text-danger" *ngIf="lastName.errors?.required">
@@ -66,12 +63,11 @@
           </div>
       
           <div class="form-group">
-            <!-- <label>Password</label> -->
+            <label>الرقم السري</label>
             <input [ngClass] = "{whiteInput:userName.value.length > 0}"
               formControlName="password"
               type="password"
-              class="form-control mt-4"
-              placeholder="كلمة السر"
+              class="form-control"              
             />
             <div *ngIf="password.errors && password.invalid && password.touched">
               <small class="text-danger" *ngIf="password.errors?.required">
@@ -84,13 +80,12 @@
           </div>
       
           <div class="form-group">
-            <!-- <label>Confirm Passsword</label> -->
+            <label>تأكيد الرقم السري</label>
             <input [ngClass] = "{whiteInput:userName.value.length > 0}"
               [class.is-invalid]="registerForm.errors?.misMatch"
               formControlName="confirmPassword"
               type="password"
-              class="form-control mt-4"
-              placeholder="تأكيد كلمة السر"
+              class="form-control"              
             />
             <small *ngIf="registerForm.errors?.misMatch" class="text-danger">
               كلمات السر غير متطابقة
@@ -98,14 +93,13 @@
           </div>
       
           <div class="form-group">
-            <!-- <label>Email</label> -->
+            <label>البريد الإلكتروني</label>
             <input [ngClass] = "{whiteInput:userName.value.length > 0}"
               pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               type="text"
               [class.is-invalid]="email.invalid && email.touched"
               formControlName="email"
-              class="form-control"
-              placeholder="البريد الإلكتروني"
+              class="form-control"              
             />
             <small
               class="text-danger"
@@ -138,13 +132,12 @@
           </div>
           
           <div class="form-group">
-            <label>تاريخ الميلاد</label> 
+            <label>تاريخ الميلاد</label>
             <input [ngClass] = "{whiteInput:userName.value.length > 0}"
               #bDate
               type="date"
-              formControlName="birthDate"
-              placeholder="تاريخ الميلاد"
-              class="form-control "
+              formControlName="birthDate"              
+              class="form-control"
             />
           </div>
       
@@ -158,11 +151,10 @@
               </div> -->
       
           <div class="form-group">
-             <label>النوع </label> 
-            <select [ngClass] = "{whiteInput:userName.value.length > 0}" formControlName="gender" class="form-control ">
-              <option value="ذكر" selected>ذكر</option>
-              <option value="أنثى">
-                أنثى</option>
+            <label>النوع</label>
+            <select [ngClass] = "{whiteInput:userName.value.length > 0}" formControlName="gender" class="form-control">
+              <option value="Male" selected>ذكر</option>
+              <option value="Female">أنثى</option>
             </select>
           </div>
        
@@ -175,7 +167,25 @@
         </div>
         
       
-   
+          <div class="form-group">
+            <label>رقم الهاتف</label>
+            <input [ngClass] = "{whiteInput:userName.value.length > 0}"
+              type="tel"
+              formControlName="phone"
+              class="form-control"              
+            />
+            <div *ngIf="phone.errors && phone.invalid && phone.touched">
+              <small class="text-danger" *ngIf="phone.errors?.required">
+                رقم الهاتف مطلوب
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="phone.errors.minlength || phone.errors.maxlength"
+              >
+                لا يجب ان يزيد رقم الهاتف عن 10 ارقام
+              </small>
+            </div>
+          </div>
       
           <div class="row d-flex justify-content-around">
             <button type="submit" class="btn btn-success mt-4" (click)="submit()">

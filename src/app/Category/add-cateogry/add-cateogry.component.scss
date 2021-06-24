@@ -6,11 +6,15 @@ main {
 main form {
   padding: 81.5px;
 }
+main form label{
+  font-size: 20px;
+}
 main form .add {
   background-color: rgba(255, 173, 5, 0.8);
   color: #fff;
   padding: 10px 30px;
   border: none;
+  font-size: 18px;
 }
 main form .add:hover {
   background-color: #ffad05;
@@ -20,4 +24,5 @@ main form .upload {
   background-color: #333;
   color: #fff;
   border: none;
+  font-size: 18px;
 }

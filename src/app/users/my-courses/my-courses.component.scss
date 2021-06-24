@@ -10,3 +10,28 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+.container-xxl{
+  background-color: #fff;
+}
+
+.banner{
+  background: linear-gradient(to right, rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url('https://cdn.wallpapersafari.com/67/44/VcLXHh.jpg') center center;
+  background-size: cover;    
+  height: 80vh;
+  overflow: hidden;
+}
+.banner .title span {
+  font-size: 70px;
+  font-weight: bold;
+  color: #fff;    
+}
+.banner .links a, .banner .links span 
+{
+  color: #fff; 
+  font-size: 25px;
+}
+.banner .links a:hover {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 2px;
+} 

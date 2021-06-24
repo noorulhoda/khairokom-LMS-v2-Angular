@@ -1,23 +1,38 @@
 <app-header></app-header>
-<section>
-    <div  class="row container" style="display:flex;">
-        <span class="col-md-6"> 
-            <h3> مجموعاتي الدراسية كطالب </h3> 
-            <span class="card" style="width:400px">
-                <div class="card-body" *ngFor="let joinedClass of showJoinedClasses">
-                    <a class="btn btn-success" routerLink="/getClassById/{{joinedClass._id}}">{{joinedClass.Number}}</a>
-                </div>
-            </span>
-        </span>
-    
-        <span class="col-md-6"> 
-            <h3> دوراتي التدريبية كمعلم </h3> 
-            <span class="card" style="width:400px">
-                <div class="card-body" *ngFor="let teachedCourse of showTeachedCourses">
-                  <a class="btn btn-warning" routerLink="/getCourseById/{{teachedCourse._id}}">{{teachedCourse.tittle}}</a>
-                </div>
-            </span>
-        </span>
+<div class="container-xxl">
+    <section class="banner d-flex justify-content-center align-items-center text-center">
+        <div class="content">
+          <div class="title">
+            <span>كورساتي</span>
+          </div>
+        
+          <div class="links">
+            <a class="text-decoration-none" href="/home"> الرئيسية </a>
+            <span> / كورساتي </span>
+          </div>
         </div>
-</section>
+      </section>
+
+    <section>
+        <div class="row container" style="display:flex;">
+            <span class="col-md-6"> 
+                <h3> مجموعاتي الدراسية كطالب </h3> 
+                <span class="card" style="width:400px">
+                    <div class="card-body" *ngFor="let joinedClass of showJoinedClasses">
+                        <a class="btn btn-success" routerLink="/getClassById/{{joinedClass._id}}">{{joinedClass.Number}}</a>
+                    </div>
+                </span>
+            </span>
+        
+            <span class="col-md-6"> 
+                <h3> دوراتي التدريبية كمعلم </h3> 
+                <span class="card" style="width:400px">
+                    <div class="card-body" *ngFor="let teachedCourse of showTeachedCourses">
+                      <a class="btn btn-warning" routerLink="/getCourseById/{{teachedCourse._id}}">{{teachedCourse.tittle}}</a>
+                    </div>
+                </span>
+            </span>
+            </div>
+    </section>
+</div>
     <app-footer></app-footer>

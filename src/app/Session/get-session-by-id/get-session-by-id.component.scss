@@ -2,10 +2,11 @@
   background-color: #fff;
 }
 main{
-  display: block;
+  
   background-color: #fff;
 }
 form .content{
+  margin: 8.5% 0%;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
 }
@@ -15,14 +16,14 @@ main form label{
 }
 
 main form .text{
-  font-size: 25px;
-}
-main form .buttons .update{
-  background-color: #FFBD37;
-  border: none;
   font-size: 20px;
 }
-main form .buttons .delete{
-  border: none;
-  font-size: 20px;
-}
+// main form .buttons .update{
+//   background-color: #FFBD37;
+//   border: none;
+//   font-size: 18px;
+// }
+// main form .buttons .delete{
+//   border: none;
+//   font-size: 18px;
+// }

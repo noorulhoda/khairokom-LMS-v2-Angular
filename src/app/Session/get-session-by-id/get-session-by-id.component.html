@@ -2,46 +2,48 @@
 
 <div class="container-xxl">
   <main>
-    <div class="container emp-profile">
-      <form method="post">
+    <br>    
+    <div class="container">      
+      <form class="mt-5 mb-5" method="post">
         <div class="content row">
-          <div class="col-md-3">
+
+          <!-- <div class="col-md-3">
             <div class="session-image">
               <img class="img-fluid" src="">
             </div>
-          </div>
+          </div> -->
           
-          <div class="col-md-9 mt-5 d-flex justify-content-center align-items-center">
+          <div class="col-md-9">
             <div class="">
                 <div class="row">
-                  <div class="col-md-5">
+                  <div class="col-md-4">
                     <label>رقـــم الحلقة</label>
                   </div>
-                  <div class="text col-md-7">
+                  <div class="text col-md-8">
                     <p>{{ session.sessionNumber }}</p>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-5">
+                  <div class="col-md-4">
                     <label>المجموعة</label>
                   </div>
-                  <div class="text col-md-7">
+                  <div class="text col-md-8">
                     <p>{{ session.classId }}</p>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-5">
+                  <div class="col-md-4">
                     <label>بداية الحلقة</label>
                   </div>
-                  <div class="text col-md-7">
+                  <div class="text col-md-8">
                     <p>{{ session.startTime |  date :'short'}}</p>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-5">
+                  <div class="col-md-4">
                     <label>نهايـــة الحلقة</label>
                   </div>
-                  <div class="text col-md-7">
+                  <div class="text col-md-8">
                     <p>{{ session.endTime |  date :'short'}}</p>
                   </div>
                 </div>
@@ -55,6 +57,7 @@
         </div>
       </form>
     </div>
+    <br>
   </main>
 </div>
 

@@ -150,6 +150,15 @@ notifyTeacherToFeedback(clas){
     }
   );
 }
+logout(){
+  localStorage.setItem('token',"0000");
+  localStorage.setItem('currentUserName',"0000")
+ 
+  localStorage.setItem('currentUserId',"0000")
+  console.log('logouted successfully')
+  localStorage.setItem('isAdmin',"false")
 
+
+}
 
 }

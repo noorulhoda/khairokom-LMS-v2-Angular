@@ -142,6 +142,10 @@
   
         <div class="coment-text col-md-11 mt-3 d-flex align-items-center">
           <div>
+            <button
+            *ngIf="comment.userID==userId||userIsAdmin"
+            style="height: 20px;width: 20px;padding: 0px;"
+            class="btn btn-danger ml-0" (click)="deleteComment(comment._id)">X</button><br>
             <a routerLink="/profile/{{ comment.userID }}">          
               <b>{{ comment.userName }} </b>
            </a>

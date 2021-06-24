@@ -16,8 +16,7 @@
             />
             <div *ngIf="userName.errors && userName.invalid && userName.touched">
               <small class="text-danger" *ngIf="userName.errors?.required">
-                الاسم مطلوب
-              </small>
+                  مطلوب             </small>
               <small class="text-danger" *ngIf="userName.errors.minlength">
                 لا يجب ان يقل الاسم عن 5 حروف
               </small>
@@ -37,10 +36,10 @@
             />
             <div *ngIf="firstName.errors && firstName.invalid && firstName.touched">
               <small class="text-danger" *ngIf="firstName.errors?.required">
-                الاسم الأول مطلوب
+                 مطلوب
               </small>
               <small class="text-danger" *ngIf="firstName.errors.minlength">
-                لا يجب ان يقل الاسم الأول عن 5 حروف
+                لا يجب ان يقل الاسم الأول عن حرفين
               </small>
             </div>
           </div>
@@ -55,10 +54,10 @@
             />
             <div *ngIf="lastName.errors && lastName.invalid && lastName.touched">
               <small class="text-danger" *ngIf="lastName.errors?.required">
-                اسم العائلة مطلوب
+                مطلوب
               </small>
               <small class="text-danger" *ngIf="lastName.errors.minlength">
-                لا يجب ان يقل اسم العائلة عن 5 حروف
+                لا يجب ان يقل اسم العائلة عن 3 حروف 
               </small>
             </div>
           </div>
@@ -72,10 +71,10 @@
             />
             <div *ngIf="password.errors && password.invalid && password.touched">
               <small class="text-danger" *ngIf="password.errors?.required">
-                الرقم السري مطلوب
+                مطلوب
               </small>
               <small class="text-danger" *ngIf="password.errors.minlength">
-                لا يجب ان يقل الرقم السري الأول عن 8 حروف
+                لا يجب ان تقل كلمة السر عن 8 حروف
               </small>
             </div>
           </div>
@@ -89,7 +88,7 @@
               class="form-control"              
             />
             <small *ngIf="registerForm.errors?.misMatch" class="text-danger">
-              الرقم السري ليس مطابق
+              كلمات السر غير متطابقة
             </small>
           </div>
       
@@ -106,13 +105,34 @@
               class="text-danger"
               [class.d-none]="email.valid || email.untouched"
             >
-              البريد الإلكتروني غير متاح
+              البريد الإلكتروني غير صحيح
             </small>
           </div>
       
-          {{ d | date: "short" }}
+
           <div class="form-group">
-            <label class="mt-2">تاريخ الميلاد</label>
+  
+            <input [ngClass] = "{whiteInput:userName.value.length > 0}"
+              type="tel"
+              formControlName="phone"
+              class="form-control "
+              placeholder="رقم الهاتف"
+            />
+            <div *ngIf="phone.errors && phone.invalid && phone.touched">
+              <small class="text-danger" *ngIf="phone.errors?.required">
+                مطلوب
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="phone.errors.minlength || phone.errors.maxlength"
+              >
+              مطلوب عشرة أرقام فقط 
+              </small>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>تاريخ الميلاد</label>
             <input [ngClass] = "{whiteInput:userName.value.length > 0}"
               #bDate
               type="date"
@@ -137,22 +157,11 @@
               <option value="Female">أنثى</option>
             </select>
           </div>
-      
-          <!--    <div class="form-group">
-                  <label>Country :</label>
-                  <select  formControlName="country"  class="form-control">
-                      <option value="Egypt">Egypt</option>
-                      <option value="Palastine">Palastine</option>
-                      <option value="Saudi Arabia">Saudi Arabia</option>
-                  </select>
-              </div>
-              
-       -->                
-
-            
+       
+    
         <div class="form-group">
-            <label>البلد</label>
-            <select [ngClass] = "{whiteInput:userName.value.length > 0}" class="form-control" formControlName="country" (change)="countryChanged()" >
+            <label>دولتك </label>
+            <select [ngClass] = "{whiteInput:userName.value.length > 0}" class="form-control" formControlName="country" (change)="countryChanged()"  >
                 <option *ngFor = "let c of countries"  value="{{c._id}}">{{c.name}}</option>
               </select>
         </div>

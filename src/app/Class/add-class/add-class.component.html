@@ -68,15 +68,16 @@
         </div>
       </div>
       <div class="form-group">
-        <label>الجنــــس</label>
+        <label>النوع</label>
         <select
           formControlName="StudentGender"
           [class.is-invalid]="StudentGender.invalid && StudentGender.touched"
           type="text"
           class="form-control"
         >
-          <option value="Male">ذكـــر</option>
-          <option value="Female">أنثــى</option>
+        <option value="ذكر" selected>ذكر</option>
+        <option value="أنثى">
+          أنثى</option>
         </select>
         <div
           *ngIf="
@@ -85,8 +86,7 @@
           "
         >
           <small class="text-danger" *ngIf="StudentGender.errors?.required">
-            الجنــــس مطلوب
-          </small>
+            مطلوب          </small>
         </div>
       </div>
       <div class="form-group">

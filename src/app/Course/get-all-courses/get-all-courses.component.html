@@ -46,16 +46,27 @@
         <div class="container">
             <div class="group">
               <form>
-                <input type="text" class="form-control"  #myInput>
-                <button (click)="OnInput(myInput.value)">ابحـــث</button>
+                <input  type="text" class="form-control" placeholder="ابحث عن اسم الدورة التدربية " #myInput style="width:400px;">
+                <br>
+                <button class="btn btn-warning" (click)="searchByCouresTitle(myInput.value)">ابحـــث</button>
               </form>
+              <div class="row d-flex justify-content-center align-items-center">
+             <div>
+                  <span> ابحث باسم القسم : </span>
+                  <select [(ngModel)]="neededCategory" (change)="changeShowAll()">
+                    <option *ngFor="let r of categoriesTitle" value="{{ r._id }}">
+                      {{ r.Title }}
+                    </option>
+                  </select>
+                </div>
+              </div>
             </div>
-           <div class="group" *ngFor="let course of courses;let i= index">
+           <div class="group" *ngFor="let course of renderCourses;let i= index">
 
-            <a class="course row mt-5" routerLink="/getCourseById/{{course._id}}">
+            <a class="course row mt-5" routerLink="/getCourseById/{{course._id}}" *ngIf="course.categoryID.includes(neededCategory) || showAll" >
                 <div class="course-image col-md-3 d-flex justify-content-center align-items-center">
                     <!-- {{course.image}} -->
-                    <img class="img-fluid" src="{{course.image}}">
+                    <img class="img-fluid" src="http://localhost:8888/files/{{course.image}}">
                 </div>
     
                 <div class="course-content col-md-9 d-flex align-items-center mt-4">

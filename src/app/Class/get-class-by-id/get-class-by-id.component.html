@@ -43,7 +43,7 @@
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <label>اقل سن مسموح بيه للطلاب</label>
+                  <label>اقل سن للطلاب</label>
                 </div>
                 <div class="text col-md-6">
                   <p>{{ clas.StudentsMinAge }}</p>
@@ -52,7 +52,7 @@
 
               <div class="row">
                 <div class="col-md-6">
-                  <label>اكبر سن مسموح بيه للطلاب</label>
+                  <label>اكبر سن للطلاب</label>
                 </div>
                 <div class="text col-md-6">
                   <p>{{ clas.StudentsMaxAge }}</p>
@@ -92,6 +92,14 @@
                 </div>
                 <div class="text col-md-6">
                   <p>{{ clas.EndDate | date:'shortDate' }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>المعلم </label>
+                </div>
+                <div class="text col-md-6">
+                  <p class="text-primary" style="cursor: pointer "routerLink="/profile/{{clas.TeacherId}}">{{teacher.userName}}</p>
                 </div>
               </div>
 

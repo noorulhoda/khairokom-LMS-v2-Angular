@@ -25,9 +25,6 @@ export class PermissionManagementComponent implements OnInit {
     this.getRoles();
   }
   ngOnInit(): void {
-    this.getID("","");
-    this.updateRoles();
-    this.updateUsers();
   }
   getUsers() {
     this.userServices.GetAllusers().subscribe(
@@ -44,35 +41,39 @@ export class PermissionManagementComponent implements OnInit {
     );
   }
 
-  getID(roleId,userId)
+  onChange(userId,roleId,isChecked)
   {
+    this.idRole=roleId;
+    this.idUser=userId;
+    if(isChecked==true)
+    {
     this.roleService.getRoleById(roleId).subscribe(
       data1 => {
-      //this.arrayUser=data1[0]['users']
-      this.role= data1[0];
+       this.role=data1[0] 
+       this.arrayUser=data1[0]['users']
+       //////////////////////////////////////////////////
     },
       er =>this.errMsg=er ,
     );
+    console.log(this.arrayUser)
+
     this.userServices.getUserById(userId).subscribe(
       data => {
-     // this.arrayRole=data[0]['roles']
-      this.user= data[0];
+      this.user=data[0]  
+     this.arrayRole=data[0]['roles']
+     //////////////////////////////////////////
     },
       er =>this.errMsg=er ,
     );
     console.log(this.arrayRole);
-  }
-  onChange(roleType,userId,roleId,isChecked)
-  {
-    this.idRole=roleId;
-    this.idUser=userId;
-    this.getID(roleId,userId);
 
-    if(isChecked==true)
-    {
+    
      this.arrayRole.push(roleId);
      this.arrayUser.push(userId);
+
+     console.log("afpuR")
      console.log(this.arrayRole);
+     console.log("afpuU")
      console.log(this.arrayUser);
     }
     else
@@ -86,18 +87,27 @@ export class PermissionManagementComponent implements OnInit {
    });
       this.deleteOldRoles(roleId);
       this.deleteOldUsers(userId);
+
+      console.log("afpoR")
       console.log(this.arrayRole);
+
+      console.log("afpoU")
       console.log(this.arrayUser);
     }
-    this.updateRoles();
-    this.filterRoles();
-    this.updateUsers();
-    this.filterUsers();
-    console.log(this.user);
-    console.log(this.role);
-    userId='';
-    roleId='';
 
+   this.user.roles=this.arrayRole
+    this.user.roles = this.user.roles.filter((element, i) => i === this.user.roles.indexOf(element));
+  
+    console.log("updateRoles************************")
+    console.log(this.user.roles)
+
+      this.role.users=this.arrayUser;
+
+     this.role.users = this.role.users.filter((element, i) => i === this.role.users.indexOf(element));
+     console.log("updateUsers*********************")
+     console.log( this.role.users)
+
+   //this.filterRoles();
   }
    deleteOldRoles(roleId)
    {
@@ -111,37 +121,12 @@ export class PermissionManagementComponent implements OnInit {
         if(element==userId) this.role.users.splice(index,1);
      });
     }
-  updateRoles()
-  {
-     this.arrayRole.forEach((element,index)=>{
-        this.user.roles.push(this.arrayRole[index]);
-     });
-  //  this.user.roles=this.arrayRole;
-  }
-   updateUsers()
-   {
-      this.arrayUser.forEach((element,index)=>{
-           this.role.users.push(this.arrayUser[index]);
-     });
-     //this.role.users=this.arrayUser;
-   }
+ 
   filterRoles()
   {
-    this.user.roles = this.user.roles.filter((element, i) => i === this.user.roles.indexOf(element));
-    console.log(this.user.roles);
-    this.updateUserServices();
-  }
-   filterUsers()
-   {
-     this.role.users = this.role.users.filter((element, i) => i === this.role.users.indexOf(element));
-     console.log(this.role.users);
-     this.updateRoleServices();
-      this.arrayRole=[];
-   }
- updateUserServices()
- {
-  this.userServices.updateUser(this.idUser,this.user)
-  .subscribe(
+   
+    this.userServices.updateUser(this.idUser,this.user)
+    .subscribe(
     data => {
       console.log(data);
     },
@@ -149,10 +134,12 @@ export class PermissionManagementComponent implements OnInit {
       console.log("Error"+ error)
     }
   );
- }
-  updateRoleServices()
-  {
-   this.roleService.updateRole(this.idRole,this.role)
+
+  }
+   filterUsers()
+   {
+    
+     this.roleService.updateRole(this.idRole,this.role)
    .subscribe(
      data => {
        console.log(data);
@@ -161,10 +148,7 @@ export class PermissionManagementComponent implements OnInit {
        console.log("Error"+ error) 
     }
    );
-  }
-
-
-
+   }
 
 }
 

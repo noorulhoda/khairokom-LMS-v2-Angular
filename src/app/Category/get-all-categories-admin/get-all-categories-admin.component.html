@@ -14,7 +14,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let category of categories; let i = index" style="cursor: pointer;" routerLink="/getCategoryById/{{category._id}}">
+        <!-- routerLink="/getCategoryById/{{category._id}}" -->
+        <tr *ngFor="let category of categories; let i = index" style="cursor: pointer;">
           <td>{{ category._id }}</td>
           <td>{{ category.Title }}</td>
           <td>

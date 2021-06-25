@@ -68,13 +68,14 @@ export class GetAllCategoriesAdminComponent implements OnInit {
             er=>{
               console.log(er);
             }
-          )
+          ) 
         },
         error => {
           console.log("Error-_-" + error)
         }
       );
-      window.location.reload();
+      //window.location.reload();
+     
   }
   }
 }

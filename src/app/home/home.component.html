@@ -201,11 +201,11 @@
         <div class="form col-sm-6 mt-5 mb-5"> 
           <h2 class="title">تواصل معانا</h2>         
           <p class="mt-4">هل لديك أسئلة حول برامج أو خدمات خيرُكُم ؟ دعنا نساعد.<br>استخدم نموذج الاتصال الخاص بنا وسنعاود الاتصال بك في أقرب وقت ممكن.</p>
-          <form>
-            <input type="text" class="form-control mt-4" id="exampleFormControlInput1" placeholder="الاسم">
-            <input type="email" class="form-control mt-3" id="exampleFormControlInput1" placeholder="البريد الإلكتروني">
-            <textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="6" placeholder="اكتب رسالتك..."></textarea>
-            <button type="submit" class="btn btn-outline-light mt-3"> إرسال </button>
+          <form [formGroup]="addForm" enctype="multipart/form-data">
+            <input formControlName="senderName" type="text" class="form-control mt-4" id="exampleFormControlInput1" placeholder="الاسم">
+            <input formControlName="email" type="email" class="form-control mt-3" id="exampleFormControlInput1" placeholder="البريد الإلكتروني">
+            <textarea formControlName="message" class="form-control mt-3" id="exampleFormControlTextarea1" rows="6" placeholder="اكتب رسالتك..."></textarea>
+            <button type="submit" class="btn btn-outline-light mt-3"   (click)="submit()"> إرسال </button>
           </form>
         </div>
         

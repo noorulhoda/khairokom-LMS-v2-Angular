@@ -162,7 +162,7 @@
     
         <div class="form-group">
             <label>دولتك </label>
-            <select [ngClass] = "{whiteInput:userName.value.length > 0}" class="form-control" formControlName="country" (change)="countryChanged()"  >
+            <select class="form-control" formControlName="country" (change)="countryChanged()"  >
                 <option *ngFor = "let c of countries"  value="{{c._id}}">{{c.name}}</option>
               </select>
         </div>

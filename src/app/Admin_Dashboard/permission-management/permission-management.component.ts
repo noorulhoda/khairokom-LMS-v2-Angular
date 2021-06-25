@@ -107,7 +107,8 @@ export class PermissionManagementComponent implements OnInit {
      console.log("updateUsers*********************")
      console.log( this.role.users)
 
-   //this.filterRoles();
+   this.filterRoles();
+   this. filterUsers();
   }
    deleteOldRoles(roleId)
    {

@@ -55,7 +55,7 @@ import {HttpClientModule} from '@angular/common/http';
     TeacherFeedbackComponent,
     StudentFeedbackComponent,
     DetailedFeedbackComponent,
-    GetAllCoursesComponent,
+    GetAllCoursesComponent
   ],
   imports: [
     BrowserModule,
@@ -121,6 +121,7 @@ import { TeacherFeedbackComponent } from './FeedBacks/teacher-feedback/teacher-f
 import { StudentFeedbackComponent } from './FeedBacks/student-feedback/student-feedback.component';
 import { DetailedFeedbackComponent } from './FeedBacks/detailed-feedback/detailed-feedback.component';
 import { GetAllCoursesComponent } from './Course/get-all-courses/get-all-courses.component';
+
 @NgModule({
   imports: [
     BrowserModule,

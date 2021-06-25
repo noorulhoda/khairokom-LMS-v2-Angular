@@ -70,6 +70,11 @@ export class TeacherFeedbackComponent implements OnInit ,AfterViewInit {
           data => {
             this.class = data[0]
             this.studentsIds = this.class.Students;
+            this.currentStudentId = this.studentsIds[this.indx]
+            console.log(this.currentStudentId)
+            this.getStudentName(this.currentStudentId)
+            console.log(this.currentStudentName)
+            console.log("-*-*---***********-**-***--**-*-*-*-*--*-*-*-*-*-*-*-*-**-*--*-*-*-**-")
             this.courseService.getCourseById(this.notification.courseId).subscribe(
               data=>{
                 console.log(data[0])
@@ -87,11 +92,7 @@ export class TeacherFeedbackComponent implements OnInit ,AfterViewInit {
   }
 
 ngAfterViewInit():void{
-  this.currentStudentId = this.studentsIds[this.indx]
-  console.log(this.currentStudentId)
-  this.getStudentName("60cc9a22e9c3450ac4f9004c")
-  console.log(this.currentStudentName)
-  console.log("-*-*---***********-**-***--**-*-*-*-*--*-*-*-*-*-*-*-*-**-*--*-*-*-**-")
+
 }
 
 addForm = this.fb.group(

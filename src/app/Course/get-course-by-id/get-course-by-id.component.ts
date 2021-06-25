@@ -117,9 +117,9 @@ export class GetCourseByIDComponent implements OnInit {
           )
         
         });
-        console.log("*********************")
-       
+   
         console.log(this.studnentCourseClasses)
+        console.log("*************************stClas***************************")
       },
       error => console.log(error)
     );
@@ -136,6 +136,7 @@ export class GetCourseByIDComponent implements OnInit {
           }
         });
         console.log(this.teacherCourseClasses)
+        console.log("-------------------------teacherClas--*****************************")
 
       },
       error => console.log(error)

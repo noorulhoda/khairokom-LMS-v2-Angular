@@ -4,7 +4,7 @@
      <div class="container">
        
        <a class="title navbar-brand" href="#"><h1><span class="logo">خَيْرُ</span>كُمْ</h1></a>
-       <!-- <small>لوحة التحكم</small> -->
+       <sub style="cursor: pointer;" class="m-2"  routerLink="/admin">لوحة التحكم</sub>
        <button
          class="navbar-toggler"
          type="button"
@@ -19,26 +19,6 @@
         
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mr-auto">
-       <!-- 
-           <li class="nav-item">
-             <a class="nav-link" routerLink="/addCategory">إضافة قسم <span class="sr-only">(current)</span></a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" routerLink="/addCourse">إضافة دورة تدريبية <span class="sr-only">(current)</span></a
-             >
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" routerLink="/register">إضافة مستخدم <span class="sr-only">(current)</span></a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" routerLink="/addClass">إضافة مجموعة<span class="sr-only">(current)</span></a>
-           </li> 
-           <li class="nav-item">
-            <a class="nav-link" routerLink="/addSession">إضافة حلقة<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/addRole">إضافة صلاحية<span class="sr-only">(current)</span></a>
-          </li>  -->
           <li class="notification nav-item dropdown" style="cursor: pointer;">
             <a class="" id="navbardrop" data-toggle="dropdown">
               <span class="badge">{{unReadNotifications}}</span><i class="bell fas fa-bell"></i>
@@ -87,6 +67,8 @@
             <a class="nav-link d-block" routerLink="/addClass">إضافة مجموعة <span class="sr-only">(current)</span></a>
             <a class="nav-link d-block" routerLink="/addSession">إضافة حلقة <span class="sr-only">(current)</span></a>
             <a class="nav-link d-block" routerLink="/addRole">إضافة صلاحية <span class="sr-only">(current)</span></a>
+            <a class="nav-link d-block" routerLink="/permissionManagement">إدارة الصلاحيات <span class="sr-only">(current)</span></a>
+            
           </div>
       </li> 
       
@@ -95,7 +77,7 @@
           <img class="img-fluid rounded-circle" src="http://localhost:8888/files/newUser.jpg" width="40px">
         </a>
         <div class="dropdown-menu dropdown-menu-left text-center" aria-labelledby="userDropdown" >       
-            <a class="dropdown-item" routerLink="/admin" class="text-primary "> لوحة التحكم (خاصة بالمدير)</a>
+            <a class="dropdown-item" routerLink="/profile/{{currentUserId}}"><b>{{currentUserName}}</b></a>
             <a class="dropdown-item" (click)="logout()" style="cursor: pointer;">تسجيل الخروج</a>                  
         </div>
     </li>

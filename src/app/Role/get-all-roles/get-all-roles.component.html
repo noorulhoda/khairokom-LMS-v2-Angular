@@ -6,17 +6,17 @@
     <table class="table table-bordered table-hover mt-5 mb-5">
       <thead class="thead-dark">
         <tr>
-          <th>رقــم التسلسل</th>
+      
           <th>نوع الصلاحيــــة</th>
-          <th>المستخدمين</th>
+       
           <th>العمليــات</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let role of roles; let i = index" routerLink="/getRoleByID/{{ role._id }}" style="cursor: pointer;">
-          <td>{{ role._id }}</td>
+        
           <td>{{ role.type }}</td>
-          <td></td>
+         
           <td>
             <a class="update btn btn-success" routerLink="/updateRole/{{ role._id }}">التعـــديل</a>            
             <a class="delete btn btn-secondary" (click)="delete(role._id)">الحـــذف</a>            

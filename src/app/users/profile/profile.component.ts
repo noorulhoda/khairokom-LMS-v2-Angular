@@ -101,11 +101,7 @@ export class ProfileComponent implements OnInit {
     console.log(classId)
     this.classService.getClassById("60d10a23f5f09442cc11b76b").subscribe(
       data=>{
-        //console.log(data)
-        //console.log("***********************************")
-       /// this.hoveredFeedbackClassNumber= data[0]['Number']
-       return data[0]['Number']
-    
+       return data[0]['Number']  
  },
       er=>console.log(er)
     )

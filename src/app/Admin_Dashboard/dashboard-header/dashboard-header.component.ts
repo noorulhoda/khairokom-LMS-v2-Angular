@@ -26,6 +26,8 @@ export class DashboardHeaderComponent implements OnInit {
 
   classes;
   adminRoleId;
+  currentUserId=localStorage.getItem('currentUserId')
+  currentUserName=localStorage.getItem('currentUserName')
   constructor(
     private notificationService:notificationService,
     private router:Router,
@@ -76,6 +78,7 @@ export class DashboardHeaderComponent implements OnInit {
         this.checkFinishedClasses()}
       ,er=>console.log(er)
     )
+ 
   }
   notificationRead(id:String,notification:Inotification){
     notification.isRead=true;

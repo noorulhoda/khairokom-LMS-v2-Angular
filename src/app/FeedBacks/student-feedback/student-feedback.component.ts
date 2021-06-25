@@ -72,7 +72,6 @@ export class StudentFeedbackComponent implements OnInit {
       }
   
 
-
   addForm=this.fb.group(
     {
       message:[''],
@@ -114,8 +113,6 @@ export class StudentFeedbackComponent implements OnInit {
       }
     );
   }
-
-
 
   checkChanged(stars,isChecked){
     if(isChecked)

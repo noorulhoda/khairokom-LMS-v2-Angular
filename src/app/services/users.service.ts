@@ -21,14 +21,14 @@ url=usersController.GetAllUsers;//api/user
 Register( user:Iuser): Observable<any>{
   return this.http.post(baseUrl+"/api/signup", user, httpOptions).pipe(catchError((err)=>
   {
-    return throwError(err.message ||"Internal Server error contact site adminstarator");
+    return throwError(err ||"Internal Server error contact site adminstarator");
   }));
 }
 
 Login(user:any): Observable<any>{
   return this.http.post(baseUrl+"/api/signin", user,httpOptions).pipe(catchError((err)=>
   {
-    return throwError(err.message ||"Internal Server error contact site adminstarator");
+    return throwError(err ||"Internal Server error contact site adminstarator");
   }));
 }
 

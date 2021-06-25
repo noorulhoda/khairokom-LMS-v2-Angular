@@ -33,7 +33,8 @@ export class MyCoursesComponent implements OnInit {
            this.user.joinedClasses.forEach(element => {
             this.joinedClasses.push(element)
            });
-           console.log(this.joinedClasses);   
+           console.log(this.joinedClasses); 
+
 
             this.teachedCourses.forEach(element => {
             this.courseService.getCourseById(element).subscribe(

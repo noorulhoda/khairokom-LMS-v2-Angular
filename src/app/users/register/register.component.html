@@ -111,16 +111,15 @@
       
 
           <div class="form-group">
-  
+            <label> رقم الهاتف</label>
             <input [ngClass] = "{whiteInput:userName.value.length > 0}"
               type="tel"
               formControlName="phone"
               class="form-control "
-              placeholder="رقم الهاتف"
             />
             <div *ngIf="phone.errors && phone.invalid && phone.touched">
               <small class="text-danger" *ngIf="phone.errors?.required">
-                مطلوب
+                رقم الهاتف مطلوب
               </small>
               <small
                 class="text-danger"
@@ -167,7 +166,7 @@
         </div>
         
       
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label>رقم الهاتف</label>
             <input [ngClass] = "{whiteInput:userName.value.length > 0}"
               type="tel"
@@ -185,7 +184,7 @@
                 لا يجب ان يزيد رقم الهاتف عن 10 ارقام
               </small>
             </div>
-          </div>
+          </div> -->
       
           <div class="row d-flex justify-content-around">
             <button type="submit" class="btn btn-success mt-4" (click)="submit()">

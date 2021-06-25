@@ -74,6 +74,7 @@ checkIfAdmin():void{
     console.log('logouted successfully')
     localStorage.setItem('isAdmin',"false")
     this.isAdmin=false
+    this.router.navigateByUrl("/home")
 
   }
   currentUserName;

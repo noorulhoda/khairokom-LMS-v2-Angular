@@ -237,6 +237,7 @@ logout(){
   localStorage.setItem('currentUserId',"0000")
   console.log('logouted successfully')
   localStorage.setItem('isAdmin',"false")
+  this.router.navigateByUrl("/home")
 
 
 }

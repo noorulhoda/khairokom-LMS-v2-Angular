@@ -15,15 +15,20 @@
   </div>
 </section>
 
-<section class="all-categories">
-  <div class="container-xxl">  
+<div class="search mt-5">
+  <div class="container">
     <div class="group">
-      <form style="padding: 40px; margin: auto;">
+      <form>
         <input type="text" class="form-control" placeholder="ابحث عن اسم القســـم " #myInput style="width: 400px;">
         <br>
         <button class="btn btn-warning" (click)="searchByCategoryTitle(myInput.value)">ابحـــث</button>
       </form>
-    </div>    
+    </div> 
+  </div>
+</div>
+
+<section class="all-categories">
+  <div class="container-xxl">         
     <div class="row d-flex justify-content-center align-items-center mb-5">  
       <div  *ngFor="let category of renderCategories">
         <a class="content text-center" routerLink="/getCategoryById/{{category._id}}">

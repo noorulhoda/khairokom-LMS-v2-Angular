@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { classService } from 'src/app/services/class.service';
+import { MessageService } from 'src/app/services/message.service';
 import { notificationService } from 'src/app/services/notification.service';
+import { RolesService } from 'src/app/services/roles.service';
 import { Iclass } from 'src/app/shared/Iclass';
+import { Imessage } from 'src/app/shared/Imessage';
 import { Inotification } from 'src/app/shared/Inotification';
 
 @Component({
@@ -13,10 +16,29 @@ import { Inotification } from 'src/app/shared/Inotification';
 })
 export class DashboardHeaderComponent implements OnInit {
   notifications:Inotification[];
+  messages:Imessage[];
+
   adminNotifications:Inotification[]=[];
+  adminMessages:Imessage[]=[];
+
   unReadNotifications=0;
+  unReadMessages=0;
+
   classes;
-  constructor(private notificationService:notificationService,private router:Router,private classService:classService) { 
+  adminRoleId;
+  constructor(
+    private notificationService:notificationService,
+    private router:Router,
+    private classService:classService,
+    private messageService:MessageService,
+    private roleService:RolesService) { 
+
+      this.roleService.findByRoleType("Admin").subscribe(
+        data=>{this.adminRoleId=data[0]['_id'];
+        console.log(data)
+      }
+        ,er=>console.log(er)
+      )
     this.notificationService.getAllNotifications().subscribe(
       data=>{
         this.notifications=data
@@ -30,6 +52,18 @@ export class DashboardHeaderComponent implements OnInit {
       er=>console.log(er)
     );
 
+    this.messageService.getAllMessages().subscribe(
+      data=>{
+        this.messages=data
+         this.messages.forEach(element => {
+          if(element.receiverId==this.adminRoleId)
+          this.adminMessages.push(element)
+        });
+        this.computeUnReadMessages();
+        console.log(data);
+        },
+      er=>console.log(er)
+    );
 
     
   }
@@ -53,6 +87,15 @@ export class DashboardHeaderComponent implements OnInit {
     this.router.navigateByUrl('/waitingTeachers/'+id)
   }
 
+  messageRead(id:String,message:Imessage){
+    message.isRead=true;
+    this.messageService.updateMessage(id,message).subscribe(
+      data=>console.log(data),
+      er=> console.log(er)
+    )
+    this.router.navigateByUrl('/detailedMessages/'+id)
+   
+  }
   computeUnRead(){
     this.adminNotifications.forEach(element => {
       if(!element.isRead)
@@ -61,6 +104,13 @@ export class DashboardHeaderComponent implements OnInit {
     console.log(this.unReadNotifications);
   }
 
+  computeUnReadMessages(){
+    this.adminMessages.forEach(element => {
+      if(!element.isRead)
+        this.unReadMessages++;
+    });
+    console.log(this.unReadMessages);
+  }
 
   sureDelete:Boolean=false;
   deleteNew:Boolean=true;
@@ -84,7 +134,28 @@ else if(this.sureDelete){
       window.location.reload();
   }
 }
+sureDelete1:Boolean=false;
+  deleteNew1:Boolean=true;
+  deleteMessage(id) {
+    if(this.deleteNew1){
+      alert(" سوف تقوم بحذف الرسالة إذا كنت متأكدا أغلق هذه النافذة واضغط مرة أخرى  على زر الحذف ")
+      this.sureDelete1=true; 
+      this.deleteNew1=false;
+     }
 
+else if(this.sureDelete1){
+    this.messageService.deleteMessage(id)
+      .subscribe(
+        data => {
+          console.log(data)
+        },
+        error => {
+          console.log("Error-_-" + error)
+        }
+      );
+      window.location.reload();
+  }
+}
 checkFinishedClasses(){
  this.classes.forEach(element => {//element is class
   var d =element.EndDate

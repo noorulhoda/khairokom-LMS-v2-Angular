@@ -48,8 +48,7 @@ import {WaitingTeachersComponent} from './Admin_Dashboard/waiting-teachers/waiti
 import { StudentFeedbackComponent } from './FeedBacks/student-feedback/student-feedback.component';
 import { TeacherFeedbackComponent } from './FeedBacks/teacher-feedback/teacher-feedback.component';
 import { DetailedFeedbackComponent } from './FeedBacks/detailed-feedback/detailed-feedback.component';
-
-
+import {DetailedMessagesComponent} from './Admin_Dashboard/detailed-messages/detailed-messages.component'
 
 
 
@@ -98,6 +97,7 @@ const routes: Routes = [
   {path:'permissionManagement',component:PermissionManagementComponent},
   {path:'waitingStudents/:id',component:WaitingstudentsComponent},//notificationId
   {path:'waitingTeachers/:id',component:WaitingTeachersComponent},
+  {path:'detailedMessages/:id',component:DetailedMessagesComponent},
 
   {path:'studentFeedback/:notificationId',component:StudentFeedbackComponent},
   {path:'teacherFeedback/:notificationId',component:TeacherFeedbackComponent},

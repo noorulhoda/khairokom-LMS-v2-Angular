@@ -1,0 +1,50 @@
+<app-dashboard-header></app-dashboard-header>
+
+<main class="mt-5 mb-4">
+  <div class="container emp-profile">
+    <form method="post">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-work"></div>
+        </div>
+        <div class="col-md-8">
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="home"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+            >
+              <div class="row">
+                <div class="col-md-6">
+                  <label> اسم الراســل</label>
+                </div>
+                <div class="col-md-6">
+                  <p>{{ message.senderName }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>بريد الالكترونى للراســل</label>
+                </div>
+                <div class="col-md-6">
+                  <p>{{ message.email }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label> الرســــالة </label>
+                </div>
+                <div class="col-md-6">
+                  <p>{{ message.message }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+
+<app-dashboard-footer></app-dashboard-footer>

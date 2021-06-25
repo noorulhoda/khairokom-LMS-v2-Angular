@@ -52,6 +52,12 @@ export class PermissionManagementComponent implements OnInit {
        this.role=data1[0] 
        this.arrayUser=data1[0]['users']
        //////////////////////////////////////////////////
+       this.arrayRole.push(roleId);
+       this.user.roles=this.arrayRole
+       this.user.roles = this.user.roles.filter((element, i) => i === this.user.roles.indexOf(element));
+     
+       console.log("updateRoles************************")
+       console.log(this.user.roles)
     },
       er =>this.errMsg=er ,
     );
@@ -62,14 +68,16 @@ export class PermissionManagementComponent implements OnInit {
       this.user=data[0]  
      this.arrayRole=data[0]['roles']
      //////////////////////////////////////////
+     this.arrayUser.push(userId);
+    
     },
       er =>this.errMsg=er ,
     );
     console.log(this.arrayRole);
 
     
-     this.arrayRole.push(roleId);
-     this.arrayUser.push(userId);
+     
+    
 
      console.log("afpuR")
      console.log(this.arrayRole);
@@ -95,11 +103,7 @@ export class PermissionManagementComponent implements OnInit {
       console.log(this.arrayUser);
     }
 
-   this.user.roles=this.arrayRole
-    this.user.roles = this.user.roles.filter((element, i) => i === this.user.roles.indexOf(element));
   
-    console.log("updateRoles************************")
-    console.log(this.user.roles)
 
       this.role.users=this.arrayUser;
 

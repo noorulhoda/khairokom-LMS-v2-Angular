@@ -84,12 +84,12 @@ export class AddCateogryComponent implements OnInit {
     var category:Icategory={ 
        Title:this.Title?.value,
        Description:this.Description?.value,
-       Image:this.Image?.value
+       Image:this.fileName,
     }
     this.cs.AddCategory(category).subscribe(
       data => {
         this.router.navigateByUrl("/addCategory")
-      },
+   },
       error => {
         console.log(error)
       }

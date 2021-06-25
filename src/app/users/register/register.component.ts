@@ -32,6 +32,8 @@ registerError="جميع الحقول مطلوبة ";
   currentUserName: any;
   currentUser: Iuser;
   currentUserRoles: string[];
+  teacherRole: any;
+  studentRole: any;
   constructor(private cntryService:countryService,
     private fb:FormBuilder,
     private userService:UsersService,
@@ -43,13 +45,17 @@ registerError="جميع الحقول مطلوبة ";
       data=>  this.countries=data
     );  
     this.roleService.findByRoleType("Teacher").subscribe(
-      data=>{this.teacherRoleId=data[0]['_id'];
+      data=>{
+        this.teacherRole=data[0]
+        this.teacherRoleId=data[0]['_id'];
       console.log(data)
     }
       ,er=>console.log(er)
     )
     this.roleService.findByRoleType("Student").subscribe(
-      data=>{this.studentRoleId=data[0]['_id'];
+      data=>{
+        this.studentRole=data[0]
+        this.studentRoleId=data[0]['_id'];
       console.log(data)
     }
       ,er=>console.log(er)
@@ -184,13 +190,10 @@ countryChanged(){
       console.log(this.token);
       localStorage.setItem('token',this.token)
       localStorage.setItem('currentUserName',this.userName?.value)
-      //this.registerError=data['error'];
-      
-      //this.registerError=data['errMsg']
       console.log(this.registerError)
-      this.findCurrentUser()
+      this.findCurrentUser().then()
       this.router.navigateByUrl("/home")
-      //
+
       console.log(this.user)
 
 }
@@ -245,7 +248,18 @@ private formatDate(date) {
         console.log("-------------------------")
         console.log(data)
         this.currentUser= data;this.currentUserRoles=this.currentUser.roles;
-        localStorage.setItem('currentUserId',this.userId)},
+        localStorage.setItem('currentUserId',this.userId)
+        this.teacherRole.push(this.userId)
+        this.roleService.updateRole(this.teacherRoleId,this.teacherRole).subscribe(
+          data=>{},
+          er=>{}
+        )
+        this.studentRole.push(this.userId)
+        this.roleService.updateRole(this.studentRoleId,this.studentRole).subscribe(
+          data=>{},
+          er=>{}
+        )
+      },
       er => console.log('error happened in determine user') ,
     )}
     return 0

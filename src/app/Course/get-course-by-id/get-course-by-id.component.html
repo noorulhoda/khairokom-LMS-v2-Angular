@@ -90,8 +90,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let teacherCourseClass of teacherCourseClasses; let i = index">
-                  <td routerLink="/getClassById/"{{teacherCourseClass._id}}>{{teacherCourseClass.Number}}</td>
+                <tr *ngFor="let teacherCourseClass of teacherCourseClasses">
+                  <td  style="cursor: pointer;" routerLink="/getClassById/{{teacherCourseClass._id}}">{{teacherCourseClass.Number}}</td>
                 </tr>
               </tbody>
             </table>
@@ -106,8 +106,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let studnentCourseClass of studnentCourseClasses; let i = index">
-                  <td routerLink="/getClassById/"{{studnentCourseClass._id}}>{{studnentCourseClass.Number}}</td>
+                <tr *ngFor="let studnentCourseClass of studnentCourseClasses">
+                  <td  style="cursor: pointer;" routerLink="/getClassById/{{studnentCourseClass._id}}">{{studnentCourseClass.Number}}</td>
                 </tr>
               </tbody>
             </table>

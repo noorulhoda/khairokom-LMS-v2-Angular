@@ -4,7 +4,7 @@
      <div class="container">
        
        <a class="title navbar-brand" href="#"><h1><span class="logo">خَيْرُ</span>كُمْ</h1></a>
-       <small>لوحة التحكم</small>
+       <sub style="cursor: pointer;" class="m-2"  routerLink="/admin">لوحة التحكم</sub>
        <button
          class="navbar-toggler"
          type="button"
@@ -19,26 +19,6 @@
         
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mr-auto">
-       <!-- 
-           <li class="nav-item">
-             <a class="nav-link" routerLink="/addCategory">إضافة قسم <span class="sr-only">(current)</span></a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" routerLink="/addCourse">إضافة دورة تدريبية <span class="sr-only">(current)</span></a
-             >
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" routerLink="/register">إضافة مستخدم <span class="sr-only">(current)</span></a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" routerLink="/addClass">إضافة مجموعة<span class="sr-only">(current)</span></a>
-           </li> 
-           <li class="nav-item">
-            <a class="nav-link" routerLink="/addSession">إضافة حلقة<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/addRole">إضافة صلاحية<span class="sr-only">(current)</span></a>
-          </li>  -->
           <li class="notification nav-item dropdown" style="cursor: pointer;">
             <a class="" id="navbardrop" data-toggle="dropdown">
               <i class="bell fas fa-bell"></i><span class="badge">{{unReadNotifications}}</span>

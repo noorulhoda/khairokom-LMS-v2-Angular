@@ -69,10 +69,7 @@ export class AddCourseComponent implements OnInit {
    {
      return this.addForm.get('categoryID');
    }
-   get teachers()
-   {
-     return this.addForm.get('teachers');
-   }
+
   submit() 
   {
     var course:Icourse={ 
@@ -80,7 +77,7 @@ export class AddCourseComponent implements OnInit {
        description:this.description?.value,
        image:this.fileName,
        categoryID:this.categoryID?.value,
-       teachers:this.teachers?.value
+       teachers:[]
     }
     this.cs.AddCourse(course).subscribe(
       data => {

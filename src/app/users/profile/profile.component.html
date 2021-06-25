@@ -176,15 +176,15 @@
         </div>
 
         <div class="certificate mt-4" *ngIf="visitorUserId==user._id">
-          <h2 class="title"> <i class="fas fa-medal"></i> &nbsp; أوسمتك فى رحلة طلبك للعلم</h2>
+          <h2 class="title"> <i class="fas fa-medal"></i> &nbsp; أوسمتك فى رحلة طلبك للعلم <sub style="font-size: 10px;"> اضغط على الوسام للانتقال الى المجموعة الخاصة به</sub></h2>
           <div class="text-center"  *ngIf="thereIsFeedbackAsStudent">
-            <i *ngFor="let f of feedbacksAsStudent"
+            <i *ngFor="let f of feedbacksAsStudent" routerLink="/getClassById/{{f.classId}}"
              [ngClass]="{'gold':f.starsNumber==5,
                           'silver':f.starsNumber==4||f.starsNumber==3,
                           'bronze':f.starsNumber==2||f.starsNumber==1}" 
             class=" fas fa-medal"
             data-toggle="tooltip"
-            title="{{f.message}}  {{hoveredFeedbackClassNumber}}"
+            title="{{f.message}} "
             (mouseenter)="getClassNumber(f._id)"
             ></i>        
            

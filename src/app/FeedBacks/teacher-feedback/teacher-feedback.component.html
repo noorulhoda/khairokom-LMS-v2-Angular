@@ -4,12 +4,12 @@
   <section class="banner d-flex justify-content-center align-items-center text-center">
     <div class="content">
       <div class="title">
-        <span>التعليقات</span>
+        <span>التقييمات</span>
       </div>
     
       <div class="links">
         <a class="text-decoration-none" href="/home"> الرئيسية </a>
-        <span>/ تعليقات المعلم </span>
+        <span>/ تقييمات المعلم </span>
       </div>
     </div>
   </section>
@@ -32,7 +32,7 @@
               </div>
               <div class="row">
                 <div class="col-md-4">
-                  <label>رقـــم المجموعة</label>
+                  <label>اسم المجموعة</label>
                 </div>
                 <div class="col-md-6">
                   <p>{{ class.Number }}</p>
@@ -41,7 +41,7 @@
             </div>
           </div>
          
-          <form class="col-md-5" [formGroup]="addForm"  *ngIf="!studentsEnded"enctype="multipart/form-data">          
+          <form class="col-md-5" [formGroup]="addForm"  *ngIf="!studentsEnded" enctype="multipart/form-data">          
               <div class="form-group">
            
                 <label>رأيك فى أداء الطالب</label><br>
@@ -60,7 +60,7 @@
                     اقل عدد احرف مسموح بها 3 احروف
                   </small>
                   <small *ngIf="Title.errors?.forbiddenName">
-                    {{ Title.errors?.forbiddenName.value }} غير مسموح بيه
+                    {{ Title.errors?.forbiddenName.value }} غير مسموح به
                   </small>
                 </div>
               </div>

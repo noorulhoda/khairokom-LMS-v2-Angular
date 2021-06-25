@@ -73,12 +73,15 @@ export class DashboardHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  
+ 
+  }
+  getFeedbacks(){
     this.classService.GetAllclass().subscribe(
       data=>{this.classes=data
         this.checkFinishedClasses()}
       ,er=>console.log(er)
     )
- 
   }
   notificationRead(id:String,notification:Inotification){
     notification.isRead=true;

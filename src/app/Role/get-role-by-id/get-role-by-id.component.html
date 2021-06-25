@@ -22,6 +22,13 @@
                 <div class="col-md-6">
                   <p>{{ role.type }}</p>
                 </div>
+                <div class="col-md-6">
+                  <label>المستخدمين لهذه الصلاحية</label>
+                </div>
+                <div class="col-md-6" >
+                  <p *ngFor="let user of roleUsers">{{ user.userName }}</p>
+                  <br>
+                </div>
               </div>
             </div>
           </div>

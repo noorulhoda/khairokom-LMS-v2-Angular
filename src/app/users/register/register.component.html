@@ -133,7 +133,7 @@
           
           <div class="form-group">
             <label>تاريخ الميلاد</label> 
-            <input [ngClass] = "{whiteInput:birthDate.value.length > 0}"
+            <input 
               #bDate
               type="date"
               formControlName="birthDate"              

@@ -63,6 +63,7 @@ export class HomeComponent implements OnInit {
     this.messageService.addMessage(message).subscribe(
       data => {
       console.log(data)
+      alert("تم إرسال رسالتك بنجاح")
       },
       error => {
         console.log(error)

@@ -4,7 +4,7 @@
      <div class="container">
        
        <a class="title navbar-brand" href="#"><h1><span class="logo">خَيْرُ</span>كُمْ</h1></a>
-       <small>لوحة التحكم</small>
+       <!-- <small>لوحة التحكم</small> -->
        <button
          class="navbar-toggler"
          type="button"
@@ -41,7 +41,7 @@
           </li>  -->
           <li class="notification nav-item dropdown" style="cursor: pointer;">
             <a class="" id="navbardrop" data-toggle="dropdown">
-              <i class="bell fas fa-bell"></i><span class="badge">{{unReadNotifications}}</span>
+              <span class="badge">{{unReadNotifications}}</span><i class="bell fas fa-bell"></i>
             </a>
 
             <div class="dropdown-menu" > 
@@ -56,28 +56,49 @@
                   </p>                                                   
               </a>              
             </div>
-           </li>       
-           <li class="nav-item dropdown">
-            <a class="nav-link" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img class="img-fluid rounded-circle" src="http://localhost:8888/files/newUser.jpg" width="40px">
+           </li>
+           
+           <li class="messages nav-item dropdown" style="cursor: pointer;">
+            <a class="" id="navbardrop" data-toggle="dropdown">
+              <span class="badge">{{unReadNotifications}}</span><i class="mess fas fa-comment-dots"></i>
             </a>
-            <div class="dropdown-menu dropdown-menu-left text-center" aria-labelledby="userDropdown" >       
-                <a class="dropdown-item" routerLink="/admin" class="text-primary "> لوحة التحكم (خاصة بالمدير)</a>
-                <a class="dropdown-item" (click)="logout()" style="cursor: pointer;">تسجيل الخروج</a>                  
+
+            <div class="dropdown-menu" > 
+              <div class="message">
+                <p> الرسايل </p>
+                <hr>
+              </div>             
+              <!-- <a class="dropdown-item"  *ngFor="let n of adminNotifications">                
+                  <p class="d-flex justify-content-between align-items-center">
+                    <b  (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
+                    <i class="fas fa-times text-danger" (click)="deleteNotification(n._id) "></i> 
+                  </p>                                                   
+              </a>               -->
             </div>
-        </li> 
-        <li class="nav-item dropdown">
-          <a class="nav-link" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img class="img-fluid rounded-circle" src="https://th.bing.com/th/id/R7c6530bb6ac09fc22ff6f2f9d19a6ea2?rik=ADbjhUSDJ5MlAQ&pid=ImgRaw" width="40px">
+           </li>
+
+        <li class="admin-list nav-item dropdown">
+          <a role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="plus fas fa-plus"></i>
           </a>
-          <div class="dropdown-menu dropdown-menu-left text-center bg-dark" aria-labelledby="userDropdown" >       
-            <a class="nav-link" routerLink="/addCategory">إضافة قسم <span class="sr-only">(current)</span></a>
-            <a class="nav-link" routerLink="/addCourse">إضافة دورة تدريبية <span class="sr-only">(current)</span></a>
-            <a class="nav-link" routerLink="/addClass">إضافة مجموعة <span class="sr-only">(current)</span></a>
-            <a class="nav-link" routerLink="/addSession">إضافة حلقة <span class="sr-only">(current)</span></a>
-            <a class="nav-link" routerLink="/addRole">إضافة صلاحية <span class="sr-only">(current)</span></a>
+          <div class="dropdown-menu dropdown-menu-left text-center bg-light" aria-labelledby="userDropdown" >       
+            <a class="nav-link d-block" routerLink="/addCategory">إضافة قسم <span class="sr-only">(current)</span></a>
+            <a class="nav-link d-block" routerLink="/addCourse">إضافة دورة تدريبية <span class="sr-only">(current)</span></a>
+            <a class="nav-link d-block" routerLink="/addClass">إضافة مجموعة <span class="sr-only">(current)</span></a>
+            <a class="nav-link d-block" routerLink="/addSession">إضافة حلقة <span class="sr-only">(current)</span></a>
+            <a class="nav-link d-block" routerLink="/addRole">إضافة صلاحية <span class="sr-only">(current)</span></a>
           </div>
-      </li>   
+      </li> 
+      
+      <li class="nav-item dropdown">
+        <a role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="img-fluid rounded-circle" src="http://localhost:8888/files/newUser.jpg" width="40px">
+        </a>
+        <div class="dropdown-menu dropdown-menu-left text-center" aria-labelledby="userDropdown" >       
+            <a class="dropdown-item" routerLink="/admin" class="text-primary "> لوحة التحكم (خاصة بالمدير)</a>
+            <a class="dropdown-item" (click)="logout()" style="cursor: pointer;">تسجيل الخروج</a>                  
+        </div>
+    </li>
          </ul>         
        </div>
      </div>

@@ -191,9 +191,8 @@ countryChanged(){
       localStorage.setItem('token',this.token)
       localStorage.setItem('currentUserName',this.userName?.value)
       console.log(this.registerError)
-      this.findCurrentUser().then()
+      this.findCurrentUser()
       this.router.navigateByUrl("/home")
-
       console.log(this.user)
 
 }
@@ -249,12 +248,12 @@ private formatDate(date) {
         console.log(data)
         this.currentUser= data;this.currentUserRoles=this.currentUser.roles;
         localStorage.setItem('currentUserId',this.userId)
-        this.teacherRole.push(this.userId)
+        this.teacherRole.users.push(this.userId)
         this.roleService.updateRole(this.teacherRoleId,this.teacherRole).subscribe(
           data=>{},
           er=>{}
         )
-        this.studentRole.push(this.userId)
+        this.studentRole.users.push(this.userId)
         this.roleService.updateRole(this.studentRoleId,this.studentRole).subscribe(
           data=>{},
           er=>{}

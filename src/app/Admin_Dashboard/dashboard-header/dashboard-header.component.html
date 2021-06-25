@@ -40,7 +40,7 @@
            
            <li class="messages nav-item dropdown" style="cursor: pointer;">
             <a class="" id="navbardrop" data-toggle="dropdown">
-              <span class="badge">{{unReadNotifications}}</span><i class="mess fas fa-comment-dots"></i>
+              <span class="badge">{{unReadMessages}}</span><i class="mess fas fa-comment-dots"></i>
             </a>
 
             <div class="dropdown-menu" > 
@@ -48,12 +48,12 @@
                 <p> الرسايل </p>
                 <hr>
               </div>             
-              <!-- <a class="dropdown-item"  *ngFor="let n of adminNotifications">                
-                  <p class="d-flex justify-content-between align-items-center">
-                    <b  (click)="notificationRead(n._id,n)" [ngClass]="{'text-warning' : !n.isRead}">{{n.message}}</b> &nbsp; &nbsp; &nbsp;
-                    <i class="fas fa-times text-danger" (click)="deleteNotification(n._id) "></i> 
-                  </p>                                                   
-              </a>               -->
+              <a class="dropdown-item"  *ngFor="let m of adminMessages">                
+                <p class="d-flex justify-content-between align-items-center">
+                  <b  (click)="messageRead(m._id,m)" [ngClass]="{'text-warning' : !m.isRead}">{{m.message}}</b> &nbsp; &nbsp; &nbsp;
+                  <i class="fas fa-times text-danger" (click)="deleteMessage(m._id) "></i> 
+                </p>                                                   
+            </a>  
             </div>
            </li>
 

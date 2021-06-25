@@ -115,14 +115,15 @@ export class WaitingstudentsComponent implements OnInit {
       data=>{
         console.log(data)
         this.checkedClass=data[0]
+        this.checkedClass.Students.push(this.notification.studentId)
+        this.classService.updateClass(this.checkedClassId,this.checkedClass).subscribe(
+          data=>{console.log(data)},
+          er=>console.log(er)
+        )
       },
       er=>console.log(er)
     )
-    this.checkedClass.Students.push(this.notification.studentId)
-    this.classService.updateClass(this.checkedClassId,this.checkedClass).subscribe(
-      data=>console.log(data),
-      er=>console.log(er)
-    )
+ 
     this.student.joinedClasses.push(this.checkedClassId);
     this.userService.updateUser(this.notification.studentId,this.student).subscribe(
       data=>console.log(data),

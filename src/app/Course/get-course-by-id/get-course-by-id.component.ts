@@ -89,6 +89,7 @@ export class GetCourseByIDComponent implements OnInit {
          }
          console.log(this.courseStars)
        })
+       if(this.feedbacksAsCousre.length>0)
        this.AbsCourseStars=Math.round(this.courseStars/this.feedbacksAsCousre.length);
        console.log(this.AbsCourseStars)
       },
@@ -263,7 +264,7 @@ notifyWithNewWaitingTeacher(){
     }
   );
 }
-counter(i: number) {
+counter(i) {
   return new Array(i);
 }
 

@@ -28,7 +28,7 @@ chosenRoleId='';
 rolesList=[];
 dialCode;
 countryName;
-registerError="......";//error in duplicate userName or email(how can i get it from api to render in html ???)
+registerError="جميع الحقول مطلوبة ";
   currentUserName: any;
   currentUser: Iuser;
   currentUserRoles: string[];
@@ -98,6 +98,10 @@ registerError="......";//error in duplicate userName or email(how can i get it f
   get password()
   {
     return this.registerForm.get('password');
+  }
+   get confirmPassword()
+  {
+    return this.registerForm.get('confirmPassword');
   }
   get birthDate()
   {
@@ -175,20 +179,26 @@ countryChanged(){
   this.userService.Register(user).subscribe(
     data => {
       console.log(data)
+      console.log("------------------------------------------------")
       this.token=data['token'];
       console.log(this.token);
       localStorage.setItem('token',this.token)
       localStorage.setItem('currentUserName',this.userName?.value)
-      this.registerError=data['error'];
-      //console.log(this.registerError)
+      //this.registerError=data['error'];
+      
+      //this.registerError=data['errMsg']
+      console.log(this.registerError)
       this.findCurrentUser()
       this.router.navigateByUrl("/home")
       //
       console.log(this.user)
+
 }
     ,
     error => {
-      console.log(error)
+      console.log(error['error']['errMsg'])
+      this.registerError=error['error']['errMsg']
+      console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
     }
   );
 

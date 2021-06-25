@@ -1,0 +1,47 @@
+.register {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url("https://cdn.wallpapersafari.com/67/44/VcLXHh.jpg") center center no-repeat;
+  background-size: cover;
+  width: 100%;
+  direction: rtl;
+  text-align: right;
+  display: flex;
+  align-items: center;
+}
+
+.register .form {
+  padding: 6%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+.register .form input, .register form select {
+  background: transparent;
+  width: 300px;
+}
+
+::placeholder {
+  color: #fff;
+}
+
+.whiteInput {
+  color: white;
+  font-weight: bolder;
+  background-color: #FFAD05;
+}
+
+.register .form button {
+  background-color: rgba(255, 173, 5, 0.8);
+  width: 100%;
+  border: none;
+  color: #fff;
+}
+
+.register .form button:hover {
+  background-color: #FFAD05;
+}

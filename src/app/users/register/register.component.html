@@ -1,10 +1,11 @@
 <app-header></app-header>
 
 <div class="register">
+ 
     <div class="container d-flex justify-content-center align-items-center">
        <div class="form">
         <h2>إنشاء حساب</h2>
-        <!-- {{registerError}} -->
+      
         <form [formGroup]="registerForm">
           <div class="form-group">
             <!-- <label>User Name</label> -->
@@ -29,7 +30,7 @@
       
           <div class="form-group">
             <!-- <label>First Name</label> -->
-            <input [ngClass] = "{whiteInput:userName.value.length > 0}"
+            <input [ngClass] = "{whiteInput:firstName.value.length > 0}"
               formControlName="firstName"
               [class.is-invalid]="firstName.invalid && firstName.touched"
               type="text"
@@ -48,7 +49,7 @@
       
           <div class="form-group">
             <!-- <label>Last Name</label> -->
-            <input [ngClass] = "{whiteInput:userName.value.length > 0}"
+            <input [ngClass] = "{whiteInput:lastName.value.length > 0}"
               formControlName="lastName"
               [class.is-invalid]="lastName.invalid && lastName.touched"
               type="text"
@@ -67,7 +68,7 @@
       
           <div class="form-group">
             <!-- <label>Password</label> -->
-            <input [ngClass] = "{whiteInput:userName.value.length > 0}"
+            <input [ngClass] = "{whiteInput:password.value.length > 0}"
               formControlName="password"
               type="password"
               class="form-control mt-4"
@@ -85,7 +86,7 @@
       
           <div class="form-group">
             <!-- <label>Confirm Passsword</label> -->
-            <input [ngClass] = "{whiteInput:userName.value.length > 0}"
+            <input [ngClass] = "{whiteInput:confirmPassword.value.length > 0}"
               [class.is-invalid]="registerForm.errors?.misMatch"
               formControlName="confirmPassword"
               type="password"
@@ -99,7 +100,7 @@
       
           <div class="form-group">
             <!-- <label>Email</label> -->
-            <input [ngClass] = "{whiteInput:userName.value.length > 0}"
+            <input [ngClass] = "{whiteInput:email.value.length > 0}"
               pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               type="text"
               [class.is-invalid]="email.invalid && email.touched"
@@ -118,7 +119,7 @@
 
           <div class="form-group">
   
-            <input [ngClass] = "{whiteInput:userName.value.length > 0}"
+            <input [ngClass] = "{whiteInput:phone.value.length > 0}"
               type="tel"
               formControlName="phone"
               class="form-control "
@@ -139,7 +140,7 @@
           
           <div class="form-group">
             <label>تاريخ الميلاد</label> 
-            <input [ngClass] = "{whiteInput:userName.value.length > 0}"
+            <input [ngClass] = "{whiteInput:birthDate.value.length > 0}"
               #bDate
               type="date"
               formControlName="birthDate"
@@ -159,7 +160,7 @@
       
           <div class="form-group">
              <label>النوع </label> 
-            <select [ngClass] = "{whiteInput:userName.value.length > 0}" formControlName="gender" class="form-control ">
+            <select [ngClass] = "{whiteInput:userName.value.length > 0}"formControlName="gender" class="form-control ">
               <option value="ذكر" selected>ذكر</option>
               <option value="أنثى">
                 أنثى</option>
@@ -175,7 +176,7 @@
         </div>
         
       
-   
+        <small class="text-danger bg-warning p-2"> {{registerError}}</small>
       
           <div class="row d-flex justify-content-around">
             <button type="submit" class="btn btn-success mt-4" (click)="submit()">

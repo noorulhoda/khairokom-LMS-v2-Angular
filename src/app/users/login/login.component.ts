@@ -12,6 +12,7 @@ import { ForbiddenNameValidator } from '../../username.validatior';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  registerError;
   constructor(private fb:FormBuilder,private userService:UsersService,private router: Router) { }
   ngOnInit(): void {}
   loginForm=this.fb.group({
@@ -50,6 +51,7 @@ submit()
     },
     error => {
       console.log(error)
+      this.registerError=error['error']['errMsg']
     }
   );
 

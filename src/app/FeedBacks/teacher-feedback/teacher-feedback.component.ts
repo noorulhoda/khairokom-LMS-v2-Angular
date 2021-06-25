@@ -72,7 +72,7 @@ export class TeacherFeedbackComponent implements OnInit ,AfterViewInit {
             this.studentsIds = this.class.Students;
             this.currentStudentId = this.studentsIds[this.indx]
             console.log(this.currentStudentId)
-            this.getStudentName("60cc9a22e9c3450ac4f9004c")
+            this.getStudentName(this.currentStudentId)
             console.log(this.currentStudentName)
             console.log("-*-*---***********-**-***--**-*-*-*-*--*-*-*-*-*-*-*-*-**-*--*-*-*-**-")
             this.courseService.getCourseById(this.notification.courseId).subscribe(

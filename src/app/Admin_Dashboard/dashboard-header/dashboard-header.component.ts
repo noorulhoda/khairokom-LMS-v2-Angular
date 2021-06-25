@@ -16,6 +16,8 @@ export class DashboardHeaderComponent implements OnInit {
   adminNotifications:Inotification[]=[];
   unReadNotifications=0;
   classes;
+  currentUserId=localStorage.getItem('currentUserId')
+  currentUserName=localStorage.getItem('currentUserName')
   constructor(private notificationService:notificationService,private router:Router,private classService:classService) { 
     this.notificationService.getAllNotifications().subscribe(
       data=>{
@@ -40,6 +42,7 @@ export class DashboardHeaderComponent implements OnInit {
         this.checkFinishedClasses()}
       ,er=>console.log(er)
     )
+ 
   }
   notificationRead(id:String,notification:Inotification){
     notification.isRead=true;

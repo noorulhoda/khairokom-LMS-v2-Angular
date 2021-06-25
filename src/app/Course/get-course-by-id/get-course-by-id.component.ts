@@ -212,6 +212,7 @@ courseComments:Icomment[]=[];
            if(element.courseID==this.courseId)
              this.courseComments.push(element)
         });
+        this.courseComments.reverse()
         console.log(data);
       },
       error => {

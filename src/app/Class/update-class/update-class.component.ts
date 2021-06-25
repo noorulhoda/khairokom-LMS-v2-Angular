@@ -150,7 +150,8 @@ courses;
    .subscribe(
      data => {
        console.log("DATA : "+data);
-       this.router.navigateByUrl("/home")
+       alert("تم تعديل المجموعة بنجاح ")
+       // this.router.navigateByUrl("/home")
      },
      error => {
        console.log("errooorrrrr-_-"+ error)

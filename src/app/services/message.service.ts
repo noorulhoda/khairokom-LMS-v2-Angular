@@ -18,20 +18,20 @@ export class MessageService {
   getAllMessages():Observable<Imessage[]>
   {
     return this.http.get<Imessage[]>(this.url).pipe(catchError(err=>{
-      return throwError(err.message||"customError happened")
+      return throwError(err||"customError happened")
     }));
   }
 
  addMessage(message: Imessage): Observable<any> {
     return this.http.post(this.url,message,httpOptions).pipe(catchError(err => {
-        return throwError(err.message || "Internal Server error contact site adminstarator")
+        return throwError(err || "Internal Server error contact site adminstarator")
     }));
 }
   getMessageById(id:String):Observable<Imessage>
   {
     return this.http.get<Imessage>(this.url+"/"+id).pipe(catchError((err)=>
     {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
+      return throwError(err ||"Internal Server error contact site adminstarator");
     }));
   }
 
@@ -39,14 +39,14 @@ export class MessageService {
 
     return this.http.put(this.url+"/"+id, message, httpOptions).pipe(catchError((err)=>
     {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
+      return throwError(err ||"Internal Server error contact site adminstarator");
     }));
   }
 
   deleteMessage(id:String): Observable<any>{
     return this.http.delete(this.url+"/"+id, httpOptions).pipe(catchError((err)=>
     {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
+      return throwError(err ||"Internal Server error contact site adminstarator");
     }));
   }
 

@@ -17,8 +17,16 @@
          <span class="navbar-toggler-icon"></span>
        </button>
         
+       
+
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mr-auto">
+          <li class="admin-list nav-item dropdown">
+            <a role="button"  class="btn btn-warning ml-4" aria-expanded="false" (click)="getFeedbacks()">
+              طلب التقييمات من المشاركين
+            </a>
+        
+        </li> 
           <li class="notification nav-item dropdown" style="cursor: pointer;">
             <a class="" id="navbardrop" data-toggle="dropdown">
               <span class="badge">{{unReadNotifications}}</span><i class="bell fas fa-bell"></i>
@@ -45,7 +53,7 @@
 
             <div class="dropdown-menu" > 
               <div class="message">
-                <p> الرسايل </p>
+                <p> الرسائل </p>
                 <hr>
               </div>             
               <a class="dropdown-item"  *ngFor="let m of adminMessages">                
@@ -71,7 +79,9 @@
             
           </div>
       </li> 
+
       
+
       <li class="nav-item dropdown">
         <a role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img class="img-fluid rounded-circle" src="https://uploadfilesapi.azurewebsites.net/files/newUser.jpg" width="40px">

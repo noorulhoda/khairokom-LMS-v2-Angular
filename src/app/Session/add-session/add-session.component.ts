@@ -64,7 +64,8 @@ classes;
     console.log(session)
     this.sessionService.AddSession(session).subscribe(
       data => {
-        this.router.navigateByUrl("/home")
+       alert("تم إضافة الحلقة بنجاح")
+        // this.router.navigateByUrl("/home")
       },
       error => {
         console.log(error)

@@ -154,6 +154,7 @@ export class AddClassComponent implements OnInit {
         console.log(this.teacher)
         this.addTeacherToCourse()
         this.NotifyToTeacherWithAccept();
+        alert("تم إضافة المجموعة بنجاح ")
       },
       error => {
         console.log("*****************************")

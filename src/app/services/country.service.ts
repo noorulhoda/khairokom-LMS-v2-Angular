@@ -19,7 +19,7 @@ export class countryService {
   getAllCountries():Observable<Icountry[]>
   {
     return this.http.get<Icountry[]>(this.url).pipe(catchError(err=>{
-      return throwError(err.message||"customError happened")
+      return throwError(err||"customError happened")
     }));
   }
 
@@ -27,7 +27,7 @@ export class countryService {
   {
     return this.http.get<Icountry>(this.url+"/"+id).pipe(catchError((err)=>
     {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
+      return throwError(err ||"Internal Server error contact site adminstarator");
     }));
   }
 
@@ -35,7 +35,7 @@ export class countryService {
   {
     return this.http.get<any>(this.url+"/withName/"+name,httpOptions).pipe(catchError((err)=>
     {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
+      return throwError(err ||"Internal Server error contact site adminstarator");
     }));
   } 
 

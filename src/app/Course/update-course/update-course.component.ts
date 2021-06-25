@@ -117,7 +117,8 @@ export class UpdateCourseComponent implements OnInit {
     }
     this.cs.UpdateCourse(this.id,course).subscribe(
       data => {
-        this.router.navigateByUrl("/home")
+        alert("تم تعديل الدورة التدريبية بنجاح ")
+        //this.router.navigateByUrl("/home")
       },
       error => {
         console.log(error)

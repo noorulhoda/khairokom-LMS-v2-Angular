@@ -46,6 +46,7 @@ export class DashboardHeaderComponent implements OnInit {
           if(element.notifiedUserId=="Admin")
           this.adminNotifications.push(element)
         });
+        this.adminNotifications.reverse();
         this.computeUnRead();//صح
         console.log(data);
         },
@@ -59,6 +60,7 @@ export class DashboardHeaderComponent implements OnInit {
           if(element.receiverId==this.adminRoleId)
           this.adminMessages.push(element)
         });
+        this.adminMessages.reverse();
         this.computeUnReadMessages();
         console.log(data);
         },
@@ -88,6 +90,7 @@ export class DashboardHeaderComponent implements OnInit {
   }
 
   messageRead(id:String,message:Imessage){
+    console.log(id)
     message.isRead=true;
     this.messageService.updateMessage(id,message).subscribe(
       data=>console.log(data),

@@ -49,8 +49,14 @@ export class GetAllCoursesComponent implements OnInit {
   }
   searchByCouresTitle(value) 
   {
+
     this.searchedTitle = value;
-    console.log(this.searchedTitle)
+    if(this.searchedTitle.empty)
+    {
+      this.ngOnInit()
+    }
+    else{
+      console.log(this.searchedTitle)
     this.courses.forEach(element=>
     {
       if(element.tittle.includes(this.searchedTitle))
@@ -61,6 +67,8 @@ export class GetAllCoursesComponent implements OnInit {
      console.log(this.selectedCourses)
      this.renderCourses=this.selectedCourses
      this.selectedCourses=[];
+    }
+    
    }
 }
 

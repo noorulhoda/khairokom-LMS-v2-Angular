@@ -71,8 +71,8 @@ const routes: Routes = [
   {path:'updateCategory/:id',component:UpdateCategoryComponent},
   {path:'getAllCategoriesAdmin',component:GetAllCategoriesAdminComponent},
 
-  {path:'addClass',component:AddClassComponent},
-  {path:'getAllClasses',component:GetAllClassesComponent},
+  {path:'addClass',component:AddClassComponent},  
+  {path:'getAllClasses',component:GetAllClassesComponent}, // back
   {path:'getClassById/:id',component:GetClassByIDComponent},
   {path:'updateClass/:id',component:UpdateClassComponent},
   {path:'getAllClassesAdmin',component:GetAllClassesAdminComponent},
@@ -80,7 +80,7 @@ const routes: Routes = [
   {path:'addCourse',component:AddCourseComponent},
   {path:'updateCourse/:id',component:UpdateCourseComponent},
   {path:'getAllCourses',component:GetAllCoursesComponent},
-  {path:'getCourseById/:id',component:GetCourseByIDComponent},
+  {path:'getCourseById/:id',component:GetCourseByIDComponent}, // back
   {path:'getAllCoursesAdmin',component:GetAllCoursesAdminComponent},
 
   {path:'getSessionById/:id',component:GetSessionByIdComponent},
@@ -91,7 +91,7 @@ const routes: Routes = [
 
   {path:'addRole',component:AddRoleComponent},
   {path:'getAllRoles',component:GetAllRolesComponent},
-  {path:'getRoleByID/:id',component:GetRoleByIDComponent},
+  {path:'getRoleByID/:id',component:GetRoleByIDComponent}, // back
   {path:'updateRole/:id',component:UpdateRoleComponent},
 
   {path:'admin',component:DashboardComponent},

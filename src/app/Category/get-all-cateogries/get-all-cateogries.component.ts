@@ -36,6 +36,7 @@ export class GetAllCateogriesComponent implements OnInit {
   }
   searchByCategoryTitle(value) 
   {
+    
     this.searchedTitle = value;
     console.log(this.searchedTitle)
     this.categoryList.forEach(element=>

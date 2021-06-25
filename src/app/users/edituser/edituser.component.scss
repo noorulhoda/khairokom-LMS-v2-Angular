@@ -1,16 +1,42 @@
+.banner{
+  background: linear-gradient(to right, rgba(0,0,0,0.2),rgba(0,0,0,0.6)), url('https://cdn.wallpapersafari.com/67/44/VcLXHh.jpg') center center;
+  background-size: cover;    
+  height: 80vh;
+  // overflow: hidden;
+}
+.banner .title span {
+  font-size: 70px;
+  font-weight: bold;
+  color: #fff;    
+}
+.banner .links a, .banner .links span 
+{
+  color: #fff; 
+  font-size: 25px;
+}
+.banner .links a:hover {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 2px;
+} 
+
+
 main{
     display: block;
     background-color: #fff;    
     overflow: hidden;
   }
   main form {
-    padding: 81.5px;
+    padding: 30px;
+  }
+  main form label{
+    font-size: 20px;
   }
   main form .update {
     background-color: rgba(255,173,5,0.8);  
     color: #fff;  
     padding: 10px 30px; 
     border: none;
+    font-size: 18px;
   }
   main form .update:hover{
     background-color: #FFAD05; 
@@ -20,4 +46,5 @@ main{
     background-color: #333;
     color: #fff;
     border: none;
+    font-size: 18px;
   }

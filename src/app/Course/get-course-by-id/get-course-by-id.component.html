@@ -114,7 +114,8 @@
           <!-- </div> -->
 
           <div class="">
-            <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()" *ngIf="userName!='0000'">
+            <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()" *ngIf="userName!='0000' && studentClasses.length==0">
+              
               سجل كطالب
             </button>&nbsp; &nbsp; &nbsp;
             <button class="btn btn-success" (click)="notifyWithNewWaitingTeacher()" *ngIf="userName!='0000'">

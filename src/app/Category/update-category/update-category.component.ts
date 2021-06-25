@@ -97,7 +97,8 @@ this.categoryservice.updateCategory(this.id,newcategory)
 .subscribe(
   data => {
     console.log("DATA : "+data);
-    this.router.navigateByUrl("/home")
+   // this.router.navigateByUrl("/home")
+   alert("تم تعديل القسم بنجاح ")
   },
   error => {
     console.log("errooorrrrr-_-"+ error)

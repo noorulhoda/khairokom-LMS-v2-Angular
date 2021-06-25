@@ -19,19 +19,19 @@ export class notificationService {
   getAllNotifications():Observable<Inotification[]>
   {
     return this.http.get<Inotification[]>(this.url).pipe(catchError(err=>{
-      return throwError(err.message||"customError happened")
+      return throwError(err||"customError happened")
     }));
   }
  addNotification(notification: Inotification): Observable<any> {
     return this.http.post(this.url,notification,httpOptions).pipe(catchError(err => {
-        return throwError(err.message || "Internal Server error contact site adminstarator")
+        return throwError(err || "Internal Server error contact site adminstarator")
     }));
 }
   getNotificationById(id:String):Observable<Inotification>
   {
     return this.http.get<Inotification>(this.url+"/"+id).pipe(catchError((err)=>
     {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
+      return throwError(err ||"Internal Server error contact site adminstarator");
     }));
   }
 
@@ -39,14 +39,14 @@ export class notificationService {
 
     return this.http.put(this.url+"/"+id, notification, httpOptions).pipe(catchError((err)=>
     {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
+      return throwError(err ||"Internal Server error contact site adminstarator");
     }));
   }
 
   deleteNotification(id:String): Observable<any>{
     return this.http.delete(this.url+"/"+id, httpOptions).pipe(catchError((err)=>
     {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
+      return throwError(err ||"Internal Server error contact site adminstarator");
     }));
   }
 

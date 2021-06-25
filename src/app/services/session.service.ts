@@ -16,13 +16,13 @@ export class SessionService {
 
   GetAllSessions(): Observable<Isession[]> {
     return this.http.get<Isession[]>(this.Url).pipe(catchError(err => {
-        return throwError(err.message || "Internal Server error contact site adminstarator")
+        return throwError(err || "Internal Server error contact site adminstarator")
     }));
 }
 
 AddSession(course: Isession): Observable<any> {
   return this.http.post(this.Url,course,httpOptions).pipe(catchError(err => {
-      return throwError(err.message || "Internal Server error contact site adminstarator")
+      return throwError(err || "Internal Server error contact site adminstarator")
   }));
 }
 
@@ -30,21 +30,21 @@ UpdateSession(id:String, course:Isession): Observable<any>{
 
   return this.http.put(this.Url+"/"+id, course, httpOptions).pipe(catchError((err)=>
   {
-    return throwError(err.message ||"Internal Server error contact site adminstarator");
+    return throwError(err ||"Internal Server error contact site adminstarator");
   }));
 }
 
 DeleteSession(id:String): Observable<any>{
   return this.http.delete(this.Url+"/"+id, httpOptions).pipe(catchError((err)=>
   {
-    return throwError(err.message ||"Internal Server error contact site adminstarator");
+    return throwError(err ||"Internal Server error contact site adminstarator");
   }));
 }
 
 getSessionById(id:String): Observable<Isession>{
   return this.http.get<Isession>(this.Url+"/"+id, httpOptions).pipe(catchError((err)=>
   {
-    return throwError(err.message ||"Internal Server error contact site adminstarator");
+    return throwError(err ||"Internal Server error contact site adminstarator");
   }));
 }
 }

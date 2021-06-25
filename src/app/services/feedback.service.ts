@@ -19,19 +19,19 @@ export class feedbackService {
   getAllFeedbacks():Observable<Ifeedback[]>
   {
     return this.http.get<Ifeedback[]>(this.url).pipe(catchError(err=>{
-      return throwError(err.message||"customError happened")
+      return throwError(err||"customError happened")
     }));
   }
  addFeedback(feedback: Ifeedback): Observable<any> {
     return this.http.post(this.url,feedback,httpOptions).pipe(catchError(err => {
-        return throwError(err.message || "Internal Server error contact site adminstarator")
+        return throwError(err || "Internal Server error contact site adminstarator")
     }));
 }
   getFeedbackById(id:String):Observable<Ifeedback>
   {
     return this.http.get<Ifeedback>(this.url+"/"+id).pipe(catchError((err)=>
     {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
+      return throwError(err ||"Internal Server error contact site adminstarator");
     }));
   }
 
@@ -39,14 +39,14 @@ export class feedbackService {
 
     return this.http.put(this.url+"/"+id, feedback, httpOptions).pipe(catchError((err)=>
     {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
+      return throwError(err ||"Internal Server error contact site adminstarator");
     }));
   }
 
   deleteFeedback(id:String): Observable<any>{
     return this.http.delete(this.url+"/"+id, httpOptions).pipe(catchError((err)=>
     {
-      return throwError(err.message ||"Internal Server error contact site adminstarator");
+      return throwError(err ||"Internal Server error contact site adminstarator");
     }));
   }
 

@@ -81,7 +81,8 @@ export class AddCourseComponent implements OnInit {
     }
     this.cs.AddCourse(course).subscribe(
       data => {
-        this.router.navigateByUrl("/home")
+        alert("تم إضافة الدورة التدريبية بنجاح ")
+        // this.router.navigateByUrl("/home")
       },
       error => {
         console.log(error)

@@ -62,7 +62,7 @@ Login(role:any): Observable<any>{
         return throwError(err || "Internal Server error contact site adminstarator")
     }));
 }
-  findByRoleType(roleType:string): Observable<Irole>{
+  findByRoleType(roleType): Observable<Irole>{
     return this.http.get<Irole>(this.url+"/withType/"+roleType).pipe(catchError((err)=>
     {
       return throwError(err ||"Internal Server error contact site adminstarator");

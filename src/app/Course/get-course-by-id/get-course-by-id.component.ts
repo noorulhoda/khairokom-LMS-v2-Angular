@@ -118,6 +118,8 @@ export class GetCourseByIDComponent implements OnInit {
           )
         
         });
+       
+
    
         console.log(this.studnentCourseClasses)
         console.log("*************************stClas***************************")

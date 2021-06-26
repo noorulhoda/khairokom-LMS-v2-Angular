@@ -21,7 +21,7 @@ export class WaitingstudentsComponent implements OnInit {
   notification:Inotification;
   course:Icourse;
   student:Iuser;
-  classes:Iclass[];
+  classes;
   courseClasses:Iclass[]=[];
   studentAge: number;
   checkedClassId:String;
@@ -96,8 +96,22 @@ export class WaitingstudentsComponent implements OnInit {
       data=>{
           this.classes=data;
           this.classes.forEach(element => {
-            if(element.CourseId==this.notification.courseId)      
-            this.courseClasses.push(element)
+          if(element.CourseId==this.notification.courseId)
+           {
+            element.Students.forEach(stud=>{
+              console.log("****************")
+              console.log(stud)
+              console.log(localStorage.getItem('currentUserId'))
+              if(!this.student.joinedClasses.includes(element._id))
+              {
+                this.courseClasses.push(element)
+                console.log("/////////////////////")
+                console.log(this.courseClasses)
+              }
+              }
+            )  
+           }    
+            
   });
       },
       error=>{

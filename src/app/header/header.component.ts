@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit{
           if(element.notifiedUserId==this.userId)
           this.userNotifications.push(element)
         });
+        this.userNotifications.reverse();
         this.computeUnRead();//صح
         console.log(data);
         },
@@ -73,6 +74,7 @@ checkIfAdmin():void{
     console.log('logouted successfully')
     localStorage.setItem('isAdmin',"false")
     this.isAdmin=false
+    this.router.navigateByUrl("/home")
 
   }
   currentUserName;

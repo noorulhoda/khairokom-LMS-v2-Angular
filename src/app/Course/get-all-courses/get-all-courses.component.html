@@ -41,26 +41,31 @@
           </div>
         </div>
       </section>
-    
-    <section class="courses mt-5 mb-5">
+
+      <div class="search mt-5">
         <div class="container">
-            <div class="group">
-              <form>
-                <input  type="text" class="form-control" placeholder="ابحث عن اسم الدورة التدربية " #myInput style="width:400px;">
-                <br>
-                <button class="btn btn-warning" (click)="searchByCouresTitle(myInput.value)">ابحـــث</button>
-              </form>
-              <div class="row d-flex justify-content-center align-items-center">
-             <div>
-                  <span> ابحث باسم القسم : </span>
-                  <select [(ngModel)]="neededCategory" (change)="changeShowAll()">
-                    <option *ngFor="let r of categoriesTitle" value="{{ r._id }}">
-                      {{ r.Title }}
-                    </option>
-                  </select>
-                </div>
+          <div class="group">
+            <form>
+              <input  type="text" class="form-control" placeholder="ابحث عن اسم الدورة التدربية " #myInput style="width:400px;">
+              <br>
+              <button class="btn btn-warning" (click)="searchByCouresTitle(myInput.value)">ابحـــث</button>
+            </form>
+            <div class="row d-flex justify-content-center align-items-center">
+           <div>
+                <span> ابحث باسم القسم : </span>
+                <select [(ngModel)]="neededCategory" (change)="changeShowAll()">
+                  <option *ngFor="let r of categoriesTitle" value="{{ r._id }}">
+                    {{ r.Title }}
+                  </option>
+                </select>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    
+    <section class="courses mt-5 mb-5">
+        <div class="container">            
            <div class="group" *ngFor="let course of renderCourses;let i= index">
 
             <a class="course row mt-5" routerLink="/getCourseById/{{course._id}}" *ngIf="course.categoryID.includes(neededCategory) || showAll" >

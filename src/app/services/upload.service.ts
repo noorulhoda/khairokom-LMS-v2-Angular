@@ -8,7 +8,7 @@ import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
 
 export class UploadService {
 
-  private endpoint = 'https://uploadfilesapi.azurewebsites.net';
+  private endpoint = 'https://khairokom-uploadfiles.azurewebsites.net';
 
   constructor(private httpClient: HttpClient) { }
 

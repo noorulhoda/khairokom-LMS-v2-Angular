@@ -49,6 +49,7 @@ import { StudentFeedbackComponent } from './FeedBacks/student-feedback/student-f
 import { TeacherFeedbackComponent } from './FeedBacks/teacher-feedback/teacher-feedback.component';
 import { DetailedFeedbackComponent } from './FeedBacks/detailed-feedback/detailed-feedback.component';
 import {DetailedMessagesComponent} from './Admin_Dashboard/detailed-messages/detailed-messages.component'
+import { AdminGaurdService } from './guards/admin-gaurd.service';
 
 
 
@@ -60,27 +61,27 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
   {path:'updateUser/:id',component:EdituserComponent},
-  {path:'getAllUsers',component:GetAllComponent},
+  {path:'getAllUsers',component:GetAllComponent,canActivate: [ AdminGaurdService ]},
   {path:'profile/:id',component:ProfileComponent},
   {path:'myCourses/:id',component:MyCoursesComponent},
   
-  {path:'addCategory',component:AddCateogryComponent},
+  {path:'addCategory',component:AddCateogryComponent,canActivate: [ AdminGaurdService ]},
   {path:'getAllCategories',component:GetAllCateogriesComponent},
   {path:'getCategoryById/:id',component:getCategoryByIdComponent},
-  {path:'updateCategory/:id',component:UpdateCategoryComponent},
-  {path:'getAllCategoriesAdmin',component:GetAllCategoriesAdminComponent},
+  {path:'updateCategory/:id',component:UpdateCategoryComponent,canActivate: [ AdminGaurdService ]},
+  {path:'getAllCategoriesAdmin',component:GetAllCategoriesAdminComponent,canActivate: [ AdminGaurdService ]},
 
-  {path:'addClass',component:AddClassComponent},  
+  {path:'addClass',component:AddClassComponent,canActivate: [ AdminGaurdService ]},  
   {path:'getAllClasses',component:GetAllClassesComponent}, // back
   {path:'getClassById/:id',component:GetClassByIDComponent},
-  {path:'updateClass/:id',component:UpdateClassComponent},
-  {path:'getAllClassesAdmin',component:GetAllClassesAdminComponent},
+  {path:'updateClass/:id',component:UpdateClassComponent,canActivate: [ AdminGaurdService ]},
+  {path:'getAllClassesAdmin',component:GetAllClassesAdminComponent,canActivate: [ AdminGaurdService ]},
 
-  {path:'addCourse',component:AddCourseComponent},
-  {path:'updateCourse/:id',component:UpdateCourseComponent},
+  {path:'addCourse',component:AddCourseComponent,canActivate: [ AdminGaurdService ]},
+  {path:'updateCourse/:id',component:UpdateCourseComponent,canActivate: [ AdminGaurdService ]},
   {path:'getAllCourses',component:GetAllCoursesComponent},
   {path:'getCourseById/:id',component:GetCourseByIDComponent}, // back
-  {path:'getAllCoursesAdmin',component:GetAllCoursesAdminComponent},
+  {path:'getAllCoursesAdmin',component:GetAllCoursesAdminComponent,canActivate: [ AdminGaurdService ]},
 
   {path:'getSessionById/:id',component:GetSessionByIdComponent},
   {path:'updateSession/:id',component:UpdateSessionComponent},
@@ -88,16 +89,16 @@ const routes: Routes = [
   {path:'addSession',component:AddSessionComponent},
   {path:'getAllSessionsAdmin',component:GetAllSessionsAdminComponent},
 
-  {path:'addRole',component:AddRoleComponent},
-  {path:'getAllRoles',component:GetAllRolesComponent},
-  {path:'getRoleByID/:id',component:GetRoleByIDComponent}, // back
-  {path:'updateRole/:id',component:UpdateRoleComponent},
+  {path:'addRole',component:AddRoleComponent,canActivate: [ AdminGaurdService ]},
+  {path:'getAllRoles',component:GetAllRolesComponent,canActivate: [ AdminGaurdService ]},
+  {path:'getRoleByID/:id',component:GetRoleByIDComponent,canActivate: [ AdminGaurdService ]}, // back
+  {path:'updateRole/:id',component:UpdateRoleComponent,canActivate: [ AdminGaurdService ]},
 
-  {path:'admin',component:DashboardComponent},
-  {path:'permissionManagement',component:PermissionManagementComponent},
-  {path:'waitingStudents/:id',component:WaitingstudentsComponent},//notificationId
-  {path:'waitingTeachers/:id',component:WaitingTeachersComponent},
-  {path:'detailedMessages/:id',component:DetailedMessagesComponent},
+  {path:'admin',component:DashboardComponent,canActivate: [ AdminGaurdService ]},
+  {path:'permissionManagement',component:PermissionManagementComponent,canActivate: [ AdminGaurdService ]},
+  {path:'waitingStudents/:id',component:WaitingstudentsComponent,canActivate: [ AdminGaurdService ]},//notificationId
+  {path:'waitingTeachers/:id',component:WaitingTeachersComponent,canActivate: [ AdminGaurdService ]},
+  {path:'detailedMessages/:id',component:DetailedMessagesComponent,canActivate: [ AdminGaurdService ]},
 
   {path:'studentFeedback/:notificationId',component:StudentFeedbackComponent},
   {path:'teacherFeedback/:notificationId',component:TeacherFeedbackComponent},

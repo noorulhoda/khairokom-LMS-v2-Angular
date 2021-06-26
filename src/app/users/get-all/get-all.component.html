@@ -36,8 +36,8 @@
                 <p class="font-italic text-muted mb-0 small">{{ p.email }}</p>
                 <div class="d-flex align-items-center justify-content-between mt-1">
                   <h6 class="font-weight-bold my-2">usererID : {{ p._id }}</h6>
-                  <a routerLink="/profile/{{ p._id }}">حسابي</a>
-                  <button class="btn btn-dark" (click)="delete(p._id)">حذف</button>
+                  <a routerLink="/profile/{{ p._id }}">زيارة الحساب</a>
+                  <button class="btn btn-dark" (click)="deleteUser(p._id)">حذف</button>
                 </div>
               </div>            
             </div>

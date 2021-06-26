@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { classService } from 'src/app/services/class.service';
 import { MessageService } from 'src/app/services/message.service';
 import { notificationService } from 'src/app/services/notification.service';
+import {RealtimeserviceService } from 'src/app/realtimeservice.service';
 import { RolesService } from 'src/app/services/roles.service';
 import { Iclass } from 'src/app/shared/Iclass';
 import { Imessage } from 'src/app/shared/Imessage';
@@ -14,7 +15,7 @@ import { Inotification } from 'src/app/shared/Inotification';
   templateUrl: './dashboard-header.component.html',
   styleUrls: ['./dashboard-header.component.scss']
 })
-export class DashboardHeaderComponent implements OnInit {
+export class DashboardHeaderComponent implements OnInit ,AfterViewInit{
   notifications:Inotification[];
   messages:Imessage[];
 
@@ -33,48 +34,70 @@ export class DashboardHeaderComponent implements OnInit {
     private router:Router,
     private classService:classService,
     private messageService:MessageService,
-    private roleService:RolesService) { 
-
+    private roleService:RolesService,
+    private route:ActivatedRoute,
+    private realtimeService:RealtimeserviceService) { 
+      
+     
       this.roleService.findByRoleType("Admin").subscribe(
         data=>{this.adminRoleId=data[0]['_id'];
         console.log(data)
       }
         ,er=>console.log(er)
       )
-    this.notificationService.getAllNotifications().subscribe(
-      data=>{
-        this.notifications=data
-         this.notifications.forEach(element => {
-          if(element.notifiedUserId=="Admin")
-          this.adminNotifications.push(element)
-        });
-        this.adminNotifications.reverse();
-        this.computeUnRead();//صح
-        console.log(data);
-        },
-      er=>console.log(er)
-    );
-
-    this.messageService.getAllMessages().subscribe(
-      data=>{
-        this.messages=data
-         this.messages.forEach(element => {
-          if(element.receiverId==this.adminRoleId)
-          this.adminMessages.push(element)
-        });
-        this.adminMessages.reverse();
-        this.computeUnReadMessages();
-        console.log(data);
-        },
-      er=>console.log(er)
-    );
-
+    
+    this.getNotifications()
+    this.getMsgs()
+ 
     
   }
+ getNotifications(){
+  this.notificationService.getAllNotifications().subscribe(
+    data=>{
+      this.notifications=data
+       this.notifications.forEach(element => {
+        if(element.notifiedUserId=="Admin")
+        this.adminNotifications.push(element)
+      });
+      this.adminNotifications.reverse();
+      this.computeUnRead();//صح
+      console.log(data);
+      },
+    er=>console.log(er)
+  );
 
+ }
+ getMsgs(){
+  this.messageService.getAllMessages().subscribe(
+    data=>{
+      this.messages=data
+       this.messages.forEach(element => {
+        if(element.receiverId==this.adminRoleId)
+        this.adminMessages.push(element)
+      });
+      this.adminMessages.reverse();
+      this.computeUnReadMessages();
+      console.log(data);
+      },
+    er=>console.log(er)
+  );
+ }
+ regetNotficationsAndMsgs(){
+   console.log("reloooooaaad")
+     this.adminNotifications=[]
+    // this.unReadNotifications=0
+     this.getNotifications()
+     this.adminMessages=[]
+     //this.unReadMessages=0
+     this.getMsgs()
+  }
   ngOnInit(): void {
-  
- 
+    setInterval(()=>{
+      console.log("hi")
+      this.regetNotficationsAndMsgs()},5000)
+  }
+  ngAfterViewInit():void{
+
   }
   getFeedbacks(){
     this.classService.GetAllclass().subscribe(
@@ -106,6 +129,7 @@ export class DashboardHeaderComponent implements OnInit {
    
   }
   computeUnRead(){
+    this.unReadNotifications=0
     this.adminNotifications.forEach(element => {
       if(!element.isRead)
         this.unReadNotifications++;
@@ -114,6 +138,7 @@ export class DashboardHeaderComponent implements OnInit {
   }
 
   computeUnReadMessages(){
+    this.unReadMessages=0
     this.adminMessages.forEach(element => {
       if(!element.isRead)
         this.unReadMessages++;
@@ -241,5 +266,12 @@ logout(){
 
 
 }
+
+reloadComponent() {
+  let currentUrl = this.router.url;
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate([currentUrl]);
+  }
 
 }

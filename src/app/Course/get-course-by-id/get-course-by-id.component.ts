@@ -53,6 +53,7 @@ export class GetCourseByIDComponent implements OnInit {
       this.courseId = params['id']
       console.log('id : ' + (this.courseId));   
 
+     
     });
 
     this.cs.getCourseById(this.courseId).subscribe(
@@ -195,6 +196,10 @@ export class GetCourseByIDComponent implements OnInit {
     this.commentService.AddComment(comment).subscribe(
       data => {
        // this.router.navigateByUrl("/course")
+       //this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+        //this.router.navigate([window.location.pathname]);});
+        this.courseComments=[]
+        this.GetCourseComments()
       },
       error => {
         console.log(error)
@@ -271,7 +276,10 @@ counter(i) {
 }
 
 deleteComment(id){
-this.commentService.DeleteComment(id).subscribe(data=>{},er=>{})
+this.commentService.DeleteComment(id).subscribe(data=>{
+  this.courseComments=[]
+  this.GetCourseComments()
+},er=>{})
 }
 
 }

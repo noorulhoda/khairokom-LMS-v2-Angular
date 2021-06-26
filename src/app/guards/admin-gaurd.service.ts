@@ -3,20 +3,22 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { Observable } from 'rxjs';
 import { RolesService } from '../services/roles.service';
 import { UsersService } from '../services/users.service';
+import { Roles } from '../shared/Roles';
 @Injectable({
   providedIn: 'root'
 })
 export class AdminGaurdService implements CanActivate{
   isAdmin:boolean;
-  currentUserId=localStorage.getItem('currentUserId')
+  currentUserId
   currentUser;
   adminRoleId;
   constructor(private userService:UsersService,private roleService:RolesService,private router:Router) { 
-    this.roleService.findByRoleType("Admin").subscribe(
+    this.roleService.findByRoleType(Roles.Admin).subscribe(
    data=>this.adminRoleId=data[0]['_id']
     )
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+    this.currentUserId=localStorage.getItem('currentUserId')
     this.userService.getUserById(this.currentUserId).subscribe(
       data=>{
         this.currentUser=data[0]
@@ -28,6 +30,25 @@ export class AdminGaurdService implements CanActivate{
         else{
         this.isAdmin=false
         this.router.navigateByUrl('/notfound')
+         return false
+       }
+      }
+    )
+    return this.isAdmin;
+  }
+  userIsAdmin() :boolean{
+    this.currentUserId=localStorage.getItem('currentUserId')
+    this.userService.getUserById(this.currentUserId).subscribe(
+      data=>{
+        this.currentUser=data[0]
+        if(this.currentUser.roles.includes(this.adminRoleId))
+       { this.isAdmin=true
+        
+        return true
+      }
+        else{
+        this.isAdmin=false
+      
          return false
        }
       }

@@ -2,5 +2,7 @@
     "appService.zipIgnorePattern": [
         "node_modules{,/**}",
         ".vscode{,/**}"
-    ]
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/ec308acc-6edd-49ef-88b2-ec9cec81fddb/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/khairokomAngular",
+    "appService.deploySubpath": "."
 }

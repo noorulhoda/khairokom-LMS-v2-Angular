@@ -1,6 +1,6 @@
 <div class="course row justify-content-center align-items-center">
 
-  <a class="content text-center mt-4" href="#" *ngFor="let course of coursesList" routerLink="/getCourseById/{{course._id}}">    
+  <a class="content text-center mt-4" *ngFor="let course of coursesList" routerLink="/getCourseById/{{course._id}}">    
       <div class="photo d-flex justify-content-center align-items-center">      
         <img class="img-fluid" src="https://uploadfilesapi.azurewebsites.net/files/{{course.image}}" alt="" width="330px">
         <!-- <div class="frame d-flex justify-content-center align-items-center">
@@ -8,7 +8,7 @@
         </div>      -->
       </div>
       <div class="title">
-        <h3 class="mt-5">{{course.tittle}}</h3>
+        <h3 class="mt-5 mb-4">{{course.tittle}}</h3>
       </div>
 <!--       <p >{{courseList.description}}</p>    
  -->  </a>      

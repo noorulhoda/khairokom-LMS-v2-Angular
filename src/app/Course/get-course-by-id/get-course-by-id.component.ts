@@ -13,6 +13,7 @@ import { Iclass } from 'src/app/shared/Iclass';
 import { notificationService } from 'src/app/services/notification.service';
 import { Inotification } from 'src/app/shared/Inotification';
 import { feedbackService } from 'src/app/services/feedback.service';
+import { Roles } from 'src/app/shared/Roles';
 
 @Component({
   selector: 'app-get-course-by-id',
@@ -236,7 +237,7 @@ courseComments:Icomment[]=[];
 notifyWithNewWaitingStudent(){
   var notification:Inotification={
     message:"طالب ينتظر الموافقة للالتحاق بدورة تدريبية",
-    notifiedUserId:"Admin",
+    notifiedUserId:Roles.Admin,
     courseId:this.courseId,
     studentId:this.userId,
     isRead:false
@@ -256,7 +257,7 @@ notifyWithNewWaitingStudent(){
 notifyWithNewWaitingTeacher(){
   var notification:Inotification={
     message:"معلم ينتظر الموافقة لتدريس دورة تدريبية",
-    notifiedUserId:"Admin",
+    notifiedUserId:Roles.Admin,
     courseId:this.courseId,
     teacherId:this.userId,
     isRead:false

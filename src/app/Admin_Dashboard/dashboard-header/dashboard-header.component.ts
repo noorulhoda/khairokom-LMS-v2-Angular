@@ -9,7 +9,7 @@ import { RolesService } from 'src/app/services/roles.service';
 import { Iclass } from 'src/app/shared/Iclass';
 import { Imessage } from 'src/app/shared/Imessage';
 import { Inotification } from 'src/app/shared/Inotification';
-
+import { Roles } from 'src/app/shared/Roles';
 @Component({
   selector: 'app-dashboard-header',
   templateUrl: './dashboard-header.component.html',
@@ -39,7 +39,7 @@ export class DashboardHeaderComponent implements OnInit ,AfterViewInit{
     private realtimeService:RealtimeserviceService) { 
       
      
-      this.roleService.findByRoleType("Admin").subscribe(
+      this.roleService.findByRoleType(Roles.Admin).subscribe(
         data=>{this.adminRoleId=data[0]['_id'];
         console.log(data)
       }
@@ -56,7 +56,7 @@ export class DashboardHeaderComponent implements OnInit ,AfterViewInit{
     data=>{
       this.notifications=data
        this.notifications.forEach(element => {
-        if(element.notifiedUserId=="Admin")
+        if(element.notifiedUserId==Roles.Admin)
         this.adminNotifications.push(element)
       });
       this.adminNotifications.reverse();

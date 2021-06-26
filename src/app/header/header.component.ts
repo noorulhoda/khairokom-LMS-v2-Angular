@@ -25,6 +25,12 @@ export class HeaderComponent implements OnInit{
   adminRoleId;
   constructor(private roleService:RolesService,private notificationService:notificationService,private router:Router,private userService:UsersService, private _vps: ViewportScroller) { 
 
+   this.getNotifications()
+    
+  }
+  pannerSrc="https://i.imgur.com/bkCeTu7.png";
+
+  getNotifications(){
     this.userService.findByUserName(this.userName).subscribe(
      
       data => {this.user= data[0]; this.userId=data[0]['_id']
@@ -46,14 +52,20 @@ export class HeaderComponent implements OnInit{
       er =>console.log(er) ,
     );
     this.findCurrentUser();
-    
   }
-  pannerSrc="https://i.imgur.com/bkCeTu7.png";
 
-  ngOnInit(): void {
-   
+  regetNotficationsAndMsgs(){
+    console.log("reloooooaaad")
+      this.userNotifications=[]
+      this.getNotifications()
+   }
+   ngOnInit(): void {
+     setInterval(()=>{
+       console.log("hi")
+       this.regetNotficationsAndMsgs()},5000)
+   }
 
-  }
+
 
 checkIfAdmin():void{
      if(this.currentUser.roles.includes(this.adminRoleId)){
@@ -128,6 +140,7 @@ checkIfAdmin():void{
   }
 
   computeUnRead(){
+    this.unReadNotifications=0
     this.userNotifications.forEach(element => {
       if(!element.isRead)
         this.unReadNotifications++;

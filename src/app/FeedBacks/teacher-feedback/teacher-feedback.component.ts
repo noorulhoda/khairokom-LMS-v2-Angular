@@ -111,7 +111,7 @@ addForm = this.fb.group(
 
   submit() {
     var feedback: Ifeedback = {
-      message:this.currentStudentName,//this.message?.value,
+      message:this.message?.value,
       starsNumber: this.feedbackStars,
       setterId: this.class.TeacherId,
       getterId: this.currentStudentId,

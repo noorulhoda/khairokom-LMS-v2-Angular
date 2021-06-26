@@ -3,6 +3,6 @@
         "node_modules{,/**}",
         ".vscode{,/**}"
     ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/ec308acc-6edd-49ef-88b2-ec9cec81fddb/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/khairokomAngular",
+    "appService.defaultWebAppToDeploy": "/subscriptions/09637e3f-0285-40f7-b8a9-c1a63c16ffa9/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/khairokom",
     "appService.deploySubpath": "."
 }

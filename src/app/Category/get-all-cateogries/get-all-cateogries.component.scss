@@ -26,6 +26,12 @@
   overflow: hidden;
   margin-top: 90px;
 }
+.all-categories .image img{
+  min-height: 300px;
+  max-height: 300px;
+  min-width: 290px;
+  max-width: 290px;
+}
 .all-categories .content {    
     width: 290px;
     height: 400px;
@@ -39,8 +45,7 @@
   }
 
 .all-categories .content h3 {
-    // border-bottom: 2px solid #FFAD05;
-    padding-bottom: 10px;
+    border-bottom: 2px solid #FFAD05;
     display: inline-block;
     text-align: center;
     font-weight: normal;
@@ -49,12 +54,19 @@
     line-height: 30px;
     // color: gray;
   }
+  .search .search-btn{
+    font-size: 20px;
+    color: #fff;
+  }
+  ::placeholder {
+    font-size: 20px;
+  }
 
-// .all-categories .content:hover {
-//     background-color: #FFAD05;
-//     color: #fff;
-//     transition: all 1s ease-in-out;
-//   }
+.all-categories .content:hover {
+    background-color: #FFAD05;
+    color: #fff;
+    transition: all 1s ease-in-out;
+  }
 
 // .all-categories .details a{
 //     color: #333;

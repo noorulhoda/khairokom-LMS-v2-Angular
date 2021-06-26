@@ -21,7 +21,7 @@
       <form>
         <input type="text" class="form-control" placeholder="ابحث عن اسم القســـم " #myInput style="width: 400px;">
         <br>
-        <button class="btn btn-warning" (click)="searchByCategoryTitle(myInput.value)">ابحـــث</button>
+        <button class="search-btn btn btn-warning" (click)="searchByCategoryTitle(myInput.value)">ابحـــث</button>
       </form>
     </div> 
   </div>
@@ -34,7 +34,7 @@
         <a class="content text-center" routerLink="/getCategoryById/{{category._id}}">
 
           <div class="image d-flex justify-content-center align-items-center">
-            <img class="" src="https://khairokom-uploadfiles.azurewebsites.net/files/{{category.Image}}" alt="تحميل الصـــورة" width="290px" height="300px">
+            <img class="" src="https://khairokom-uploadfiles.azurewebsites.net/files/{{category.Image}}" alt="تحميل الصـــورة">
           </div>
 
           <div class="title mt-4">

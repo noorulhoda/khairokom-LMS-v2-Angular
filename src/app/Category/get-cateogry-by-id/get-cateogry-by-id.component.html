@@ -16,7 +16,7 @@
     </div>
   </section>
 
-  <section class="category mt-5">
+  <section class="category mt-5 pb-5">
     <div class="container">
       <div class="text-center">
         <div class="title">
@@ -29,11 +29,16 @@
     </div>
   </section>
   
-  <section class="category mt-5">
+  <section class="cousres mt-5 pb-5">
     <div class="container">
-    <h1>الدورات التدريبية</h1>
+    <h2>الدورات التدريبية</h2>
     <div class="group" *ngFor="let categoryCourse of categoryCourses">
       <a class="course row mt-5" routerLink="/getCourseById/{{categoryCourse._id}}">
+
+        <div class="course-image col-md-3">
+          <img class="img-fluid" src="https://khairokom-uploadfiles.azurewebsites.net/files/{{categoryCourse.image}}">
+        </div>
+      
           <div class="course-content col-md-9 d-flex align-items-center mt-4">
               <div class="content">
                   <h2 class="title">{{categoryCourse.tittle}}</h2>                    

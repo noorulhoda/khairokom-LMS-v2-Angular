@@ -44,15 +44,16 @@
 
       <div class="search mt-5">
         <div class="container">
-          <div class="group">
+          <div class="row d-flex justify-content-between group">
             <form>
               <input  type="text" class="form-control" placeholder="ابحث عن اسم الدورة التدربية " #myInput style="width:400px;">
               <br>
-              <button class="btn btn-warning" (click)="searchByCouresTitle(myInput.value)">ابحـــث</button>
+              <button class="search-btn btn btn-warning" (click)="searchByCouresTitle(myInput.value)">ابحـــث</button>
             </form>
-            <div class="row d-flex justify-content-center align-items-center">
-           <div>
-                <span> ابحث باسم القسم : </span>
+
+            <div class="category-search row d-flex justify-content-center align-items-center">
+              <div>
+                <span> ابحث باسم القسم : &nbsp; &nbsp;</span>
                 <select [(ngModel)]="neededCategory" (change)="changeShowAll()">
                   <option *ngFor="let r of categoriesTitle" value="{{ r._id }}">
                     {{ r.Title }}
@@ -60,6 +61,7 @@
                 </select>
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -69,7 +71,7 @@
            <div class="group" *ngFor="let course of renderCourses;let i= index">
 
             <a class="course row mt-5" routerLink="/getCourseById/{{course._id}}" *ngIf="course.categoryID.includes(neededCategory) || showAll" >
-                <div class="course-image col-md-3 d-flex justify-content-center align-items-center">
+                <div class="course-image col-md-3">
                     <!-- {{course.image}} -->
                     <img class="img-fluid" src="https://khairokom-uploadfiles.azurewebsites.net/files/{{course.image}}">
                 </div>

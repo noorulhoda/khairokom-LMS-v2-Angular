@@ -80,40 +80,9 @@
                 <i *ngFor='let in of counter(5-AbsCourseStars) ;let i = index' class="star fas fa-star" ></i>                
               </div>
             </div>
-            <!-- (mouseover)="changeColor=true" (mouseout)="changeColor=false" -->           
-            <!-- <div class="row"> -->
-            <h2 class="">مجموعاتي كمعلم</h2>
-            <table class="table table-bordered table-hover">
-              <thead class="thead-light">
-                <tr>
-                  <th>اسم المجموعة</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let teacherCourseClass of teacherCourseClasses">
-                  <td  style="cursor: pointer;" routerLink="/getClassById/{{teacherCourseClass._id}}">{{teacherCourseClass.Number}}</td>
-                </tr>
-              </tbody>
-            </table>
-          <!-- </div> -->
+            <!-- (mouseover)="changeColor=true" (mouseout)="changeColor=false" -->                       
 
-          <!-- <div class="row"> -->
-            <h2 class="">مجموعاتي كطالب</h2>
-            <table class="table table-bordered table-hover">
-              <thead class="thead-light">
-                <tr>
-                  <th>اسم المجموعة</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let studnentCourseClass of studnentCourseClasses">
-                  <td  style="cursor: pointer;" routerLink="/getClassById/{{studnentCourseClass._id}}">{{studnentCourseClass.Number}}</td>
-                </tr>
-              </tbody>
-            </table>
-          <!-- </div> -->
-
-          <div class="">
+          <div class="mt-5">
             <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()" *ngIf="userName!='0000' && studentClasses.length==0">
               
               سجل كطالب
@@ -132,7 +101,39 @@
       </div>
     </form>
   
+    <div class="groups">
+        <div class="teacher">
+          <h2 class="">مجموعاتي كمعلم</h2>
+          <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+              <tr>
+                <th>اسم المجموعة</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let teacherCourseClass of teacherCourseClasses">
+                <td  style="cursor: pointer;" routerLink="/getClassById/{{teacherCourseClass._id}}">{{teacherCourseClass.Number}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
     
+        <div class="student">
+          <h2 class="">مجموعاتي كطالب</h2>
+          <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+              <tr>
+                <th>اسم المجموعة</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let studnentCourseClass of studnentCourseClasses">
+                <td  style="cursor: pointer;" routerLink="/getClassById/{{studnentCourseClass._id}}">{{studnentCourseClass.Number}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
   
     <h2 class="font-weight-bold"> <i style="color: #757575;" class="far fa-comments"></i>&nbsp; التعليقات</h2>
     <div class="comments mt-4 mb-4">
@@ -141,18 +142,21 @@
           <img class="img-fluid" src="https://www.materialui.co/materialIcons/action/account_circle_grey_192x192.png" width="50px">
         </div>
   
-        <div class="coment-text col-md-11 mt-3 d-flex align-items-center">
-          <div>
-            <button
-            *ngIf="comment.userID==userId||userIsAdmin"
-            style="height: 20px;width: 20px;padding: 0px;"
-            class="btn btn-danger ml-0" (click)="deleteComment(comment._id)">X</button><br>
-            <a routerLink="/profile/{{ comment.userID }}">          
-              <b>{{ comment.userName }} </b>
-           </a>
-           <p>{{ comment.content }}</p>
+        <div class="coment-text col-md-11 mt-3 d-flex align-items-center">                      
+
+          <div style="margin-top: -40px;">
+            <button *ngIf="comment.userID==userId||userIsAdmin" style="height: 20px;width: 20px;padding: 0px;"
+          class="btn btn-danger" (click)="deleteComment(comment._id)">X</button>
           </div>
-        </div>
+
+            <div class="col-sm">
+              <a routerLink="/profile/{{ comment.userID }}">          
+                <b>{{ comment.userName }} </b>
+              </a>
+              <p>{{ comment.content }}</p>
+            </div>            
+
+          </div>       
       </div>
     </div>
 

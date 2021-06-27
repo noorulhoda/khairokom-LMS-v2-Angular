@@ -3,7 +3,7 @@
 <div class="container-xxl">
 
 <section class="banner d-flex justify-content-center align-items-center text-center">
-  <div class="content">
+  <div class="content" data-aos="zoom-in" data-aos-duration="2000">
     <div class="title">
       <span>الأقسام</span>
     </div>
@@ -15,7 +15,7 @@
   </div>
 </section>
 
-<div class="search mt-5">
+<div class="search mt-5" data-aos="fade-left" data-aos-duration="2000">
   <div class="container">
     <div class="group">
       <form>
@@ -31,7 +31,7 @@
   <div class="container-xxl">         
     <div class="row d-flex justify-content-center align-items-center mb-5">  
       <div  *ngFor="let category of renderCategories">
-        <a class="content text-center" routerLink="/getCategoryById/{{category._id}}">
+        <a class="content text-center" routerLink="/getCategoryById/{{category._id}}" data-aos="flip-right" data-aos-duration="2000">
 
           <div class="image d-flex justify-content-center align-items-center">
             <img class="" src="https://khairokom-uploadfiles.azurewebsites.net/files/{{category.Image}}" alt="تحميل الصـــورة">

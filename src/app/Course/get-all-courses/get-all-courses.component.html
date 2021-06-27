@@ -30,7 +30,7 @@
 
 <div class="container-xxl">
     <section class="banner d-flex justify-content-center align-items-center text-center">
-        <div class="content">
+        <div class="content" data-aos="zoom-in" data-aos-duration="2000">
           <div class="title">
             <span>الدورات التدريبية</span>
           </div>
@@ -45,13 +45,13 @@
       <div class="search mt-5">
         <div class="container">
           <div class="row d-flex justify-content-between group">
-            <form>
+            <form data-aos="fade-left" data-aos-duration="2000">
               <input  type="text" class="form-control" placeholder="ابحث عن اسم الدورة التدربية " #myInput style="width:400px;">
               <br>
               <button class="search-btn btn btn-warning" (click)="searchByCouresTitle(myInput.value)">ابحـــث</button>
             </form>
 
-            <div class="category-search row d-flex justify-content-center align-items-center">
+            <div class="category-search row d-flex justify-content-center align-items-center" data-aos="fade-right" data-aos-duration="2000">
               <div>
                 <span> ابحث باسم القسم : &nbsp; &nbsp;</span>
                 <select [(ngModel)]="neededCategory" (change)="changeShowAll()">
@@ -70,7 +70,7 @@
         <div class="container">            
            <div class="group" *ngFor="let course of renderCourses;let i= index">
 
-            <a class="course row mt-5" routerLink="/getCourseById/{{course._id}}" *ngIf="course.categoryID.includes(neededCategory) || showAll" >
+            <a class="course row mt-5" routerLink="/getCourseById/{{course._id}}" *ngIf="course.categoryID.includes(neededCategory) || showAll" data-aos="flip-down" data-aos-duration="2000">
                 <div class="course-image col-md-3">
                     <!-- {{course.image}} -->
                     <img class="img-fluid" src="https://khairokom-uploadfiles.azurewebsites.net/files/{{course.image}}">

@@ -1,6 +1,6 @@
 <section class="category row justify-content-center align-items-center"> 
 
-      <a class="content text-center mt-4" *ngFor="let category of categoriesList" routerLink="/getCategoryById/{{category._id}}">
+      <a class="content text-center mt-4" *ngFor="let category of categoriesList" routerLink="/getCategoryById/{{category._id}}" data-aos="fade-right" data-aos-duration="2000">
         <div class="photo d-flex justify-content-center align-items-center">
           <img class="img-fluid" src="https://khairokom-uploadfiles.azurewebsites.net/files/{{category.Image}}" alt="">     
           <!-- <div class="frame d-flex justify-content-center align-items-center">

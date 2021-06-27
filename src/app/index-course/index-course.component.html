@@ -1,6 +1,6 @@
 <div class="course row justify-content-center align-items-center">
 
-  <a class="content text-center mt-4" *ngFor="let course of coursesList" routerLink="/getCourseById/{{course._id}}">    
+  <a class="content text-center mt-4" *ngFor="let course of coursesList" routerLink="/getCourseById/{{course._id}}" data-aos="fade-left" data-aos-duration="2000">    
       <div class="photo d-flex justify-content-center align-items-center">      
         <img class="img-fluid" src="https://khairokom-uploadfiles.azurewebsites.net/files/{{course.image}}" alt="">
         <!-- <div class="frame d-flex justify-content-center align-items-center">

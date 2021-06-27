@@ -15,18 +15,18 @@
 
     <section>
         <div class="row container" style="display:flex;">
-            <span class="col-md-6"> 
+            <span class="col-md-6 mt-5 mb-5"> 
                 <h3> مجموعاتي الدراسية كطالب </h3> 
-                <span class="card" style="width:400px">
+                <span class="card">
                     <div class="card-body" *ngFor="let joinedClass of showJoinedClasses">
                         <a class="btn btn-success" routerLink="/getClassById/{{joinedClass._id}}">{{joinedClass.Number}}</a>
                     </div>
                 </span>
             </span>
         
-            <span class="col-md-6"> 
+            <span class="col-md-6 mt-5 mb-5"> 
                 <h3> دوراتي التدريبية كمعلم </h3> 
-                <span class="card" style="width:400px">
+                <span class="card">
                     <div class="card-body" *ngFor="let teachedCourse of showTeachedCourses">
                       <a class="btn btn-warning" routerLink="/getCourseById/{{teachedCourse._id}}">{{teachedCourse.tittle}}</a>
                     </div>

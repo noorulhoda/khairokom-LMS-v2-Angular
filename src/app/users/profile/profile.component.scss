@@ -33,6 +33,12 @@ i {
 .profile a{
     font-size: 20px;
 }
+.profile .profile-img img{
+    min-height: 150px;
+    max-height: 150px;
+    min-width: 150px;
+    max-width: 150px;
+}
 .profile .edu .courses, .profile .edu .favourit, .profile .edu .rate, .profile .edu .certificate{
     background-color: #fff;
     padding: 15px;

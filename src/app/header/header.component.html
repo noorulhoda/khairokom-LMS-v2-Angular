@@ -94,7 +94,7 @@
           
           <li class="nav-item dropdown">
               <a class="nav-link" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="img-fluid rounded-circle" src="https://khairokom-uploadfiles.azurewebsites.net/files/{{user.img}}" width="40px">
+                <img class="img-fluid rounded-circle" src="https://khairokom-uploadfiles.azurewebsites.net/files/{{user.img}}" style="max-width: 40px; min-width: 40px; min-height: 40px; max-height: 40px;">
               </a>
               <div class="dropdown-menu dropdown-menu-left text-center" aria-labelledby="userDropdown" >       
                   <a class="dropdown-item" routerLink="/profile/{{userId}}" ><b>{{userName}}</b></a>                  

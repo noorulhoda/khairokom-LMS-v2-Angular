@@ -1,16 +1,16 @@
 <section class="category row justify-content-center align-items-center"> 
 
-      <a class="content text-center mt-4" href="#" *ngFor="let category of categoriesList" routerLink="/getCategoryById/{{category._id}}">
+      <a class="content text-center mt-4" *ngFor="let category of categoriesList" routerLink="/getCategoryById/{{category._id}}">
         <div class="photo d-flex justify-content-center align-items-center">
-          <img class="img-fluid" src="https://khairokom-uploadfiles.azurewebsites.net/files/{{category.Image}}" alt="" width="450px">     
+          <img class="img-fluid" src="https://khairokom-uploadfiles.azurewebsites.net/files/{{category.Image}}" alt="">     
           <!-- <div class="frame d-flex justify-content-center align-items-center">
             <i class="fas fa-brain"></i>
           </div> -->
         </div>
         <div class="title">
-          <h3 class="mt-5">{{category.Title}}</h3>
+          <h3 class="mt-5 mb-4">{{category.Title}}</h3>
         </div>
-        <p>{{category.Descrpition}}</p>
+        <!-- <p>{{category.Descrpition}}</p> -->
       </a>      
       
       <!-- <a class="content text-center mt-4" href="#">

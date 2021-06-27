@@ -2,7 +2,7 @@
 
 <div class="container-xxl">
   <section class="banner d-flex justify-content-center align-items-center text-center">
-    <div class="content">
+    <div class="content" data-aos="zoom-in" data-aos-duration="2000">
       <div class="title">
         <span>المجموعات</span>
       </div>
@@ -22,11 +22,10 @@
      <div class="container">
       <div class="row d-flex justify-content-center align-items-center mt-5 mb-5" >
         <div  *ngFor="let class of classList">
-          <div class="content mt-5 mb-5 text-center" style="cursor: pointer;"  routerLink="/getClassById/{{class._id}}">
+          <div class="content mt-5 mb-5 text-center" style="cursor: pointer;"  routerLink="/getClassById/{{class._id}}" data-aos="flip-left" data-aos-duration="2000">
             <div class="frame d-flex justify-content-center align-items-center mb-4">
               <i class="fas fa-user-graduate"></i>
-            </div>
-            
+            </div>            
             <h3>اسم المجموعة: {{class.Number}}</h3>            
             <p class="">اقل سن مسموح بيه للطلاب: {{class.StudentsMinAge}}</p>
             <p class="">اكبر سن مسموح بيه للطلاب: {{class.StudentsMaxAge}}</p>

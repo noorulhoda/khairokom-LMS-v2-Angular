@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container-xxl">
     <section class="banner d-flex justify-content-center align-items-center text-center">
-        <div class="content">
+        <div class="content"  data-aos="zoom-in" data-aos-duration="2000">
           <div class="title">
             <span>دوراتي التدريبية</span>
           </div>
@@ -15,7 +15,7 @@
 
     <section>
         <div class="row container" style="display:flex;">
-            <span class="col-md-6 mt-5 mb-5"> 
+            <span class="col-md-6 mt-5 mb-5"  data-aos="fade-left" data-aos-duration="2000"> 
                 <h3> مجموعاتي الدراسية كطالب </h3> 
                 <span class="card">
                     <div class="card-body" *ngFor="let joinedClass of showJoinedClasses">
@@ -24,7 +24,7 @@
                 </span>
             </span>
         
-            <span class="col-md-6 mt-5 mb-5"> 
+            <span class="col-md-6 mt-5 mb-5"  data-aos="fade-right" data-aos-duration="2000"> 
                 <h3> دوراتي التدريبية كمعلم </h3> 
                 <span class="card">
                     <div class="card-body" *ngFor="let teachedCourse of showTeachedCourses">

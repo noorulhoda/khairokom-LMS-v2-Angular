@@ -72,7 +72,7 @@ const routes: Routes = [
   {path:'getAllCategoriesAdmin',component:GetAllCategoriesAdminComponent,canActivate: [ AdminGaurdService ]},
 
   {path:'addClass',component:AddClassComponent,canActivate: [ AdminGaurdService ]},  
-  {path:'getAllClasses',component:GetAllClassesComponent}, // back
+  {path:'getAllClasses',component:GetAllClassesComponent},
   {path:'getClassById/:id',component:GetClassByIDComponent},
   {path:'updateClass/:id',component:UpdateClassComponent,canActivate: [ AdminGaurdService ]},
   {path:'getAllClassesAdmin',component:GetAllClassesAdminComponent,canActivate: [ AdminGaurdService ]},
@@ -80,7 +80,7 @@ const routes: Routes = [
   {path:'addCourse',component:AddCourseComponent,canActivate: [ AdminGaurdService ]},
   {path:'updateCourse/:id',component:UpdateCourseComponent,canActivate: [ AdminGaurdService ]},
   {path:'getAllCourses',component:GetAllCoursesComponent},
-  {path:'getCourseById/:id',component:GetCourseByIDComponent}, // back
+  {path:'getCourseById/:id',component:GetCourseByIDComponent},
   {path:'getAllCoursesAdmin',component:GetAllCoursesAdminComponent,canActivate: [ AdminGaurdService ]},
 
   {path:'getSessionById/:id',component:GetSessionByIdComponent},
@@ -91,7 +91,7 @@ const routes: Routes = [
 
   {path:'addRole',component:AddRoleComponent,canActivate: [ AdminGaurdService ]},
   {path:'getAllRoles',component:GetAllRolesComponent,canActivate: [ AdminGaurdService ]},
-  {path:'getRoleByID/:id',component:GetRoleByIDComponent,canActivate: [ AdminGaurdService ]}, // back
+  {path:'getRoleByID/:id',component:GetRoleByIDComponent,canActivate: [ AdminGaurdService ]},
   {path:'updateRole/:id',component:UpdateRoleComponent,canActivate: [ AdminGaurdService ]},
 
   {path:'admin',component:DashboardComponent,canActivate: [ AdminGaurdService ]},

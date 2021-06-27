@@ -2,7 +2,7 @@
 
 <div class="container-xxl">
   <section class="banner d-flex justify-content-center align-items-center text-center">
-    <div class="content">
+    <div class="content"  data-aos="zoom-in" data-aos-duration="2000">
       <div class="title">
         <span>التقييمات</span>
       </div>
@@ -18,8 +18,8 @@
       <div class="container">
         
         <div class="row d-flex justify-content-around">
-          <div class="feedback col-md-5">
-            <b class="text-center">لقد انهيت التعليم فى هذه المجموعة نطلب منك تقييم طلابك في المجموعة</b>
+          <div class="feedback col-md-5"  data-aos="fade-left" data-aos-duration="2000">
+            <b>لقد انهيت التعليم فى هذه المجموعة نطلب منك تقييم طلابك في المجموعة</b>
             <hr>
             <div>
               <div class="row">
@@ -41,7 +41,7 @@
             </div>
           </div>
          
-          <form class="col-md-5" [formGroup]="addForm"  *ngIf="!studentsEnded" enctype="multipart/form-data">          
+          <form class="col-md-5" [formGroup]="addForm"  *ngIf="!studentsEnded" enctype="multipart/form-data"  data-aos="fade-right" data-aos-duration="2000">          
               <div class="form-group">
            
                 <label>رأيك فى أداء الطالب</label><br>
@@ -106,7 +106,7 @@
               />                            
           </form>
         </div>
-        <p *ngIf="studentsEnded"><br> لقد أنهيت تقييم جميع طلبة الفصل شكرا لك </p>
+        <p  data-aos="zoom-in" data-aos-duration="2000" *ngIf="studentsEnded"><br> لقد أنهيت تقييم جميع طلبة الفصل شكرا لك </p>
       </div>
     </main>
 </div>

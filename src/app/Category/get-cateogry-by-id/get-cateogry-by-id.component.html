@@ -2,7 +2,7 @@
 
 <div class="container-xxl">
   <section class="banner d-flex justify-content-center align-items-center text-center">
-    <div class="content">
+    <div class="content" data-aos="zoom-in" data-aos-duration="2000">
       <div class="title">
         <span>الأقسام</span>
       </div>
@@ -18,7 +18,7 @@
 
   <section class="category mt-5 pb-5">
     <div class="container">
-      <div class="text-center">
+      <div class="text-center" data-aos="fade-up" data-aos-duration="2000">
         <div class="title">
           <h2>{{ category.Title }}</h2>
         </div>
@@ -31,9 +31,9 @@
   
   <section class="cousres mt-5 pb-5">
     <div class="container">
-    <h2>الدورات التدريبية</h2>
+    <h2 data-aos="fade-left" data-aos-duration="2000">الدورات التدريبية</h2>
     <div class="group" *ngFor="let categoryCourse of categoryCourses">
-      <a class="course row mt-5" routerLink="/getCourseById/{{categoryCourse._id}}">
+      <a class="course row mt-5" routerLink="/getCourseById/{{categoryCourse._id}}" data-aos="flip-down" data-aos-duration="2000">
 
         <div class="course-image col-md-3">
           <img class="img-fluid" src="https://khairokom-uploadfiles.azurewebsites.net/files/{{categoryCourse.image}}">

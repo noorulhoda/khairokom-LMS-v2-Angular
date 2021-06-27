@@ -25,12 +25,12 @@
     <form class="course-details" method="post" data-aos="fade-left" data-aos-duration="2000">
       <div class="row">
         <div class="col-md-4">
-          <div class="profile-work d-flex justify-content-center align-items-center">          
- 
+          <div class="profile-work d-flex justify-content-center align-items-center">           
               <img class="img-fluid" src="https://khairokom-uploadfiles.azurewebsites.net/files/{{course.image}}" alt="تحميل الصورة" />          
           </div>
         </div>
-        <div class="col-md-8 d-flex justify-content-center align-items-center">
+
+        <div class="col-md-8 ">
           <div class="tab-content profile-tab" id="myTabContent">
             <div
               class="tab-pane fade show active"
@@ -83,14 +83,14 @@
             <!-- (mouseover)="changeColor=true" (mouseout)="changeColor=false" -->                       
 
           <div class="mt-5">
-            <button class="btn btn-primary" (click)="notifyWithNewWaitingStudent()" *ngIf="userName!='0000' && studentClasses.length==0">
+            <button class="btn btn-warning" (click)="notifyWithNewWaitingStudent()" *ngIf="userName!='0000' && studentClasses.length==0">
               
               سجل كطالب
             </button>&nbsp; &nbsp; &nbsp;
-            <button class="btn btn-success" (click)="notifyWithNewWaitingTeacher()" *ngIf="userName!='0000'">
+            <button class="btn btn-warning" (click)="notifyWithNewWaitingTeacher()" *ngIf="userName!='0000'">
               درّس كمعلم
             </button>&nbsp; &nbsp; &nbsp;
-            <button class="btn btn-warning" routerLink="/detailedFeedback/{{courseId}}" *ngIf="userName!='0000'">
+            <button class="btn btn-dark" routerLink="/detailedFeedback/{{courseId}}" *ngIf="userName!='0000'">
               للمزيد من التقييمـــات
             </button> 
           </div>

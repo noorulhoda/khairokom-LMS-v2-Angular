@@ -8,6 +8,7 @@ import { notificationService } from 'src/app/services/notification.service';
 import { Inotification } from 'src/app/shared/Inotification';
 import { ViewportScroller } from '@angular/common';
 import { RolesService } from '../services/roles.service';
+import { Roles } from '../shared/Roles';
 
 @Component({
   selector: 'app-header',
@@ -102,7 +103,7 @@ checkIfAdmin():void{
         this.currentUserRoles=this.currentUser.roles;
         localStorage.setItem('currentUserId',this.userId)
           console.log(this.isAdmin)
-          this.roleService.findByRoleType("Admin").subscribe(
+          this.roleService.findByRoleType(Roles.Admin).subscribe(
             data=>{this.adminRoleId=data[0]['_id'];
             console.log(data)
 

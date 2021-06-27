@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { MessageService } from '../services/message.service';
 import { RolesService } from '../services/roles.service';
 import { Imessage } from '../shared/Imessage';
+import { Roles } from '../shared/Roles';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
   	this._vps.scrollToAnchor(anchor)
 }
   ngOnInit(): void {
-    this.roleService.findByRoleType("Admin").subscribe(
+    this.roleService.findByRoleType(Roles.Admin).subscribe(
       data=>{this.adminRoleId=data[0]['_id'];
       console.log(data)
     }

@@ -7,13 +7,13 @@ import { Roles } from '../shared/Roles';
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGaurdService implements CanActivate{
+export class SuperAdminGaurdService implements CanActivate{
   isAdmin:boolean;
   currentUserId
   currentUser;
   adminRoleId;
   constructor(private userService:UsersService,private roleService:RolesService,private router:Router) { 
-    this.roleService.findByRoleType(Roles.Admin).subscribe(
+    this.roleService.findByRoleType(Roles.superAdmin).subscribe(
    data=>this.adminRoleId=data[0]['_id']
     )
   }
@@ -36,24 +36,6 @@ export class AdminGaurdService implements CanActivate{
     )
     return this.isAdmin;
   }
-  userIsAdmin() :boolean{
-    this.currentUserId=localStorage.getItem('currentUserId')
-    this.userService.getUserById(this.currentUserId).subscribe(
-      data=>{
-        this.currentUser=data[0]
-        if(this.currentUser.roles.includes(this.adminRoleId))
-       { this.isAdmin=true
-        
-        return true
-      }
-        else{
-        this.isAdmin=false
-      
-         return false
-       }
-      }
-    )
-    return this.isAdmin;
-  }
+
 
   }

@@ -50,6 +50,7 @@ import { TeacherFeedbackComponent } from './FeedBacks/teacher-feedback/teacher-f
 import { DetailedFeedbackComponent } from './FeedBacks/detailed-feedback/detailed-feedback.component';
 import {DetailedMessagesComponent} from './Admin_Dashboard/detailed-messages/detailed-messages.component'
 import { AdminGaurdService } from './guards/admin-gaurd.service';
+import { SuperAdminGaurdService } from './guards/super-admin-gaurd.service';
 
 
 
@@ -95,7 +96,7 @@ const routes: Routes = [
   {path:'updateRole/:id',component:UpdateRoleComponent,canActivate: [ AdminGaurdService ]},
 
   {path:'admin',component:DashboardComponent,canActivate: [ AdminGaurdService ]},
-  {path:'permissionManagement',component:PermissionManagementComponent,canActivate: [ AdminGaurdService ]},
+  {path:'permissionManagement',component:PermissionManagementComponent,canActivate: [ SuperAdminGaurdService ]},
   {path:'waitingStudents/:id',component:WaitingstudentsComponent,canActivate: [ AdminGaurdService ]},//notificationId
   {path:'waitingTeachers/:id',component:WaitingTeachersComponent,canActivate: [ AdminGaurdService ]},
   {path:'detailedMessages/:id',component:DetailedMessagesComponent,canActivate: [ AdminGaurdService ]},

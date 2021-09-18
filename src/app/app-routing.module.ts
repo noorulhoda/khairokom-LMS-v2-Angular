@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import{NotFoundComponent} from './not-found/not-found.component';
 
+
 import{HomeComponent} from './home/home.component';
 
 import {AddCateogryComponent} from './Category/add-cateogry/add-cateogry.component';
